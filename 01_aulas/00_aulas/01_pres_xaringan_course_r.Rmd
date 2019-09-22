@@ -1,8 +1,8 @@
 ---
-title: "Introdução à linguagem R: <br><br>"
-subtitle: "1 Linguagem R, aplicações e material <br><br><br>"
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "1 Linguagem R, aplicações e material <br><br> xaringan [presentation ninja]"
 author: "Maurício H. Vancine"
-date: "07/01/2019"
+date: "30/09/2019"
 output:
   xaringan::moon_reader:
     css: [metropolis]
@@ -59,19 +59,15 @@ O R é uma **linguagem de programação** voltada para a resolução de **proble
 
 --
 
-O R é um **conjunto de pacotes** e **ferramentas estatísticas**, munido de funções que facilitam sua utilização, desde a criação de simples rotinas até **análises de dados complexos**, com **visualizações** bem acabadas (**Instituto Brasileiro de Pesquisa e Análise de Dados - IBPAD**)
-
---
-
 O R é uma **linguagem de programação livre** (*open source*), direcionada ao **manejo, análise e visualização de dados**, com diversas **expansões** (*pacotes*) para o uso de **dados com formatos específicos** (**Maurício Vancine**)
 
 --
 
-O [Manual do R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)<sup>1</sup> define o R como um **ambiente de programação**, com um conjunto integrado de ferramentas para **manipulação de dados, cálculos e apresentação gráfica** (**Venables et al. 2018**)
+O [Manual do R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)<sup>1</sup> define o R como um **ambiente de programação**, com um conjunto integrado de ferramentas para **manipulação de dados, cálculos e apresentação gráfica** (**Venables et al. 2019**)
 
 <br>
 
-[1] [Venables et al. 2008](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
+[1] [Venables et al. 2019](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
 
 ---
 
@@ -114,10 +110,6 @@ background-position: 50% 50%
 
 ### 4. Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
 
---
-
-### 5. Tem se tornado quase um **pré-requisito** para pós-graduação e consultorias
-
 ---
 
 class: inverse, middle, center
@@ -145,8 +137,8 @@ background-position: 80% 90%
 ---
 
 background-image: url(http://www.estatisticacomr.uff.br/wp-content/uploads/2014/11/Criadores.jpg)
-background-size: 400px
-background-position: 80% 90%
+background-size: 350px
+background-position: 80% 70%
 
 # 1.1 Linguagem R
 
@@ -169,7 +161,7 @@ background-position: 80% 90%
 
 class: inverse, middle, center
 
-# Não confundam a **Linguagem R** com o software **RStudio**!
+# Não confundam a **Linguagem R** com o software **RStudio**
 
 ---
 
@@ -198,12 +190,12 @@ class: inverse, middle, center
 # 1.3 Aplicações da linguagem R
 
 ## Análises
-- Estatísticas univariada e multivariada
-- Análises de dados ecológicos (população, comunidades, ecossistemas)
+- Estatísticas univariadas e multivariadas
+- Análises de dados ecológicos (população, comunidades e ecossistemas)
 - Análise de dados espaciais, temporais e sonoros
 - Análise de dados funcionais, genéticos e filogenéticos
-- Modelos de nicho ecológico
-- Gráficos para publicação
+- Análise de dados geoespaciais
+- Visualização de todos os dados anteriores...
 
 --
 
@@ -218,16 +210,6 @@ background-position: 90% 90%
 - Livros
 - Artigos para publicação
 - Shiny
-
----
-
-# Shiny
-
-## EcoDyn
-<br><br><br><br><br><br>
-.center[
-https://ecodyn.shinyapps.io/PEER_app/
-]
 
 ---
 
@@ -247,7 +229,7 @@ background-position: 10% 70%
 
 ### **Apostila de introdução ao R**
 
-### Prof. Victor Landeiro
+Prof. Victor Landeiro
 
 <br><br><br><br><br><br><br><br><br><br>
 
@@ -265,7 +247,7 @@ background-position: 10% 70%
 
 ### **Introdução ao uso do software R para as Ciências Biológicas**
 
-### Prof. Marcos Vital
+Prof. Marcos Vital
 
 <br><br><br><br><br><br><br><br><br><br>
 
@@ -273,8 +255,8 @@ background-position: 10% 70%
 
 ---
 
-background-image: url(https://pbs.twimg.com/profile_images/1061862561509924864/EoHCtCI3_400x400.jpg)
-background-size: 250px
+background-image: url(https://compcogscisydney.org/img/profile-dani-200x200.png)
+background-size: 230px
 background-position: 10% 65%
 
 # 1.4 Apostilas, sites e livros
@@ -283,7 +265,7 @@ background-position: 10% 65%
 
 ### **Learning statistics with R: a tutorial for psychology students and other beginners**
 
-### Profa. Danielle Navarro
+Profa. Danielle Navarro
 
 <br><br><br><br><br><br><br><br>
 
@@ -321,7 +303,7 @@ background-position: 50% 70%
 
 ### **Cheat Sheets**
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 [*] https://www.rstudio.com/resources/cheatsheets/
 
@@ -383,7 +365,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **R resources (free courses, books, tutorials, & cheat sheets)**
+### **R resources**
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -419,11 +401,9 @@ background-position: 70% 45%
 
 <br><br><br>
 
-[Belo Horizonte, Minas Gerais – Brazil](https://www.meetup.com/pt-BR/rladies-belo-horizonte/)
+[R Ladies - Brazil](https://rladies.org/brazil-rladies/)
 
-[Rio de Janeiro, Rio de Janeiro – Brazil](https://www.meetup.com/pt-BR/rladies-rio/)
-
-<br><br>
+<br><br><br>
 
 ### Gabriela de Queiroz
 Data Scientist + Founder of R-Ladies + Mentor + Advocate
@@ -496,7 +476,7 @@ background-position: 50% 64%
   
 ---
 
-background-image: url(http://www-bcf.usc.edu/~gareth/ISL/ISL%20Cover%202.jpg)
+background-image: url(https://images-eu.ssl-images-amazon.com/images/I/41jy3mwLy9L.jpg)
 background-size: 230px
 background-position: 50% 63%
 

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Introdução à linguagem R:</title>
-    <meta charset="utf-8">
+    <title>Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade</title>
+    <meta charset="utf-8" />
     <meta name="author" content="Maurício H. Vancine" />
-    <meta name="date" content="2019-07-01" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/5235085b15.js"></script>
   </head>
@@ -12,10 +11,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Introdução à linguagem R: <br><br>
-## 1 Linguagem R, aplicações e material <br><br><br>
+# Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>
+## 1 Linguagem R, aplicações e material <br><br> xaringan [presentation ninja]
 ### Maurício H. Vancine
-### 07/01/2019
+### 30/09/2019
 
 ---
 
@@ -62,19 +61,15 @@ O R é uma **linguagem de programação** voltada para a resolução de **proble
 
 --
 
-O R é um **conjunto de pacotes** e **ferramentas estatísticas**, munido de funções que facilitam sua utilização, desde a criação de simples rotinas até **análises de dados complexos**, com **visualizações** bem acabadas (**Instituto Brasileiro de Pesquisa e Análise de Dados - IBPAD**)
-
---
-
 O R é uma **linguagem de programação livre** (*open source*), direcionada ao **manejo, análise e visualização de dados**, com diversas **expansões** (*pacotes*) para o uso de **dados com formatos específicos** (**Maurício Vancine**)
 
 --
 
-O [Manual do R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)&lt;sup&gt;1&lt;/sup&gt; define o R como um **ambiente de programação**, com um conjunto integrado de ferramentas para **manipulação de dados, cálculos e apresentação gráfica** (**Venables et al. 2018**)
+O [Manual do R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)&lt;sup&gt;1&lt;/sup&gt; define o R como um **ambiente de programação**, com um conjunto integrado de ferramentas para **manipulação de dados, cálculos e apresentação gráfica** (**Venables et al. 2019**)
 
 &lt;br&gt;
 
-[1] [Venables et al. 2008](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
+[1] [Venables et al. 2019](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
 
 ---
 
@@ -117,10 +112,6 @@ background-position: 50% 50%
 
 ### 4. Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
 
---
-
-### 5. Tem se tornado quase um **pré-requisito** para pós-graduação e consultorias
-
 ---
 
 class: inverse, middle, center
@@ -148,8 +139,8 @@ background-position: 80% 90%
 ---
 
 background-image: url(http://www.estatisticacomr.uff.br/wp-content/uploads/2014/11/Criadores.jpg)
-background-size: 400px
-background-position: 80% 90%
+background-size: 350px
+background-position: 80% 70%
 
 # 1.1 Linguagem R
 
@@ -172,7 +163,7 @@ background-position: 80% 90%
 
 class: inverse, middle, center
 
-# Não confundam a **Linguagem R** com o software **RStudio**!
+# Não confundam a **Linguagem R** com o software **RStudio**
 
 ---
 
@@ -201,12 +192,12 @@ class: inverse, middle, center
 # 1.3 Aplicações da linguagem R
 
 ## Análises
-- Estatísticas univariada e multivariada
-- Análises de dados ecológicos (população, comunidades, ecossistemas)
+- Estatísticas univariadas e multivariadas
+- Análises de dados ecológicos (população, comunidades e ecossistemas)
 - Análise de dados espaciais, temporais e sonoros
 - Análise de dados funcionais, genéticos e filogenéticos
-- Modelos de nicho ecológico
-- Gráficos para publicação
+- Análise de dados geoespaciais
+- Visualização de todos os dados anteriores...
 
 --
 
@@ -224,16 +215,6 @@ background-position: 90% 90%
 
 ---
 
-# Shiny
-
-## EcoDyn
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-.center[
-https://ecodyn.shinyapps.io/PEER_app/
-]
-
----
-
 class: inverse, middle, center
 
 # Material, muito material...
@@ -248,9 +229,9 @@ background-position: 10% 70%
 
 ## Apostilas
 
-### **Apostila de introdução ao R**&lt;sup&gt;*&lt;/sup&gt;
+### **Apostila de introdução ao R**
 
-### Prof. Victor Landeiro
+Prof. Victor Landeiro
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -266,9 +247,9 @@ background-position: 10% 70%
 
 ## Apostilas
 
-### **Introdução ao uso do software R para as Ciências Biológicas**&lt;sup&gt;*&lt;/sup&gt;
+### **Introdução ao uso do software R para as Ciências Biológicas**
 
-### Prof. Marcos Vital
+Prof. Marcos Vital
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -276,17 +257,17 @@ background-position: 10% 70%
 
 ---
 
-background-image: url(https://pbs.twimg.com/profile_images/1061862561509924864/EoHCtCI3_400x400.jpg)
-background-size: 250px
+background-image: url(https://compcogscisydney.org/img/profile-dani-200x200.png)
+background-size: 230px
 background-position: 10% 65%
 
 # 1.4 Apostilas, sites e livros
 
 ## Apostilas
 
-### **Learning statistics with R: a tutorial for psychology students and other beginners**&lt;sup&gt;*&lt;/sup&gt;
+### **Learning statistics with R: a tutorial for psychology students and other beginners**
 
-### Profa. Danielle Navarro
+Profa. Danielle Navarro
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -304,7 +285,7 @@ background-position: 10% 65%
 
 ## Apostilas
 
-### **YaRrr! The Pirate’s Guide to R**&lt;sup&gt;*&lt;/sup&gt;
+### **YaRrr! The Pirate’s Guide to R**
 
 ### Nathaniel D. Phillips
 
@@ -322,9 +303,9 @@ background-position: 50% 70%
 
 ## Apostilas
 
-### **Cheat Sheets**&lt;sup&gt;*&lt;/sup&gt;
+### **Cheat Sheets**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://www.rstudio.com/resources/cheatsheets/
 
@@ -338,7 +319,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **Material para cursos de R**&lt;sup&gt;*&lt;/sup&gt;
+### **Material para cursos de R**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -354,7 +335,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **Curso Básico de Linguagem R**&lt;sup&gt;*&lt;/sup&gt;
+### **Curso Básico de Linguagem R**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -370,7 +351,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **Coding Club**&lt;sup&gt;*&lt;/sup&gt;
+### **Coding Club**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -386,7 +367,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **R resources (free courses, books, tutorials, &amp; cheat sheets)**
+### **R resources**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -402,7 +383,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **R Ladies**&lt;sup&gt;*&lt;/sup&gt;
+### **R Ladies**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -418,15 +399,13 @@ background-position: 70% 45%
 
 ## Sites
 
-### **R Ladies**&lt;sup&gt;*&lt;/sup&gt;
+### **R Ladies**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-[Belo Horizonte, Minas Gerais – Brazil](https://www.meetup.com/pt-BR/rladies-belo-horizonte/)
+[R Ladies - Brazil](https://rladies.org/brazil-rladies/)
 
-[Rio de Janeiro, Rio de Janeiro – Brazil](https://www.meetup.com/pt-BR/rladies-rio/)
-
-&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 ### Gabriela de Queiroz
 Data Scientist + Founder of R-Ladies + Mentor + Advocate
@@ -443,7 +422,7 @@ background-position: 50% 60%
 
 ## Livros
 
-### **Ciência de Dados com R: introdução**&lt;sup&gt;*&lt;/sup&gt;
+### **Ciência de Dados com R: introdução**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -459,7 +438,7 @@ background-position: 50% 60%
 
 ## Livros
 
-### **Introdução ao R: Aplicações Florestais**&lt;sup&gt;*&lt;/sup&gt;
+### **Introdução ao R: Aplicações Florestais**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -475,7 +454,7 @@ background-position: 50% 60%
 
 ## Livros
 
-### **The R Book**&lt;sup&gt;*&lt;/sup&gt;
+### **The R Book**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -491,7 +470,7 @@ background-position: 50% 64%
 
 ## Livros
 
-### **R in Action: data analysis and graphics with R**&lt;sup&gt;*&lt;/sup&gt;
+### **R in Action: data analysis and graphics with R**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -499,7 +478,7 @@ background-position: 50% 64%
   
 ---
 
-background-image: url(http://www-bcf.usc.edu/~gareth/ISL/ISL%20Cover%202.jpg)
+background-image: url(https://images-eu.ssl-images-amazon.com/images/I/41jy3mwLy9L.jpg)
 background-size: 230px
 background-position: 50% 63%
 
@@ -507,7 +486,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **An Introduction to Statistical Learning: with applications in R**&lt;sup&gt;*&lt;/sup&gt;
+### **An Introduction to Statistical Learning: with applications in R**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -523,7 +502,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **Mixed Effects Models and Extensions in Ecology with R**&lt;sup&gt;*&lt;/sup&gt;
+### **Mixed Effects Models and Extensions in Ecology with R**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -539,7 +518,7 @@ background-position: 50% 55%
 
 ## Livros
 
-### **CRC The R Series (45 Livros)**&lt;sup&gt;*&lt;/sup&gt;
+### **CRC The R Series (45 Livros)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -555,7 +534,7 @@ background-position: 50% 65%
 
 ## Livros
 
-### **Use R! (71 Livros)**&lt;sup&gt;*&lt;/sup&gt;
+### **Use R! (71 Livros)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -591,7 +570,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **ggplot2 (2009 &amp; 2016)**&lt;sup&gt;*&lt;/sup&gt;
+### **ggplot2 (2009 &amp; 2016)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -607,7 +586,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **Advanced R (2014)**&lt;sup&gt;*&lt;/sup&gt;
+### **Advanced R (2014)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -623,7 +602,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **R packages (2015)**&lt;sup&gt;*&lt;/sup&gt;
+### **R packages (2015)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -639,7 +618,7 @@ background-position: 50% 68%
 
 ## Livros
 
-### **R for Data Science (2017)**&lt;sup&gt;*&lt;/sup&gt;
+### **R for Data Science (2017)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -675,7 +654,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **Dynamic Documents with R and knitr (2013 &amp; 2015)**&lt;sup&gt;*&lt;/sup&gt;
+### **Dynamic Documents with R and knitr (2013 &amp; 2015)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -691,7 +670,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **bookdown: Authoring Books and Technical Documents with R Markdown (2016)**&lt;sup&gt;*&lt;/sup&gt;
+### **bookdown: Authoring Books and Technical Documents with R Markdown (2016)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -707,7 +686,7 @@ background-position: 50% 63%
 
 ## Livros
 
-### **blogdown: Creating Websites with R Markdown (2016)**&lt;sup&gt;*&lt;/sup&gt;
+### **blogdown: Creating Websites with R Markdown (2016)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -723,7 +702,7 @@ background-position: 50% 68%
 
 ## Livros
 
-### **R Markdown: The Definitive Guide (2018)**&lt;sup&gt;*&lt;/sup&gt;
+### **R Markdown: The Definitive Guide (2018)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -749,7 +728,7 @@ background-position: 50% 50%
 
 # Recomendação
 
-## **Ciência de Dados com R: introdução**&lt;sup&gt;*&lt;/sup&gt;
+## **Ciência de Dados com R: introdução**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -763,7 +742,7 @@ background-position: 50% 55%
 
 # Recomendação
 
-## **R for Data Science (2017)**&lt;sup&gt;*&lt;/sup&gt;
+## **R for Data Science (2017)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -777,7 +756,7 @@ background-position: 50% 50%
 
 # Recomendação
 
-## **R Markdown: The Definitive Guide (2018)**&lt;sup&gt;*&lt;/sup&gt;
+## **R Markdown: The Definitive Guide (2018)**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -851,6 +830,7 @@ Contatos:
 
 Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -860,16 +840,74 @@ Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -883,7 +921,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

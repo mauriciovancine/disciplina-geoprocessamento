@@ -62,7 +62,10 @@ R, RStudio, QGIS e GRASS GIS <br>
 [Curso de GRASS GIS](https://www.youtube.com/watch?v=56xkXMd9XBM&list=PLycBDiXWmuxnfLUjs1wkm6WvYsazeLZ0K)
 
 4. Instalar o [Sublime Text](https://www.sublimetext.com/) <br>
-[Vídeo de instalação do Sublime](https://youtu.be/j61dqr7geRo) <br>
+[Vídeo de instalação do Sublime Text](https://youtu.be/j61dqr7geRo) <br>
+
+5. Instalar o [git](https://git-scm.com/downloads) <br>
+[Vídeo de instalação do git](https://youtu.be/QSfHNEiBd2k) <br>
 
 #### Linux (Ubuntu e Linux Mint)
 ```

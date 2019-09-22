@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <title>Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Maurício H. Vancine" />
-    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/5235085b15.js"></script>
-  </head>
-  <body>
-    <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>
-## <br><br> xaringan [presentation ninja] <br>
-### Maurício H. Vancine
-### 30/09/2019
-
+---
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "<br><br> xaringan [presentation ninja] <br>"
+author: "Maurício H. Vancine"
+date: "30/09/2019"
+output:
+  xaringan::moon_reader:
+    css: [metropolis]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
 ---
 
-
-
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE,
+        encoding = "UTF-8")
+```
 
 class: clear, center, middle
 background-image: url(https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)
@@ -45,9 +44,9 @@ background-image: url(https://user-images.githubusercontent.com/163582/45438104-
 ### Contato e informações:
 |                                                                                          |                                   |
 | :--------------------------------------------------------------------------------------- | :-------------------------------- |
-| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;] | mauricio.vancine@gmail.com        |
-| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;] | @mauriciovancine                  |
-| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]  | mauriciovancine.netlify.com       |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>] | mauricio.vancine@gmail.com        |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>] | @mauriciovancine                  |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]  | mauriciovancine.netlify.com       |
 
 ---
 
@@ -67,7 +66,7 @@ background-position: 50% 50%
 
 ## Apresentações
 
-&lt;br&gt;&lt;br&gt;
+<br><br>
 
 ### 1. Nome
 
@@ -111,10 +110,10 @@ https://github.com/mauriciovancine/disciplina-geoprocessamento
 
 ## Distribuição diária
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+<br>
+<br>
+<br>
+<br>
 
 ### ~05 horas de teórico-prático (manhã-tarde)
 
@@ -132,11 +131,11 @@ background-position: 75% 75%
 
 ### 0 Controle de versão, Git e GitHub (segunda)
 0.1 Controle de versão
-&lt;br&gt;
+<br>
 0.2 Git
-&lt;br&gt;
+<br>
 0.3 GitHub
-&lt;br&gt;
+<br>
 0.4 Download do repositório
 
 ---
@@ -151,11 +150,11 @@ background-position: 75% 75%
 
 ### 1 Linguagem R, aplicações e material (segunda)
 1.1 Linguagem R
-&lt;br&gt;
+<br>
 1.2 Linguagem R vs software RStudio
-&lt;br&gt;
+<br>
 1.3 Aplicações da linguagem R
-&lt;br&gt;
+<br>
 1.4 Apostilas, sites e livros
 
 ---
@@ -170,23 +169,23 @@ background-position: 85% 85%
 
 ### 2 Funcionamento da linguagem R (segunda)
 2.1 RStudio
-&lt;br&gt;
+<br>
 2.2 Editor/Roteiro (*code*/*script*)
-&lt;br&gt;
+<br>
 2.3 Comentários (*#*)
-&lt;br&gt;
-2.4 Atribuição (*&lt;-*)
-&lt;br&gt;
+<br>
+2.4 Atribuição (*<-*)
+<br>
 2.5 Objetos
-&lt;br&gt;
+<br>
 2.6 Funções
-&lt;br&gt;
+<br>
 2.7 Pacotes
-&lt;br&gt;
+<br>
 2.8 Ambiente (*environment*/*workspace*)
-&lt;br&gt;
+<br>
 2.9 Ajuda (*help*)
-&lt;br&gt;
+<br>
 2.10 Citações
 
 ---
@@ -201,21 +200,21 @@ background-position: 85% 80%
 
 ### 3 Estrutura e manejo de dados na linguagem R (segunda)
 3.1 Atributos dos objetos
-&lt;br&gt;
+<br>
 3.2 Modos dos objetos (*numeric*, *character* e *logical*)
-&lt;br&gt;
+<br>
 3.3 Estrutura dos objetos (*vector*, *factor*, *matrix*, *data frame* e *list*)
-&lt;br&gt;
+<br>
 3.4 Diretório de trabalho
-&lt;br&gt;
+<br>
 3.5 Importar dados
-&lt;br&gt;
+<br>
 3.6 Conferir dados
-&lt;br&gt;
+<br>
 3.7 Manejar dados
-&lt;br&gt;
+<br>
 3.8 Valores faltantes e especiais
-&lt;br&gt;
+<br>
 3.9 Exportar dados
 
 ---
@@ -230,23 +229,23 @@ background-position: 75% 75%
 
 ### 4 Introdução ao tidyverse
 4.1 tidyverse
-&lt;br&gt;
+<br>
 4.2 readr
-&lt;br&gt;
+<br>
 4.3 readxl
-&lt;br&gt;
+<br>
 4.4 tibble
-&lt;br&gt;
-4.5 magrittr (*pipe - %&gt;%*)
-&lt;br&gt;
+<br>
+4.5 magrittr (*pipe - %>%*)
+<br>
 4.6 dplyr
-&lt;br&gt;
+<br>
 4.7 tidyr
-&lt;br&gt;
+<br>
 4.8 stringr
-&lt;br&gt;
+<br>
 4.9 forcats
-&lt;br&gt;
+<br>
 4.10 purrr
 
 ---
@@ -261,21 +260,21 @@ background-position: 90% 80%
 
 ### 5 Visualização de dados (segunda)
 5.1 Tipos de dados (*variáveis = colunas*)
-&lt;br&gt;
+<br>
 5.2 Principais tipos de gráficos
-&lt;br&gt;
+<br>
 5.3 Gráficos no R (pacotes *graphics*, *ggplot2*, *esquisse*, *ggpubr*)
-&lt;br&gt;
+<br>
 5.4 Histograma (*histogram*)
-&lt;br&gt;
+<br>
 5.5 Gráfico de caixa (*box plot*)
-&lt;br&gt;
+<br>
 5.6 Gráfico de barras (*bar plot*)
-&lt;br&gt;
+<br>
 5.7 Gráfico de setores (*pie chart* e *danut plot*)
-&lt;br&gt;
+<br>
 5.8 Gráfico de dispersão (*scatter plot*)
-&lt;br&gt;
+<br>
 5.9 Gráfico pareado (*pairs plot*)
 
 ---
@@ -290,29 +289,29 @@ background-position: 95% 85%
 
 ### 6 Estrutura e fonte de dados geoespaciais (terça)
 6.1 Geoprocessamento (cartografia, GPS, sensoriamento remoto e SIG)
-&lt;br&gt;
+<br>
 6.2 Cartografia (escala, sistemas de coordenadas e Datum)
-&lt;br&gt;
+<br>
 6.3 GPS (Global Positioning System)
-&lt;br&gt;
+<br>
 6.4 Sensoriamento Remoto (bandas, satélites, resoluções e aplicações)
-&lt;br&gt;
+<br>
 6.5 Sistemas de Informações Geográficas (SIG)
-&lt;br&gt;
+<br>
 6.6 Dados espaciais (vetor e raster)
-&lt;br&gt;
+<br>
 6.7 Dados vetoriais (ponto, linha e polígono)
-&lt;br&gt;
+<br>
 6.8 Formato de arquivos vetoriais (shapefile - .dbf, .prj, .shx, .shp)
-&lt;br&gt;
+<br>
 6.9 Tabela de atributos
-&lt;br&gt;
+<br>
 6.10 Dados matriciais (gride ou raster)
-&lt;br&gt;
+<br>
 6.11 Formatos de arquivos matriciais (.tif)
-&lt;br&gt;
+<br>
 6.12 Banco de dados espaciais (geopackage - .gpkg)
-&lt;br&gt;
+<br>
 6.13 Repositórios de dados espaciais
 
 ---
@@ -327,35 +326,35 @@ background-position: 100% 80%
 
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
 7.1 Interface do QGIS (menus, camadas, visualização, ferramentas e status)
-&lt;br&gt;
+<br>
 7.2 Plugins (complementos)
-&lt;br&gt;
+<br>
 7.3 Caixa de Ferramentas
-&lt;br&gt;
+<br>
 7.4 Projeto no QGIS
-&lt;br&gt;
+<br>
 7.5 Adicionar dados vetoriais preexistentes
-&lt;br&gt;
+<br>
 7.6 Propriedades de dados vetoriais
-&lt;br&gt;
+<br>
 7.7 Projeção de dados vetoriais
-&lt;br&gt;
+<br>
 7.8 Tabela de atributos
-&lt;br&gt;
+<br>
 7.9 Cálculo de área, perímetro e distância de dados vetoriais
-&lt;br&gt;
+<br>
 7.10 Criação de dados vetoriais
-&lt;br&gt;
+<br>
 7.11 Edição de dados vetoriais
-&lt;br&gt;
+<br>
 7.12 Geoprocessamento de dados vetoriais
-&lt;br&gt;
+<br>
 7.13 Fotointerpretação de imagens
-&lt;br&gt;
+<br>
 7.14 Verificação geométrica e ajuste topológico
-&lt;br&gt;
+<br>
 7.15 Reprojeção de dados vetoriais
-&lt;br&gt;
+<br>
 7.16 Exportar dados vetoriais
 
 ---
@@ -370,29 +369,29 @@ background-position: 100% 93%
 
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
 7.17 Adicionar dados matriciais preexistentes
-&lt;br&gt;
+<br>
 7.18 Propriedades de dados matriciais
-&lt;br&gt;
+<br>
 7.19 Projeção de dados matriciais
-&lt;br&gt;
+<br>
 7.20 Georreferenciamento de dados matriciais
-&lt;br&gt;
+<br>
 7.21 Mosaico (união de imagens)
-&lt;br&gt;
+<br>
 7.22 Recorte (extração de máscara)
-&lt;br&gt;
+<br>
 7.23 Alinhar raster (extensão e resolução)
-&lt;br&gt;
+<br>
 7.24 Análises de superfície (mapas de calor, interpolação, proximidade)
-&lt;br&gt;
+<br>
 7.25 Estatística zonal
-&lt;br&gt;
+<br>
 7.26 Calculadora raster
-&lt;br&gt;
+<br>
 7.27 Conversão de dados vetoriais e dados matriciais
-&lt;br&gt;
+<br>
 7.29 Reprojeção de dados matriciais
-&lt;br&gt;
+<br>
 7.30 Exportar dados matriciais
 
 ---
@@ -408,13 +407,13 @@ background-position: 100% 93%
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
 
 7.31 Sensoriamento Remoto (bandas espectrais – composição e extração)
-&lt;br&gt;
+<br>
 7.32 Classificação supervisionada
-&lt;br&gt;
+<br>
 7.33 Índices de vegetação (NDVI/EVI)
-&lt;br&gt;
+<br>
 7.34 Topografia (MDE, MDS, MDT, elevação, declividade, aspecto, hidrologia)
-&lt;br&gt;
+<br>
 7.35 Elaboração de mapa temáticos
 
 ---
@@ -429,25 +428,25 @@ background-position: 85% 80%
 
 ### 8 Estrutura e manejo de dados espaciais na linguagem R (quinta-sexta)
 8.1 Material e pacotes para análise de dados espacias
-&lt;br&gt;
+<br>
 8.2 Vetor: pacote sp e sf
-&lt;br&gt;
+<br>
 8.3 Importar dados vetoriais
-&lt;br&gt;
+<br>
 8.4 Tipos de dados vetoriais
-&lt;br&gt;
+<br>
 8.5 Estrutura de dados vetoriais
-&lt;br&gt;
+<br>
 8.6 Visualizar dados vetoriais (graphics, ggplot e tmap)
-&lt;br&gt;
+<br>
 8.7 Projeção de dados vetoriais
-&lt;br&gt;
+<br>
 8.8 Tabela de atributos
-&lt;br&gt;
+<br>
 8.9 Operações de atributos de dados vetoriais
-&lt;br&gt;
+<br>
 8.10 Operações geométricas de dados vetoriais
-&lt;br&gt;
+<br>
 8.11 Operações espaciais de dados vetoriais
 
 ---
@@ -464,27 +463,27 @@ background-position: 85% 80%
 ### 8 Estrutura e manejo de dados espaciais na linguagem R (quinta-sexta)
 
 8.12 Raster: pacotes raster e rgdal
-&lt;br&gt;
+<br>
 8.13 Importar dados matriciais
-&lt;br&gt;
+<br>
 8.14 Tipos de dados matriciais
-&lt;br&gt;
+<br>
 8.15 Estrutura de dados matriciais
-&lt;br&gt;
+<br>
 8.16 Visualizar dados matriciais (graphics, ggplot e tmap)
-&lt;br&gt;
+<br>
 8.17 Projeção de dados matriciais
-&lt;br&gt;
+<br>
 8.18 Manipulando dados matriciais
-&lt;br&gt;
+<br>
 8.19 Operação geométricas de dados matriciais
-&lt;br&gt;
+<br>
 8.20 Operação espaciais de dados matriciais
-&lt;br&gt;
+<br>
 8.21 Vetor para raster: pacote fasterize
-&lt;br&gt;
+<br>
 8.22 Elaboração de mapas (ggplot e tmap)
-&lt;br&gt;
+<br>
 8.23 Automação de processamentos
 
 ---
@@ -500,25 +499,25 @@ background-position: 85% 80%
 
 ### 9 Introdução e funcionamento do software GRASS GIS (sexta)
 9.1 Funcionamento do GRASS GIS: terminal, layer manager e map display
-&lt;br&gt;
+<br>
 9.2 Estrutura de dados no GRASS GIS: GRASS database, location e mapset
-&lt;br&gt;
+<br>
 9.3 Region (= região computacional)
-&lt;br&gt;
+<br>
 9.4 Módulos (= funções)
-&lt;br&gt;
+<br>
 9.5 Módulos para processamentos gerais (g.)
-&lt;br&gt;
+<br>
 9.6 Módulos para processamento de dados vetoriais (v.)
-&lt;br&gt;
+<br>
 9.7 Módulos para processamento de dados raster (r.)
-&lt;br&gt;
+<br>
 9.8 Módulos para processamento de dados de imagem de satélites (i.)
-&lt;br&gt;
+<br>
 9.9 Visualização de dados vetoriais, raster e imagens
-&lt;br&gt;
+<br>
 9.10 Escalas, símbolos, grades, legenda, perfis e histogramas
-&lt;br&gt;
+<br>
 9.11 Python para automação de processamentos
 
 ---
@@ -577,124 +576,16 @@ class: clear, middle
 
 ## Maurício Vancine
 
-&lt;br&gt;
+<br>
 
 Contatos:
 
 |                                                                                           |                               |
 | :---------------------------------------------------------------------------------------- | :---------------------------- |
-| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]  | mauricio.vancine@gmail.com    |
-| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]   | mauriciovancine.netlify.com   |
-| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]  | @mauriciovancine              |
-| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
-| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
 
 Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": true
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>

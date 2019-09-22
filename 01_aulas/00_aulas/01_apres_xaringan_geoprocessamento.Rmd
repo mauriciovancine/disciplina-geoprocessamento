@@ -1,0 +1,170 @@
+---
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "Git <br><br> xaringan [presentation ninja]"
+author: "Maurício H. Vancine"
+date: "30/09/2019"
+output:
+  xaringan::moon_reader:
+    css: [metropolis]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE,
+        encoding = "UTF-8")
+```
+
+class: clear, center, middle
+background-image: url(https://github.githubassets.com/images/modules/open_graph/github-octocat.png)
+
+---
+
+background-image: url(https://miro.medium.com/max/1366/1*mtsk3fQ_BRemFidhkel3dA.png)
+background-size: 500px
+background-position: 75% 75%
+
+# Disciplina
+
+## Conteúdo
+
+### 0 Controle de versão, Git e GitHub (segunda)
+0.1 Controle de versão
+<br>
+0.2 Git
+<br>
+0.3 GitHub
+<br>
+0.4 Download do repositório
+
+---
+
+background-image: url(http://www.phdcomics.com/comics/archive/phd101212s.gif)
+background-size: 400px
+background-position: 50% 50%
+
+# 0.1 Controle de versão
+
+---
+
+background-image: url(http://stoa.usp.br/ewout/files/744/4162/dvc-solo.png)
+background-size: 400px
+background-position: 50% 50%
+
+# 0.1 Controle de versão
+
+## Manejar suas versões sozinho
+
+---
+
+background-image: url(http://stoa.usp.br/ewout/files/744/4164/dvc-ramos.png)
+background-size: 600px
+background-position: 50% 50%
+
+# 0.1 Controle de versão
+
+## Ou em projetos compartilhados
+
+---
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1200px-Git-logo.svg.png)
+background-size: 500px
+background-position: 50% 70%
+
+# 0.2 Git
+
+## Software que faz o controle de versão
+
+### Implementação da ideia de controle de versão
+
+---
+
+background-image: url(https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/03/GitHub-brave-hed-796x418.jpg)
+background-size: 500px
+background-position: 50% 70%
+
+# 0.2 GitHub
+
+## Repositório on-line
+
+### Site (interface ou "nuvem") onde o controle de versão é armazenado
+
+---
+
+class: inverse, middle, center
+
+# Recapitulando
+
+---
+
+background-image: url(https://terminalroot.com.br/assets/img/cursos/git.jpg)
+background-size: 700px
+background-position: 50% 80%
+
+# 0.2 GitHub
+
+### **Git**: software que faz o controle de versão
+
+### **GitHub**: repositório on-line onde os arquivos versionados ficam
+
+
+---
+
+# 0.2 GitHub
+
+## Vamos criar uma conta no GitHub
+<br><br><br><br><br>
+###.center[https://github.com]
+
+---
+
+class: inverse, middle, center
+
+# E como faremos esse versionamento?
+
+---
+
+background-image: url(https://miro.medium.com/max/1378/1*UwLa1LPpa1tI7wIAsMH67w.jpeg)
+background-size: 500px
+background-position: 50% 50%
+
+# RStudio
+
+---
+
+background-image: url(https://diegopftrindade.netlify.com/img/1newproj.png)
+background-size: 500px
+background-position: 50% 50%
+
+# 0.4 Download do repositório
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício Vancine
+
+<br>
+
+Contatos:
+
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
