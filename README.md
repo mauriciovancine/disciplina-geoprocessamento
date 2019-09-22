@@ -48,11 +48,11 @@ Será necessário que todos tragam seus próprios notebooks
 **Softwares**<br>
 R, RStudio, QGIS e GRASS GIS <br>
 
-1. Instalar a versão mais recente do [R (3.6.1)](https://www.r-project.org) e [RStudio (1.2.1335)](https://www.rstudio.com) <br>
+1. Instalar a versão mais recente do [R (3.6.1)](https://www.r-project.org) e [RStudio (1.2.5001)](https://www.rstudio.com) <br>
 [Vídeo de instalação do R e do RStudio](https://youtu.be/l1bWvZMNMCM) <br>
 [Curso da linguagem R](https://www.youtube.com/playlist?list=PLucm8g_ezqNq0RMHvzZ8M32xhopFhmsr6)
 
-2. Instalar a versão mais estável do [QGIS (3.4.10 LTR)](https://qgis.org/pt_BR/site) <br>
+2. Instalar a versão mais estável do [QGIS (3.4 LTR)](https://qgis.org/pt_BR/site) <br>
 [Vídeo de instalação do QGIS](https://youtu.be/QjhCkX2sVI4) <br>
 [Curso Básico de QGIS](https://www.youtube.com/playlist?list=PLRrETkwtvTrMEeicAyYABdNwPpnzZdw5q) <br>
 [Curso de QGIS 3.6 - MasterGIS](https://www.youtube.com/watch?v=anSaq5pbCpk&list=PLjHRAtOKOOLhHyQHUXBCfSqOWHFJZ1Pnf)
@@ -61,11 +61,12 @@ R, RStudio, QGIS e GRASS GIS <br>
 [Vídeo de instalação do GRASS GIS](https://youtu.be/wKRCtwq65VU) <br>
 [Curso de GRASS GIS](https://www.youtube.com/watch?v=56xkXMd9XBM&list=PLycBDiXWmuxnfLUjs1wkm6WvYsazeLZ0K)
 
-#### Linux (Debian, Ubuntu, Linux Mint)
+#### Linux (Ubuntu e Linux Mint)
 ```
 # r
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/"
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" # mint 19 ou ubuntu 18
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu disco-cran35/" # ubuntu 19
 sudo apt update
 sudo apt install -y r-base-core # r
 sudo apt install -y r-base-dev # devtools
@@ -83,7 +84,9 @@ sudo apt install -fy
 rm rstudio-1.2.1335-amd64.deb
 
 # qgis
-sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt update
+sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt update # mint 19 ou ubuntu 18
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6B827C12C2D425E227EDCA75089EBE08314DF160 # ubuntu 19
+sudo add-apt-repository "deb http://ppa.launchpad.net/ubuntugis/ppa/ubuntu bionic main" # ubuntu 19
 sudo apt install -y qgis qgis-plugin-grass
 
 # grass
