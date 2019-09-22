@@ -1,0 +1,447 @@
+---
+title: "R Markdown: <br><br>"
+subtitle: "integrando texto e análises no R<br><br><br>"
+author: "Maurício H. Vancine"
+date: "15/01/2019"
+output:
+  xaringan::moon_reader:
+    css: [metropolis]
+    lib_dir: libs
+    nature:
+      #highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
+---
+
+```{r, setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: clear, center, middle
+
+.pull-left[
+<img src="https://www.rstudio.com/wp-content/uploads/2014/04/rmarkdown.png" width=400 height=450>
+]
+
+.pull-right[
+<img src="https://www.rstudio.com/wp-content/uploads/2014/04/knitr.png" width=400 height=450>
+]
+
+---
+
+# R Markdown
+
+## Tópicos
+1.1 Markdown
+<br>
+1.2 R Markdown
+<br>
+1.3 Instalar pacotes
+<br>
+1.4 Criar um arquivo R Markdown
+<br>
+1.5 Renderizar um arquivo R Markdown
+<br>
+1.6 Estrutura do RMarkdown
+<br>
+1.7 Opções do chunk
+<br>
+1.8 Sintaxe do Markdown
+<br>
+1.9 Principais formatos de saída
+
+---
+
+background-image: url(https://www.ibpad.com.br/wp-content/uploads/2018/05/Capa-Livro-RGB-424x600.jpg)
+background-size: 280px
+background-position: 50% 65%
+
+# R Markdown
+
+## Livros
+
+## **Ciência de Dados com R: introdução**
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://cdr.ibpad.com.br/rmarkdown.html
+
+
+---
+
+background-image: url(https://bookdown.org/yihui/rmarkdown/images/cover.png)
+background-size: 250px
+background-position: 50% 68%
+
+# R Markdown
+
+## Livros
+
+### **R Markdown: The Definitive Guide (2018)**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://bookdown.org/yihui/rmarkdown/
+
+---
+
+background-image: url(https://camo.githubusercontent.com/a29171aa076efc32174f4950a7e92117ffc02499/687474703a2f2f726d61726b646f776e2e7273747564696f2e636f6d2f696d616765732f6e65775f725f6d61726b646f776e2e706e67)
+background-size: 500px
+background-position: 50% 50%
+
+# R Markdown
+
+## Pacote para escrever artigos
+
+`rticles`
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://github.com/rstudio/rticles
+
+[*] https://elifesciences.org/labs/cad57bcf/composing-reproducible-manuscripts-using-r-markdown
+
+---
+
+# 1.1 Markdown
+
+<br>
+
+### Markdown é uma **linguagem de marcação** que diz como algo deve ser **entendido**, mas não têm capacidade de **processamento e execução de funções**
+
+<br>
+--
+
+### A **vantagem do Markdown** é a sua **simplicidade** e a **possibilidade de utilização** de uma linguagem comum para a criação de **vários tipos de documentos**
+
+---
+
+# 1.2 R Markdown
+
+### O **R Markdown** executa **scripts em R** e os incorpora a um arquivo Markdown (extensão .md). 
+
+--
+
+### O pacote **knitr** executará “pedaços” (**chunks**) de códigos e gerará um arquivo .md com os códigos e resultados
+
+--
+
+### Na sequência, o pandoc, que é um **conversor**, converte para a linguagem desejada, gerando os arquivos nos formatos escolhidos (.html, .docx, .pdf, .odt)
+
+--
+
+background-image: url(https://cdr.ibpad.com.br/images/rmarkdown.png)
+background-size: 800px
+background-position: 50% 90%
+
+---
+
+# 1.3 Instalar pacotes
+
+## Instalar do CRAN
+```{r, eval=FALSE}
+install.packages("rmarkdown")
+library(markdown)
+```
+
+--
+
+## Instalar do CRAN
+```{r, eval=FALSE}
+install.packages("knitr")
+library(knitr)
+```
+
+--
+
+## Para gerar pdfs
+```{r, eval=FALSE}
+install.packages("tinytex")
+library(tinytex)
+
+# install TinyTeX
+install_tinytex() 
+```
+
+---
+
+# 1.4 Criar um arquivo R Markdown
+
+<br><br>
+
+## É um arquivo **diferente** do script (.R)
+
+<br>
+
+## Tem o formato (.Rmd) = R Markdown
+
+<br>
+
+## Para criar, basta
+
+`File -> New FIle -> R Markdown`
+
+---
+
+background-image: url(https://cdr.ibpad.com.br/images/knit_button.png)
+background-size: 450px
+background-position: 50% 80%
+
+# 1.5 Renderizar um arquivo R Markdown 
+
+###  Usando o botão `knit`, disponível na interface do RStudio
+
+---
+
+# 1.6 Estrutura do RMarkdown
+
+## **1 YAML**
+### Responsável pelas **configurações dos documentos**, onde informamos o título do documento, a data de criação, o nome do autor e o tipo de output que desejamos
+```{r, eval=FALSE}
+---
+title: "Exemplo"
+author: "Seu nome"
+date: "15-01-2019"
+output:
+  html_document: default
+  pdf_document:
+    fig_caption: yes
+    fig_height: 3.5
+    fig_width: 7
+    number_sections: yes
+lang: pt-br
+---
+```
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/chunk.png)
+background-size: 400px
+background-position: 50% 80%
+
+# 1.6 Estrutura do RMarkdown
+
+## **2 Code Chunks**
+### Pedaços de código em R para serem executados e gerar resultados que serão incorporados ao documento
+
+### Atalho: `ctrl + alt + I`
+
+---
+
+# 1.6 Estrutura do RMarkdown
+
+## **3 Markdown**
+### Formato de texto que será exibido quando o arquivo for "renderizado"
+
+```{r, eval=FALSE}
+## Título
+Texto normal
+
+Mais uma linha
+
+Outros formatos de texto Markdown serão explicados...
+```
+
+---
+
+# 1.7 Opções do chunk
+
+## Valores são acrescentados aqui: `{r, eval = FALSE}`
+
+<br>
+
+|    Opção   | Valor Padrão |                                          Descrição                                         |
+|:----------:|:------------:|:------------------------------------------------------------------------------------------:|
+|    eval    |     TRUE     | Execução do código                                                                         |
+|   include  |     TRUE     | Exibição do código. Resultados não aparecem                                                |
+|  collapse  |     FALSE    | Colapsar os resutados num bloco                                                            |
+|    echo    |     FALSE    | Exibição do código. Resultados aparecem                                                    |
+|   results  |    markup    | hide: sem resultaods; hold: com resultados formatados; asis: com resultados não formatados |
+|    error   |     TRUE     | Mostrar erros                                                                              |
+|   message  |     TRUE     | Mostrar mensagens                                                                          |
+|   warning  |     TRUE     | Mostrar warnings                                                                           |
+| fig.height |       7      | Altura do gráficos em polegadas                                                            |
+|  fig.width |       7      | Largura do gráficos em polegadas                                                           |
+
+---
+
+# 1.8 Sintaxe do Markdown
+
+## Cabeçalhos
+```{md}
+# Cabeçalho de primeiro nível
+## Cabeçalho de segundo nível
+### Cabeçalho de terceiro nível
+```
+
+--
+
+## Estilo de texto
+```{md}
+# *Itálico* e **Negrito**
+```
+
+--
+
+## Citações
+```{md}
+> Aqui vai um texto para citação
+```
+
+--
+
+## Código no texto
+```{md}
+`mean(x)`
+```
+
+---
+
+# 1.8 Sintaxe do Markdown
+
+## Código processado no texto
+```{md}
+` r mean(c(2, 3, 4)) `
+```
+
+--
+
+## Imagens - tem de estar na mesma pasta **images**, no mesmo diretório que o arquivo . Rmd
+```{md}
+![](images/code_chunk.png)
+
+![Título Opcional](images/code_chunk.png)
+```
+
+---
+
+# 1.8 Sintaxe do Markdown
+
+## Listas não ordenadas
+```{r, eval=FALSE}
+# * Item a
+# * Item b
+    + Subitem b1
+    + Subitem b2
+```
+--
+
+## Listas ordenadas
+```{md}
+1. Item 1
+2. Item 2
+3. Item 3
+    i. Item 3a
+    ii. Item 3b
+```
+
+---
+
+# 1.8 Sintaxe do Markdown
+
+## Tabelas
+```{r, eval=FALSE}
+Coluna 1      | Coluna 2
+-------------: | :-------------:
+10  | Brasil
+20  | China
+Fonte: MDIC.
+```
+
+### Gerador de tabelas para o Markdown
+[*] https://www.tablesgenerator.com/markdown_tables
+
+---
+
+# 1.8 Sintaxe do Markdown
+
+## Tabelas
+```{r, eval=FALSE}
+x <- letters[1:3]
+y <- LETTERS[1:3]
+kable(data.frame(x, y), align = 'cc')
+```
+
+--
+
+## Sites
+```{r, eval=FALSE}
+Site do [MDIC](www.mdic.gov.br)
+```
+
+--
+
+## Linha horizontal ou Quebra de Página
+```{r, eval=FALSE}
+# ***
+---
+```
+
+---
+
+# 1.8 Sintaxe do Markdown
+
+## Equação
+```{r, eval=FALSE}
+Modelo linear simples: $y_i = \alpha + \beta x_i + e_i$
+```
+
+--
+
+## Equação em Bloco
+```{r, eval=FALSE}
+Modelo linear simples: $$y_i = \alpha + \beta x_i + e_i$$
+```
+
+---
+
+# 1.9 Principais formatos de saída
+
+## **HTML**
+### `output: html_document`
+###  Linguagem de marcação para construção de páginas web
+
+--
+
+## **PDF**
+### `output: pdf_document`
+###  PDFs criados pelo RMarkdown utiliza LaTeX (pronuncia-se: Lah-tech or Lay-tech)
+
+--
+
+## **WORD**
+### `output: word_document`
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Grato pela oportunidade e confiança nesses dias!
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+<br>
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
+| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).

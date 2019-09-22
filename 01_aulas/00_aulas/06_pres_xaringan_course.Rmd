@@ -1,0 +1,1603 @@
+---
+title: "Introdução à linguagem R: <br><br>"
+subtitle: "6 Visualização de dados<br><br><br>"
+author: "Maurício H. Vancine"
+date: "11/01/2019"
+output:
+  xaringan::moon_reader:
+    css: [metropolis]
+    lib_dir: libs
+    nature:
+      #highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
+---
+
+```{r, setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_data.png)
+background-size: 800px
+background-position: 50% 50%
+
+---
+
+# 6 Visualização de dados
+## Tópicos
+6.1 Principais pacotes para gráficos no R
+<br>
+6.2 Colunas como eixos dos gráficos
+<br>
+6.3 Principais tipos de gráficos (tipos de variáveis)
+<br>
+6.4 Histograma (histogram)
+<br>
+6.5 Gráfico de caixa (box plot)
+<br>
+6.6 Gráfico de barras (bar plot)
+<br>
+6.7 Gráfico de dispersão (scatter plot)
+
+---
+
+# 6 Visualização de dados
+
+## **Importância dos gráficos**
+
+<br><br>
+
+### Melhor forma de **apresentar** e **discutir** seus dados
+
+--
+
+### Faz uma **síntese** para melhor entendimento
+
+--
+
+### Necessário em quase todas as **análises estatísticas**
+
+--
+
+### Necessário em quase todas as **publicações**, trabalhos de consultoria, TCC, dissertação, tese 
+
+---
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Atualmente, há três principais pacotes para gerar gráficos no R:
+
+--
+
+### **1 base**: simples, porém útil para visualizações rápidas de quase todos os formatos de arquivos `plot()`
+
+--
+
+### **2 ggplot2**: complexos, demandam certo tempo para realização, mas ficam exelentes para publicação `ggplot() +`
+
+--
+
+### **3 plotly**: medianos, gráficos móveis, podem ser utilizados em apresentações para "arrastar" ou "zoom" `plo_ly()`
+
+---
+
+# 6.1 Principais pacotes para gráficos no R
+
+<br><br>
+
+.pull-left[
+<img src="https://i1.wp.com/flowingdata.com/wp-content/uploads/2016/03/base-05-Finished-bar-chart.png?w=600&ssl=1" width=400 height=400>
+]
+
+.pull-right[
+<img src="https://i1.wp.com/flowingdata.com/wp-content/uploads/2016/03/ggplot-05-bar-chart-finished.png?w=700&ssl=1" width=400 height=400>
+]
+
+---
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/sticker_graphics_package.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif)
+background-size: 600px
+
+---
+
+# 6.1 Principais pacotes para gráficos no R
+
+## **base**
+
+### Default no R, funcionando com o pacote **graphics**
+
+--
+
+### Pode ser utilizado para arquivos de **diversas classes**
+
+--
+
+### Possui funções como:
+
+`plot()`<br>
+`hist()`<br>
+`barplot()`<br>
+`boxplot()`<br>
+`abline()`<br>
+`points()`<br>
+`lines()`<br>
+`polygon()`<br>
+
+---
+
+class: inverse, middle, center
+
+# IMPORTANTE! Achei uma forma de ver todas as funções dos pacotes
+
+---
+
+# Ver todas as funções dos pacotes
+
+<br><br><br><br><br><br>
+
+## `library(help = "graphics")`
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/7ND8xzTlR5b8s/giphy.gif)
+background-size: 800px
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+background-image: url(http://hadley.nz/hadley-wickham.jpg)
+background-size: 720px
+background-position: 50% 65%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## O idealizador e mantenedor do pacote **ggplot2** foi de novo o **Hadley Wickham**
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] http://hadley.nz/
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9783319242750.jpg)
+background-size: 230px
+background-position: 50% 63%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Livros
+
+### **ggplot2 (2009 & 2016)**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://www.springer.com/br/book/9783319242750#
+
+---
+
+background-image: url(https://covers.oreillystatic.com/images/0636920063704/lrg.jpg)
+background-size: 280px
+background-position: 50% 63%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Livros
+
+### **R Graphics Cookbook: Practical Recipes for Visualizing Data (2018)**
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] http://www.cookbook-r.com/Graphs/
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png)
+background-size: 270px
+background-position: 50% 65%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Livros
+
+### **R for Data Science (2017)**
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://r4ds.had.co.nz/
+
+---
+
+background-image: url(https://bookdown.org/rdpeng/exdata/cover_sm.png)
+background-size: 300px
+background-position: 50% 65%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Livros
+
+### **Exploratory Data Analysis with R (2016)**
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://bookdown.org/rdpeng/exdata/
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 300px
+background-position: 50% 60%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Sites
+
+### **ggplot2: Reference**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://ggplot2.tidyverse.org/reference/
+
+---
+
+background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2015/10/logo3-300x225.jpg)
+background-size: 400px
+background-position: 50% 60%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Sites
+
+### ** R Graph Gallery**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://www.r-graph-gallery.com/
+
+---
+
+class: clear, center, middle
+background-image: url(https://blog.f1000.com/wp-content/uploads/2017/07/logo.png)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# 6.1 Principais pacotes para gráficos no R
+
+```{r, message = FALSE, warning = FALSE}
+# pacotes
+library(plotly)
+library(tidyverse)
+
+# dados
+d <- diamonds[sample(nrow(diamonds), 1000), ]
+
+# grafico
+p <- plot_ly(d, x = ~carat, y = ~price, 
+             type="scatter", text = paste("Clarity: ", d$clarity),
+             mode = "markers", color = ~carat, size = ~carat)
+```
+
+---
+
+class: clear, center, middle
+
+```{r, echo = FALSE, message = FALSE,  warning = FALSE}
+ggplotly(p)
+```
+
+---
+
+background-image: url(https://plotly-book.cpsievert.me/images/plotly.png)
+background-size: 300px
+background-position: 50% 60%
+
+# 6.1 Principais pacotes para gráficos no R
+
+## Livros
+
+### **plotly for R**
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://plotly-book.cpsievert.me/
+
+---
+
+class: inverse, middle, center
+
+# Os elementos de um gráfico são representações das colunas (eixos) e linhas (elementos) das nossas matrizes de dados
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/graficos.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 6.2 Colunas como eixos do gráficos
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/variables.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 6.2 Colunas como eixos (tipos de variáveis)
+
+---
+
+class: inverse, middle, center
+
+# E dependendo do **modo das variáveis** (quantitativas - inteiras ou contínuas ou qualitativas), isso irá indicar o melhor tipo de gráfico para representar os dados
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/graficos_variaveis.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 6.3 Principais tipos de gráficos
+
+---
+
+background-image: url(https://d1fq16qvu9tpz9.cloudfront.net/uploads/ckeditor/pictures/26/content_select_chart_type.jpg)
+background-size: 800px
+background-position: 50% 50%
+
+# 6.3 Principais tipos de gráficos
+
+---
+
+
+class: inverse, middle, center
+
+# Vamos importar os dados do data paper de anfíbios
+
+---
+
+# Importar dados para gráficos
+```{r, warning=FALSE, message=FALSE}
+# pacotes
+library(tidyverse)
+
+# importar
+da <- read_csv("https://raw.githubusercontent.com/mauriciovancine/curso-r/master/data/ATLANTIC_AMPHIBIANS_sites.csv")
+
+# verificar
+glimpse(da)
+```
+
+---
+
+background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2017/11/Histogram150.png)
+background-size: 300px
+background-position: 50% 80%
+
+# 6.4 Histograma (histogram)
+
+### **Representa os dados de**: uma coluna
+
+### **Modo da coluna**: numérico
+
+---
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/sticker_graphics_package.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+.pull-left[
+```{r plot1, eval=FALSE}
+hist(da$species_number) #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot1", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+.pull-left[
+```{r plot2, eval=FALSE}
+hist(da$species_number,
+     col = "gray", #<<
+     border = "red") #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot2", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+.pull-left[
+```{r plot3, eval=FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti") #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot3", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+.pull-left[
+```{r plot4, eval=FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti",
+     xlab = "Sp", #<<
+     ylab = "Fr") #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot4", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+.pull-left[
+```{r plot5, eval=FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti",
+     xlab = "Sp",
+     ylab = "Fr",
+     br = 50) #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot5", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+.pull-left[
+```{r plot6, eval=FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti",
+     xlab = "Sp",
+     ylab = "Fr",
+     br = 50,
+     cex.main = 2.5, #<<
+     cex.lab = 2.2, #<< 
+     cex.axis = 2) #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot6", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+```{r, eval = FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti",
+     xlab = "Sp",
+     ylab = "Fr",
+     br = 50,
+     cex.main = 2.5,
+     cex.lab = 2.2,
+     cex.axis = 2,
+     prob = TRUE) #<<
+
+lines(density(da$species_number)) #<<
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+```{r, echo = FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti",
+     xlab = "Sp",
+     ylab = "Fr",
+     br = 50,
+     cex.main = 2.5,
+     cex.lab = 2.2,
+     cex.axis = 2,
+     prob = TRUE)
+
+lines(density(da$species_number))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+
+### Exportar
+```{r, eval = FALSE}
+# diretorio
+setwd("")
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+
+### Exportar
+```{r}
+tiff("meu_primeiro_histograma.tif", wi = 15, he = 15, un = "cm", 
+     res = 300, comp = "lzw+p")
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+
+### Exportar
+```{r, echo = FALSE}
+hist(da$species_number,
+     col = "gray",
+     border = "red",
+     main = "Ti",
+     xlab = "Sp",
+     ylab = "Fr",
+     br = 50,
+     cex.main = 2.5,
+     cex.lab = 2.2,
+     cex.axis = 2,
+     prob = TRUE)
+lines(density(da$species_number))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## Base
+
+### Exportar  
+```{r}
+dev.off()
+```
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+background-image: url(https://cxlabsblog.files.wordpress.com/2017/10/2017-10-24-14_40_16-visualization-layers-of-ggplot-google-docs1.png)
+background-size: 700px
+background-position: 50% 50%
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+
+### A gramática dos gráficos
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://oestatistico.com.br/a-gramatica-dos-graficos/
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+.pull-left[
+```{r plot7, eval=FALSE}
+ggplot(data = da) #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot7", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+.pull-left[
+```{r plot8, eval=FALSE}
+ggplot(data = da) +
+  aes(species_number) #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot8", echo=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+.pull-left[
+```{r plot9, eval=FALSE, message=FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram() #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot9", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+.pull-left[
+```{r plot10, eval=FALSE, message=FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_density() #<<
+```
+]
+
+.pull-right[
+```{r ref.label="plot10", echo=FALSE, message=FALSE}
+```
+]
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10) #<<
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10) #<<
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) + #<<
+  labs(x = "Número de Espécies", #<<
+       y = "Frequência") + #<<
+  theme(axis.title = element_text(size = 24), #<<
+        axis.text.x = element_text(size = 20), #<<
+        axis.text.y = element_text(size = 20)) #<<
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) + #<<
+  labs(x = "Número de Espécies",  #<<
+       y = "Frequência") + #<<
+  theme(axis.title = element_text(size = 24), #<<
+        axis.text.x = element_text(size = 20), #<<
+        axis.text.y = element_text(size = 20)) #<<
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_density(color = "black", fill = "forest green", alpha = .5) +  #<<
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_density(color = "black", fill = "forest green", alpha = .5) +  #<<
+  labs(x = "Número de Espécies",
+       y = "Frequência") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+background-image: url(https://cxlabsblog.files.wordpress.com/2017/10/2017-10-24-14_36_29-visualization-layers-of-ggplot-google-docs.png)
+background-size: 700px
+background-position: 50% 50%
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_wrap(~ record, ncol = 2, scale = "free_y") +  #<<
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_wrap(~ record, ncol = 2, scale = "free_y") + #<<
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_grid(record ~ .) + #<<
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_grid(record ~ .) + #<<
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_grid(record ~ .) +
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme_dark() + #<<
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_grid(record ~ .) +
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme_dark() + #<<
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ggplot2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(species_number) +
+  geom_histogram(color = "black", fill = "forest green", bins = 10, 
+                 alpha = .5) +
+  facet_grid(record ~ .) +
+  labs(x = "Número de Espécies",
+          y = "Frequência") +
+  theme_dark() + 
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+
+
+ggsave("histogram_ggplot2.tiff", wi = 20, he = 15, un = "cm", dpi = 300) #<<
+```
+
+---
+
+class: clear, center, middle
+background-image: url(https://blog.f1000.com/wp-content/uploads/2017/07/logo.png)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ploty
+```{r, eval = FALSE}
+# pacote
+install.packages("plotly")
+```
+--
+```{r, eval = FALSE}
+library(plotly)
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ploty
+```{r, eval = FALSE}
+plot_ly(x = da$species_number, 
+        type = "histogram")
+```
+
+---
+
+# 6.4 Histograma (histogram)
+
+## ploty
+```{r, echo = FALSE}
+plot_ly(x = da$species_number, 
+        type = "histogram")
+```
+
+---
+
+background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2017/11/Box1150.png)
+background-size: 300px
+background-position: 50% 80%
+
+# 6.5 Gráfico de caixa (box plot)
+
+## **Representa os dados de**: duas colunas
+## **Modo das colunas**: X = categórico e Y = contínuo
+## Resume informações de medidas para dois ou mais fatores
+
+---
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Boxplot.svg/457px-Boxplot.svg.png)
+background-size: 400px
+background-position: 50% 80%
+
+# 6.5 Gráfico de caixa (box plot)
+
+### Intervalo inter-quartil
+### Limite inferior ou superipor (1.5 x IQR)
+### Valores exteriores
+
+---
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/sticker_graphics_package.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### base
+```{r, eval = FALSE}
+boxplot(species_number ~ as.factor(record), #<<
+        data = da,
+        col = "gray",
+        border = "black",
+        main = "Espécies por amostragens",
+        xlab = "Tipo de registro",
+        ylab = "Número de Espécies",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
+```
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### base
+```{r, echo = FALSE}
+boxplot(species_number ~ as.factor(record), #<<
+        data = da,
+        col = "gray",
+        border = "black",
+        main = "Espécies por amostragens",
+        xlab = "Tipo de registro",
+        ylab = "Número de Espécies",
+        cex.main = 1.5,
+        cex.lab = 1.3,
+        cex.axis = 1.2)
+```
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### ggplott2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(x = record, y = species_number) +
+  geom_boxplot(fill = c("blue", "forest green"), color = "black") + #<<
+  labs(x = "Tipo de registro",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+
+```
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### ggplott2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(x = record, y = species_number) +
+  geom_boxplot(fill = c("blue", "forest green"), color = "black") +
+  labs(x = "Tipo de registro",
+          y = "Número de espécies") +
+  theme_classic() + 
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### ggplott2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(x = record, y = species_number) +
+  geom_boxplot(fill = c("blue", "forest green"), color = "black") +
+  geom_jitter(width = .3, alpha = .4) + #<<
+  labs(x = "Tipo de registro",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### ggplott2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(x = record, y = species_number) +
+  geom_boxplot(fill = c("blue", "forest green"), color = "black") +
+  geom_jitter(width = .3, alpha = .4) + #<<
+  labs(x = "Tipo de registro",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### ggplott2
+```{r, eval = FALSE}
+ggplot(data = da) +
+  aes(x = record, y = species_number) +
+  geom_violin(aes(fill = record), color = "black") + #<<
+  scale_fill_manual(values = c("blue", "forest green")) + #<<
+  geom_jitter(width = .3, alpha = .3) +
+  labs(x = "Tipo de registro",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.5 Gráfico de caixa (box plot)
+
+### ggplott2
+```{r, echo = FALSE}
+ggplot(data = da) +
+  aes(x = record, y = species_number) +
+  geom_violin(aes(fill = record), color = "black") + #<<
+  scale_fill_manual(values = c("blue", "forest green")) + #<<
+  geom_jitter(width = .3, alpha = .3) +
+  labs(x = "Tipo de registro",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2017/11/Bar150.png)
+background-size: 300px
+background-position: 50% 80%
+
+
+# 6.6 Gráfico de barras (bar plot)
+
+### **Representa os dados de**: duas colunas
+
+### **Modo das colunas**: X = categórico e Y = categórico
+
+### Resume informações de contagens
+
+---
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/sticker_graphics_package.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.6 Gráfico de barras (bar plot)
+
+### Tabela de frequência
+
+### base 
+```{r}
+# tabela de frequencia
+ta <- table(da$record) %>% 
+  as.data.frame
+ta
+```
+
+---
+
+# 6.6 Gráfico de barras (bar plot)
+
+### Tabela de frequência
+
+### base
+```{r, eval = FALSE}
+barplot(table(da$record), 
+        col = c("blue", "forest green"),
+        main = "Frequência de tipos de amostragens",
+     xlab = "Tipo de registro",
+     ylab = "Frequência",
+     cex.main = 1.5,
+     cex.lab = 1.3,
+     cex.axis = 1.2)
+```
+
+---
+
+# 6.6 Gráfico de barras (bar plot)
+
+### Tabela de frequência
+
+### base 
+```{r, echo = FALSE}
+barplot(table(da$record), 
+        col = c("blue", "forest green"),
+        main = "Frequência de tipos de amostragens",
+     xlab = "Tipo de registro",
+     ylab = "Frequência",
+     cex.main = 1.5,
+     cex.lab = 1.3,
+     cex.axis = 1.2)
+```
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.6 Gráfico de barras (bar plot)
+
+### ggplot2
+```{r}
+# tabela de frequencia
+ta <- table(da$record) %>% 
+  as.data.frame
+ta
+```
+
+---
+
+# 6.6 Gráfico de barras (bar plot)
+
+### ggplot2
+```{r, eval = FALSE}
+ggplot(data = ta) +
+  aes(x = Var1, y = Freq) +
+  geom_bar(fill = c("blue", "forest green"), stat = "identity") + #<<
+  labs(x = "Tipo de registro",
+       y = "Frequência") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20)))
+```
+
+---
+
+# 6.6 Gráfico de barras (bar plot)
+
+### ggplot2
+```{r, echo = FALSE}
+ggplot(data = ta) +
+  aes(x = Var1, y = Freq) +
+  geom_bar(fill = c("blue", "forest green"), stat = "identity") + #<<
+  labs(x = "Tipo de registro",
+       y = "Frequência") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2017/11/ScatterPlot150.png)
+background-size: 300px
+background-position: 50% 80%
+
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+
+### **Representa os dados de**: duas colunas
+
+### **Modo das colunas**: X = numérico e Y = numérico
+
+---
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/sticker_graphics_package.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+### ggplot2
+```{r, eval = FALSE}
+plot(da$effort_months, 
+     da$species_number,
+     pch = 20,
+     col = adjustcolor("forest green", .5),  
+     cex = 3,
+     xlab = "Esforço amostral",
+     ylab = "Número de espécies",
+     cex.lab = 1.5,
+     cex.axis = 1.3,
+     bty = "l")
+points(da$effort_months, da$species_number, cex = 2.3, 
+       col = adjustcolor("black", .2))
+```
+
+---
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+### base
+```{r, echo = FALSE}
+plot(da$effort_months, 
+     da$species_number,
+     pch = 20,
+     col = adjustcolor("forest green", .5),  
+     cex = 3,
+     xlab = "Esforço amostral",
+     ylab = "Número de espécies",
+     cex.lab = 1.5,
+     cex.axis = 1.3,
+     bty = "l")
+points(da$effort_months, da$species_number, cex = 2.3, 
+       col = adjustcolor("black", .2))
+```
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+### ggplot2
+```{r, eval = FALSE, message=FALSE, warning=FALSE}
+ggplot(data = da) +
+  aes(x = effort_months, y = species_number) +
+  geom_point(colour = "black", fill = "forest green", size = 5, 
+             alpha = .5, pch = 21) + #<<
+  labs(x = "Esforço amostral",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+### ggplot2
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+ggplot(data = da) +
+  aes(x = effort_months, y = species_number) +
+  geom_point(colour = "black", fill = "forest green", size = 5, 
+             alpha = .5, pch = 21) + #<<
+  labs(x = "Esforço amostral",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+### ggplot2
+```{r, eval = FALSE, message=FALSE, warning=FALSE}
+ggplot(data = da) +
+  aes(x = effort_months, y = species_number) +
+  geom_point(colour = "black", fill = "forest green", size = 5, 
+             alpha = .5, pch = 21) +
+  stat_smooth(method = "lm", level = .95) + #<<
+  labs(x = "Esforço amostral",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+# 6.7 Gráfico de dispersão (scatter plot)
+
+### ggplot2
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+ggplot(data = da) +
+  aes(x = effort_months, y = species_number) +
+  geom_point(colour = "black", fill = "forest green", size = 5, 
+             alpha = .5, pch = 21) +
+  stat_smooth(method = "lm", level = .95) + #<<
+  labs(x = "Esforço amostral",
+          y = "Número de espécies") +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20))
+```
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Exercícios!
+
+---
+
+class: inverse, middle, center
+background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
+
+---
+
+# Exercícios
+
+## 1. Criem um novo script
+
+<br><br>
+
+### Pasta
+`00_scripts`
+
+<br>
+
+### Arquivo
+`script_r_curso_r_aula06_visualizacao_dados_exercicios_2019_01_d010.R`
+
+---
+
+# Exercícios
+
+## 2. Criem um cabeçalho descritivo nesse script
+
+--
+
+```{r}
+### exercicios aula 06 - visualizacao de dados ###
+
+# nome
+# data
+```
+
+---
+
+# Exercícios
+
+## 3. Removam todos os objetos criados anteriormente
+
+--
+
+```{r}
+# solucao
+## memoria
+rm(list = ls())
+```
+
+---
+
+# Exercícios
+
+## 4. Listem os pacotes necessários
+
+--
+
+```{r}
+# solucao
+## pacotes
+library(tidyverse)
+```
+
+---
+
+# Exercícios
+
+## 5. Definam um diretório e confiram o mesmo
+
+--
+
+```{r, eval = FALSE}
+# solucao
+## diretorio
+setwd("")
+get()
+dir()
+```
+
+---
+
+# Exercícios
+
+## 6. Façam um histograma das colunas `effort_months`, `altitude`, `temperatura`, `precipitation` utilizando os pacotes **graphics** e **ggplot2**
+
+--
+
+```{r}
+# solucao
+```
+
+---
+
+# Exercícios
+
+## 7. Façam dois gráficos de caixa (boxplot) relacionando o número de espécies com os dados das das colunas `country` e `state_abbreviation`, utilizando os pacotes **graphics** e **ggplot2**
+
+```{r}
+# solucao
+```
+
+---
+
+# Exercícios
+
+## 8. Façam um gráfico de barras relacionando a quantidade de amostragens realizadas por abundância e preseça, para cada estado, utilizando as colunas `year_start` e `state_abbreviation`, utilizando os pacotes **graphics** e **ggplot2**
+
+```{r}
+# solucao
+```
+
+---
+
+# Exercícios
+
+## 9. Façam quatro graficos de dispersão relacionando o número de espécies com os dados de cada uma das das colunas `effort_months`, `altitude`, `temperatura`, `precipitation` utilizando os pacotes **graphics** e **ggplot2**
+
+```{r}
+# solucao
+```
+
+---
+
+# Exercícios
+
+## 10. Façam os gráficos anteriores para as amostragem por abundância e presenã ausência, utilizando a coluna `record`
+
+```{r}
+# solucao
+```
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+<br>
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
+| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).

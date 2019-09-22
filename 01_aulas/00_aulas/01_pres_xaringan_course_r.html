@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introdução à linguagem R:</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maurício H. Vancine" />
+    <meta name="date" content="2019-07-01" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução à linguagem R: <br><br>
+## 1 Linguagem R, aplicações e material <br><br><br>
+### Maurício H. Vancine
+### 07/01/2019
+
+---
+
+
+
+
+class: clear, center, middle
+background-image: url(https://www.r-project.org/logo/Rlogo.svg)
+background-size: 500px
+background-position: 50% 50%
+
+---
+
+# 1 Linguagem R, aplicações e material
+
+## Tópicos
+1.1 Linguagem R
+
+1.2 Linguagem R vs software RStudio
+
+1.3 Aplicações da linguagem R
+
+1.4 Apostilas, livros e sites
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/falar_r.png)
+background-size: 600px
+background-position: 50% 70%
+
+# 1.1 Linguagem R
+
+## Todos conhecem o R e o RStudio?
+
+---
+
+# 1.1 Linguagem R
+
+## Definições
+
+--
+
+O R é uma **linguagem de programação** voltada para a resolução de **problemas estatísticos** e para a **visualização gráfica** de dados (**Prof. Marcelo Perlin**)
+
+--
+
+O R é um **conjunto de pacotes** e **ferramentas estatísticas**, munido de funções que facilitam sua utilização, desde a criação de simples rotinas até **análises de dados complexos**, com **visualizações** bem acabadas (**Instituto Brasileiro de Pesquisa e Análise de Dados - IBPAD**)
+
+--
+
+O R é uma **linguagem de programação livre** (*open source*), direcionada ao **manejo, análise e visualização de dados**, com diversas **expansões** (*pacotes*) para o uso de **dados com formatos específicos** (**Maurício Vancine**)
+
+--
+
+O [Manual do R](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)&lt;sup&gt;1&lt;/sup&gt; define o R como um **ambiente de programação**, com um conjunto integrado de ferramentas para **manipulação de dados, cálculos e apresentação gráfica** (**Venables et al. 2018**)
+
+&lt;br&gt;
+
+[1] [Venables et al. 2008](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf)
+
+---
+
+# 1.1 Linguagem R
+
+## O que é uma **linguagem de programação**?
+
+--
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/programacao.png)
+background-size: 800px
+background-position: 50% 75%
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_funcionamento.png)
+background-size: 700px
+background-position: 50% 50%
+
+# 1.1 Linguagem R
+## Funcionamento do R
+
+---
+
+# 1.1 Linguagem R
+
+## E por que usar o R?
+
+### 1. É **grátis**!
+
+--
+
+### 2. Implementação de **rotinas** (repetir várias operações)!
+
+--
+
+### 3. Faz **gráficos** sensacionais!
+
+--
+
+### 4. Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
+
+--
+
+### 5. Tem se tornado quase um **pré-requisito** para pós-graduação e consultorias
+
+---
+
+class: inverse, middle, center
+
+# E de onde surgiu o R?
+
+---
+
+background-image: url(https://statweb.stanford.edu/~jmc4/CopyPhoto.jpg)
+background-size: 300px
+background-position: 80% 90%
+
+# 1.1 Linguagem R
+
+## Histórico - Linguagem S
+
+### John M. Chambers (Universidade de Stanford, CA, EUA)
+
+- Old S (1976-1987)
+- New S (1988-1997)
+- S4 (1998)
+&lt;br&gt;&lt;br&gt;
+- Interface: S-PLUS (1988-2008)
+
+---
+
+background-image: url(http://www.estatisticacomr.uff.br/wp-content/uploads/2014/11/Criadores.jpg)
+background-size: 400px
+background-position: 80% 90%
+
+# 1.1 Linguagem R
+
+## Histórico - Linguagem R
+### Robert Gentleman e Ross Ihaka (Universidade de Aucland, NZ)
+- Desenvolvimento (1997-2000)
+- Versão 1 (2000-2004)
+- Versão 2 (2004-2013)
+- Versão 3 (2013-atual)
+&lt;br&gt;&lt;br&gt;
+- Interface: RStudio (2011-atual)
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+- Atualmente: **R Core Team**
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[http://vita.had.co.nz/papers/r-s.pdf]
+
+---
+
+class: inverse, middle, center
+
+# Não confundam a **Linguagem R** com o software **RStudio**!
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_rstudio.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 1.2 R vs RStudio
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_rstudio2.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 1.2 R vs RStudio
+
+---
+
+class: inverse, middle, center
+
+# E o que o R pode fazer?
+
+---
+
+# 1.3 Aplicações da linguagem R
+
+## Análises
+- Estatísticas univariada e multivariada
+- Análises de dados ecológicos (população, comunidades, ecossistemas)
+- Análise de dados espaciais, temporais e sonoros
+- Análise de dados funcionais, genéticos e filogenéticos
+- Modelos de nicho ecológico
+- Gráficos para publicação
+
+--
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/00ed9c32053cbc805efa51b66be570558480a4c8/7a292/images/rmarkdownoutputformats.png)
+background-size: 250px
+background-position: 90% 90%
+
+## R Markdown
+- Textos em HTML, PDF, Word, ODT, Markdown
+- Apresentação de slides
+- Websites e Blogs
+- Livros
+- Artigos para publicação
+- Shiny
+
+---
+
+# Shiny
+
+## EcoDyn
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.center[
+https://ecodyn.shinyapps.io/PEER_app/
+]
+
+---
+
+class: inverse, middle, center
+
+# Material, muito material...
+
+---
+
+background-image: url(https://www.ufg.br/up/1/o/UFG_4660.JPG)
+background-size: 400px
+background-position: 10% 70%
+
+# 1.4 Apostilas, sites e livros
+
+## Apostilas
+
+### **Apostila de introdução ao R**&lt;sup&gt;*&lt;/sup&gt;
+
+### Prof. Victor Landeiro
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://sites.google.com/site/vllandeiror/
+
+---
+
+background-image: url(https://avatars3.githubusercontent.com/u/13972235?s=400&amp;v=4)
+background-size: 250px
+background-position: 10% 70%
+
+# 1.4 Apostilas, sites e livros
+
+## Apostilas
+
+### **Introdução ao uso do software R para as Ciências Biológicas**&lt;sup&gt;*&lt;/sup&gt;
+
+### Prof. Marcos Vital
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://cantinhodor.wordpress.com/2015/03/28/a-boa-e-velha-apostila-basica-do-r/
+
+---
+
+background-image: url(https://pbs.twimg.com/profile_images/1061862561509924864/EoHCtCI3_400x400.jpg)
+background-size: 250px
+background-position: 10% 65%
+
+# 1.4 Apostilas, sites e livros
+
+## Apostilas
+
+### **Learning statistics with R: a tutorial for psychology students and other beginners**&lt;sup&gt;*&lt;/sup&gt;
+
+### Profa. Danielle Navarro
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://learningstatisticswithr.com
+
+[*] https://learningstatisticswithr.com/book/
+
+---
+
+background-image: url(http://nathanieldphillips.com/wp-content/uploads/2014/10/nphillipseconportrait-5-768x454.jpg)
+background-size: 450px
+background-position: 10% 65%
+
+# 1.4 Apostilas, sites e livros
+
+## Apostilas
+
+### **YaRrr! The Pirate’s Guide to R**&lt;sup&gt;*&lt;/sup&gt;
+
+### Nathaniel D. Phillips
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://ndphillips.github.io/piratesguide.html
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png)
+background-size: 500px
+background-position: 50% 70%
+
+# 1.4 Apostilas, sites e livros
+
+## Apostilas
+
+### **Cheat Sheets**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.rstudio.com/resources/cheatsheets/
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/site_r1.jpg)
+background-size: 700px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Sites
+
+### **Material para cursos de R**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://material.curso-r.com/
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/site_r2.jpg)
+background-size: 600px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Sites
+
+### **Curso Básico de Linguagem R**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://bookdown.org/wevsena/curso_r_tce/curso_r_tce.html
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/site_r3.jpg)
+background-size: 700px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Sites
+
+### **Coding Club**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://ourcodingclub.github.io/
+
+---
+
+background-image: url(https://paulvanderlaken.files.wordpress.com/2017/08/banner.png)
+background-size: 400px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Sites
+
+### **R resources (free courses, books, tutorials, &amp; cheat sheets)**
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://paulvanderlaken.com/2017/08/10/r-resources-cheatsheets-tutorials-books/
+
+---
+
+background-image: url(https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png)
+background-size: 400px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Sites
+
+### **R Ladies**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://rladies.org/
+
+---
+
+background-image: url(https://pbs.twimg.com/media/DiaKpZaV4AAdqxp.jpg)
+background-size: 280px
+background-position: 70% 45%
+
+# 1.4 Apostilas, sites e livros
+
+## Sites
+
+### **R Ladies**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[Belo Horizonte, Minas Gerais – Brazil](https://www.meetup.com/pt-BR/rladies-belo-horizonte/)
+
+[Rio de Janeiro, Rio de Janeiro – Brazil](https://www.meetup.com/pt-BR/rladies-rio/)
+
+&lt;br&gt;&lt;br&gt;
+
+### Gabriela de Queiroz
+Data Scientist + Founder of R-Ladies + Mentor + Advocate
+
+[*] https://k-roz.com/
+
+---
+
+background-image: url(https://www.ibpad.com.br/wp-content/uploads/2018/05/Capa-Livro-RGB-424x600.jpg)
+background-size: 250px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **Ciência de Dados com R: introdução**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.ibpad.com.br/o-que-fazemos/publicacoes/introducao-ciencia-de-dados-com-r/
+
+---
+
+background-image: url(https://3.bp.blogspot.com/-B9LUF6QBPNg/W4lPVMSpMLI/AAAAAAAACpc/FUOyduY_rOszXJkh52ICFY5UcAGlomrTgCLcBGAs/s1600/Sem%2Bt%25C3%25ADtulo.png)
+background-size: 300px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **Introdução ao R: Aplicações Florestais**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://www.centralflorestal.com.br/2018/08/livro-disponivel-sobre-uso-do-software.html
+
+---
+
+background-image: url(https://media.wiley.com/product_data/coverImage300/27/04709739/0470973927.jpg)
+background-size: 280px
+background-position: 50% 60%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **The R Book**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.wiley.com/en-us/The+R+Book%2C+2nd+Edition-p-9780470973929
+
+---
+
+background-image: url(https://images.manning.com/720/960/resize/book/1/82c427b-3e8b-423d-b49f-948cebab0a0b/kabacoff2_cover.png)
+background-size: 300px
+background-position: 50% 64%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **R in Action: data analysis and graphics with R**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.manning.com/books/r-in-action-second-edition
+  
+---
+
+background-image: url(http://www-bcf.usc.edu/~gareth/ISL/ISL%20Cover%202.jpg)
+background-size: 230px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **An Introduction to Statistical Learning: with applications in R**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://www-bcf.usc.edu/~gareth/ISL/
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9780387874579.jpg)
+background-size: 230px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **Mixed Effects Models and Extensions in Ecology with R**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.springer.com/br/book/9780387874579
+
+---
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/CRC_Press_logo.svg/2000px-CRC_Press_logo.svg.png)
+background-size: 600px
+background-position: 50% 55%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **CRC The R Series (45 Livros)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.crcpress.com/Chapman--HallCRC-The-R-Series/book-series/CRCTHERSER
+
+---
+
+background-image: url(https://images.springer.com/sgw/series/medium/6991.jpg)
+background-size: 230px
+background-position: 50% 65%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **Use R! (71 Livros)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.springer.com/series/6991?detailsPage=titles/
+
+---
+
+class: inverse, middle, center
+
+# Há uns 10 anos, um nome tem se destacado no avanço da linguagem R, na parte de *manejo e análises de dados*:
+
+---
+
+background-image: url(http://hadley.nz/hadley-wickham.jpg)
+background-size: 800px
+background-position: 50% 60%
+
+# Hadley Wickham
+
+### Cientista Chefe no RStudio e Professor Adjunto de Estatística na Universidade de Auckland, Stanford e Rice
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://hadley.nz/
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9783319242750.jpg)
+background-size: 230px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **ggplot2 (2009 &amp; 2016)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.springer.com/br/book/9783319242750#
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/52a3c72c2f36d13146b17777b3dfef51264499af/9d698/cover.png)
+background-size: 250px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **Advanced R (2014)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://adv-r.hadley.nz/
+
+---
+
+background-image: url(http://r-pkgs.had.co.nz/cover.png)
+background-size: 280px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **R packages (2015)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://r-pkgs.had.co.nz/
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png)
+background-size: 250px
+background-position: 50% 68%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **R for Data Science (2017)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://r4ds.had.co.nz/
+
+---
+
+class: inverse, middle, center
+
+# Há uns 5 anos, outro nome tem se destacado no avanço da linguagem R, na parte de *R Markdown* (textos, sites e apresentações):
+
+---
+
+background-image: url(https://i.vimeocdn.com/video/474129126_1280x720.jpg)
+background-size: 800px
+background-position: 50% 45%
+
+# Yihui Xie
+
+##  Engenheiro de software no RStudio
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://yihui.name/
+
+---
+
+background-image: url(https://images.tandf.co.uk/common/jackets/amazon/978149871/9781498716963.jpg)
+background-size: 230px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **Dynamic Documents with R and knitr (2013 &amp; 2015)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.crcpress.com/Dynamic-Documents-with-R-and-knitr/Xie/p/book/9781498716963
+
+---
+
+background-image: url(https://bookdown.org/yihui/bookdown/images/cover.jpg)
+background-size: 250px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **bookdown: Authoring Books and Technical Documents with R Markdown (2016)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://bookdown.org/yihui/bookdown/
+
+---
+
+background-image: url(https://bookdown.org/yihui/blogdown/images/cover.png)
+background-size: 250px
+background-position: 50% 63%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **blogdown: Creating Websites with R Markdown (2016)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://bookdown.org/yihui/blogdown/
+
+---
+
+background-image: url(https://bookdown.org/yihui/rmarkdown/images/cover.png)
+background-size: 250px
+background-position: 50% 68%
+
+# 1.4 Apostilas, sites e livros
+
+## Livros
+
+### **R Markdown: The Definitive Guide (2018)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://bookdown.org/yihui/rmarkdown/
+
+---
+
+class: inverse, middle, center
+
+# Cara, são muitos livros, sites e apostilas. Qual é o *melhor* para seguir no *início*?
+
+---
+
+class: inverse, middle, center
+
+# Resposta: sigam esses *três*!
+
+---
+
+background-image: url(https://www.ibpad.com.br/wp-content/uploads/2018/05/Capa-Livro-RGB-424x600.jpg)
+background-size: 300px
+background-position: 50% 50%
+
+# Recomendação
+
+## **Ciência de Dados com R: introdução**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.ibpad.com.br/o-que-fazemos/publicacoes/introducao-ciencia-de-dados-com-r/
+
+---
+
+background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png)
+background-size: 300px
+background-position: 50% 55%
+
+# Recomendação
+
+## **R for Data Science (2017)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://r4ds.had.co.nz/
+
+---
+
+background-image: url(https://bookdown.org/yihui/rmarkdown/images/cover.png)
+background-size: 280px
+background-position: 50% 50%
+
+# Recomendação
+
+## **R Markdown: The Definitive Guide (2018)**&lt;sup&gt;*&lt;/sup&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://bookdown.org/yihui/rmarkdown/
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas? Perguntas?
+
+---
+
+class: inverse, middle, center
+
+# Vamos conferir os notebooks?!
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/hard_soft.png)
+background-size: 800px
+background-position: 50% 50%
+
+# Hardware e Softwares
+
+---
+
+# Hardware
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+## 1 Notebook - Windows, Linux ou MacOS
+
+&lt;br&gt;
+
+## 2 Acesso à internet
+
+---
+
+background-image: url(https://www.r-project.org/logo/Rlogo.svg)
+background-size: 500px
+background-position: 50% 50%
+
+# Softwares
+### https://www.r-project.org/
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-flat.svg)
+background-size: 700px
+background-position: 50% 50%
+
+# Softwares
+### https://www.rstudio.com/
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
+| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

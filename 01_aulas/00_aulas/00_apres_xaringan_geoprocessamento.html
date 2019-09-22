@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introdução à linguagem R:</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maurício H. Vancine" />
+    <meta name="date" content="2019-07-01" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução à linguagem R: <br>
+## manejo, visualização e análises de dados <br><br> xaringan [presentation ninja] <br><br>
+### Maurício H. Vancine
+### 07/01/2019
+
+---
+
+
+
+
+class: clear, center, middle
+background-image: url(https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)
+
+---
+
+# Maurício H. Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+--
+
+### Pesquisa
+- Macroecologia
+- Modelos de Nicho Ecológico
+- Ecologia de Comunidades
+- Ecologia e conservação de anfíbios
+- Análises de dados ecológicos/Estatística
+- *Open Source* [R, QGIS, GRASS GIS, Linux, Libreoffice....]
+
+--
+
+### Contato e informações:
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
+| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
+
+---
+
+# Maurício H. Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+### Minha história com o R (&gt; 330 h)
+
+- 2011: *Curso de R* (40 h) - Prof. Tadeu Siqueira
+
+- 2015: Minicurso, *Introdução ao software R* (08 h)
+
+- 2015: Monitor, *Ecologia Quantitativa* (60 h) - Prof. Tadeu Siqueira
+
+- 2016: Minicurso, *Introdução software R: manejo de dados, gráficos e análises estatísticas* (16 h)
+
+- 2016: Monitor, *Modelagem de Nicho Ecológico no R* (30 h) - Prof. Thadeu Sobral-Souza
+
+- 2016: Colaborador, *Modelagem de nicho ecológico: teoria e prática* (45 h) - Unicamp
+
+- 2017:	Colaborador, *Modelagem de nicho ecológico: teoria e prática* (60 h)
+
+- 2017: Estágio docência, *Ecologia Quantitativa* (60 h) - Prof. Tadeu Siqueira
+
+- 2018:  Colaborador, *Modelos Estatísticos em Ecologia* (12 h)
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/trabalho.png)
+background-size: 600px
+background-position: 50% 70%
+
+# Maurício H. Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+### Trabalho
+
+---
+
+# Maurício H. Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+### Publicações
+5. Ferro e Siva et al. 2018. Spatial prediction of risk areas for vector transmission of Trypanosoma cruzi in the State of Paraná, southern Brazil. *PLOS Neglected Tropical Diseases* 12(10):e0006907.
+
+4. Sobral-Souza et al. 2018. Efficiency of protected areas in Amazon and Atlantic Forest conservation: a spatio-temporal view. *Acta Oecologica* 87:1–7.
+
+3. Regolin et al. 2017. Forest cover influences occurrence of mammalian carnivores within Brazilian Atlantic Forest. *Journal of Mammalogy* 98:1721–1731.
+
+2. Pena et al. 2017. Impacts of mining activities on the potential geographic distribution of eastern Brazil mountaintop endemic species. *Perspectives in Ecology and Conservation* 15:172–178.
+
+1. Beca et al. 2017. High mammal species turnover in forest patches immersed in biofuel plantations. *Biological Conservation* 210:352–359.
+
+---
+
+# Maurício H. Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+### Artigos em revisão
+4. Santos et al. The Effects of Landscape Modification on Species Richness of Fruit-Feeding Butterflies in a Highly Threatened Hotspot. *Diversity and Distributions*
+
+3. Moraes et al. Predicting hybridization risk between Brazilian native marmosets and invasive congeners.
+
+2. Marjakangas et al. Fragmented tropical forests lose quantity and quality of mutualistic interactions. *Diversity and Distributions*
+
+1. Bertassoni et al. Role of non-protected areas in large sized mammal conservation: sweet opportunities to face sugarcane and biofuel threats. *Journal of Mammalogy*
+
+---
+
+# Curso
+
+--
+
+### Pedido do **Prof. Mauro** para treinamento do Labic
+
+--
+
+background-image: url(https://media.giphy.com/media/9rnoFO1PP1rZYHFRtW/giphy.gif)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/labic.jpg)
+background-size: 400px
+background-position: 75% 95%
+
+# Participantes
+
+## Apresentações
+
+1. Nome
+
+2. Formação
+
+3. Com o que trabalha?
+
+4. Conhece o R?
+
+5. O que espera do curso?
+
+---
+
+# Curso
+
+&lt;br&gt;
+&lt;br&gt;
+
+### Duração
+~50 h
+
+--
+
+### Datas
+07/01/2019 - 11/01/2019 (seg-sex)
+&lt;br&gt;
+14/01/2019 - 16/01/2019 (seg-qua)
+
+--
+
+### Horários
+09:00 às 12:00 h (3 h)
+&lt;br&gt;
+13:30 às 16:30 h (3 h)
+
+---
+
+# Curso
+
+## Distribuição
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+### ~04 horas de teórico-prático (manhã-tarde)
+
+### ~02 horas de exercícios (tarde)
+
+---
+
+background-image: url(https://www.r-project.org/logo/Rlogo.svg)
+background-size: 300px
+background-position: 75% 75%
+
+# Curso
+
+## Conteúdo
+
+### 1 Linguagem R, aplicações e material
+1.1 Linguagem R
+&lt;br&gt;
+1.2 Linguagem R vs software RStudio
+&lt;br&gt;
+1.3 Aplicações da linguagem R
+&lt;br&gt;
+1.4 Apostilas, sites e livros
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2015/10/rstudio-300x260.png)
+background-size: 400px
+background-position: 85% 85%
+
+# Curso
+
+## Conteúdo
+
+### 2 Funcionamento da linguagem R
+2.1 RStudio
+&lt;br&gt;
+2.2 Editor/Roteiro (*code*/*script*)
+&lt;br&gt;
+2.3 Comentários (*#*)
+&lt;br&gt;
+2.4 Atribuição (*&lt;-*)
+&lt;br&gt;
+2.5 Funções
+&lt;br&gt;
+2.6 Pacotes
+&lt;br&gt;
+2.7 Ambiente (*environment*/*workspace*)
+&lt;br&gt;
+2.8 Ajuda (*help*)
+&lt;br&gt;
+2.9 Citações
+
+---
+
+background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
+background-size: 500px
+background-position: 85% 80%
+
+# Curso
+
+## Conteúdo
+
+### 3 Estrutura e manejo de dados
+3.1 Atributos dos objetos
+&lt;br&gt;
+3.2 Modos dos objetos (*numeric*, *character* e *logical*)
+&lt;br&gt;
+3.3 Estrutura dos objetos (*vector*, *factor*, *matrix*, *data frame* e *list*)
+&lt;br&gt;
+3.4 Diretório de trabalho
+&lt;br&gt;
+3.5 Importar dados
+&lt;br&gt;
+3.6 Conferir dados
+&lt;br&gt;
+3.7 Manejar dados
+&lt;br&gt;
+3.8 Valores faltantes e especiais
+&lt;br&gt;
+3.9 Exportar dados
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyverse.png)
+background-size: 250px
+background-position: 75% 75%
+
+# Curso
+
+## Conteúdo
+
+### 4 Introdução ao tidyverse
+4.1 tidyverse
+&lt;br&gt;
+4.2 readr
+&lt;br&gt;
+4.3 readxl
+&lt;br&gt;
+4.4 tibble
+&lt;br&gt;
+4.5 magrittr (*pipe - %&gt;%*)
+&lt;br&gt;
+4.6 dplyr
+&lt;br&gt;
+4.7 tidyr
+&lt;br&gt;
+4.8 stringr
+&lt;br&gt;
+4.9 forcats
+&lt;br&gt;
+4.10 purrr
+&lt;br&gt;
+4.11 rmarkdown
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_data.png)
+background-size: 550px
+background-position: 100% 90%
+
+# Curso
+
+## Conteúdo
+
+### 5 Visualização de dados
+5.1 Tipos de dados (*variáveis = colunas*)
+&lt;br&gt;
+5.2 Principais tipos de gráficos
+&lt;br&gt;
+5.3 Gráficos no R (*base* e *ggplot2*)
+&lt;br&gt;
+5.4 Histograma (*histogram*)
+&lt;br&gt;
+5.5 Gráfico de caixa (*box plot*)
+&lt;br&gt;
+5.6 Gráfico de barras (*bar plot*)
+&lt;br&gt;
+5.7 Gráfico de setores (*pie chart*)
+&lt;br&gt;
+5.8 Gráfico de dispersão (*scatter plot*)
+&lt;br&gt;
+5.9 Gráfico pareado (*pairs plot*)
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/estatistica1.png)
+background-size: 300px
+background-position: 95% 5%
+
+# Curso
+
+## Conteúdo
+
+### 6 Análise de dados
+6.1 Estrutura geral de uma pesquisa
+&lt;br&gt;
+6.2 Hipóteses
+&lt;br&gt;
+6.3 População, amostra e variável
+&lt;br&gt;
+6.4 Tipos de variáveis
+&lt;br&gt;
+6.5 Tipos de análises (*univariadas* e *multivariadas*)
+&lt;br&gt;
+6.6 Tipos de análises (*descritivas* e *inferenciais*)
+&lt;br&gt;
+6.7 Tipos de análises (*paramétricas* e *não-paramétricas*)
+&lt;br&gt;
+6.8 Análises descritivas (*gráficos*, *tabelas* e *parâmetros - medidas de posição e dispersão*)
+&lt;br&gt;
+6.9 Análises inferenciais para dados qualitativos (*qui-quadrado*)
+&lt;br&gt;
+6.10 Análises inferenciais para dados qualitativos e quantitativos (*anova - fatores e independência*)
+&lt;br&gt;
+6.11 Análises inferenciais para dados quantitativos (*regressão linear simples e múltipla*, *ajuste* e *avaliação dos modelos*)
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/estatistica2.png)
+background-size: 400px
+background-position: 90% 90%
+
+# Curso
+
+## Conteúdo
+
+### 7 Modelos Lineares Generalizados (GLM)
+7.1 Famílias de distribuição (*Gaussiana*, *Binomial* e *Poisson*)
+&lt;br&gt;
+7.2 Funções de ligação
+&lt;br&gt;
+7.3 Ajuste dos modelos
+&lt;br&gt;
+7.4 Avaliação do ajuste dos modelos
+&lt;br&gt;
+7.5 Seleção de modelos (*AIC*)
+
+---
+
+# Curso
+  
+## IMPORTANTE!
+  
+--
+  
+### Esse curso está sendo pago com **dinheiro público**!
+  
+--
+  
+### **Aproveitem** o máximo possível!
+  
+--
+  
+### Se possível, **foquem** apenas no curso nesses dias!
+  
+--
+  
+### **Perguntem** o que não entenderam!
+  
+--
+  
+### **Evitem** celular, redes sociais e outras distrações!
+  
+--
+
+&lt;br&gt;
+### Estudar R e estatística geraram muitas **oportunidades** de parcerias em **pesquisas** e **trabalho**!
+
+---
+
+# Curso
+
+## IMPORTANTE!
+
+### Só se aprende R...
+
+--
+
+### ...'errando'
+
+--
+
+### Esse curso é apenas o **começo**, o aprendizado é com vocês!
+
+--
+
+### Será como **reaprender** à pensar, falar e escrever
+
+--
+
+### Aprender leva **tempo**! Muito tempo....
+
+--
+
+### Ponto positivo: há **muito material disponível** e **grátis**!
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+&lt;br&gt;
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
+| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

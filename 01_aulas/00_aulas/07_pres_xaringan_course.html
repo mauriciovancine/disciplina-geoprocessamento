@@ -1,0 +1,3297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introdução à linguagem R:</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maurício H. Vancine" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução à linguagem R: <br><br>
+## 7 Análise de dados<br><br><br>
+### Maurício H. Vancine
+### 14/01/2019
+
+---
+
+
+
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/estatistica1.png)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+class: inverse, center, middle
+
+# IMPORTANTE! Antes de eu falar qualquer coisa: **não sou estatístico**, **sou ecólogo** como vocês, mas que gosta muito de **Estatística** e vem trabalhando há algum tempo com essa ferramenta
+
+---
+
+class: inverse, center, middle
+
+# Dito isso, posso ter cometido **algum erro conceitual**. Se o fiz, peço **desculpas antecipadamente** e espero sinceramente não os **prejudicar** futuramente
+
+---
+
+# 7 Análise de dados
+## Tópicos
+7.1 Estrutura geral de uma pesquisa
+&lt;br&gt;
+7.2 Método científico
+&lt;br&gt;
+7.3 População, amostra e variável
+&lt;br&gt;
+7.4 Tipos de variáveis
+&lt;br&gt;
+7.5 Tipos de análises: univariadas e multivariadas
+&lt;br&gt;
+7.6 Tipos de análises: descritivas e inferenciais
+&lt;br&gt;
+7.7 Análises explanatórias
+&lt;br&gt;
+7.8 Análises inferenciais
+&lt;br&gt;
+7.9 Análises inferenciais qualitativas
+&lt;br&gt;
+7.10 Tipos de análises: paramétricas e não-paramétricas
+&lt;br&gt;
+7.11 Análises inferenciais qualitativas
+
+---
+
+background-image: url(https://design.jet.com.br/editoraufv/Produto/5446740985_principios-de-estatistica-em-ecologia.jpg)
+background-size: 250px
+background-position: 50% 75%
+
+# 7 Análise de dados
+
+## Livros
+
+### **Princípios Estatísticos em Ecologia (2004 [2011])** 
+
+### Nicholas Gotelli e Aaron Ellison [Victor Landeiro]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://sites.google.com/site/vllandeiror/
+
+---
+
+background-image: url(https://images.livrariasaraiva.com.br/imagemnet/imagem.aspx/?pro_id=9748081&amp;qld=90&amp;l=430&amp;a=-1=1004198474)
+background-size: 230px
+background-position: 50% 70%
+
+# 7 Análise de dados
+
+## Livros
+
+### **Estatística Básica (2017)** 
+
+### Wilton Bussab e Pedro Morettin
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.ime.usp.br/~pam/scriptsR.html
+
+---
+
+background-image: url(https://images-na.ssl-images-amazon.com/images/I/51BnpHBDg-L._SX373_BO1,204,203,200_.jpg)
+background-size: 250px
+background-position: 50% 70%
+
+# 7 Análise de dados
+
+## Livros
+
+### **A primer of ecological statistics (2012)** 
+
+### Nicholas Gotelli e Aaron Ellison
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://harvardforest.fas.harvard.edu/ellison/publications/primer/datafiles2e
+
+---
+
+background-image: url(https://images-na.ssl-images-amazon.com/images/I/41ZM0yCFzLL._SX350_BO1,204,203,200_.jpg)
+background-size: 230px
+background-position: 50% 70%
+
+# 7 Análise de dados
+
+## Livros
+
+### **Analyzing Ecological Data (2007)** 
+
+### Alain Zuur, Elena Ieno e Graham Smith
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://highstat.com/index.php/analysing-ecological-data
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9780387874579.jpg)
+background-size: 200px
+background-position: 50% 75%
+
+# 7 Análise de dados
+
+## Livros
+
+### **Mixed Effects Models and Extensions in Ecology with R**&lt;sup&gt;*&lt;/sup&gt;
+
+### Alain Zuur, Elena Ieno, Neil Walker, Anatoly Saveliev e Graham Smith
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://highstat.com/index.php/mixed-effects-models-and-extensions-in-ecology-with-r
+
+---
+
+background-image: url(https://qkstats.files.wordpress.com/2015/08/cover.jpg)
+background-size: 250px
+background-position: 50% 70%
+
+# 7 Análise de dados
+
+## Livros
+
+### **Experimental Design and Data Analysis for Biologists (2002)** 
+
+### Gerry Quinn e Michael Keough
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://ms.mcmaster.ca/~bolker/emdbook/index.html
+
+---
+
+background-image: url(https://press.princeton.edu/sites/default/files/styles/large/public/covers/9780691125220_0.png?itok=3jLmBQjA)
+background-size: 250px
+background-position: 50% 70%
+
+# 7 Análise de dados
+
+## Livros
+
+### **Ecological Models and Data in R (2008)**
+
+### Ben Bolker
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://ms.mcmaster.ca/~bolker/emdbook/index.html
+
+---
+
+background-image: url(https://radio.ufg.br/up/120/o/Thiago_Rangel.jpg)
+background-size: 500px
+background-position: 50% 75%
+
+# 7 Análise de dados
+
+## Sites
+
+### **Estatística para Pesquisa Científica** 
+
+### Prof. Thiago Rangel
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://rangel.eco.br/index.html
+
+---
+
+background-image: url(http://www.noticias.uem.br/images_portal/stories/Isolde_site.jpg)
+background-size: 500px
+background-position: 50% 75%
+
+# 7 Análise de dados
+
+## Sites
+
+### **Estatística para Pesquisa Científica** 
+
+### Profa. Isolde Previdelli
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://biostatistics-uem.github.io/Bio/index.html
+
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/pesquisa.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 7.1 Estrutura geral de uma pesquisa
+
+---
+
+# 7.2 Método Científico
+
+--
+
+### **Indutivo**: chegar a uma **lei geral** por meio da observação de certos **casos particulares**
+
+--
+
+### **Dedutivo**: parte de **teorias e leis consideradas gerais** buscando explicar a ocorrência de **fenômenos particulares**
+
+--
+
+### **Hipotético-dedutivo**: 1. problema ou lacuna de conhecimento, 2. formulação de **hipóteses**, 3. inferência dedutiva (**teste das hipóteses** para os casos particulares - tentativa de **falseamento ou refutação**), 4. corroboração
+
+--
+
+### **Dialético**: leva em conta o constante movimento dos **fenômenos históricos-sociais** para o entendimento da totalidade
+
+---
+
+background-image: url(http://2.bp.blogspot.com/-w-hfWsfsPuY/T-fCEn_Os0I/AAAAAAAAAY0/WCRJuRxlQ_c/s1600/ciencia_e_religi%C3%A3o.jpg)
+background-size: 500px
+background-position: 50% 60%
+
+# 7.2 Método Científico
+
+## Filosofia da Ciência
+
+---
+
+# 7.2 Método Científico
+
+## **Método hipotético-dedutivo**
+
+### 1. problema ou lacuna de conhecimento
+### 2. formulação de **hipóteses**
+### 3. inferência dedutiva (**teste das hipóteses** para os casos particulares - tentativa de **falseamento ou refutação**)
+### 4. corroboração
+
+---
+
+# 7.2 Método Científico
+
+## **Método hipotético-dedutivo**
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+background-image: url(https://i2.wp.com/blog.mettzer.com/wp-content/uploads/2017/05/metodo-cientifico2.jpg?w=583&amp;ssl=1)
+background-size: 350px
+background-position: 50% 80%
+
+# 7.2 Método Científico
+
+## **Método hipotético-dedutivo**
+
+---
+
+background-image: url(https://cnoanadiastc.files.wordpress.com/2010/01/metodo-cientifico-21.gif)
+background-size: 500px
+background-position: 50% 60%
+
+# 7.2 Método Científico
+
+## **Método hipotético-dedutivo**
+
+---
+
+background-image: url(https://1.bp.blogspot.com/-7ZhO35Gndpo/Vd3lkIcyaMI/AAAAAAAABSQ/Xs44DNNjMjc/s1600/Screen%2BShot%2B2015-08-26%2Bat%2B10.12.30%2BAM.png)
+background-size: 400px
+background-position: 50% 80%
+
+# 7.2 Método Científico
+
+## Ben Bolker
+
+---
+
+
+# 7.2 Método Científico
+
+## Ben Bolker
+
+.pull-left[
+&lt;img src="https://ms.mcmaster.ca/~bolker/bmb_glm.jpg" width=200 height=200&gt;
+]
+
+.pull-right[
+&lt;img src="https://press.princeton.edu/sites/default/files/styles/large/public/covers/9780691125220_0.png?itok=3jLmBQjA"&gt;
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://ms.mcmaster.ca/~bolker/emdbook/index.html
+
+---
+
+background-image: url(https://1.bp.blogspot.com/-7ZhO35Gndpo/Vd3lkIcyaMI/AAAAAAAABSQ/Xs44DNNjMjc/s1600/Screen%2BShot%2B2015-08-26%2Bat%2B10.12.30%2BAM.png)
+background-size: 400px
+background-position: 50% 80%
+
+# 7.2 Método Científico
+
+## Ben Bolker
+
+---
+
+background-image: url(http://agencia.fapesp.br/agencia-novo/imagens/noticia/28416.jpg)
+background-size: 700px
+background-position: 50% 80%
+
+# 7.2 Método Científico
+
+## **1. Pergunta**
+
+### Como as **modificações da paisagem** (perda e fragmentação de habitat) afetam as comunidades de **anfíbios**?
+
+---
+
+background-image: url(https://cdn-images-1.medium.com/max/800/0*BZmrxsaQNeaFHdsT.)
+background-size: 300px
+background-position: 50% 90%
+
+# 7.2 Método Científico
+
+## **2. Coleta dos dados**
+
+### Ir para campo, anotar e/ou medir diversas variáveis
+
+### Caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+
+---
+
+background-image: url(https://marcoarmello.files.wordpress.com/2018/01/figura-1.png)
+background-size: 500px
+background-position: 50% 80%
+
+# 7.2 Método Científico
+
+## **2. Coleta [e organização] dos dados**
+
+### Voltar do campo, com cadernos, planilhas, câmeras...
+
+### Planilhar dados, visualizar fotos, identificar plantas, e café, muito, café...
+
+---
+
+# 7.2 Método Científico
+
+## **3. Modelos estatísticos**
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.2 Método Científico
+
+## **3. Modelos estatísticos**
+
+### E por que eu preciso fazer um **modelo estatístico**?
+
+--
+
+### É possível **coletar todos os dados** em campo?
+
+--
+
+## Nunca!
+
+--
+
+### Não há **recursos financeiros**, **tempo** ou **pessoal** para fazer **censos** em campo (salvo algumas exceções)
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/populacao_estatistica.png)
+background-size: 700px
+background-position: 50% 80%
+
+# 7.3 População, amostra e variável
+
+### **População [estatística]**: consiste em **todos os elementos** (indivíduos, itens ou objetos) cujas características estejam **sendo estudadas**
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/amostra.png)
+background-size: 700px
+background-position: 50% 80%
+
+# 7.3 População, amostra e variável
+
+### **Amostra**: é uma **parcela da população estatística**, selecionada para fins de estudo, que deve **mantém as características da população**
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/variavel.png)
+background-size: 700px
+background-position: 40% 70%
+
+# 7.3 População, amostra e variável
+
+### **Variável [aleatória ou estatística]**: é uma **característica medida** sob o estudo, que assume **diferentes valores**
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/modelos_estatisticos.png)
+background-size: 700px
+background-position: 50% 99%
+
+# Relacionando as variáveis, teremos um...
+
+--
+
+### **Variável preditora [independente] (X)**: varia independentemente e é coletada com o intuito de explicar a variável resposta
+
+--
+
+### **Variável resposta [dependente] (Y)**: espera-se que varie, i.e., seja dependente, da(s) variável(is) preditoras
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/ajuste_modelo.png)
+background-size: 700px
+background-position: 50% 70%
+
+# ...modelo estatístico
+
+### **Modelo estatístico**: é a tentativa de explicar a variação de **variáveis respostas (Y)** em função de **variáveis preditoras (X)**
+
+---
+
+class: inverse, center, middle
+
+# E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+
+---
+
+class: inverse, center, middle
+
+# O **delineamento amostral**!!!
+
+---
+
+# Delineamento amostral
+
+## Conjunto de **métodos e decisões** que garantam que a **amostra** seja **parte representativa** da **população estatística**
+
+--
+
+### Depende de:
+1. Pergunta
+2. Grupo de pesquisa
+3. Métodos de amostragem (parcela, transecto, busca ativa, cameras, pitfall)
+4. Área de amostragem
+5. Tamanho da amostra
+6. Esforço de amostragem
+7. Autocorrelação espacial e temporal
+8. Pseudo-réplica
+&lt;br&gt;
+...
+
+---
+
+background-image: url(https://oestatistico.com.br/wp-content/uploads/2016/09/Infer%C3%AAncia-o-estat%C3%ADstico.jpg)
+background-size: 700px
+background-position: 50% 70%
+
+# Delineamento amostral e inferência
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/amostragem.png)
+background-size: 800px
+background-position: 50% 70%
+
+# Delineamento amostral e inferência
+
+## Há **diversos pontos** que poderiamm ser amostrados
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/amostragem_sel.png)
+background-size: 800px
+background-position: 50% 70%
+
+# Delineamento amostral e inferência
+
+### No entanto, amostramos o **máximo possível**, dentro das **limitações de recusos**, para "se aproximar" da **população estatística**
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+class: inverse, center, middle
+
+# Uma vez **definida a pergunta**, **criadas as hipóteses** e **escolhido os métodos e delimeamento amostral**, como decidir a **análise estatística** mais indicada para **testar** as hipóteses?
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/variables.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 7.4 Tipos de variáveis 
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/graficos_variaveis.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 7.4 Tipos de variáveis (gráficos)
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/analises_variaveis.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 7.4 Tipos de variáveis (análises estatísticas)
+
+---
+
+# 7.5 Tipos de análises: uni e multivariadas
+
+### Conjunto de dados de `iris` fornece medidas em centímetros das variáveis comprimento e largura da sépala e pétala de 50 flores de 3 espécies *Iris setosa*, *Iris versicolor* e *Iris virginica*.
+
+&lt;br&gt;&lt;br&gt;
+
+
+```r
+head(iris)
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+
+---
+
+# 7.5 Tipos de análises: uni e multivariadas
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### **Univariadas**: análises explanatórias e inferenciais para apenas **uma variável resposta (Y&lt;sub&gt;1&lt;/sub&gt;)**. Exemplos: Qui-quadrado, ANOVA, regressão linear, GLM, GAM
+
+&lt;br&gt;
+
+### **Multivariadas**: análises explanatórias e inferenciais para **duas ou mais variáveis resposta (Y&lt;sub&gt;1&lt;/sub&gt;, Y&lt;sub&gt;2&lt;/sub&gt;, Y&lt;sub&gt;3&lt;/sub&gt;, ..., Y&lt;sub&gt;n&lt;/sub&gt;)**. Exemplos: PCA, PCoA, agrupamentos, RDA, dbRDA
+
+---
+
+.pull-left[
+&lt;img src="https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/univariate.png" width=400 height=400&gt;
+]
+
+.pull-right[
+&lt;img src="https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/multivariate.png" width=400 height=400&gt;
+]
+
+# 7.5 Tipos de análises: uni e multivariadas
+
+---
+
+class: inverse, center, middle
+
+# Focaremos apenas nas análises **univariadas**. Análises **multivariadas** ficam para uma próxima vez...
+
+---
+
+class: inverse, clear, middle
+
+# Vamos importar alguns dados feitos para não dar errado...
+
+---
+
+background-image: url(https://octodex.github.com/images/octobiwan.jpg)
+background-size: 250px
+background-position: 50% 90%
+
+# Dados do GitHub
+
+## Vamos utilizar os dados que estão no meu **GitHub**
+
+
+`https://github.com/mauriciovancine/curso-r/tree/master/data`
+
+
+`dados_anfíbios.csv -&gt; Raw -&gt; Copia o link`
+
+--
+
+
+```r
+da &lt;- read_csv("https://raw.githubusercontent.com/mauriciovancine/curso-r/master/data/dados_anfibios.csv")
+da
+```
+
+---
+
+# Dados do GitHub
+
+## Dados criados para abordar todas as análises estatísticas e ainda responder à pergunta inicial
+
+--
+
+### Como as **modificações da paisagem** (perda e fragmentação de habitat) afetam as comunidades de **anfíbios**?
+
+--
+
+
+```r
+glimpse(da)
+```
+
+```
+## Observations: 21
+## Variables: 11
+## $ buffer          &lt;chr&gt; "b01", "b02", "b03", "b04", "b05", "b06", "b07",…
+## $ lat             &lt;dbl&gt; -23.646, -23.539, -23.539, -23.501, -23.490, -23…
+## $ long            &lt;dbl&gt; -47.471, -47.460, -47.458, -47.396, -46.364, -47…
+## $ n_sp            &lt;dbl&gt; 7, 6, 11, 8, 7, 3, 9, 9, 8, 6, 5, 4, 11, 8, 12, …
+## $ sp_flo          &lt;dbl&gt; 3, 5, 8, 6, 5, 1, 6, 6, 5, 2, 1, 1, 9, 7, 10, 5,…
+## $ sp_sav          &lt;dbl&gt; 4, 1, 3, 2, 2, 2, 3, 3, 3, 4, 4, 3, 2, 1, 2, 4, …
+## $ pres_inv        &lt;dbl&gt; 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, …
+## $ tam_medio_femur &lt;dbl&gt; 1.172, 1.171, 1.154, 1.075, 1.157, 1.259, 1.006,…
+## $ pct_flo         &lt;dbl&gt; 46, 57, 78, 71, 59, 12, 68, 53, 49, 29, 18, 19, …
+## $ conect          &lt;dbl&gt; 39.5, 42.4, 69.9, 58.8, 44.0, 22.3, 57.8, 41.2, …
+## $ matriz          &lt;chr&gt; "cana", "pasto", "pasto", "eucalipto", "cana", "…
+```
+
+---
+
+# 7.6 Análises: explanatórias e inferenciais
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### **Explanatórias [Descritivas]**: **sumariza os dados** de forma quantitativa, de forma a **resumir as informações**, através de **tabelas de frequências**, **gráficos** e **medidas-resumo**
+
+&lt;br&gt;
+
+### **Inferenciais**: conjunto de técnicas para **tirar conclusões dos dados**, e.g., **teste de hipóteses**, para fazer **inferências para a população** da qual as amostras foram retiradas
+
+---
+
+# 7.7 Análises explanatórias
+
+## **1 Tabelas de frequência**: resume variáveis qualitativas e quantitativas
+
+```r
+# tabela de frequencia - qualitativos
+ta.fr &lt;- da %&gt;% 
+  group_by(matriz) %&gt;% 
+  summarise(n_sp_fab = sum(n_sp), 
+            n_flo_fab = sum(sp_flo), 
+            n_sav_fab = sum(sp_sav)) %&gt;% 
+  mutate(n_sp_fre = (n_sp_fab / sum(n_sp_fab)) %&gt;% round(2),
+         n_flo_fre = (n_flo_fab / sum(n_flo_fab)) %&gt;% round(2),
+         n_sav_fre = (n_sav_fab / sum(n_sav_fab)) %&gt;% round(2))
+ta.fr
+```
+
+```
+## # A tibble: 3 x 7
+##   matriz    n_sp_fab n_flo_fab n_sav_fab n_sp_fre n_flo_fre n_sav_fre
+##   &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 cana            45        24        21     0.28      0.23     0.38 
+## 2 eucalipto       62        46        16     0.39      0.43     0.290
+## 3 pasto           54        36        18     0.34      0.34     0.33
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+## **2 Gráficos**: resume visualmente variáveis qualitativas e quantitativas
+
+```r
+# grafico de barras - qualitativos
+ta.fr.gat &lt;- ta.fr %&gt;% 
+  select(matriz, n_flo_fab, n_sav_fab) %&gt;% 
+  gather(key = sp_type, n_sp, n_flo_fab, n_sav_fab)
+ta.fr.gat
+```
+
+```
+## # A tibble: 6 x 3
+##   matriz    sp_type    n_sp
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;
+## 1 cana      n_flo_fab    24
+## 2 eucalipto n_flo_fab    46
+## 3 pasto     n_flo_fab    36
+## 4 cana      n_sav_fab    21
+## 5 eucalipto n_sav_fab    16
+## 6 pasto     n_sav_fab    18
+```
+  
+---
+
+# 7.7 Análises explanatórias
+
+## **2 Gráficos**: resume visualmente variáveis qualitativas e quantitativas
+
+```r
+ggplot(data = ta.fr.gat) +
+  aes(x = matriz, y = n_sp, fill = sp_type) +
+    geom_bar(position = position_dodge(), stat = "identity") +
+  labs(x = "Matriz",
+       y = "Número de espécies",
+       fill = "Espécies") +
+  scale_fill_manual(labels = c("Floresta", "Savana"),
+                    values = c("Forest green", "orange")) +
+  geom_text(aes(label = n_sp), vjust = 1.5, size = 3.5,
+             col = "white", position = position_dodge(0.9)) +
+  theme_classic() +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+## **2 Gráficos**
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.7 Análises explanatórias
+
+## **3 Medidas-resumo**: resume a valores *representativos* da série de dados
+
+--
+
+### **3.1 Medidas de posição**: média, mediana e moda
+
+### **3.2 Medidas de dispersão**: variância e desvio padrão
+
+### **3.3 Quantis**: p10, p25, p50, p75, p90
+
+### **3.4 Simetria**: assimetria, curtose e transformações
+
+---
+
+# 7.7 Análises explanatórias
+
+## **3.1 Medidas de posição**
+
+### **3.1.1. Média aritmética**: soma das observações, dividido pelo número de observações
+
+```r
+# media
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  mean()
+```
+
+```
+## [1] 50.42857
+```
+--
+
+```r
+# media
+mean(da$conect)
+```
+
+```
+## [1] 46.49048
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+## **3.1 Medidas de posição**
+
+### **3.1.2 Mediana**: posição central das observações, quanto estão ordenadas em ordem crescente
+
+```r
+# mediana
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  median()
+```
+
+```
+## [1] 57
+```
+--
+
+```r
+# mediana
+median(da$conect)
+```
+
+```
+## [1] 42.4
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+## **3.1 Medidas de posição**
+
+### **3.1.3 Moda**: o elemento mais frequente das observações. Pode haver mais de uma moda, logo temos distribuições bimodais, trimodais...
+
+```r
+# moda
+mo.pct &lt;- da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull()
+
+names(table(mo.pct))[table(mo.pct) == max(table(mo.pct))]
+```
+
+```
+## [1] "29" "65" "78"
+```
+--
+
+```r
+# moda
+names(table(da$conect))[table(da$conect) == max(table(da$conect))]
+```
+
+```
+## [1] "45.5"
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+## **3.2 Medidas de dispersão**
+
+### **3.2.1 Variância**: quantifca a variabilidade dos dados em torno da média
+
+```r
+# variancia
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  var()
+```
+
+```
+## [1] 618.6571
+```
+--
+
+```r
+# variancia
+var(da$conect)
+```
+
+```
+## [1] 292.6899
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+## **3.2 Medidas de dispersão**
+
+### **3.2.2 Desvio padrão**: Quantifca a variabilidade dos dados na mesma escala em que eles foram medidos
+
+```r
+# desvio padro
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  sd()
+```
+
+```
+## [1] 24.87282
+```
+--
+
+```r
+# desvio padro
+sd(da$conect)
+```
+
+```
+## [1] 17.10818
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+### **3.3 Quantis**: medidas que dividem os dados ordenados crescentemente em um número de partes iguais. Outros nomes: percentis (1/100), decis (1/10) e quartis (1/4)
+
+```r
+# quantis
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  quantile(probs = c(.05, .1, .25, .50, .75, .9, .99))
+```
+
+```
+##   5%  10%  25%  50%  75%  90%  99% 
+## 13.0 17.0 29.0 57.0 68.0 78.0 86.4
+```
+--
+
+```r
+# quantis
+quantile(da$conect, probs = c(.05, .1, .25, .50, .75, .9, .99))
+```
+
+```
+##    5%   10%   25%   50%   75%   90%   99% 
+## 24.40 30.40 33.30 42.40 57.80 75.20 79.64
+```
+
+---
+
+background-image: url(https://cdn-images-1.medium.com/max/1600/1*nj-Ch3AUFmkd0JUSOW_bTQ.jpeg)
+background-size: 600px
+background-position: 50% 80%
+
+# 7.7 Análises explanatórias
+
+### **3.4.1 Assimetria**: analisa a proximidade ou o afastamento de um conjunto de dados em relação à distribuição Gaussiana
+
+&lt;br&gt;
+
+- Se b&lt;sub&gt;1&lt;/sub&gt; = 0, a distribuição é **simétrica**
+- Se b&lt;sub&gt;1&lt;/sub&gt; &gt; 0, a distribuição **assimétrica a direita (positiva)**
+- Se b&lt;sub&gt;1&lt;/sub&gt; &lt; 0, a distribuição **assimétrica a esquerda (negativa)**
+
+---
+
+# 7.7 Análises explanatórias
+
+### **3.4.1 Assimetria**
+
+```r
+# pacote
+install.packages("e1071")
+```
+--
+
+```r
+library(e1071)
+```
+--
+
+```r
+# assimetria
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  skewness()
+```
+
+```
+## [1] -0.2475284
+```
+
+```r
+# assimetrica a esquerda
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+### **3.4.1 Assimetria**
+
+```r
+mean(da$pct_flo)
+```
+
+```
+## [1] 50.42857
+```
+
+```r
+median(da$pct_flo)
+```
+
+```
+## [1] 57
+```
+
+```r
+names(table(da$pct_flo))[table(da$pct_flo) == max(table(da$pct_flo))]
+```
+
+```
+## [1] "29" "65" "78"
+```
+--
+
+```r
+# media &lt; media &lt; moda
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+### **3.4.1 Assimetria**
+.pull-left[
+
+```r
+hist(da$pct_flo, 
+     col = "gray50",
+     prob = TRUE)
+lines(density(da$pct_flo),
+      lwd = 2,
+      col = "red")
+```
+]
+
+.pull-right[
+![](07_pres_xaringan_course_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url(http://www.portalaction.com.br/sites/default/files/resize/EstatisticaBasica/figuras/curtose1-700x304.png)
+background-size: 600px
+background-position: 50% 90%
+
+# 7.7 Análises explanatórias
+
+### **3.4.2 Curtose**: caracteriza a forma da distribuição quanto ao seu achatamento
+
+- Se b&lt;sub&gt;2&lt;/sub&gt; &lt; 0, a distribuição é **Platicúrtica**
+- Se b&lt;sub&gt;2&lt;/sub&gt; = 1, a distribuição é **Mesocúrtica**
+- Se b&lt;sub&gt;2&lt;/sub&gt; &gt; 1, a distribuição é **Leptocúrtica**
+
+---
+
+# 7.7 Análises explanatórias
+
+### **3.4.2 Curtose**
+
+```r
+# assimetria
+da %&gt;% 
+  select(pct_flo) %&gt;%
+  pull() %&gt;% 
+  kurtosis()
+```
+
+```
+## [1] -1.444745
+```
+
+```r
+# platicurtica
+```
+
+---
+
+# 7.7 Análises explanatórias
+
+### **3.4.2 Curtose**
+.pull-left[
+
+```r
+hist(da$pct_flo, 
+     col = "gray50",
+     prob = TRUE)
+lines(density(da$pct_flo),
+      lwd = 2,
+      col = "red")
+```
+]
+
+.pull-right[
+![](07_pres_xaringan_course_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+# 7.8 Análises inferenciais 
+
+## **Teste de hipóteses**
+
+### H&lt;sub&gt;0&lt;/sub&gt;: hipótese nula - sem efeito
+
+### H&lt;sub&gt;1&lt;/sub&gt;: hipótese alternativa - existe efeito
+
+--
+
+### Sempre testamos se a **H&lt;sub&gt;0&lt;/sub&gt;** é **verdadeira**, se for, não há efeito e paramos de analisar, concluindo que nossa **H&lt;sub&gt;1&lt;/sub&gt;** não pode ser **corroborada**
+
+--
+
+### No entanto, se podemos rejeitar a **H&lt;sub&gt;0&lt;/sub&gt;** com um **erro muito pequeno** (digamos, &lt; 5%), podemos assumir que **H&lt;sub&gt;1&lt;/sub&gt;** é verdadeira e explica o fato que estamos observando
+
+---
+
+# Princípio da parcimônia
+
+## **Princípio da parcimônia**: a explicação **mais simples** é sempre a **mais plausível**
+
+--
+
+### **A parsimonious view of the parsimony principle in ecology and evolution**
+Marco Túlio P. Coelho &lt;br&gt;
+José Alexandre Diniz‐Filho &lt;br&gt;
+Thiago F. Rangel &lt;br&gt;
+&lt;br&gt;
+Ecography 2018
+
+--
+
+background-image: url(https://wol-prod-cdn.literatumonline.com/cms/attachment/43380c30-360c-4ebf-b0cd-99f3cdb11f0c/ecog12385-fig-0001-m.jpg)
+background-size: 380px
+background-position: 78% 85%
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://doi.org/10.1111/ecog.04228
+
+---
+
+# 7.8 Análises inferenciais 
+
+## **Teste de hipóteses**
+
+### **Dois erros** podem ser cometidos ao se realizar um **teste de hipóteses**:
+
+--
+
+### 1. **Rejeitar** a hipótese H&lt;sub&gt;0&lt;/sub&gt;, quando tal hipótese é **verdadeira**
+
+--
+
+### 2. **Não rejeitar** a hipótese H&lt;sub&gt;0&lt;/sub&gt;, quando ela deveria **ser rejeitada**
+
+--
+&lt;br&gt;
+### **P(Erro Tipo I) = P(rejeitar H&lt;sub&gt;0&lt;/sub&gt;|H&lt;sub&gt;0&lt;/sub&gt; é verdadeira) = α**
+### P(Erro Tipo II) = P(não rejeitar H&lt;sub&gt;0&lt;/sub&gt;|H&lt;sub&gt;0&lt;/sub&gt; é falsa) = β
+### Poder do teste = P(Rejeitar H&lt;sub&gt;0&lt;/sub&gt;|H&lt;sub&gt;0&lt;/sub&gt; é falsa) = 1 − β
+
+---
+
+background-image: url(https://9001b62c-a-62cb3a1a-s-sites.googlegroups.com/site/ecolsampling/introestatistica/teste-de-hipotese/Erros%20estatisticos.png?attachauth=ANoY7coj1QBdgZk-6Bl5g3EpESguwKL4l_6YV7WYJoplc_8Q9VadblDYbo3kHUmmulb4i_F2T0LNavCfchw6dCyNMHPdgEu9ptiHCd_Q4YHmnq1n86fVXhcv9xpLSOOM6xbsJQrvbEkRoi44j7d2wPtHiedm9WuCtTXFy-7okEpg5Qm0DBoodJm6Ooz6pHPJNptR2VtX6lBdjTzpBcUwpdHr-Xc6RI4q-EUxa2tRhm6E-0I6gaROk0oG5m-BFwWzWyRxPhObjYR6VzHQ7US2eMD6xir9rsQsJQ%3D%3D&amp;attredirects=0)
+background-size: 700px
+background-position: 50% 65%
+
+# 7.8 Análises inferenciais 
+
+## **Teste de hipóteses**
+
+---
+
+class: inverse, center, middle
+
+# Alguém sabe de algum **valor interessante**, para assumir ao **valor de α**, para ter uma chance muito pequena de cometer o **erro tipo I**, i.e., **rejeitar H&lt;sub&gt;0&lt;/sub&gt;**, quando a **H&lt;sub&gt;0&lt;/sub&gt;** é **verdadeira**?
+
+---
+
+class: inverse, center, middle
+
+# Que tal **α = 0.05**?
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/xT77XWum9yH7zNkFW0/giphy.gif)
+background-size: 800px
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/p_value.png)
+background-size: 800px
+background-position: 50% 65%
+
+# 7.8 Análises inferenciais 
+
+## **Valor de p &lt; 0.05**
+
+---
+
+# 7.8 Análises inferenciais 
+
+## **Valor de p &lt; 0.05**
+
+--
+
+### **Probabilidade**: integral de toda a função de **distribuição de probabilidade** (f.d.p) = 1.00
+
+--
+
+### Iniciando a integral do **valor crítico da estatística** (Z, F, X&lt;sup&gt;2&lt;/sup&gt;, que é calculado à partir dos dados coletados) ao infinito, o resultado é a área abaixo da curva, que reslta no valor de **p**
+
+--
+
+### Assumindo **α = 0.05**, só podemos **rejeitar a H&lt;sub&gt;0&lt;/sub&gt;** se a área, i.e., a probabilidade for **p &lt; 0.05**
+
+---
+
+# 7.8 Análises inferenciais 
+
+## **Valor de p &lt; 0.05**
+
+### Dessa forma, se **p &lt; 0.05**, tenho uma **chance** (probabilidade) menor que 5% de cometer o erro de:
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+## **rejeitar H&lt;sub&gt;0&lt;/sub&gt;**, quando **H&lt;sub&gt;0&lt;/sub&gt;** é **verdadeira**
+
+---
+
+class: inverse, center, middle
+
+# O **α = 0.05** é fixo?
+
+---
+
+class: inverse, center, middle
+
+# Posso utilizar **α = 0.01**?
+
+---
+
+class: inverse, center, middle
+
+# E **α = 0.10**?
+
+---
+
+class: inverse, center, middle
+
+# Tudo irá depender da sua pergunta e do risco que pode/quer correr ao cometer o erro de: **rejeitar H&lt;sub&gt;0&lt;/sub&gt;** quando **H&lt;sub&gt;0&lt;/sub&gt;** é **verdadeira**!
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+class: inverse, center, middle
+
+# Com o que **sabemos até o momento**, podemos realizar um dos **testes mais simples em Ecologia**: o qui-quadrado
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+## **Pergunta** 
+### Há diferença no número de espécies de anfíbios coletados em fragmentos rodeados por diferentes tipos de matrizes?
+
+--
+
+## **Hipóteses**
+### **H&lt;sub&gt;0&lt;/sub&gt;**: não há diferença
+### **H&lt;sub&gt;1&lt;/sub&gt;**: há diferença
+
+---
+
+background-image: url(https://www.researchgate.net/profile/Joao_Carrico/publication/51163921/figure/fig10/AS:341864759742465@1458518318112/Contingency-table-CT-nij-denotes-the-number-of-objects-that-are-common-to-clusters-Ai_W640.jpg)
+background-size: 500px
+background-position: 50% 85%
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**: Dados de contagem
+### **Tabela de contingência** que contabiliza a quantidade de espécies de floresta e savana em cada matriz de amostragem
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Formato dos dados
+
+```r
+da.chi &lt;- da %&gt;% 
+  group_by(matriz) %&gt;% 
+  summarise(n_flo_fab = sum(sp_flo), 
+            n_sav_fab = sum(sp_sav)) %&gt;% 
+  as.data.frame()
+da.chi
+```
+
+```
+##      matriz n_flo_fab n_sav_fab
+## 1      cana        24        21
+## 2 eucalipto        46        16
+## 3     pasto        36        18
+```
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Formato dos dados
+
+```r
+# nomear as linhas colunas
+row.names(da.chi) &lt;- da.chi$matriz
+da.chi
+```
+
+```
+##              matriz n_flo_fab n_sav_fab
+## cana           cana        24        21
+## eucalipto eucalipto        46        16
+## pasto         pasto        36        18
+```
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Formato dos dados
+
+```r
+# retirar a primeira coluna
+da.chi &lt;- da.chi[, -1]
+da.chi
+```
+
+```
+##           n_flo_fab n_sav_fab
+## cana             24        21
+## eucalipto        46        16
+## pasto            36        18
+```
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Análise - função `chisq.test`
+
+
+```r
+# chi quadrado
+mo.chi &lt;- chisq.test(da.chi)
+mo.chi
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  da.chi
+## X-squared = 5.0695, df = 2, p-value = 0.07928
+```
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Tabela de dados 
+
+```r
+# tabela observada
+da.chi
+```
+
+```
+##           n_flo_fab n_sav_fab
+## cana             24        21
+## eucalipto        46        16
+## pasto            36        18
+```
+
+```r
+# tabela esperada
+mo.chi$expected
+```
+
+```
+##           n_flo_fab n_sav_fab
+## cana       29.62733  15.37267
+## eucalipto  40.81988  21.18012
+## pasto      35.55280  18.44720
+```
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Gráfico
+
+```r
+ggplot(data = ta.fr.gat) +
+  aes(x = matriz, y = n_sp, fill = sp_type) +
+  geom_bar(position = position_dodge(), stat = "identity") +
+  labs(x = "Matriz", y = "Número de espécies", fill = "Espécies") +
+  scale_fill_manual(labels = c("Floresta", "Savana"),
+                    values = c("Forest green", "orange")) +
+  geom_text(aes(label = n_sp), vjust = 1.5, size = 65,
+             col = "white", position = position_dodge(0.9)) +
+  theme_classic() +
+  annotate("text", label = "X-squared = 5.07, df = 2, p-value = 0.08", 
+           size = 6, x = 2, y = 50) +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+![](07_pres_xaringan_course_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **2 Gráficos**
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-36-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Pressuposto
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### **Normalidade**: distribuição normal da **variável resposta (Y)**
+
+--
+
+### As análises de pressupostos são sempre em relação à **variável resposta (Y)**!
+
+---
+
+class: inverse, center, middle
+
+# Dúvida: como deve ser a distribuição da **variável preditora (X)**?
+
+---
+
+# Distribuição da variável preditora
+
+## A variável preditora deve ter **distribuição uniforme**
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### Numa análise em que a **variável preditora (X)** é **contínua**, deve haver um **gradiente de variabilidade**, sendo que todos os valores devem ter a **mesma frequência aproximada**
+
+---
+
+# Distribuição da variável preditora
+
+## **Distribuição uniforme**
+.pull-left[
+
+```r
+# distribuição uniforme
+hist(
+  runif(20, 0, 100), 
+  col = "gray",
+  main = "",
+  xlab = "X")
+```
+]
+
+.pull-right[
+![](07_pres_xaringan_course_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de normalidade
+
+&lt;br&gt;&lt;br&gt;
+
+### A **suposição de normalidade dos dados** amostrais é uma **condição exigida** para a realização de muitas inferências válidas a respeito de **parâmetros populacionais**
+
+&lt;br&gt;
+--
+
+### Vários **métodos de estimação** e **testes de hipóteses** foram formulados sob a **suposição** de que a **amostra aleatória** tenha sido extraída de uma **população gaussiana**
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Tipo de análises
+
+&lt;br&gt;&lt;br&gt;
+
+### **Análises paramétricas**: para dados com distribuição gaussiana, usa **parâmetros**
+
+&lt;br&gt;&lt;br&gt;
+
+--
+
+### **Análises não-paramétricas**: para dados sem distribuição gaussiana, usa **ranques** (ordena os valores e usa suas posições)
+
+---
+
+background-image: url(https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG)
+background-size: 800px
+background-position: 50% 65%
+
+# 7.9 Análises inferenciais quantitativas
+
+## Distribuição Normal ou Gaussiana
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de Shapiro-Wilk
+
+### **H&lt;sub&gt;0&lt;/sub&gt;**: os dados seguem uma distribuição gaussiana
+
+--
+
+### Então, se **p &gt; 0.05**, os dados seguem uma **distribuição gaussiana**!
+
+```r
+shapiro.test(da$n_sp)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  da$n_sp
+## W = 0.96566, p-value = 0.6364
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Verificação gráfica: distribuição de densidade
+
+
+```r
+plot(density(da$n_sp), ylab = "Densidade", 
+     xlab = "Número de espécies", main = "")
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-39-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Verificação gráfica: qqplot
+
+
+```r
+qqnorm(da$n_sp)
+qqline(da$n_sp)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Verificação gráfica: qqplot
+
+
+```r
+library(car)
+qqPlot(da$n_sp, pch = 20, dist = "norm", envelope = .95)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+
+```
+## [1]  6 15
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de normalidade
+
+### E se não tiver distribui normal?
+
+--
+
+### Transformações:
+
+`log, log10, sqrt, ....`
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de Shapiro-Wilk
+
+### Então, se **p &gt; 0.05**, os dados seguem uma **distribuição gaussiana**!
+
+```r
+y &lt;- c(1, 2, 2, 3, 3, 3, 4, 5, 5, 2, 12, 8)
+shapiro.test(y)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  y
+## W = 0.81673, p-value = 0.01461
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de Shapiro-Wilk **com log**
+
+### Então, se **p &gt; 0.05**, os dados seguem uma **distribuição gaussiana**!
+
+```r
+y.log &lt;- log(c(1, 2, 2, 3, 3, 3, 4, 5, 5, 2, 12, 8))
+shapiro.test(y.log)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  y.log
+## W = 0.96881, p-value = 0.8979
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+### Verificação gráfica: distribuição de densidade
+
+
+```r
+plot(density(y), ylab = "Densidade", 
+     xlab = "Y", main = "")
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+### Verificação gráfica: distribuição de densidade
+
+
+```r
+plot(density(y.log), ylab = "Densidade", 
+     xlab = "Y", main = "")
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+### Verificação gráfica: qqplot
+
+
+```r
+qqnorm(y)
+qqline(y)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+### Verificação gráfica: qqplot
+
+
+```r
+qqnorm(y.log)
+qqline(y.log)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+### Verificação gráfica: qqplot
+
+
+```r
+library(car)
+qqPlot(y, pch = 20, dist = "norm", envelope = .95)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-48-1.png" style="display: block; margin: auto;" /&gt;
+
+```
+## [1] 11 12
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+### Verificação gráfica: qqplot
+
+
+```r
+library(car)
+qqPlot(y.log, pch = 20, dist = "norm", envelope = .95)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
+
+```
+## [1] 11  1
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de Shapiro-Wilk
+
+### E se a transformação não resolver?
+
+```r
+set.seed(1)
+y &lt;- rpois(100, 5)
+shapiro.test(y)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  y
+## W = 0.96911, p-value = 0.01891
+```
+
+---
+
+# 7.9 Análises inferenciais quantitativas
+
+## Teste de Shapiro-Wilk **com log**
+
+### E se a transformação não resolver?
+
+```r
+set.seed(1)
+y.log &lt;- log(rpois(100, 5))
+shapiro.test(y.log)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  y.log
+## W = 0.92345, p-value = 2.156e-05
+```
+
+---
+
+class: inverse, middle, center
+
+# Aí parte-se para **análises não-paramétricas**, que **não levam em condideração os valores**, mas sim as **posições dos valores** num ranqueamento
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA: análise de variância**
+
+## **Pergunta** 
+### Há diferença no tamanho do fêmur de anfíbios coletados em paisagens com diferentes tipos de predominância de matrizes?
+
+--
+
+## **Hipóteses**
+### **H&lt;sub&gt;0&lt;/sub&gt;**: não há diferença
+### **H&lt;sub&gt;1&lt;/sub&gt;**: há diferença
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/anova.png)
+background-size: 500px
+background-position: 50% 85%
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: dados contínuos no Y e categóricos no X
+### **Duas colunas**: X - variável qualitativa nominal ou ordinal; e Y - quantitativa medidas ou contagens
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+### 1. ANOVA com uma variável preditora (X) com dois fatores (aqui valores que essa variável assume - e.g., **alto** e **baixo**) é chamada de `test-t`, com uma função específica no R
+
+```r
+t.test(tam_medio_femur ~ matriz,
+       data = da %&gt;%  filter(matriz %in% c("cana",  "pasto")))
+```
+
+```
+## 
+## 	Welch Two Sample t-test
+## 
+## data:  tam_medio_femur by matriz
+## t = -0.3267, df = 8.0764, p-value = 0.7522
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.05747802  0.04319231
+## sample estimates:
+##  mean in group cana mean in group pasto 
+##            1.172571            1.179714
+```
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+### 2. ANOVA com uma variável preditora (X) com mais de dois fatores é realizada em duas etapas: **a priori** (para ver se há diferença entre os grupos) e **a posteriori** (para saber qual é essa diferença), usando as funções `aov` e `TukeyHSD()`
+
+```r
+# a priori
+aov.anf &lt;- aov(tam_medio_femur ~ matriz,
+               data = da)
+
+summary(aov.anf)
+```
+
+```
+##             Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+## matriz       2 0.04982 0.024912   13.67 0.000245 ***
+## Residuals   18 0.03281 0.001823                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+```r
+# a posteriori
+TukeyHSD(aov.anf)
+```
+
+```
+##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = tam_medio_femur ~ matriz, data = da)
+## 
+## $matriz
+##                         diff         lwr         upr     p adj
+## eucalipto-cana  -0.099571429 -0.15780979 -0.04133307 0.0010387
+## pasto-cana       0.007142857 -0.05109550  0.06538122 0.9475779
+## pasto-eucalipto  0.106714286  0.04847593  0.16495264 0.0005251
+```
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+```r
+# plot
+ggplot(da) +
+  aes(x = matriz, y = tam_medio_femur) +
+  geom_boxplot(size = 1, color = c("orange", "blue", "forest green")) +
+  geom_jitter(aes(color = matriz), width = .3, size = 4, alpha = .5) +
+  scale_color_manual(values = c("orange", "blue", "forest green")) +
+  labs(x = "Matriz",
+       y = "Tamanho do fêmur") +
+  theme_classic() +
+    theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 16))
+```
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-56-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+### 3. Deve-se atentar para a **independência das medidas**: as medidas podem ser **pareadas** ou **medidas repetidas** (mesmas pessoas entrevistadas antes da sessão de cinema e depois) ou **não pereadas** ou **medidas não repetidas** (pessoas diferentes)
+
+```r
+t.test(tam_medio_femur ~ matriz,
+       data = da %&gt;%  filter(matriz %in% c("cana", "pasto")),
+       paired = TRUE)
+```
+
+```
+## 
+## 	Paired t-test
+## 
+## data:  tam_medio_femur by matriz
+## t = -0.27525, df = 6, p-value = 0.7924
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.07064241  0.05635670
+## sample estimates:
+## mean of the differences 
+##            -0.007142857
+```
+
+---
+
+background-image: url(https://statistics.laerd.com/statistical-guides/img/levels-explanation.gif)
+background-size: 600px
+background-position: 50% 75%
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+### 4. Se a distribuição da **variável resposta (Y)** é normal ou não. Isso implicará em vários testes diferentes, dependendo do **número de fatores** e do **pareamento das medidas**
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/tipos_anova.png)
+background-size: 600px
+background-position: 50% 65%
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+---
+
+background-image: url(https://assets.cambridge.org/97805215/56965/cover/9780521556965.jpg)
+background-size: 200px
+background-position: 50% 65%
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: Livro
+
+### **Experiments in Ecology: Their Logical Design and Interpretation Using Analysis of Variance (2012)** 
+
+### A. J. Underwood
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.cambridge.org/core/books/experiments-in-ecology/DCF3663D5E7C9923D19B5ECE88167780
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+### 5. Pressuposto da homocedasticidade: os erros têm de ter **variância comum**. Isso implica que cada tratamento que se está sendo comparado pelo teste F, deve ter aproximadamente a **mesma variância** para que a **ANOVA tenha validade**
+
+```r
+# anova
+aov.anf &lt;- aov(tam_medio_femur ~ matriz,
+               data = da)
+summary(aov.anf)
+```
+
+```
+##             Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+## matriz       2 0.04982 0.024912   13.67 0.000245 ***
+## Residuals   18 0.03281 0.001823                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+```r
+boxplot(aov.anf$res ~ da$matriz, col = "gray")
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-59-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.10 Análises inferenciais quantitativas
+
+## **ANOVA**: 5 pontos importantes
+
+### Teste de Bartlett
+
+### **H&lt;sub&gt;0&lt;/sub&gt;**: não há diferença entre as variâncias, i.e, há homogeneidade das variâncias ou ainda homocedasticidade
+
+```r
+bartlett.test(aov.anf$res ~ da$matriz)
+```
+
+```
+## 
+## 	Bartlett test of homogeneity of variances
+## 
+## data:  aov.anf$res by da$matriz
+## Bartlett's K-squared = 3.8232, df = 2, p-value = 0.1478
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas de ANOVA?
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear: simples e múltipla**
+
+## **Pergunta** 
+### O tamanho do fêmur de anfíbios coletados em paisagens mais fragmentadas tende a ser maior do que de anfíbios de paisagens contínuas?
+
+--
+
+## **Hipóteses**
+### **H&lt;sub&gt;0&lt;/sub&gt;**: o tamanho não varia
+### **H&lt;sub&gt;1&lt;/sub&gt;**: o tamanho varia
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/linear.png)
+background-size: 500px
+background-position: 50% 85%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear: simples e múltipla**
+
+### **Duas ou mais colunas**: X&lt;sub&gt;1&lt;/sub&gt; + X&lt;sub&gt;2&lt;/sub&gt; - variáveis quantitativas de medidas ou contagens; e Y - variável quantitativa de medidas ou contagens
+
+---
+
+background-image: url(https://learningstatisticswithr.com/book/lsr_files/figure-html/regression0-1.png)
+background-size: 700px
+background-position: 50% 75%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+---
+
+background-image: url(https://learningstatisticswithr.com/book/lsr_files/figure-html/regression1a-1.png)
+background-size: 700px
+background-position: 50% 75%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+---
+
+background-image: url(https://learningstatisticswithr.com/book/lsr_files/figure-html/regression1b-1.png)
+background-size: 700px
+background-position: 50% 75%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+---
+
+background-image: url(https://learningstatisticswithr.com/book/lsr_files/figure-html/regression3a-1.png)
+background-size: 700px
+background-position: 50% 75%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+---
+
+background-image: url(https://learningstatisticswithr.com/book/lsr_files/figure-html/regression3b-1.png)
+background-size: 700px
+background-position: 50% 75%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/reta.png)
+background-size: 700px
+background-position: 60% 75%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+### Equação geral da reta
+
+---
+
+background-image: url(https://learningstatisticswithr.com/book/lsr_files/figure-html/regression3a-1.png)
+background-size: 450px
+background-position: 50% 95%
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+### Parâmetros estimados através do **Método dos Mínimos Quadrados (MMQ)**
+
+Encontra o **melhor ajuste** para um conjunto de dados **tentando minimizar** a soma dos quadrados das diferenças entre o **valor estimado** e os **dados observados**
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# modelo linear simples
+mo.lm &lt;- lm(tam_medio_femur ~ pct_flo,
+            data = da)
+mo.lm
+```
+
+```
+## 
+## Call:
+## lm(formula = tam_medio_femur ~ pct_flo, data = da)
+## 
+## Coefficients:
+## (Intercept)      pct_flo  
+##    1.229914    -0.001748
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+### 1. Parâmetros e testes-t dos parâmetros
+
+
+```r
+# resumo
+summary(mo.lm)$coefficients
+```
+
+```
+##                 Estimate   Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)  1.229913507 0.0244373339 50.329284 1.099139e-21
+## pct_flo     -0.001748049 0.0004366429 -4.003383 7.602949e-04
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+### 2. Parâmetros dos modelo (F, df e p)
+
+```r
+# resumo
+summary(mo.lm)$fstatistic
+```
+
+```
+##    value    numdf    dendf 
+## 16.02707  1.00000 19.00000
+```
+
+```r
+summary(mo.lm)$df[2]
+```
+
+```
+## [1] 19
+```
+
+```r
+summary(mo.lm)$coefficients[2,4]
+```
+
+```
+## [1] 0.0007602949
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+### 3. Coeficiente de determinação (R&lt;sup&gt;2&lt;/sup&gt;) - 0 a 1 - porcentagem de explicação
+
+```r
+# resumo
+summary(mo.lm)$r.squared
+```
+
+```
+## [1] 0.4575624
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+plot(tam_medio_femur ~ pct_flo, 
+     data = da,
+     pch = 20,
+     cex = 3)
+abline(mo.lm, lwd = 2, col = "red")
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-66-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+ggplot(data = da) +
+  aes(x = pct_flo, y = tam_medio_femur) +
+  geom_point(shape = 21, size = 5, col = "black", fill = "forestgreen") +
+  stat_smooth(method = "lm", col = "black", level = .95) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Tamanho do fêmur") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-68-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Retomando...
+
+---
+
+background-image: url(https://octodex.github.com/images/octobiwan.jpg)
+background-size: 250px
+background-position: 50% 90%
+
+# Dados do GitHub
+
+## Dados do **GitHub**
+
+
+`https://github.com/mauriciovancine/curso-r/tree/master/data`
+
+
+`dados_anfíbios.csv -&gt; Raw -&gt; Copia o link`
+
+
+```r
+library(tidyverse)
+
+da &lt;- read_csv("https://raw.githubusercontent.com/mauriciovancine/curso-r/master/data/dados_anfibios.csv")
+da
+```
+
+---
+
+class: inverse, center, middle
+
+# Qui-quadrado
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Formato dos dados
+
+```r
+da.chi &lt;- da %&gt;% 
+  group_by(matriz) %&gt;% 
+  summarise(n_flo_fab = sum(sp_flo), 
+            n_sav_fab = sum(sp_sav)) %&gt;% 
+  as.data.frame()
+da.chi
+```
+
+```
+##      matriz n_flo_fab n_sav_fab
+## 1      cana        24        21
+## 2 eucalipto        46        16
+## 3     pasto        36        18
+```
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Formato dos dados
+
+```r
+# nomear as linhas colunas
+row.names(da.chi) &lt;- da.chi$matriz
+da.chi
+```
+
+```
+##              matriz n_flo_fab n_sav_fab
+## cana           cana        24        21
+## eucalipto eucalipto        46        16
+## pasto         pasto        36        18
+```
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Formato dos dados
+
+```r
+# retirar a primeira coluna
+da.chi &lt;- da.chi[, -1]
+da.chi
+```
+
+```
+##           n_flo_fab n_sav_fab
+## cana             24        21
+## eucalipto        46        16
+## pasto            36        18
+```
+
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Análise - função `chisq.test`
+
+
+```r
+# chi quadrado
+mo.chi &lt;- chisq.test(da.chi)
+mo.chi
+```
+
+```
+## 
+## 	Pearson's Chi-squared test
+## 
+## data:  da.chi
+## X-squared = 5.0695, df = 2, p-value = 0.07928
+```
+---
+
+# 7.9 Análises inferenciais qualitativas
+
+## **Qui-quadrado**
+
+### Tabela de dados 
+
+```r
+# tabela observada
+da.chi
+```
+
+```
+##           n_flo_fab n_sav_fab
+## cana             24        21
+## eucalipto        46        16
+## pasto            36        18
+```
+--
+
+```r
+# tabela esperada
+mo.chi$expected
+```
+
+```
+##           n_flo_fab n_sav_fab
+## cana       29.62733  15.37267
+## eucalipto  40.81988  21.18012
+## pasto      35.55280  18.44720
+```
+
+---
+
+# Cálculo dos valores:
+
+```r
+# primeiro valor da tabela esperada
+(sum(da.chi[1, ]) * sum(da.chi[, 1])) / sum(rowSums(da.chi))
+```
+
+```
+## [1] 29.62733
+```
+--
+
+```r
+# segundo valor da tabela esperada
+(sum(da.chi[1, ]) * sum(da.chi[, 2])) / sum(colSums(da.chi))
+```
+
+```
+## [1] 15.37267
+```
+
+---
+
+class: inverse, center, middle
+
+# Regressão linear
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# modelo linear simples
+mo.lm &lt;- lm(tam_medio_femur ~ pct_flo,
+            data = da)
+mo.lm
+```
+
+```
+## 
+## Call:
+## lm(formula = tam_medio_femur ~ pct_flo, data = da)
+## 
+## Coefficients:
+## (Intercept)      pct_flo  
+##    1.229914    -0.001748
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+### Resumo do modelo
+
+
+```r
+# resumo
+summary(mo.lm)
+```
+
+```
+## 
+## Call:
+## lm(formula = tam_medio_femur ~ pct_flo, data = da)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.10505 -0.03583  0.02074  0.03171  0.06043 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.2299135  0.0244373  50.329  &lt; 2e-16 ***
+## pct_flo     -0.0017480  0.0004366  -4.003  0.00076 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.04857 on 19 degrees of freedom
+## Multiple R-squared:  0.4576,	Adjusted R-squared:  0.429 
+## F-statistic: 16.03 on 1 and 19 DF,  p-value: 0.0007603
+```
+
+---
+
+class: inverse, center, middle
+
+# Vamos usar tidyverse aqui também!
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/broom.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# parametros
+library(broom)
+tidy(mo.lm)
+```
+
+```
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)  1.23     0.0244       50.3  1.10e-21
+## 2 pct_flo     -0.00175  0.000437     -4.00 7.60e- 4
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# valores ajustados e residuos
+augment(mo.lm)
+```
+
+```
+## # A tibble: 21 x 9
+##    tam_medio_femur pct_flo .fitted .se.fit  .resid   .hat .sigma .cooksd
+##              &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1            1.17      46    1.15  0.0108  0.0225 0.0492 0.0496 0.00584
+##  2            1.17      57    1.13  0.0110  0.0407 0.0511 0.0489 0.0200 
+##  3            1.15      78    1.09  0.0160  0.0604 0.109  0.0476 0.106  
+##  4            1.08      71    1.11  0.0139 -0.0308 0.0818 0.0493 0.0195 
+##  5            1.16      59    1.13  0.0112  0.0302 0.0536 0.0494 0.0116 
+##  6            1.26      12    1.21  0.0198  0.0501 0.167  0.0482 0.128  
+##  7            1.01      68    1.11  0.0131 -0.105  0.0726 0.0428 0.197  
+##  8            1.09      53    1.14  0.0107 -0.0473 0.0482 0.0486 0.0252 
+##  9            1.16      49    1.14  0.0106  0.0207 0.0478 0.0496 0.00481
+## 10            1.20      29    1.18  0.0141  0.0178 0.0847 0.0497 0.00678
+## # … with 11 more rows, and 1 more variable: .std.resid &lt;dbl&gt;
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# coeficiente de determinacap
+glance(mo.lm)
+```
+
+```
+## # A tibble: 1 x 11
+##   r.squared adj.r.squared  sigma statistic p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.458         0.429 0.0486      16.0 7.60e-4     2   34.8 -63.5 -60.4
+## # … with 2 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+### 1 Os resíduos precisam ter **distribuição normal**, com média 0 e desvio padrao 1
+
+```r
+# distribuição normal dos residuos
+mean(mo.lm$residuals)
+```
+
+```
+## [1] -2.51835e-18
+```
+
+```r
+sd(mo.lm$residuals)
+```
+
+```
+## [1] 0.04734
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+
+```r
+# distribuição normal dos residuos
+shapiro.test(mo.lm$residuals)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  mo.lm$residuals
+## W = 0.88919, p-value = 0.02171
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+
+```r
+# distribuição normal dos residuos
+plot(density(mo.lm$residuals))
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-85-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+
+```r
+# qqplot
+library(car)
+qqPlot(mo.lm$residuals)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-86-1.png" style="display: block; margin: auto;" /&gt;
+
+```
+## [1]  7 12
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+### 2 A variância dos resíduos é homogênea ao longo de X
+
+```r
+# distribuição normal dos resíduos
+plot(da$pct_flo, mo.lm$residuals)
+abline(h = 0, col = "red")
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-87-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Podemos fazer algumas transformações na variável Y e reanalizar o modelo, porém...
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# teste de normalidade
+shapiro.test(da$tam_medio_femur)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  da$tam_medio_femur
+## W = 0.96975, p-value = 0.7274
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# teste de normalidade
+plot(density(da$tam_medio_femur))
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-89-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# modelo linear simples
+mo.lm.log10 &lt;- lm(log10(tam_medio_femur) ~ pct_flo,
+            data = da)
+mo.lm.log10
+```
+
+```
+## 
+## Call:
+## lm(formula = log10(tam_medio_femur) ~ pct_flo, data = da)
+## 
+## Coefficients:
+## (Intercept)      pct_flo  
+##   0.0904788   -0.0006657
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+### Resumo do modelo
+
+
+```r
+# resumo
+summary(mo.lm.log10)
+```
+
+```
+## 
+## Call:
+## lm(formula = log10(tam_medio_femur) ~ pct_flo, data = da)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.042614 -0.014697  0.008408  0.012505  0.023650 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.0904788  0.0095023   9.522 1.15e-08 ***
+## pct_flo     -0.0006657  0.0001698  -3.921 0.000918 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.01889 on 19 degrees of freedom
+## Multiple R-squared:  0.4472,	Adjusted R-squared:  0.4181 
+## F-statistic: 15.37 on 1 and 19 DF,  p-value: 0.0009183
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear simples**
+
+```r
+# parametros
+tidy(mo.lm.log10)
+```
+
+```
+## # A tibble: 2 x 5
+##   term         estimate std.error statistic      p.value
+##   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+## 1 (Intercept)  0.0905    0.00950       9.52 0.0000000115
+## 2 pct_flo     -0.000666  0.000170     -3.92 0.000918
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+
+```r
+# valores ajustados e residuos
+augment(mo.lm.log10)
+```
+
+```
+## # A tibble: 21 x 9
+##    log10.tam_medio… pct_flo .fitted .se.fit   .resid   .hat .sigma .cooksd
+##               &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1          0.0689       46  0.0599 0.00419  0.00907 0.0492 0.0193 0.00628
+##  2          0.0686       57  0.0525 0.00427  0.0160  0.0511 0.0190 0.0204 
+##  3          0.0622       78  0.0386 0.00624  0.0237  0.109  0.0185 0.108  
+##  4          0.0314       71  0.0432 0.00540 -0.0118  0.0818 0.0192 0.0190 
+##  5          0.0633       59  0.0512 0.00437  0.0121  0.0536 0.0192 0.0123 
+##  6          0.100        12  0.0825 0.00772  0.0175  0.167  0.0189 0.104  
+##  7          0.00260      68  0.0452 0.00509 -0.0426  0.0726 0.0164 0.215  
+##  8          0.0374       53  0.0552 0.00414 -0.0178  0.0482 0.0189 0.0235 
+##  9          0.0663       49  0.0579 0.00413  0.00847 0.0478 0.0193 0.00529
+## 10          0.0781       29  0.0712 0.00550  0.00692 0.0847 0.0193 0.00679
+## # … with 11 more rows, and 1 more variable: .std.resid &lt;dbl&gt;
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+
+```r
+# coeficiente de determinacap
+glance(mo.lm.log10)
+```
+
+```
+## # A tibble: 1 x 11
+##   r.squared adj.r.squared  sigma statistic p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.447         0.418 0.0189      15.4 9.18e-4     2   54.6 -103. -100.
+## # … with 2 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+### 1 Os resíduos precisam ter **distribuição normal**, com média 0 e desvio padrao 1
+
+```r
+# distribuição normal dos residuos
+mean(mo.lm.log10$residuals)
+```
+
+```
+## [1] -2.787545e-19
+```
+
+```r
+sd(mo.lm.log10$residuals)
+```
+
+```
+## [1] 0.01840778
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+
+```r
+# distribuição normal dos residuos
+shapiro.test(mo.lm.log10$residuals)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  mo.lm.log10$residuals
+## W = 0.88411, p-value = 0.01742
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+
+```r
+# distribuição normal dos residuos
+plot(density(mo.lm.log10$residuals))
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-97-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+
+```r
+# qqplot
+library(car)
+qqPlot(mo.lm.log10$residuals)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-98-1.png" style="display: block; margin: auto;" /&gt;
+
+```
+## [1]  7 12
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Diagnóstico da regressão**
+### 2 A variância dos resíduos é homogênea ao longo de X
+
+```r
+# distribuição normal dos resíduos
+plot(da$pct_flo, mo.lm.log10$residuals)
+abline(h = 0, col = "red")
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-99-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Transformação falhou miseravelmente...
+
+---
+
+class: inverse, center, middle
+
+# Mas o mundo não é tão simples e podemos ter várias variáveis preditoras...
+
+---
+
+class: inverse, center, middle
+
+# Para isso, **Regressão linear múltipla**
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+
+```r
+# modelo linear multiplo
+mo.lm.mu &lt;- lm(tam_medio_femur ~ pct_flo + conect,
+            data = da)
+mo.lm.mu
+```
+
+```
+## 
+## Call:
+## lm(formula = tam_medio_femur ~ pct_flo + conect, data = da)
+## 
+## Coefficients:
+## (Intercept)      pct_flo       conect  
+##   1.270e+00   -2.183e-05   -2.724e-03
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+### 1. Parâmetros e testes-t dos parâmetros
+### 2. Parâmetros dos modelo (F, df e p)
+### 3. Coeficiente de determinação ajustado (adjR&lt;sup&gt;2&lt;/sup&gt;)
+
+```r
+# resumo do modelo
+summary(mo.lm.mu)
+```
+
+```
+## 
+## Call:
+## lm(formula = tam_medio_femur ~ pct_flo + conect, data = da)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.104569 -0.013950  0.008641  0.018238  0.076612 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.270e+00  3.232e-02  39.274   &lt;2e-16 ***
+## pct_flo     -2.183e-05  1.065e-03  -0.020   0.9839    
+## conect      -2.724e-03  1.549e-03  -1.759   0.0956 .  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.0461 on 18 degrees of freedom
+## Multiple R-squared:  0.5371,	Adjusted R-squared:  0.4857 
+## F-statistic: 10.44 on 2 and 18 DF,  p-value: 0.0009758
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+
+```r
+# parametros
+tidy(mo.lm.mu)
+```
+
+```
+## # A tibble: 3 x 5
+##   term          estimate std.error statistic  p.value
+##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)  1.27        0.0323    39.3    6.74e-19
+## 2 pct_flo     -0.0000218   0.00107   -0.0205 9.84e- 1
+## 3 conect      -0.00272     0.00155   -1.76   9.56e- 2
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+
+```r
+# valores ajustados e residuos
+augment(mo.lm.mu)
+```
+
+```
+## # A tibble: 21 x 10
+##    tam_medio_femur pct_flo conect .fitted .se.fit   .resid   .hat .sigma
+##              &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1            1.17      46   39.5    1.16  0.0121  0.0111  0.0690 0.0474
+##  2            1.17      57   42.4    1.15  0.0165  0.0182  0.128  0.0472
+##  3            1.15      78   69.9    1.08  0.0178  0.0766  0.149  0.0429
+##  4            1.08      71   58.8    1.11  0.0132 -0.0328  0.0824 0.0467
+##  5            1.16      59   44      1.15  0.0163  0.00864 0.124  0.0474
+##  6            1.26      12   22.3    1.21  0.0188  0.0505  0.167  0.0455
+##  7            1.01      68   57.8    1.11  0.0124 -0.105   0.0726 0.0395
+##  8            1.09      53   41.2    1.16  0.0147 -0.0661  0.102  0.0443
+##  9            1.16      49   39.9    1.16  0.0134  0.00525 0.0843 0.0474
+## 10            1.20      29   33.3    1.18  0.0134  0.0188  0.0849 0.0472
+## # … with 11 more rows, and 2 more variables: .cooksd &lt;dbl&gt;,
+## #   .std.resid &lt;dbl&gt;
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+
+```r
+# coeficiente de determinacao
+glance(mo.lm)
+```
+
+```
+## # A tibble: 1 x 11
+##   r.squared adj.r.squared  sigma statistic p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.458         0.429 0.0486      16.0 7.60e-4     2   34.8 -63.5 -60.4
+## # … with 2 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+--
+
+```r
+# coeficiente de determinacao
+glance(mo.lm.mu)
+```
+
+```
+## # A tibble: 1 x 11
+##   r.squared adj.r.squared  sigma statistic p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.537         0.486 0.0461      10.4 9.76e-4     3   36.4 -64.9 -60.7
+## # … with 2 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;
+```
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+### plot
+
+```r
+library(car)
+avPlots(mo.lm.mu)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-106-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 7.11 Análises inferenciais quantitativas
+
+## **Regressão linear múltipla**
+### **Diagnóstico da regressão**
+
+
+```r
+par(mfrow  = c(1, 4))
+plot(mo.lm.mu)
+```
+
+&lt;img src="07_pres_xaringan_course_files/figure-html/unnamed-chunk-107-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+&lt;br&gt;
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
+| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

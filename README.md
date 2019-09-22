@@ -57,9 +57,12 @@ R, RStudio, QGIS e GRASS GIS <br>
 [Curso Básico de QGIS](https://www.youtube.com/playlist?list=PLRrETkwtvTrMEeicAyYABdNwPpnzZdw5q) <br>
 [Curso de QGIS 3.6 - MasterGIS](https://www.youtube.com/watch?v=anSaq5pbCpk&list=PLjHRAtOKOOLhHyQHUXBCfSqOWHFJZ1Pnf)
 
-3. Instalar a versão mais estável do [GRASS GIS (7.6.1 stable)]( https://grass.osgeo.org/#) <br>
+3. Instalar a versão mais estável do [GRASS GIS (7.6.1 stable)](https://grass.osgeo.org/#) <br>
 [Vídeo de instalação do GRASS GIS](https://youtu.be/wKRCtwq65VU) <br>
 [Curso de GRASS GIS](https://www.youtube.com/watch?v=56xkXMd9XBM&list=PLycBDiXWmuxnfLUjs1wkm6WvYsazeLZ0K)
+
+4. Instalar o [Sublime Text](https://www.sublimetext.com/) <br>
+[Vídeo de instalação do Sublime](https://youtu.be/j61dqr7geRo) <br>
 
 #### Linux (Ubuntu e Linux Mint)
 ```
@@ -91,6 +94,12 @@ sudo apt install -y qgis qgis-plugin-grass
 
 # grass
 sudo apt install -y grass
+
+# sublime text
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+sudo apt update
+sudo apt install -y sublime-text
 
 ```
 

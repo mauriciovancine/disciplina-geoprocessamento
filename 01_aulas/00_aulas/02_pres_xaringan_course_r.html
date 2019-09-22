@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introdução à linguagem R:</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Maurício H. Vancine" />
+    <meta name="date" content="2019-07-01" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução à linguagem R: <br><br>
+## 2 Funcionamento da linguagem R <br><br><br>
+### Maurício H. Vancine
+### 07/01/2019
+
+---
+
+
+
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-flat.svg)
+background-size: 600px
+background-position: 50% 50%
+
+---
+
+# 2 Funcionamento da linguagem R
+
+## Tópicos
+2.1 RStudio
+&lt;br&gt;
+2.2 Editor/Roteiro (*code*/*script*)
+&lt;br&gt;
+2.3 Comentários (*#*)
+&lt;br&gt;
+2.4 Atribuição (*&lt;-*)
+&lt;br&gt;
+2.5 Funções
+&lt;br&gt;
+2.6 Pacotes
+&lt;br&gt;
+2.7 Ambiente (*environment*/*workspace*)
+&lt;br&gt;
+2.8 Ajuda (*help*)
+&lt;br&gt;
+2.9 Citações
+&lt;br&gt;
+Exercícios
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio.png)
+background-size: 700px
+background-position: 50% 70%
+
+# 2.1 RStudio
+
+## Customizá-lo
+
+`Ferramentas (Tools) -&gt; Opções Globais (Global Options) -&gt; Aparência (Appearance) -&gt; Tema do editor (Editor Theme)`
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/programar.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+## Programar
+
+---
+
+background-image: url(https://media.giphy.com/media/9o9dh1JRGThC1qxGTJ/giphy.gif)
+background-size: 500px
+background-position: 50% 70%
+
+# 2.1 RStudio
+
+## Programar
+
+### Ter calma e paciência...
+
+---
+
+background-image: url(https://media.giphy.com/media/1r8SrQlamkYssy2WYX/giphy.gif)
+background-size: 400px
+background-position: 50% 75%
+
+# 2.1 RStudio
+
+## Programar
+
+### É muito complicado no começo...
+
+---
+
+background-image: url(https://media.giphy.com/media/12bVDtXPOzYwda/giphy.gif)
+background-size: 500px
+background-position: 50% 70%
+
+
+# 2.1 RStudio
+
+## Programar
+
+### Tentem não ficar furioso(a)s...
+
+---
+
+background-image: url(https://media.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif)
+background-size: 600px
+background-position: 50% 70%
+
+# 2.1 RStudio
+
+## Programar
+
+### E principalmente, não desistam...
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/script1.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/script2.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+`R Script (Ctrl + Shift + N)`
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/script3.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_console.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_console.png)
+background-size: 500px
+background-position: 50% 98%
+
+# 2.1 RStudio
+
+## Descrição das janelas
+
+- **Editor/Script**: é onde escrevemos nossos códigos
+- **Console**: é onde os códigos são rodados e vemos as saídas
+- **Environment**: painel com todos os objetos criados na sessão
+- **History**: painel com o histórico dos comandos rodados
+- **Files**: painel que mostra os arquivos no diretório de trabalho
+- **Plots**: painel onde os gráficos são apresentados
+- **Packages**: painel que lista os pacotes
+- **Help**: painel onde a documentação das funções é exibida
+
+---
+
+# 2.1 RStudio
+
+## Atalhos úteis:
+
+- **f1**: abre o painel de *Help*
+- **ctrl + Enter**: roda a linha selecionada no script
+- **ctrl + shift + N**: abre um novo script
+- **ctrl + S**: salva um script
+- **ctrl + Z**: desfaz uma operação
+- **ctrl + shift + Z**: refaz uma operação
+- **alt + -**: insere um sinal de atribuição (&lt;-)
+- **ctrl + shift + M**: insere um operador pipe (%&gt;%) 
+- **ctrl + shift + C**: comenta uma linha no script - insere um (#) 
+- **ctrl + shift + H**: abre uma janela para selecionar o diretório de trabalho
+- **ctrl + shift + f10**: reinicia o console
+- **ctrl + L**: limpa os comandos do console 
+- **alt + shift + K**: abre uma janela com todos os atalhos disponíveis
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_console_func.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.1 RStudio
+
+## Funcionamento
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/script3.png)
+background-size: 700px
+background-position: 50% 85%
+
+# 2.2 Editor/Roteiro (*code*/*script*)
+
+## Script
+
+- São **rascunhos** dos comandos
+- Será neles que os **códigos serão escritos** e depois **enviados ao console do R**
+- São **arquivos de texto simples**, que serão salvos no formato .R
+
+---
+
+# 2.2 Editor/Roteiro (*code*/*script*)
+
+## Esclarecimentos
+
+&lt;br&gt;&lt;br&gt;
+
+### Isso é texto, não digite no R!
+
+&lt;br&gt;
+
+
+```r
+print("Isso é o resultado que deve aparecer no console")
+```
+
+```
+## [1] "Isso é o resultado que deve aparecer no console"
+```
+
+---
+
+# 2.2 Editor/Roteiro (*code*/*script*)
+
+## Escolham uma linha e digitem no *script*:
+
+&lt;br&gt;&lt;br&gt;
+
+
+```r
+"Meu primeiro script no R."
+"Meu segundo script no R."
+"Meu milésimo script no R."
+"Meu n-ésimo script no R."
+```
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/script4.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.2 Editor/Roteiro (*code*/*script*)
+`ctrl + S`
+
+---
+
+class: inverse, center, middle
+
+# Calma!!!
+
+---
+
+class: inverse, center, middle
+
+# Onde vocês iam salvar?!
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/6gLyE15StAs3C/giphy.gif)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# Vamos padronizar:
+
+## Na raiz do `C:`,  criem essa pasta:
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+## `curso_r`
+
+---
+
+# Vamos padronizar:
+
+## Nessa pasta `C:/curso_r`, criem essas pastas:
+
+### **/00_scripts**
+### /01_dados
+### /02_aulas
+### /03_ementa
+### /04_material
+
+---
+
+class: inverse, center, middle
+
+# Calma!!!
+
+---
+
+class: inverse, center, middle
+
+# Que nome vocês iam salvar?!
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/6gLyE15StAs3C/giphy.gif)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# Vamos padronizar:
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### "script_r_curso_r_aula02_funcionamento_r_2019_01_d07.R"
+
+---
+
+# Sigam as instruções
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+## 1. Fechem o RStudio
+
+--
+
+## 2. Abram o RStudio
+
+--
+
+## 3. Abram o script salvo
+
+--
+
+## 4. Apaguem seu conteúdo
+
+---
+
+# Primeiros comandos
+
+### Todos os **comandos** serão digitados no **script**!
+
+--
+
+### Deixem o **cursor** em **qualquer local da linha** e executem essa linha utilizando essa **combinação**: 
+
+### `ctrl + Enter`
+
+--
+
+### Vamos testar:
+
+--
+
+
+```r
+1
+```
+
+```
+## [1] 1
+```
+--
+
+```r
+1 + 2
+```
+
+```
+## [1] 3
+```
+
+---
+
+class: inverse, center, middle
+
+# Todos entenderam como iremos fazer até o final do curso?
+
+---
+
+class: inverse, center, middle
+
+# Muito bem, podem apagar essas duas linhas
+
+---
+
+# 2.3 Comentários (*#*)
+
+### Comentários **não são lidos** pelo R
+
+--
+
+### São úteis para **descrever informações** sobre o **script** ou **comandos**s
+
+--
+
+### Cabeçalho
+
+
+```r
+### script curso de r - aula 02 - funcionamento do r ###
+
+# seu nome
+# 07-01-2019
+```
+
+--
+
+### Informações sobre os comandos
+
+
+```r
+## comentarios
+# o r nao le o codigo depois do # (hash)
+
+42 # esses palavras não são rodadas, apenas o 42
+```
+
+```
+## [1] 42
+```
+
+---
+
+# Calculadora
+
+## Operações matemáticas simples
+
+
+```r
+## operacoes aritmeticas (+, -, *, /, ^)
+10 + 2 # adicao
+```
+
+```
+## [1] 12
+```
+--
+
+```r
+10 - 2 # subtracao
+```
+
+```
+## [1] 8
+```
+--
+
+```r
+10 * 2 # multiplicacao
+```
+
+```
+## [1] 20
+```
+--
+  
+
+```r
+10 / 2 # divisao
+```
+
+```
+## [1] 5
+```
+--
+
+```r
+10 ^ 2 # potenciacao
+```
+
+```
+## [1] 100
+```
+
+---
+
+# Colchetes
+
+## Famigerados colchetes na resposta do console....
+
+
+```r
+## famigerados colchetes [] na resposta
+10 + 2 # adicao
+```
+
+```
+## [1] 12
+```
+--
+
+```r
+# indicam a posicao do numero em uma sequencia
+10:60 # sequencia unitaria de 10 a 60
+```
+
+```
+##  [1] 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+## [24] 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55
+## [47] 56 57 58 59 60
+```
+
+---
+
+class: inverse, middle, center
+
+# Fácil até aqui? Então vamos complicar...
+
+---
+
+# 2.4 Atribuição (*&lt;-*)
+
+### Possibilita a **manipulação de dados**
+
+--
+
+### Dados são "atribuídos" a **objetos**, que são **palavras** que "guardam" esses dados
+
+--
+
+### Iremos utilizar os símbolos **"&lt;" (menor)**, seguido de **"-" (menos)**, **sem espaço**!!!
+
+&lt;br&gt;
+
+--
+
+## **palavra &lt;- dados**
+
+### `alt + -`
+
+---
+
+# 2.4 Atribuição (*&lt;-*)
+
+### Vamos atribuir o **valor 10** à palavra **obj.10**
+
+--
+
+
+```r
+## atribuicao - simbolo (&lt;-)
+obj.10 &lt;- 10 
+```
+
+--
+
+### Agora a palavra **obj.10** vale **10**
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/6uGhT1O4sxpi8/giphy.gif)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# 2.4 Atribuição (*&lt;-*)
+
+## Sempre **confira** a atribuição!!!
+
+## Chame o objeto **novamente**!!!
+
+--
+
+
+```r
+## atribuicao - simbolo (&lt;-)
+obj.10 &lt;- 10 
+*obj.10
+```
+
+```
+## [1] 10
+```
+
+--
+
+### Outro exemplo:
+
+```r
+## atribuicao - simbolo (&lt;-)
+obj.2 &lt;- 2
+*obj.2
+```
+
+```
+## [1] 2
+```
+
+---
+
+class: inverse, middle, center
+
+# Os objetos podem ser visualizados no painel **Environment**
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_ambiente.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.4 Atribuição (*&lt;-*)
+
+##  Ambiente (*Environment*)
+
+---
+
+# 2.4 Atribuição (*&lt;-*)
+
+## CUIDADO 1!
+### O R **sobrescreve** os valores dos objetos com o **mesmo nome**!
+
+--
+
+
+```r
+# sobreescrever o valor dos objetos
+obj &lt;- 100
+obj
+```
+
+```
+## [1] 100
+```
+--
+
+```r
+obj &lt;- 2
+obj
+```
+
+```
+## [1] 2
+```
+
+---
+
+# 2.4 Atribuição (*&lt;-*)
+
+## CUIDADO 2!
+### O R tem **limitações** ao nomear objetos!
+
+--
+
+1. Nome de objetos só podem **começar por letras ou pontos (.)**
+
+--
+
+2. Nome de objetos só podem **conter letras, números, underscores (_) ou pontos (.)**
+
+--
+
+3.  R é *case-sensitive*, i.e., ele difere **letras maiúsculas** de **minúsculas**. Assim, um objeto chamado *"resposta"* é diferente do objeto *"RESPOSTA"*
+
+--
+
+4. Evitem utilizar **letras maiúsculas**, **acentos** ou **cedilha**
+
+--
+
+5. Nome de objetos não podem ser iguais a **nomes especies**: 
+
+`break, else, FALSE, for, function, if, Inf, NA, NaN, next, repeat, return, TRUE, while`
+
+---
+
+# Operações com objetos
+
+### Podemos utilizar **objetos** para fazer operações
+
+--
+
+
+```r
+# definir dois objetos
+va1 &lt;- 10
+va1
+```
+
+```
+## [1] 10
+```
+
+```r
+va2 &lt;- 2
+va2
+```
+
+```
+## [1] 2
+```
+
+---
+
+# Operações com objetos
+
+### Podemos utilizar **objetos** para fazer operações
+
+
+```r
+# operacoes com objetos
+va1 + va2 # adicao
+```
+
+```
+## [1] 12
+```
+--
+
+```r
+va1 - va2 # subtracao
+```
+
+```
+## [1] 8
+```
+--
+
+```r
+va1 * va2 # multiplicacao
+```
+
+```
+## [1] 20
+```
+--
+
+```r
+va1 / va2 # divisao
+```
+
+```
+## [1] 5
+```
+--
+
+---
+
+# Atribuição de resultados à objetos
+
+### Podemos ainda **atribuir os resultados** das operações a **objetos**
+
+
+```r
+# operacoes com objetos e atribuicao
+adi &lt;- va1 + va2 # adicao
+adi
+```
+
+```
+## [1] 12
+```
+--
+
+```r
+sub &lt;- va1 - va2 # subtracao
+sub
+```
+
+```
+## [1] 8
+```
+--
+
+```r
+mul &lt;- va1 * va2 # multiplicacao
+mul
+```
+
+```
+## [1] 20
+```
+--
+
+```r
+div &lt;- va1 / va2 # divisao
+div
+```
+
+```
+## [1] 5
+```
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas até aqui?
+
+---
+
+# 2.5 Funções
+
+## Funções
+### **Comandos** que realizam **operações** em **argumentos**
+
+--
+
+## Estrutura de uma função:
+
+### **nome_da_funcao**(**argumento1**, **argumento2**)
+
+&lt;br&gt;
+
+
+```r
+## funcoes
+# comandos que realizam operacoes em argumentos
+# estrutura de uma funcao
+# 1. nome da funcao - remete ao que ela faz
+# 2. parenteses - limitam a funcao
+# 3. argumentos - onde a funcao ira atuar 
+# 4. virgulas - separam os argumentos
+```
+
+---
+
+# 2.5 Funções
+
+### Os **argumentos** de uma função podem ser de **dois tipos**:
+
+--
+
+1. **Objetos**: a função irá **alterar os valores** atribuídos aos objetos
+
+--
+
+2. **Parâmetros**: valores fixos que informam um **método** ou a realização de uma **operação**. Informamos o **nome desse argumento**, seguido de **"="** e um **texto**, como *TRUE* ou *FALSE*.
+
+--
+
+### Exemplo:
+
+```r
+sum(1, NA)
+```
+
+```
+## [1] NA
+```
+
+```r
+sum(1, NA, na.rm = TRUE)
+```
+
+```
+## [1] 1
+```
+
+---
+
+# 2.5 Funções
+
+## Argumentos como **valores**
+
+&lt;br&gt;&lt;br&gt;
+
+
+```r
+# funcoes - argumentos como valores
+# soma
+sum(10, 2)
+```
+
+```
+## [1] 12
+```
+
+--
+
+&lt;br&gt;
+
+
+```r
+# produto
+prod(10, 2)
+```
+
+```
+## [1] 20
+```
+
+---
+
+# 2.5 Funções
+
+## Argumentos como **objetos**
+
+&lt;br&gt;&lt;br&gt;
+
+
+```r
+# funcoes - argumentos como objetos
+# soma
+sum(va1, va2)
+```
+
+```
+## [1] 12
+```
+
+--
+
+&lt;br&gt;
+
+
+```r
+# produto
+prod(va1, va2)
+```
+
+```
+## [1] 20
+```
+
+---
+
+# 2.5 Funções
+
+## Nomes dos argumentos
+
+
+```r
+# funcoes - nome dos argumentos
+# repeticao - todos
+rep(x = 1:5, times = 10)
+```
+
+```
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+## [36] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+```
+
+&lt;br&gt;&lt;br&gt;
+
+--
+
+
+```r
+# repeticao - cada
+rep(x = 1:5, each = 10)
+```
+
+```
+##  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4
+## [36] 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5
+```
+
+---
+
+# 2.5 Funções
+
+## Atribuição dos resultados das funções à objetos
+
+
+```r
+## atribuicao dos resultados
+# repeticao - todos
+rep.15.t &lt;- rep(x = 1:5, times = 10)
+rep.15.t
+```
+
+```
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+## [36] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+```
+--
+
+```r
+## atribuicao dos resultados
+# repeticao - todos
+rep.15.e &lt;- rep(x = 1:5, each = 10)
+rep.15.e
+```
+
+```
+##  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4
+## [36] 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5
+```
+
+---
+
+class: inverse, middle, center
+
+# Nesse momento, vocês já foram apresentados à 50% do funcionamento do R
+
+---
+
+# Atribuição, função e linha temporal
+
+--
+
+### 1. **Criar** dois objetos
+
+```r
+# criar dois objetos
+foo &lt;- 2
+bar &lt;- 3
+```
+
+--
+
+### 2. **Somar** esses objetos e **atribuição** ao objeto *soma*
+
+```r
+# somar e atribuir
+soma &lt;- sum(foo, bar)
+soma
+```
+
+```
+## [1] 5
+```
+
+--
+
+### 3. **Raiz quadrada** do *soma* e **atribuição** ao *raiz.qua*
+
+```r
+# raiz e atribuir
+raiz.qua &lt;- sqrt(soma)
+raiz.qua
+```
+
+```
+## [1] 2.236068
+```
+
+---
+
+# Atribuição, função e linha temporal
+
+## Esse é o processo de programação no R: 
+
+&lt;br&gt;&lt;br&gt;
+
+## 1. **Atribuição** de dados a objetos
+
+## 2. **Funções** que **operam e mudam** esses dados
+
+## 3. Nova **atribuição** desses resultados a novos objetos
+
+---
+
+# Atribuição, função e linha temporal
+
+--
+
+### 1. **Criar** dois objetos
+
+```r
+# criar dois objetos
+foo &lt;- 100
+bar &lt;- 300
+```
+
+--
+
+### 2. **Multiplicar** esses objetos e **atribuição** ao objeto *mult*
+
+```r
+# multiplicar e atribuir
+mult &lt;- prod(foo, bar)
+mult
+```
+
+```
+## [1] 30000
+```
+
+--
+
+### 3. **Logaritmo natural** do *mult* e **atribuição** ao *log.nat*
+
+```r
+# raiz e atribuir
+log.nat &lt;- log(mult)
+log.nat
+```
+
+```
+## [1] 10.30895
+```
+
+---
+
+class: inverse, middle, center
+
+# E vocês devem estar se perguntando: e como saber o nome das funções?!
+
+---
+
+class: inverse, middle, center
+background-image: url(https://media.giphy.com/media/3oKIPmM4hkQIf4p5T2/giphy.gif)
+background-size: 800px
+background-position: 50% 50%
+
+---
+
+class: clear
+background-image: url(http://material.curso-r.com/rbase/figures/ajuda_google.png)
+background-size: 800px
+background-position: 50% 50%
+
+## Uma **maracutaia** para ajudar!
+
+---
+
+class: inverse, middle, center
+
+# E de onde vêm as funções?!
+
+---
+
+# 2.5 Funções
+## Funções vêm de **duas fontes**:
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### 1. Pacotes já **instalados por padrão** e que são **carregados** quando abrimos o R
+
+--
+&lt;br&gt;
+
+### 2. Pacotes que **instalamos** e **carregamos** com comandos
+
+---
+
+class: inverse, middle, center
+
+# E o que são pacotes afinal?!
+
+---
+
+# 2.6 Pacotes
+
+## **Coleção de funções** para executar **tarefas específicas**
+
+--
+
+### Duas fontes: **CRAN** (*finalizados*) e **GitHub** (em *desenvolvimento*)
+
+--
+
+### Verificar **pacotes carregados**
+
+```r
+# verificar pacotes carregados
+search()
+```
+
+```
+## [1] ".GlobalEnv"        "package:stats"     "package:graphics" 
+## [4] "package:grDevices" "package:utils"     "package:datasets" 
+## [7] "package:methods"   "Autoloads"         "package:base"
+```
+
+--
+
+### Verificar **pacotes instalados**
+
+```r
+# verificar pacotes instalados
+library()
+```
+
+---
+
+# 2.6 Pacotes
+
+## Ex.: pacote `ggplot2` 
+
+&lt;br&gt;&lt;br&gt;
+
+## Fontes:
+
+### Pacotes do CRAN
+https://cran.r-project.org/web/packages/ggplot2/index.html
+
+&lt;br&gt;
+
+### Pacotes do GitHub
+https://github.com/tidyverse/ggplot2
+
+---
+
+# 2.6 Pacotes
+
+## Instalar pacotes
+
+--
+
+### 1. Instala-se apenas **uma vez**
+
+--
+
+### 2. **Precisa** estar conectado à **internet**
+
+--
+
+### 3. O **nome do pacote precisa** estar entre **aspas**
+
+--
+
+### 4. Função (CRAN): 
+`install.packages()`
+
+
+```r
+# instalar pacotes
+install.packages("ggplot2")
+```
+
+---
+
+# 2.6 Pacotes
+
+##  Carregar pacotes
+
+--
+
+### 1. Carrega-se **toda vez** que se abre **uma nova sessão do R**
+
+--
+
+### 2. **Não precisa** estar conectado à **internet**
+
+--
+
+### 3. O **nome do pacote não precisa** estar entre **aspas**
+
+--
+
+### 4. Funções: 
+`library()` ou `require()`
+
+
+
+```r
+# carregar pacotes
+library(ggplot2)
+```
+
+---
+
+# 2.6 Pacotes
+
+## Instalar pacotes do GitHub
+### 1. Instalar pacote **devtools**
+
+```r
+# instalar pacote devtools
+install.packages("devtools")
+
+# carregar pacote devtools
+library(devtools)
+```
+
+--
+
+### 2. Instalar usando a função `install_github`
+### Atentar para usar essa forma **usuário/repositório**
+
+--
+
+
+```r
+# instalar pacote do github
+install_github("tidyverse/ggplot2")
+
+# carregar pacote do github
+library("ggplot2")
+```
+
+---
+
+# 2.6 Pacotes
+
+## Atualização de pacotes
+### Pacotes são **atualizados com frequência** (bimensal | semestral | anual)
+--
+
+### Pacotes **não atualizam sozinhos**
+
+--
+
+### É uma função que **demora** para rodar
+
+&lt;br&gt;
+
+
+```r
+# atualizacao dos pacotes instalados 
+update.packages() 
+```
+
+---
+
+class: inverse, middle, center
+
+# E onde ficam esses pacotes no meu notebook?
+
+---
+
+# 2.6 Pacotes
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+## Windows
+C:/Users/**nome_do_computador**/Documentos/R/win-library/**numero_da_versao_r**
+
+&lt;br&gt;
+
+## Unix (Linux e MacOS):
+/home/**nome_do_computador**/R/**tipo_do_computador**/**numero_da_versao_r**
+
+---
+
+# 2.6 Pacotes
+
+## Exemplos:
+
+### **vegan** – ecologia de comunidades e amostragens
+### **raster** – dados de sig
+### **ggplot2** – faz gráficos sensacionais!
+### **bblme** – aic
+### **dismo** – modelos de nicho ecológico
+### **tidyverse** – data science
+
+
+---
+
+class: inverse, middle, center
+
+# E quantos pacotes existem?
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/pacotes.png)
+background-size: 800px
+background-position: 35% 50%
+
+# 2.6 Pacotes
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+https://cran.r-project.org/web/packages/available_packages_by_name.html
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_ambiente.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 2.7 Ambiente (*environment*/*workspace*)
+
+---
+
+# 2.7 Ambiente (*environment*/*workspace*)
+### Listar todos os objetos criados
+
+```r
+# listar objetos criados
+ls()
+```
+
+```
+##  [1] "adi"      "bar"      "div"      "foo"      "log.nat"  "mul"     
+##  [7] "mult"     "obj"      "obj.10"   "obj.2"    "raiz.qua" "rep.15.e"
+## [13] "rep.15.t" "soma"     "sub"      "va1"      "va2"
+```
+--
+
+```r
+objects()
+```
+
+```
+##  [1] "adi"      "bar"      "div"      "foo"      "log.nat"  "mul"     
+##  [7] "mult"     "obj"      "obj.10"   "obj.2"    "raiz.qua" "rep.15.e"
+## [13] "rep.15.t" "soma"     "sub"      "va1"      "va2"
+```
+
+---
+
+background-image: url(https://media.giphy.com/media/xB1md2I2W16IXil1BO/giphy.gif)
+background-size: 600px
+background-position: 50% 70%
+
+# 2.7 Ambiente (*environment*/*workspace*)
+
+## CUIDADO 3!
+
+### Toda a vez que **fechamos o R**, os objetos criados são **apagados**!
+
+---
+
+# 2.7 Ambiente (*environment*/*workspace*)
+
+&lt;br&gt;&lt;br&gt;
+
+### Salvar todos os objetos criados
+`Session -&gt; Save Workspace As... -&gt; meus_objetos.RData` 
+
+&lt;br&gt;&lt;br&gt;
+--
+
+### Carregar os objetos criados e salvos
+`Session -&gt; Load Workspace... -&gt; meus_objetos.RData` 
+
+---
+
+# 2.7 Ambiente (*environment*/*workspace*)
+
+### Remover um objeto
+
+
+```r
+ls()
+```
+
+```
+##  [1] "adi"      "bar"      "div"      "foo"      "log.nat"  "mul"     
+##  [7] "mult"     "obj"      "obj.10"   "obj.2"    "raiz.qua" "rep.15.e"
+## [13] "rep.15.t" "soma"     "sub"      "va1"      "va2"
+```
+--
+
+```r
+rm(bar)
+```
+--
+
+```r
+ls()
+```
+
+```
+##  [1] "adi"      "div"      "foo"      "log.nat"  "mul"      "mult"    
+##  [7] "obj"      "obj.10"   "obj.2"    "raiz.qua" "rep.15.e" "rep.15.t"
+## [13] "soma"     "sub"      "va1"      "va2"
+```
+
+---
+
+# 2.7 Ambiente (*environment*/*workspace*)
+
+### Remover todos os objetos
+
+
+```r
+ls()
+```
+
+```
+##  [1] "adi"      "div"      "foo"      "log.nat"  "mul"      "mult"    
+##  [7] "obj"      "obj.10"   "obj.2"    "raiz.qua" "rep.15.e" "rep.15.t"
+## [13] "soma"     "sub"      "va1"      "va2"
+```
+--
+
+```r
+rm(list = ls())
+```
+--
+
+```r
+ls()
+```
+
+```
+## character(0)
+```
+
+---
+
+# 2.7 Ambiente (*environment*/*workspace*)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+### Carregar os objetos criados e salvos
+`Session -&gt; Load Workspace... -&gt; meus_objetos.RData` 
+
+
+```r
+ls()
+```
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_help.png)
+background-size: 600px
+background-position: 50% 98%
+
+# 2.8 Ajuda (*help*)
+## Descreve as informações de uma função
+
+
+```r
+## ajuda
+# descreve as informacoes de uma funcao
+
+help("mean") # arquivo .html
+
+?mean
+```
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/help.png)
+background-size: 600px
+background-position: 50% 50%
+
+# 2.8 Ajuda (*help*)
+
+---
+
+# 2.8 Ajuda (*help*)
+
+1. **Description**: faz um resumo geral sobre o uso da função
+2. **Usage**: mostra como a função deve ser utilizada e quais argumentos podem ser especificados
+3. **Arguments**: explica o que é cada um dos argumentos
+4. **Details**: explica alguns detalhes sobre o uso e aplicação da função (geralmente poucos)
+5. **Value**: mostra o que sai no output após usar a função (os resultados)
+6. **Note**: notas sobre a função
+6
+7. **Authors**: lista os autores da função (quem escreveu os códigos em R)
+8. **References**: referências para os métodos usados
+9. **See also**: mostra outras funções relacionadas que podem ser consultadas
+10. **Examples**: exemplos do uso da função. Copie e cole os exemplos no R para ver como funciona
+
+---
+
+# 2.9 Citações
+
+## Como citar o R e os pacotes em trabalhos?
+
+
+```r
+## citacao do r e dos pacotes
+
+# citacao do R
+citation()
+```
+--
+
+```r
+# citacao dos pacotes
+citation("ggplot2")
+```
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Exercícios!
+
+---
+
+class: inverse, middle, center
+background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
+
+---
+
+# Exercícios
+
+## 1. Criem um novo script com um nome apropriado, na pasta...
+
+--
+
+&lt;br&gt;
+
+`00_scripts`
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+## ... e o nome?
+--
+
+&lt;br&gt;
+
+`script_r_curso_r_aula02_funcionamento_r_exercicios_2019_01_d07.R`
+
+---
+
+# Exercícios
+
+## 2. Criem um cabeçalho descritivo nesse script
+
+--
+
+
+```r
+### exercicios aula 02 - funcionamento do r ###
+
+# nome
+# data
+```
+
+---
+
+# Exercícios
+
+## 3. Removam todos os objetos criados anteriormente
+
+--
+
+
+```r
+# solucao
+## memoria
+rm(list = ls())
+```
+
+---
+
+# Exercícios
+
+## 4. Instalem e carreguem o pacote do CRAN
+
+`tidyverse`
+
+--
+
+
+```r
+# solucao
+## pacotes
+# instalar
+install.packages("tidyverse")
+```
+--
+
+```r
+# carregar
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ───────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ tibble  2.0.0     ✔ purrr   0.2.5
+## ✔ tidyr   0.8.2     ✔ dplyr   0.7.8
+## ✔ readr   1.3.1     ✔ stringr 1.3.1
+## ✔ tibble  2.0.0     ✔ forcats 0.3.0
+```
+
+```
+## ── Conflicts ──────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+---
+
+# Exercícios
+
+## 5. Alguns cálculos simples:
+
+--
+
+`|(2 * 5) - (3 ^ 2)|`
+
+---
+
+class: inverse, middle, center
+background-image: url(https://media.giphy.com/media/3oKIPmM4hkQIf4p5T2/giphy.gif)
+background-size: 800px
+background-position: 50% 50%
+
+---
+
+class: clear
+background-image: url(http://material.curso-r.com/rbase/figures/ajuda_google.png)
+background-size: 800px
+background-position: 50% 50%
+
+## Lembrem-se da **maracutaia** do Google para ajudar!
+
+---
+
+# Exercícios
+
+## 5. Alguns cálculos simples:
+
+`|(2 * 5) - (3 ^ 2)|`
+
+--
+
+
+```r
+# solucao
+abs((2 * 5) - (3 ^ 2))
+```
+
+```
+## [1] 1
+```
+
+---
+
+# Exercícios
+
+## 6. Alguns cálculos simples:
+
+`log10(10) + ln(100) * log2(1000)`
+
+--
+
+
+```r
+# solucao
+log10(10) + log(100) * log2(1000)
+```
+
+```
+## [1] 46.89413
+```
+
+---
+
+# Exercícios
+
+## 7. Alguns cálculos simples:
+
+`Calculem o fatorial de 10: 10!.`
+
+`Atribuam ao objeto "fa.10".`
+
+`Em seguida, tirem a raiz quadrada desse objeto, atribuindo à outro "fa.10.rq".`
+
+--
+
+
+```r
+# solucao
+fa.10 &lt;- factorial(10)
+fa.10
+```
+
+```
+## [1] 3628800
+```
+
+```r
+fa.10.rq &lt;- sqrt(fa.10)
+fa.10.rq
+```
+
+```
+## [1] 1904.941
+```
+
+---
+
+# Exercícios
+
+## 8. Alguns cálculos simples:
+
+`Calculem a velocidade média de um carro que percorreu S = 400 km em t = 3.5 horas. Utilizem atribuições de uma letra!`
+
+--
+
+
+```r
+# solucao
+s &lt;- 400
+s
+```
+
+```
+## [1] 400
+```
+
+```r
+t &lt;- 3.5
+t
+```
+
+```
+## [1] 3.5
+```
+
+```r
+v &lt;- s / t
+v 
+```
+
+```
+## [1] 114.2857
+```
+
+---
+
+# Exercícios
+
+## 9. Sequências
+
+`Criem uma sequência unitária de 0 à 10.`
+
+`Atribuam à um objeto chamado "seq.10".`
+
+`Somem os elementos desse objeto cumulativamente, atribuindo ao objeto "seq.10.sum".` 
+
+--
+
+
+```r
+# solucao
+seq.10 &lt;- 0:10
+seq.10
+```
+
+
+```r
+seq.10.sum &lt;- cumsum(seq.10)
+seq.10.sum
+```
+
+```
+##  [1]  0  1  3  6 10 15 21 28 36 45 55
+```
+
+---
+
+# Exercícios
+
+## 10. Sequências
+
+`Criem uma sequência de 0 à 10000, espaçada de 10 em 10.`
+
+`Atribuam à um objeto chamado "seq.10000".`
+
+`Somem os elementos desse objeto, atribuindo ao objeto "seq.10000.sum".` 
+
+--
+
+
+```r
+# solucao
+seq.10000 &lt;- seq(0, 10000, by = 10)
+seq.10000
+```
+
+
+```r
+seq.10000.sum &lt;- sum(seq.10000)
+seq.10000.sum
+```
+
+```
+## [1] 5005000
+```
+
+---
+
+# Exercícios
+
+## 11. Repetições
+
+`Criem uma sequência de 0 à 50, espaçada de 5 em 5.`
+
+`Atribuam à um objeto chamado "seq.50".`
+
+`Repitam os elementos desse objeto 10 vezes sequencialmente, atribuindo ao objeto "seq.50.rep.10.times"` 
+--
+
+
+```r
+# solucao
+seq.50 &lt;- seq(0, 50, by = 5)
+seq.50
+```
+
+```
+##  [1]  0  5 10 15 20 25 30 35 40 45 50
+```
+
+
+```r
+seq.50.rep.10.times &lt;- rep(seq.50, times = 10)
+seq.50.rep.10.times
+```
+
+---
+
+# Exercícios
+
+## 12. Repetições
+
+`Repitam os elementos do objeto "seq.50" 10 vezes cada um, atribuindo ao objeto "seq.50.rep.10.each"` 
+--
+
+
+```r
+# solucao
+seq.50.rep.10.each &lt;- rep(seq.50, each = 10)
+seq.50.rep.10.each
+```
+
+```
+##   [1]  0  0  0  0  0  0  0  0  0  0  5  5  5  5  5  5  5  5  5  5 10 10 10
+##  [24] 10 10 10 10 10 10 10 15 15 15 15 15 15 15 15 15 15 20 20 20 20 20 20
+##  [47] 20 20 20 20 25 25 25 25 25 25 25 25 25 25 30 30 30 30 30 30 30 30 30
+##  [70] 30 35 35 35 35 35 35 35 35 35 35 40 40 40 40 40 40 40 40 40 40 45 45
+##  [93] 45 45 45 45 45 45 45 45 50 50 50 50 50 50 50 50 50 50
+```
+
+---
+
+# Exercícios
+
+## 13. Amostragens aleatórias
+
+`Usem a função "sample" para escolher seis números para jogar na mega-sena.`
+
+`Lembrando: valores da mega-sena vão de 1 a 60.`
+
+`Lembrando: usem o help ?sample` 
+
+--
+
+
+```r
+# solucao
+mega &lt;- 1:60
+mega
+```
+--
+
+```r
+mega.num &lt;- sample(mega, 6)
+mega.num
+```
+
+```
+## [1] 52 33 55 42 58 40
+```
+
+---
+
+# Exercícios
+
+## 14. Amostragens aleatórias
+
+`Einstein disse que Deus não joga dados, mas o R joga!`
+
+`Simulem o resultado de 25 jogadas de um dado.`
+
+`Lembrando: usem o help ?sample` 
+
+--
+
+
+```r
+# solucao
+dado &lt;- 1:6
+dado
+```
+
+```
+## [1] 1 2 3 4 5 6
+```
+
+```r
+dado.n &lt;- sample(dado, 25, rep = TRUE)
+dado.n
+```
+
+```
+##  [1] 1 6 5 1 2 2 5 2 5 1 5 6 1 3 3 6 4 5 5 2 1 1 5 4 2
+```
+
+---
+
+# Exercícios
+
+## 15. Salvar workspace
+
+`Salvem os objetos criados em um arquivo "objetos.RData"`
+
+--
+
+
+```r
+# solucao
+```
+### Salvar todos os objetos criados
+`Session -&gt; Save Workspace As... -&gt; meus_objetos.RData`
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+&lt;br&gt;
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
+| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

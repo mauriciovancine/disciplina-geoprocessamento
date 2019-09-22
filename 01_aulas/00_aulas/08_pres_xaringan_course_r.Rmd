@@ -1,0 +1,742 @@
+---
+title: "Introdução à linguagem R: <br><br>"
+subtitle: "8 Modelos Lineares Generalizados (GLM)<br><br><br>"
+author: "Maurício H. Vancine"
+date: "15/01/2019"
+output:
+  xaringan::moon_reader:
+    css: [metropolis]
+    lib_dir: libs
+    nature:
+      #highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
+---
+
+```{r, setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/plot_poiss.png)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# 8 Modelos Lineares Generalizados (GLM)
+## Tópicos
+8.1 Modelos Lineares (LM)
+<br>
+8.2 Modelos Lineares Generalizados (GLM)
+<br>
+8.3 Famílias de distribuição (Gaussiana, Binomial, Poisson)
+<br>
+8.4 Funções de ligação
+<br>
+8.5 Ajuste dos modelos
+<br>
+8.6 Ajuste dos modelos no R
+<br>
+8.7 Seleção de modelos (AIC)
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/glm_livro.png)
+background-size: 250px
+background-position: 50% 70%
+
+# 8 Modelos Lineares Generalizados (GLM)
+
+## Livros
+
+### **Modelos Lineares Generalizados e Extensões (2013)**
+
+### Gauss Moutinho Cordeiro e Clarice G.B. Demétrio
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] http://www.esalq.usp.br/departamentos/lce/arquivos/aulas/2013/LCE5868/livro.pdf
+
+---
+
+background-image: url(https://press.princeton.edu/sites/default/files/styles/large/public/covers/9780691125220_0.png?itok=3jLmBQjA)
+background-size: 250px
+background-position: 50% 70%
+
+# 8 Modelos Lineares Generalizados (GLM)
+
+## Livros
+
+### **Ecological Models and Data in R (2008)**
+
+### Ben Bolker
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://ms.mcmaster.ca/~bolker/emdbook/index.html
+
+---
+
+background-image: url(https://images.tandf.co.uk/common/jackets/amazon/978113874/9781138741515.jpg)
+background-size: 220px
+background-position: 50% 65%
+
+# 8 Modelos Lineares Generalizados (GLM)
+
+## Livros
+
+### **An Introduction to Generalized Linear Models (2018)**
+
+### Annette J. Dobson e Adrian G. Barnett
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://www.crcpress.com/An-Introduction-to-Generalized-Linear-Models/Dobson-Barnett/p/book/9781138741515
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9780387874579.jpg)
+background-size: 200px
+background-position: 50% 75%
+
+# 8 Modelos Lineares Generalizados (GLM)
+
+## Livros
+
+### **Mixed Effects Models and Extensions in Ecology with R**<sup>*</sup>
+
+### Alain Zuur, Elena Ieno, Neil Walker, Anatoly Saveliev e Graham Smith
+
+<br><br><br><br><br><br><br><br><br>
+
+[*] http://highstat.com/index.php/mixed-effects-models-and-extensions-in-ecology-with-r
+
+---
+
+# 8.1 Modelos Lineares (LM)
+
+## Modelos Lineares (LM)
+
+### Nossas análises nem sempre atendem aos **pressupostos** dos **modelos lineares**
+
+<br>
+
+--
+
+### 1. Linearidade
+### 2. Independência
+### **3. Homocedasticidade**
+### **4. Normalidade**
+
+---
+
+# 8.2 Modelos Lineares Generalizados (GLM)
+
+### Os GLMs foram propostos por **Nelder and Wedderburn** (1972) como uma extensão do modelo linear normal
+
+--
+
+### São modelos para análise de dados em que a **variância não é constante** ou o **erro do modelo** não tem uma **distribuição gaussiana (normal)**
+
+--
+
+### A modelagem não é feita de forma direta, sendo necessário escolher uma **família de distribuição** da **variável Y**
+
+--
+
+### Eles possibilitam utilizar **outras distribuições** para os erros e uma **função de ligação** que relaciona a **variável resposta (X)** à combinação linear das **variáveis preditoras (Y)**
+
+---
+
+# 8.2 Modelos Lineares Generalizados (GLM)
+
+## Devemos considerar o **uso dos GLMs** quando a **variável resposta (Y)** geralmente for:
+
+<br><br>
+
+### contagem expressa em proporções (porcentagem)
+### contagens simples (abundância de espécies)
+### variáveis binárias (morto ou vivo)
+### tempo para o evento ocorrer (modelos de sobrevivência)
+
+---
+
+# 8.2 Modelos Lineares Generalizados (GLM)
+
+## Ao utilizar um GLM, devemos definir:
+
+<br><br><br>
+
+### 1. o comportamento (distribuição) da variável resposta (Y)
+
+--
+
+### 2. as variáveis preditoras (X)
+
+--
+
+### 3. a **função de ligação** que irá ligar as variáveis preditoras (X) à variável resposta (Y)
+
+---
+
+# 8.3 Famílias de distribuição
+
+## Tipos de resposta e distribuições
+
+<br><br><br>
+
+### **Medidas**: distribuição Gaussiana
+
+### **Binária**: distribuição Binomial
+
+### **Contagem**: distribuição de Poisson
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/tabela_glm.png)
+background-size: 700px
+background-position: 50% 50%
+
+# 8.4 Funções de ligação
+
+---
+
+# 8.5 Ajuste dos modelos
+
+<br><br>
+
+## Inferência baseada na teoria assintótica de **máxima verossimilhança**
+
+--
+<br>
+
+## Não tem **valor de p** nem **R<sup>2</sup>** para o modelo!!!
+
+--
+
+<br>
+
+## Mas podemos **calcular** valores ajustados
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/maxi1.png)
+background-size: 600px
+background-position: 50% 50%
+
+# 8.5 Ajuste dos modelos
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/maxi2.png)
+background-size: 600px
+background-position: 50% 50%
+
+# 8.5 Ajuste dos modelos
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+### No R, utilizamos a função 
+`glm()`
+
+--
+
+### Fórmula: 
+`formula: y ∼ x1 + x2 + ... `
+
+--
+
+### Famílias de distribuiao
+`family: gaussian(link = identity)`
+
+`family: binomial(link = logit)`
+
+`family: poisson(link = log)`
+
+--
+
+### Verificar as estatísticas dos modelos
+`summary()`
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/broom.png)
+background-size: 400px
+background-position: 50% 70%
+
+# 8.6 Ajuste dos modelos no R
+
+## Podemos ainda retornar usando o pacote `broom`
+
+`tidy()`
+
+`augment()`
+
+`glance()`
+
+---
+
+background-image: url(https://octodex.github.com/images/octobiwan.jpg)
+background-size: 250px
+background-position: 50% 90%
+
+# Dados do GitHub
+
+## Dados do **GitHub**
+
+
+`https://github.com/mauriciovancine/curso-r/tree/master/data`
+
+
+`dados_anfíbios.csv -> Raw -> Copia o link`
+
+```{r, results = FALSE, message = FALSE}
+library(tidyverse)
+
+da <- read_csv("https://raw.githubusercontent.com/mauriciovancine/curso-r/master/data/dados_anfibios.csv")
+da
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+## GLM - gaussiano
+```{r}
+mo.glm.ga <- glm(tam_medio_femur ~ pct_flo,
+                 family = gaussian, 
+                 data = da)
+mo.glm.ga
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficientes
+library(broom)
+tidy(mo.glm.ga)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# valores ajustados e residuos
+augment(mo.glm.ga)
+```
+
+---
+
+class: inverse, center, middle
+
+# Para os amantes do **p-value**...
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r, message=FALSE, warning=FALSE}
+# valor p de um modelo pelo teste da razão da verossimilhança
+library(lmtest)
+lrtest(mo.glm.ga)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficiente de determinacao
+glance(mo.glm.ga)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficiente de determinacao
+library(rcompanion)
+nagelkerke(mo.glm.ga)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+## Plot
+```{r, eval=FALSE, fig.align='center'}
+ggplot(data = da) +
+  aes(x = pct_flo, y = tam_medio_femur) +
+  stat_smooth(method = "glm", method.args = list(family = "gaussian"), #<<
+              col = "black", level = .95) + #<<
+  geom_point(shape = 21, size = 5, col = "black", 
+             fill = "forestgreen", alpha = .8) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Tamanho do fêmur") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+## Plot
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = da) +
+  aes(x = pct_flo, y = tam_medio_femur) +
+  stat_smooth(method = "glm", method.args = list(family = "gaussian"), #<<
+              col = "black", level = .95) + #<<
+  geom_point(shape = 21, size = 5, col = "black", fill = "forestgreen", 
+             alpha = .8) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Tamanho do fêmur") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+## Pressupostos dos modelos
+```{r, fig.align='center', fig.dim=c(5.5,5.5)}
+# pressupostos do modelo
+par(mfrow  = c(2, 2))
+plot(mo.glm.ga)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+## GLM - binomial ou Regressão logística
+```{r}
+mo.glm.bi <- glm(pres_inv ~ pct_flo,
+                 family = binomial("logit"), 
+                 data = da)
+mo.glm.bi
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficientes
+library(broom)
+tidy(mo.glm.bi)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# valores ajustados e residuos
+augment(mo.glm.bi)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# valor p de um modelo pelo teste da razão da verossimilhanca
+lrtest(mo.glm.bi)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficiente de determinacao
+glance(mo.glm.bi)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficiente de determinacao
+nagelkerke(mo.glm.bi)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+## Plot
+```{r, eval=FALSE, fig.align='center'}
+ggplot(data = da) +
+  aes(x = pct_flo, y = pres_inv) +
+  stat_smooth(method = "glm", method.args = list(family = "binomial"), #<<
+              col = "black", level = .95) + #<<
+  geom_point(shape = 21, size = 5, col = "black", fill = "red", alpha = .8) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Espécie invasora") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+## Plot
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = da) +
+  aes(x = pct_flo, y = pres_inv) +
+  stat_smooth(method = "glm", method.args = list(family = "binomial"), #<<
+              col = "black", level = .95) + #<<
+  geom_point(shape = 21, size = 5, col = "black", fill = "red", alpha = .8) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Espécie invasora") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+## Pressupostos dos modelos
+```{r, fig.align='center', fig.dim=c(5.5,5.5)}
+# pressupostos do modelo
+par(mfrow  = c(2, 2))
+plot(mo.glm.bi)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+## GLM - poisson
+```{r}
+mo.glm.po <- glm(n_sp ~ pct_flo,
+                 family = poisson, 
+                 data = da)
+mo.glm.po
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficientes
+tidy(mo.glm.po)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# valores ajustados e residuos
+augment(mo.glm.po)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# valor p de um modelo pelo teste da razão da verossimilhanca
+lrtest(mo.glm.po)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficiente de determinacao
+glance(mo.glm.po)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+```{r}
+# coeficiente de determinacao
+nagelkerke(mo.glm.po)
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+## Plot
+```{r, eval=FALSE, fig.align='center'}
+ggplot(data = da) +
+  aes(x = pct_flo, y = n_sp) +
+  stat_smooth(method = "glm", method.args = list(family = "poisson"), #<<
+              col = "black", level = .95) + #<<
+  geom_point(shape = 21, size = 5, col = "black", 
+             fill = "blue", alpha = .8) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Número de espécies") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+## Plot
+```{r, echo=FALSE, fig.align='center'}
+ggplot(data = da) +
+  aes(x = pct_flo, y = n_sp) +
+  stat_smooth(method = "glm", method.args = list(family = "poisson"), #<<
+              col = "black", level = .95) + #<<
+  geom_point(shape = 21, size = 5, col = "black", 
+             fill = "blue", alpha = .8) +
+  theme_classic() +
+  labs(x = "Porcentagem de floresta (%)",
+          y = "Número de espécies") +
+  theme(axis.title = element_text(size = 24),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12))
+```
+
+---
+
+# 8.6 Ajuste dos modelos no R
+
+## Pressupostos dos modelos
+```{r, fig.align='center', fig.dim=c(5.5,5.5)}
+# pressupostos do modelo
+par(mfrow  = c(2, 2))
+plot(mo.glm.ga)
+```
+
+---
+
+class: inverse, center, middle
+
+# Agora uma quebra de paradigma!
+
+---
+
+class: inverse, center, middle
+
+# Vamos testar várias hipóteses ao mesmo tempo!
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/EvWx1BeeRyyJi/giphy.gif)
+background-size: 500px
+background-position: 50% 50%
+
+---
+
+background-image: url(https://wikimedia.org/api/rest_v1/media/math/render/svg/5c6aebcc42fdb3b423867af9b3ce63d4e5b70d4b)
+background-size: 400px
+background-position: 50% 80%
+
+# 8.7 Seleção de modelos (AIC)
+
+## Seleção de modelos, por AIC (Akaike Criterion Information)
+
+### Ranqueamento do modelo modelo mais plausível
+
+--
+
+### Usa-se geralmente os valores de AICc (para medidas pequenas)
+
+<BR>
+
+`AIC = 2K – 2 * ln(L), onde k = número de parâmetros estimados e L = máximo da função de verossimilhança`
+
+---
+
+# 8.7 Seleção de modelos (AIC)
+
+## Critérios de seleção, segundo (Burnham e Anderson 2002):
+
+<br><br>
+
+## **ΔAICc < 2.0** (plausibilidade)
+ 
+## **wAICc > 1.0** (peso no ranqueamento)
+
+<br> 
+
+### Todos os modelos com valores de **ΔAICc < 2.0** e **wAICc > 1.0** serão igualmente plausíveis
+---
+
+# 8.7 Seleção de modelos (AIC)
+
+## Criar modelos segundo nossas hipóteses concorrente, inclusive o modelo nulo [glm(Y ~ 1)]
+```{r}
+mo0 <- glm(n_sp ~ 1, data = da, family = poisson)
+mo1 <- glm(n_sp ~ pct_flo, data = da, family = poisson)
+mo2 <- glm(n_sp ~ conect, data = da, family = poisson)
+mo3 <- glm(n_sp ~ matriz, data = da, family = poisson)
+mo4 <- glm(n_sp ~ pct_flo + conect, data = da, family = poisson)
+mo5 <- glm(n_sp ~ pct_flo + conect + matriz, data = da, family = poisson)
+```
+
+---
+
+# 8.7 Seleção de modelos (AIC)
+```{r, message=FALSE, warning=FALSE}
+library(bbmle)
+aic <- ICtab(mo0, mo1, mo2, mo3, mo4, mo5, 
+             type = "AICc",
+             weights = TRUE,
+             delta = TRUE,
+             logLik = TRUE,
+             sort = TRUE,
+             nobs = nrow(da))
+
+aic
+```
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Grato pela oportunidade e confiança nesses dias!
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+<br>
+
+Contatos:
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
+| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
