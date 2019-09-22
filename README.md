@@ -104,6 +104,10 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update
 sudo apt install -y sublime-text
 
+# git
+sudo add-apt-repository ppa:git-core/ppa && sudo apt update
+sudo apt install -y git
+
 ```
 
 **Instalar os pacotes no R** <br>
