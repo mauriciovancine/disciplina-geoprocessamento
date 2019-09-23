@@ -1,0 +1,615 @@
+---
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "<br><br> xaringan [presentation ninja] <br>"
+author: "Maurício H. Vancine"
+date: "30/09/2019"
+output:
+  xaringan::moon_reader:
+    css: [metropolis]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE,
+        encoding = "UTF-8")
+```
+
+class: clear, center, middle
+background-image: url(https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)
+
+---
+
+# Maurício H. Vancine
+
+## Ecólogo (2015) | Mestre em Zoologia (2018)
+
+--
+
+### Pesquisa
+- Ecologia Espacial
+- Ecologia Quantitativa
+- Ecologia e Conservação de Anfíbios
+
+--
+
+### Habilidades (*Skills*) 
+- Modelos de Distribuição de Espécies (SDMs)
+- Análise de Dados Ecológicos e Geoespaciais
+- **Open source** [R, QGIS, GRASS GIS, Linux, Libreoffice....]
+
+--
+
+### Contato e informações:
+|                                                                                          |                                   |
+| :--------------------------------------------------------------------------------------- | :-------------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>] | mauricio.vancine@gmail.com        |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>] | @mauriciovancine                  |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]  | mauriciovancine.netlify.com       |
+
+---
+
+# Disciplina
+
+### Pedido do **Prof. Thiago (Toyoyo)**
+
+--
+
+background-image: url(https://media.giphy.com/media/9rnoFO1PP1rZYHFRtW/giphy.gif)
+background-size: 700px
+background-position: 50% 50%
+
+---
+
+# Participantes
+
+## Apresentações
+
+<br><br>
+
+### 1. Nome
+
+### 2. Formação
+
+### 3. Com o que trabalha?
+
+### 4. Conhece algo de R, git, QGIS e geoprocessamento?
+
+### 5. O que espera da disciplina?
+
+---
+
+# Disciplina
+
+### Carga horária
+45 h (3 créditos)
+
+--
+
+### Participantes
+15 alunos (+ 5 especiais)
+
+--
+
+### Datas e horários
+Teórico-prático: 30/09 – 04/10 [09:00 h - 12:00 h | 14:00 h - 17:00 h] (30 horas)
+
+--
+
+Exercícios-atividades assistidas remotamente: 07/09 – 11/09 (15 horas)
+
+--
+
+### Repositório de dados da disciplina
+https://github.com/mauriciovancine/disciplina-geoprocessamento
+
+---
+
+# Disciplina
+
+## Distribuição diária
+
+<br>
+<br>
+<br>
+<br>
+
+### ~05 horas de teórico-prático (manhã-tarde)
+
+### ~01 hora de exercícios (tarde)
+
+---
+
+background-image: url(https://miro.medium.com/max/1366/1*mtsk3fQ_BRemFidhkel3dA.png)
+background-size: 400px
+background-position: 85% 85%
+
+# Disciplina
+
+## Conteúdo
+
+### 0 Controle de versão, Git e GitHub (segunda)
+0.0 Verificar os notebooks
+<br>
+0.1 Controle de versão
+<br>
+0.2 Git
+<br>
+0.3 GitHub
+<br>
+0.4 Funcionamento do controle de versão
+<br>
+0.5 Fork
+<br>
+0.6 Clone
+<br>
+0.7 Add e Commit
+<br>
+0.8 Push
+<br>
+0.9 Pull
+<br>
+0.10 Controle de versão no RStudio
+
+---
+
+background-image: url(https://www.r-project.org/logo/Rlogo.svg)
+background-size: 300px
+background-position: 75% 75%
+
+# Disciplina
+
+## Conteúdo
+
+### 1 Linguagem R, aplicações e material (segunda)
+1.1 Linguagem R
+<br>
+1.2 Linguagem R vs software RStudio
+<br>
+1.3 Aplicações da linguagem R
+<br>
+1.4 Apostilas, sites e livros
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2015/10/rstudio-300x260.png)
+background-size: 350px
+background-position: 85% 85%
+
+# Disciplina
+
+## Conteúdo
+
+### 2 Funcionamento da linguagem R (segunda)
+2.1 RStudio
+<br>
+2.2 Editor/Roteiro (*code*/*script*)
+<br>
+2.3 Comentários (*#*)
+<br>
+2.4 Atribuição (*<-*)
+<br>
+2.5 Objetos
+<br>
+2.6 Funções
+<br>
+2.7 Pacotes
+<br>
+2.8 Ambiente (*environment*/*workspace*)
+<br>
+2.9 Ajuda (*help*)
+<br>
+2.10 Citações
+<br>
+2.11 Principais erros
+
+---
+
+background-image: url(https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/05/Data-Types-350x300.png)
+background-size: 300px
+background-position: 85% 80%
+
+# Disciplina
+
+## Conteúdo
+
+### 3 Estrutura e manejo de dados na linguagem R (segunda)
+3.1 Atributos dos objetos
+<br>
+3.2 Modos dos objetos (*numeric*, *character* e *logical*)
+<br>
+3.3 Estrutura dos objetos (*vector*, *factor*, *matrix*, *data frame* e *list*)
+<br>
+3.4 Diretório de trabalho
+<br>
+3.5 Importar dados
+<br>
+3.6 Conferir dados
+<br>
+3.7 Manejar dados
+<br>
+3.8 Valores faltantes e especiais
+<br>
+3.9 Exportar dados
+
+---
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyverse.png)
+background-size: 250px
+background-position: 75% 75%
+
+# Disciplina
+
+## Conteúdo
+
+### 4 Introdução ao tidyverse
+4.1 tidyverse
+<br>
+4.2 readr
+<br>
+4.3 readxl
+<br>
+4.4 tibble
+<br>
+4.5 magrittr (*pipe - %>%*)
+<br>
+4.6 dplyr
+<br>
+4.7 tidyr
+<br>
+4.8 stringr
+<br>
+4.9 forcats
+<br>
+4.10 purrr
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_data.png)
+background-size: 400px
+background-position: 90% 80%
+
+# Disciplina
+
+## Conteúdo
+
+### 5 Visualização de dados (segunda)
+5.1 Tipos de dados (*variáveis = colunas*)
+<br>
+5.2 Principais tipos de gráficos
+<br>
+5.3 Gráficos no R (pacotes *graphics*, *ggplot2*, *esquisse*, *ggpubr*)
+<br>
+5.4 Histograma (*histogram*)
+<br>
+5.5 Gráfico de caixa (*box plot*)
+<br>
+5.6 Gráfico de barras (*bar plot*)
+<br>
+5.7 Gráfico de setores (*pie chart* e *danut plot*)
+<br>
+5.8 Gráfico de dispersão (*scatter plot*)
+<br>
+5.9 Gráfico pareado (*pairs plot*)
+
+---
+
+background-image: url(https://www.amherst.ca/images/stories/gis/GIS.jpg)
+background-size: 250px
+background-position: 95% 85%
+
+# Disciplina
+
+## Conteúdo
+
+### 6 Estrutura e fonte de dados geoespaciais (terça)
+6.1 Geoprocessamento (cartografia, GPS, sensoriamento remoto e SIG)
+<br>
+6.2 Cartografia (escala, sistemas de coordenadas e Datum)
+<br>
+6.3 GPS (Global Positioning System)
+<br>
+6.4 Sensoriamento Remoto (bandas, satélites, resoluções e aplicações)
+<br>
+6.5 Sistemas de Informações Geográficas (SIG)
+<br>
+6.6 Dados espaciais (vetor e raster)
+<br>
+6.7 Dados vetoriais (ponto, linha e polígono)
+<br>
+6.8 Formato de arquivos vetoriais (shapefile - .dbf, .prj, .shx, .shp)
+<br>
+6.9 Tabela de atributos
+<br>
+6.10 Dados matriciais (gride ou raster)
+<br>
+6.11 Formatos de arquivos matriciais (.tif)
+<br>
+6.12 Banco de dados espaciais (geopackage - .gpkg)
+<br>
+6.13 Repositórios de dados espaciais
+
+---
+
+background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.png)
+background-size: 400px
+background-position: 100% 80%
+
+# Disciplina
+
+## Conteúdo
+
+### 7 Introdução e funcionamento do software QGIS (terça - quarta)
+7.1 Interface do QGIS (menus, camadas, visualização, ferramentas e status)
+<br>
+7.2 Plugins (complementos)
+<br>
+7.3 Caixa de ferramentas
+<br>
+7.4 Projeto no QGIS
+<br>
+7.5 Adicionar dados vetoriais preexistentes
+<br>
+7.6 Propriedades de dados vetoriais
+<br>
+7.7 Projeção de dados vetoriais
+<br>
+7.8 Tabela de atributos
+<br>
+7.9 Cálculo de área, perímetro e distância de dados vetoriais
+<br>
+7.10 Criação de dados vetoriais
+<br>
+7.11 Edição de dados vetoriais
+<br>
+7.12 Geoprocessamento de dados vetoriais
+<br>
+7.13 Fotointerpretação de imagens
+<br>
+7.14 Verificação geométrica e ajuste topológico
+<br>
+7.15 Reprojeção de dados vetoriais
+<br>
+7.16 Exportar dados vetoriais
+
+---
+
+background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.png)
+background-size: 400px
+background-position: 100% 93%
+
+# Disciplina
+
+## Conteúdo
+
+### 7 Introdução e funcionamento do software QGIS (terça - quarta)
+7.17 Adicionar dados matriciais preexistentes
+<br>
+7.18 Propriedades de dados matriciais
+<br>
+7.19 Projeção de dados matriciais
+<br>
+7.20 Georreferenciamento de dados matriciais
+<br>
+7.21 Mosaico (união de imagens)
+<br>
+7.22 Recorte (extração de máscara)
+<br>
+7.23 Alinhar raster (extensão e resolução)
+<br>
+7.24 Análises de superfície (mapas de calor, interpolação, proximidade)
+<br>
+7.25 Estatística zonal
+<br>
+7.26 Calculadora raster
+<br>
+7.27 Conversão de dados vetoriais e dados matriciais
+<br>
+7.29 Reprojeção de dados matriciais
+<br>
+7.30 Exportar dados matriciais
+
+---
+
+background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.png)
+background-size: 400px
+background-position: 100% 93%
+
+# Disciplina
+
+## Conteúdo
+
+### 7 Introdução e funcionamento do software QGIS (terça - quarta)
+
+7.31 Sensoriamento Remoto (bandas espectrais – composição e extração)
+<br>
+7.32 Classificação supervisionada
+<br>
+7.33 Índices de vegetação (NDVI/EVI)
+<br>
+7.34 Topografia (MDE, MDS, MDT, elevação, declividade, aspecto, hidrologia)
+<br>
+7.35 Elaboração de mapa temáticos
+
+---
+
+background-image: url(https://community.rstudio.com/uploads/default/original/2X/3/3eaa7ae0ff05c5dd3933d153be865811847ce4be.jpeg)
+background-size: 250px
+background-position: 85% 80%
+
+# Disciplina
+
+## Conteúdo
+
+### 8 Estrutura e manejo de dados espaciais na linguagem R (quinta-sexta)
+8.1 Material e pacotes para análise de dados espacias
+<br>
+8.2 Vetor: pacote sp e sf
+<br>
+8.3 Importar dados vetoriais
+<br>
+8.4 Tipos de dados vetoriais
+<br>
+8.5 Estrutura de dados vetoriais
+<br>
+8.6 Visualizar dados vetoriais (graphics, ggplot e tmap)
+<br>
+8.7 Projeção de dados vetoriais
+<br>
+8.8 Tabela de atributos
+<br>
+8.9 Operações de atributos de dados vetoriais
+<br>
+8.10 Operações geométricas de dados vetoriais
+<br>
+8.11 Operações espaciais de dados vetoriais
+
+---
+
+background-image: url(https://community.rstudio.com/uploads/default/original/2X/3/3eaa7ae0ff05c5dd3933d153be865811847ce4be.jpeg)
+background-size: 250px
+background-position: 85% 80%
+
+
+# Disciplina
+
+## Conteúdo
+
+### 8 Estrutura e manejo de dados espaciais na linguagem R (quinta-sexta)
+
+8.12 Raster: pacotes raster e rgdal
+<br>
+8.13 Importar dados matriciais
+<br>
+8.14 Tipos de dados matriciais
+<br>
+8.15 Estrutura de dados matriciais
+<br>
+8.16 Visualizar dados matriciais (graphics, ggplot e tmap)
+<br>
+8.17 Projeção de dados matriciais
+<br>
+8.18 Manipulando dados matriciais
+<br>
+8.19 Operação geométricas de dados matriciais
+<br>
+8.20 Operação espaciais de dados matriciais
+<br>
+8.21 Vetor para raster: pacote fasterize
+<br>
+8.22 Elaboração de mapas (ggplot e tmap)
+<br>
+8.23 Automação de processamentos
+
+---
+
+background-image: url(https://grass.osgeo.org/uploads/images/logo/grassgis_logo_colorlogo_text_alphabg.png)
+background-size: 200px
+background-position: 85% 80%
+
+
+# Disciplina
+
+## Conteúdo
+
+### 9 Introdução e funcionamento do software GRASS GIS (sexta)
+9.1 Funcionamento do GRASS GIS: terminal, layer manager e map display
+<br>
+9.2 Estrutura de dados no GRASS GIS: GRASS database, location e mapset
+<br>
+9.3 Region (= região computacional)
+<br>
+9.4 Módulos (= funções)
+<br>
+9.5 Módulos para processamentos gerais (g.)
+<br>
+9.6 Módulos para processamento de dados vetoriais (v.)
+<br>
+9.7 Módulos para processamento de dados raster (r.)
+<br>
+9.8 Módulos para processamento de dados de imagem de satélites (i.)
+<br>
+9.9 Visualização de dados vetoriais, raster e imagens
+<br>
+9.10 Escalas, símbolos, grades, legenda, perfis e histogramas
+<br>
+9.11 Python para automação de processamentos
+
+---
+
+# Disciplina
+
+## Exercícios-atividades assistidas remotamente
+
+--
+
+<br><br><br>
+  
+### Serão **exercícios** relativamente simples com aplicações práticas
+
+--
+  
+### Todos devem enviar os mesmos pelo **GitHub**
+
+--
+
+### A nota será pela **tentativa** e não pela **resolução em si**
+
+--
+
+### O Thiago e eu **ainda estudaremos** como compô-la
+
+---
+
+# Disciplina
+  
+## IMPORTANTE!
+
+<br>
+
+--
+  
+### Essa é a **primeira vez** que monto e ofereço uma disciplina de pós-graduação sozinho
+  
+--
+  
+### Talvez eu não consiga **passar todo o conteúdo**
+  
+--
+  
+### Entretanto, estou totalmente **focado em ensinar** o que aprendi esses anos
+  
+--
+  
+### Por favor, **perguntem** e **me interrompam**, o objetvo é que vocês aprendam
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício Vancine
+
+<br>
+
+Contatos:
+
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)

@@ -1,23 +1,25 @@
----
-title: "Introdução à linguagem R: <br><br>"
-subtitle: "3 Estrutura de dados<br><br><br>"
-author: "Maurício H. Vancine"
-date: "08/01/2019"
-output:
-  xaringan::moon_reader:
-    css: [metropolis]
-    lib_dir: libs
-    nature:
-      #highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: true
-    includes:
-      in_header: header.html
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Maurício H. Vancine" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>
+## 3 Estrutura de dados <br><br> xaringan [presentation ninja]
+### Maurício H. Vancine
+### 30/09/2019
+
 ---
 
-```{r, setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
+
+
 
 class: clear, center, middle
 background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
@@ -29,28 +31,26 @@ background-position: 50% 50%
 # 3 Estrutura e manejo de dados
 ## Tópicos
 3.1 Atributos dos objetos
-<br>
+&lt;br&gt;
 3.2 Modos dos objetos
-<br>
+&lt;br&gt;
 3.3 Modos dos objetos: numérico (**numeric**)
-<br>
+&lt;br&gt;
 3.4 Modos dos objetos: caracter (**character**)
-<br>
+&lt;br&gt;
 3.5 Modos dos objetos: lógico (**logical**)
-<br>
+&lt;br&gt;
 3.6 Estrutura dos objetos
-<br>
+&lt;br&gt;
 3.7 Estrutura dos objetos: vetor (**vector**)
-<br>
+&lt;br&gt;
 3.8 Estrutura dos objetos: fator (**factor**)
-<br>
+&lt;br&gt;
 3.9 Estrutura dos objetos: matriz (**matrix**)
-<br> 
+&lt;br&gt; 
 3.10 Estrutura dos objetos: data frame (**data frame**)
-<br> 
+&lt;br&gt; 
 3.11 Estrutura dos objetos: lista (**list**)
-<br> 
-Exercícios
 
 ---
 
@@ -58,18 +58,23 @@ Exercícios
 
 ## Atribuição
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
-## **palavra <- dados**
+## **palavra &lt;- dados**
 
 --
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
-```{r}
-## atribuicao - simbolo (<-)
-obj.10 <- 10 
+
+```r
+## atribuicao - simbolo (&lt;-)
+obj.10 &lt;- 10 
 obj.10
+```
+
+```
+## [1] 10
 ```
 
 ---
@@ -80,7 +85,7 @@ obj.10
 
 ### Objetos possuem **três características**:
 
-<br>
+&lt;br&gt;
 
 --
 
@@ -109,15 +114,25 @@ obj.10
 # 3.3 Modos dos objetos: numeric
 
 ## **Numeric**: números inteiros ou decimais
-```{r}
+
+```r
 # numeric
-obj.num <- 1
+obj.num &lt;- 1
 obj.num
 ```
+
+```
+## [1] 1
+```
 --
-```{r}
+
+```r
 # mode
 mode(obj.num)
+```
+
+```
+## [1] "numeric"
 ```
 
 ---
@@ -127,15 +142,25 @@ mode(obj.num)
 ### 2. **character**: texto
 
 --
-```{r}
+
+```r
 # character
-obj.cha <- "a" # atencao para as aspas
+obj.cha &lt;- "a" # atencao para as aspas
 obj.cha
 ```
+
+```
+## [1] "a"
+```
 --
-```{r}
+
+```r
 # mode
 mode(obj.cha)
+```
+
+```
+## [1] "character"
 ```
 
 ---
@@ -146,15 +171,25 @@ mode(obj.cha)
 
 --
 
-```{r}
+
+```r
 # logical
-obj.log <- TRUE # maiusculas e sem aspas
+obj.log &lt;- TRUE # maiusculas e sem aspas
 obj.log
 ```
+
+```
+## [1] TRUE
+```
 --
-```{r}
+
+```r
 # mode
 mode(obj.log)
+```
+
+```
+## [1] "logical"
 ```
 
 ---
@@ -167,7 +202,7 @@ mode(obj.log)
 
 --
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
 ## Modos (*natureza*) são **três**: 
 
@@ -262,16 +297,26 @@ background-position: 50% 50%
 --
 
 ### 1. Concatenar elementos
-```{r}
+
+```r
 # concatenar elementos
-temp <- c(15, 18, 20, 22, 18)
+temp &lt;- c(15, 18, 20, 22, 18)
 temp
 ```
-<br>
+
+```
+## [1] 15 18 20 22 18
+```
+&lt;br&gt;
 --
-```{r}
-amos <- c("amostra_01", "amostra_02", "amostra_03", "amostra_04", "amostra_05")
+
+```r
+amos &lt;- c("amostra_01", "amostra_02", "amostra_03", "amostra_04", "amostra_05")
 amos
+```
+
+```
+## [1] "amostra_01" "amostra_02" "amostra_03" "amostra_04" "amostra_05"
 ```
 
 ---
@@ -281,19 +326,29 @@ amos
 ### Há diversas formas de se criar um **vetor**:
 
 ### 2. Sequência
-```{r}
+
+```r
 # sequencia unitaria (x1:x2)
-se <- 1:10
+se &lt;- 1:10
 se
 ```
-<br>
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+&lt;br&gt;
 --
-```{r}
+
+```r
 # sequencia com diferentes espacamentos 
-se.e <- seq(from = 0, to = 100, by = 10) 
+se.e &lt;- seq(from = 0, to = 100, by = 10) 
 se.e
 ```
 
+```
+##  [1]   0  10  20  30  40  50  60  70  80  90 100
+```
+
 ---
 
 # 3.7 Estrutura dos objetos: vector
@@ -301,21 +356,31 @@ se.e
 ### Há diversas formas de se criar um **vetor**:
 
 ### 3. Repetição
-```{r}
+
+```r
 # repeticao
 # rep(x, times) # repete x tantas vezes
 # rep(x, each) # retete x tantas vezes de cada
 
-re.num.t <- rep(x = c(1, 2), times = 5)
+re.num.t &lt;- rep(x = c(1, 2), times = 5)
 re.num.t
 ```
-<br>
+
+```
+##  [1] 1 2 1 2 1 2 1 2 1 2
+```
+&lt;br&gt;
 --
-```{r}
-re.num.e <- rep(x = c(1, 2), each = 5)
+
+```r
+re.num.e &lt;- rep(x = c(1, 2), each = 5)
 re.num.e
 ```
 
+```
+##  [1] 1 1 1 1 1 2 2 2 2 2
+```
+
 ---
 
 # 3.7 Estrutura dos objetos: vector
@@ -323,21 +388,31 @@ re.num.e
 ### Há diversas formas de se criar um **vetor**:
 
 ### 3. Repetição
-```{r}
+
+```r
 # repeticao
 # rep(x, times) # repete x tantas vezes
 # rep(x, each) # retete x tantas vezes de cada
 
-re.cha.n <- rep(x = c("a", "b"), times = 5)
+re.cha.n &lt;- rep(x = c("a", "b"), times = 5)
 re.cha.n
 ```
-<br>
+
+```
+##  [1] "a" "b" "a" "b" "a" "b" "a" "b" "a" "b"
+```
+&lt;br&gt;
 --
-```{r}
-re.cha.c <- rep(x = c("a", "b"), each = 5)
+
+```r
+re.cha.c &lt;- rep(x = c("a", "b"), each = 5)
 re.cha.c
 ```
 
+```
+##  [1] "a" "a" "a" "a" "a" "b" "b" "b" "b" "b"
+```
+
 ---
 
 # 3.7 Estrutura dos objetos: vector
@@ -345,19 +420,29 @@ re.cha.c
 ### Há diversas formas de se criar um **vetor**:
 
 ### 3. Repetição
-```{r}
+
+```r
 # repeticao
 # rep(x, times) # repete x tantas vezes
 # rep(x, each) # retete x tantas vezes de cada
 
-re.log.n <- rep(x = c(TRUE, FALSE), times = 5)
+re.log.n &lt;- rep(x = c(TRUE, FALSE), times = 5)
 re.log.n
 ```
-<br>
+
+```
+##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+```
+&lt;br&gt;
 --
-```{r}
-re.log.c <- rep(x = c(TRUE, FALSE), each = 5)
+
+```r
+re.log.c &lt;- rep(x = c(TRUE, FALSE), each = 5)
 re.log.c
+```
+
+```
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
 ```
 
 ---
@@ -368,17 +453,28 @@ re.log.c
 
 ### 4. "Colar" palavras com uma sequência numérica
 
-```{r}
+
+```r
 # palavra e sequencia numerica - sem separacao
-am1 <- paste("amostra", 1:6, sep = "0")
+am1 &lt;- paste("amostra", 1:6, sep = "0")
 am1
 ```
-<br>
+
+```
+## [1] "amostra01" "amostra02" "amostra03" "amostra04" "amostra05" "amostra06"
+```
+&lt;br&gt;
 --
-```{r}
+
+```r
 # palavra e sequencia numerica - separacao por "_"
-am2 <- paste("amostra", 1:6, sep = "_0")
+am2 &lt;- paste("amostra", 1:6, sep = "_0")
 am2
+```
+
+```
+## [1] "amostra_01" "amostra_02" "amostra_03" "amostra_04" "amostra_05"
+## [6] "amostra_06"
 ```
 
 ---
@@ -407,17 +503,27 @@ class: inverse, middle, center
 
 --
 
-<br>
+&lt;br&gt;
 
-```{r}
-ve <- c(1, "a", 3)
+
+```r
+ve &lt;- c(1, "a", 3)
 ve
 ```
+
+```
+## [1] "1" "a" "3"
+```
 --
-<br>
-```{r}
-ve <- c(1, "a", TRUE)
+&lt;br&gt;
+
+```r
+ve &lt;- c(1, "a", TRUE)
 ve
+```
+
+```
+## [1] "1"    "a"    "TRUE"
 ```
 
 ---
@@ -426,80 +532,144 @@ ve
 
 ## Mudança do **modo** dos elementos para um **mesmo modo**
 
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 --
 
 ## Essa mudança segue essa ordem:
 
-### `DOMINANTE` **character** >> **numeric** >> **logical** `RECESSIVO`
+### `DOMINANTE` **character** &gt;&gt; **numeric** &gt;&gt; **logical** `RECESSIVO`
 
 ---
 
 # Coerção
 
-## **character** >> **numeric**
+## **character** &gt;&gt; **numeric**
 
-```{r}
-ve <- c("a", 1)
+
+```r
+ve &lt;- c("a", 1)
 ve
 ```
---
-```{r}
-class(ve)
 
+```
+## [1] "a" "1"
+```
+--
+
+```r
+class(ve)
+```
+
+```
+## [1] "character"
+```
+
+```r
 mode(ve)
 ```
 
----
-
-# Coerção
-
-## **numeric** >> **logical**
-
-```{r}
-ve <- c(1, TRUE)
-ve
 ```
---
-```{r}
-class(ve)
-
-mode(ve)
-```
-
----
-
-# Coerção
-
-## **character** >> **logical**
-
-```{r}
-ve <- c("a", TRUE)
-ve
-```
---
-```{r}
-class(ve)
-
-mode(ve)
+## [1] "character"
 ```
 
 ---
 
 # Coerção
 
-## **character** >> **numeric** >> **logical**
+## **numeric** &gt;&gt; **logical**
 
-```{r}
-ve <- c("a", 1, TRUE)
+
+```r
+ve &lt;- c(1, TRUE)
 ve
 ```
---
-```{r}
-class(ve)
 
+```
+## [1] 1 1
+```
+--
+
+```r
+class(ve)
+```
+
+```
+## [1] "numeric"
+```
+
+```r
 mode(ve)
+```
+
+```
+## [1] "numeric"
+```
+
+---
+
+# Coerção
+
+## **character** &gt;&gt; **logical**
+
+
+```r
+ve &lt;- c("a", TRUE)
+ve
+```
+
+```
+## [1] "a"    "TRUE"
+```
+--
+
+```r
+class(ve)
+```
+
+```
+## [1] "character"
+```
+
+```r
+mode(ve)
+```
+
+```
+## [1] "character"
+```
+
+---
+
+# Coerção
+
+## **character** &gt;&gt; **numeric** &gt;&gt; **logical**
+
+
+```r
+ve &lt;- c("a", 1, TRUE)
+ve
+```
+
+```
+## [1] "a"    "1"    "TRUE"
+```
+--
+
+```r
+class(ve)
+```
+
+```
+## [1] "character"
+```
+
+```r
+mode(ve)
+```
+
+```
+## [1] "character"
 ```
 
 ---
@@ -515,13 +685,23 @@ mode(ve)
 --
 
 ### Vetor **numeric**
-```{r}
-ve <- c(0, 1, 2, 3, 4)
+
+```r
+ve &lt;- c(0, 1, 2, 3, 4)
 ve
 ```
+
+```
+## [1] 0 1 2 3 4
+```
 --
-```{r}
+
+```r
 mode(ve)
+```
+
+```
+## [1] "numeric"
 ```
 
 ---
@@ -531,17 +711,32 @@ mode(ve)
 ## Podemos **forçar** um vetor a ter um **modo específico**
 
 ### Forçar a ser **character**, vindo de um **numeric**
-```{r}
+
+```r
 ve
 ```
---
-```{r}
-ve.c <- as.character(ve)
-ve.c
+
+```
+## [1] 0 1 2 3 4
 ```
 --
-```{r, error = TRUE}
+
+```r
+ve.c &lt;- as.character(ve)
+ve.c
+```
+
+```
+## [1] "0" "1" "2" "3" "4"
+```
+--
+
+```r
 mode(ve.c)
+```
+
+```
+## [1] "character"
 ```
 
 ---
@@ -551,17 +746,32 @@ mode(ve.c)
 ## Podemos **forçar** um vetor a ter um **modo específico**
 
 ### Forçar a ser **logical**, vindo de um **numeric**
-```{r}
+
+```r
 ve
 ```
---
-```{r}
-ve.l <- as.logical(ve)
-ve.l
+
+```
+## [1] 0 1 2 3 4
 ```
 --
-```{r, error = TRUE}
+
+```r
+ve.l &lt;- as.logical(ve)
+ve.l
+```
+
+```
+## [1] FALSE  TRUE  TRUE  TRUE  TRUE
+```
+--
+
+```r
 mode(ve.l)
+```
+
+```
+## [1] "logical"
 ```
 
 ---
@@ -571,17 +781,32 @@ mode(ve.l)
 ## Podemos **forçar** um vetor a ter um **modo específico**
 
 ### Forçar a ser **numeric**, vindo de um **character**
-```{r}
+
+```r
 ve.c
 ```
---
-```{r}
-ve.n <- as.numeric(ve.c)
-ve.n
+
+```
+## [1] "0" "1" "2" "3" "4"
 ```
 --
-```{r, error = TRUE}
+
+```r
+ve.n &lt;- as.numeric(ve.c)
+ve.n
+```
+
+```
+## [1] 0 1 2 3 4
+```
+--
+
+```r
 mode(ve.n)
+```
+
+```
+## [1] "numeric"
 ```
 
 ---
@@ -591,17 +816,32 @@ mode(ve.n)
 ## Podemos **forçar** um vetor a ter um **modo específico**
 
 ### Forçar a ser **numeric**, vindo de um **logical**
-```{r}
+
+```r
 ve.l
 ```
---
-```{r}
-ve.n <- as.numeric(ve.l)
-ve.n
+
+```
+## [1] FALSE  TRUE  TRUE  TRUE  TRUE
 ```
 --
-```{r, error = TRUE}
+
+```r
+ve.n &lt;- as.numeric(ve.l)
+ve.n
+```
+
+```
+## [1] 0 1 1 1 1
+```
+--
+
+```r
 mode(ve.n)
+```
+
+```
+## [1] "numeric"
 ```
 
 ---
@@ -652,28 +892,50 @@ background-position: 50% 50%
 
 ## **2. Factor nominal**: variáveis nominais
 
-```{r}
-fa.no <- factor(x = c("fechada", "fechada", "aberta", "aberta", "aberta"),
+
+```r
+fa.no &lt;- factor(x = c("fechada", "fechada", "aberta", "aberta", "aberta"),
                 levels = c("aberta", "fechada"))
 fa.no
 ```
+
+```
+## [1] fechada fechada aberta  aberta  aberta 
+## Levels: aberta fechada
+```
 --
-```{r}
+
+```r
 levels(fa.no)
+```
+
+```
+## [1] "aberta"  "fechada"
 ```
 ---
 
 # 3.8 Estrutura dos objetos: factor
 
 ## **2. Factor ordinal**: variáveis ordinais
-```{r}
-fa.or <- factor(x = c("alta", "media", "baixa", "baixa", "media"),
+
+```r
+fa.or &lt;- factor(x = c("alta", "media", "baixa", "baixa", "media"),
                 levels = c("baixa", "media", "alta"), ordered = TRUE)
 fa.or
 ```
+
+```
+## [1] alta  media baixa baixa media
+## Levels: baixa &lt; media &lt; alta
+```
 --
-```{r}
+
+```r
 levels(fa.or)
+```
+
+```
+## [1] "baixa" "media" "alta"
 ```
 
 ---
@@ -685,17 +947,32 @@ levels(fa.or)
 --
 
 ### Criar um vetor **character**
-```{r}
-ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+
+```r
+ve.ch &lt;- c("alta", "media", "baixa", "baixa", "media")
 ve.ch
 ```
---
-```{r}
-mode(ve.ch)
+
+```
+## [1] "alta"  "media" "baixa" "baixa" "media"
 ```
 --
-```{r}
+
+```r
+mode(ve.ch)
+```
+
+```
+## [1] "character"
+```
+--
+
+```r
 class(ve.ch)
+```
+
+```
+## [1] "character"
 ```
 
 ---
@@ -707,17 +984,33 @@ class(ve.ch)
 --
 
 ### Forçar a ser **factor nominal**
-```{r}
-fa.no <- as.factor(ve.ch)
+
+```r
+fa.no &lt;- as.factor(ve.ch)
 fa.no
 ```
---
-```{r}
-levels(fa.no)
+
+```
+## [1] alta  media baixa baixa media
+## Levels: alta baixa media
 ```
 --
-```{r}
+
+```r
+levels(fa.no)
+```
+
+```
+## [1] "alta"  "baixa" "media"
+```
+--
+
+```r
 class(fa.no)
+```
+
+```
+## [1] "factor"
 ```
 
 ---
@@ -727,17 +1020,33 @@ class(fa.no)
 ## **2. Factor**: conversão
 
 ### Forçar a ser **factor ordinal**
-```{r}
-fa.no <- as.ordered(ve.ch)
+
+```r
+fa.no &lt;- as.ordered(ve.ch)
 fa.no
 ```
---
-```{r}
-levels(fa.no)
+
+```
+## [1] alta  media baixa baixa media
+## Levels: alta &lt; baixa &lt; media
 ```
 --
-```{r}
+
+```r
+levels(fa.no)
+```
+
+```
+## [1] "alta"  "baixa" "media"
+```
+--
+
+```r
 class(fa.no)
+```
+
+```
+## [1] "ordered" "factor"
 ```
 
 ---
@@ -811,16 +1120,26 @@ background-position: 50% 60%
 
 `matrix`: dispõem um vetor em um certo número de linhas e colunas
 
-```{r}
+
+```r
 # matriz - funcao matrix
 # vetor
-ve <- 1:12
+ve &lt;- 1:12
 ```
 --
-```{r}
+
+```r
 # matrix - preenchimento por linhas - horizontal
-ma.row <- matrix(data = ve, nrow = 4, ncol = 3, byrow = TRUE)
+ma.row &lt;- matrix(data = ve, nrow = 4, ncol = 3, byrow = TRUE)
 ma.row
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+## [4,]   10   11   12
 ```
 
 ---
@@ -833,18 +1152,28 @@ ma.row
 
 `matrix`: dispõem um vetor em um certo número de linhas e colunas
 
-```{r}
+
+```r
 # matriz - funcao matrix
 # vetor
-ve <- 1:12
+ve &lt;- 1:12
 ```
 --
-```{r}
+
+```r
 # matrix - preenchimento por colunas - vertical
-ma.col <- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
+ma.col &lt;- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
 ma.col
 ```
 
+```
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+```
+
 ---
 
 # 3.9 Estrutura dos objetos: matrix
@@ -856,18 +1185,26 @@ ma.col
 
 `cbind`: combina vetores por coluna, i.e., vetor ao lado do outro
 
-```{r}
+
+```r
 # criar dois vetores
-vec.1 <- c(1, 2, 3)
-vec.2 <- c(4, 5, 6)
+vec.1 &lt;- c(1, 2, 3)
+vec.2 &lt;- c(4, 5, 6)
 ```
 --
-```{r}
+
+```r
 # combinar por linhas - vertical - um embaixo do outro
-ma.rbind <- rbind(vec.1, vec.2)
+ma.rbind &lt;- rbind(vec.1, vec.2)
 ma.rbind
 ```
 
+```
+##       [,1] [,2] [,3]
+## vec.1    1    2    3
+## vec.2    4    5    6
+```
+
 ---
 
 # 3.9 Estrutura dos objetos: matrix
@@ -879,33 +1216,51 @@ ma.rbind
 
 `cbind`: combina vetores por coluna, i.e., vetor ao lado do outro
 
-```{r}
+
+```r
 # criar dois vetores
-vec.1 <- c(1, 2, 3)
-vec.2 <- c(4, 5, 6)
+vec.1 &lt;- c(1, 2, 3)
+vec.2 &lt;- c(4, 5, 6)
 ```
 --
-```{r}
+
+```r
 # combinar por colunas - horizontal - um ao lado do outro
-ma.cbind <- cbind(vec.1, vec.2)
+ma.cbind &lt;- cbind(vec.1, vec.2)
 ma.cbind
 ```
 
+```
+##      vec.1 vec.2
+## [1,]     1     4
+## [2,]     2     5
+## [3,]     3     6
+```
+
 ---
 
 # 3.9 Estrutura dos objetos: matrix
 
 ## Coerção
-```{r}
+
+```r
 # criar dois vetores
-vec.ch <- c("sp1", "sp2", "sp3")
-vec.nu <- c(4, 5, 6)
+vec.ch &lt;- c("sp1", "sp2", "sp3")
+vec.nu &lt;- c(4, 5, 6)
 ```
 --
-```{r}
+
+```r
 # combinar por colunas - horizontal - um ao lado do outro
-ma.ch <- cbind(vec.ch, vec.nu)
+ma.ch &lt;- cbind(vec.ch, vec.nu)
 ma.ch
+```
+
+```
+##      vec.ch vec.nu
+## [1,] "sp1"  "4"   
+## [2,] "sp2"  "5"   
+## [3,] "sp3"  "6"
 ```
 
 ---
@@ -913,16 +1268,24 @@ ma.ch
 # 3.9 Estrutura dos objetos: matrix
 
 ## Coerção
-```{r}
+
+```r
 # criar dois vetores
-vec.ch <- c("sp1", "sp2", "sp3")
-vec.lo <- c(TRUE, TRUE, FALSE)
+vec.ch &lt;- c("sp1", "sp2", "sp3")
+vec.lo &lt;- c(TRUE, TRUE, FALSE)
 ```
 --
-```{r}
+
+```r
 # combinar por linhas - vertical - um embaixo do outro
-ma.ch <- rbind(vec.ch, vec.lo)
+ma.ch &lt;- rbind(vec.ch, vec.lo)
 ma.ch
+```
+
+```
+##        [,1]   [,2]   [,3]   
+## vec.ch "sp1"  "sp2"  "sp3"  
+## vec.lo "TRUE" "TRUE" "FALSE"
 ```
 
 ---
@@ -930,16 +1293,24 @@ ma.ch
 # 3.9 Estrutura dos objetos: matrix
 
 ## Coerção
-```{r}
+
+```r
 # criar dois vetores
-vec.nu <- c(1, 2, 3)
-vec.lo <- c(TRUE, TRUE, FALSE)
+vec.nu &lt;- c(1, 2, 3)
+vec.lo &lt;- c(TRUE, TRUE, FALSE)
 ```
 --
-```{r}
+
+```r
 # combinar por linhas - vertical - um embaixo do outro
-ma.nu <- rbind(vec.nu, vec.lo)
+ma.nu &lt;- rbind(vec.nu, vec.lo)
 ma.nu
+```
+
+```
+##        [,1] [,2] [,3]
+## vec.nu    1    2    3
+## vec.lo    1    1    0
 ```
 
 ---
@@ -950,7 +1321,7 @@ ma.nu
 
 ## Essa mudança também segue a ordem:
 
-### `DOMINANTE` **character** >> **numeric** >> **logical** `RECESSIVO`
+### `DOMINANTE` **character** &gt;&gt; **numeric** &gt;&gt; **logical** `RECESSIVO`
 
 ---
 
@@ -966,10 +1337,15 @@ class: inverse, middle, center
 
 --
 
-<br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-```{r}
+
+```r
 as.character(ma.nu)
+```
+
+```
+## [1] "1" "1" "2" "1" "3" "0"
 ```
 
 ---
@@ -1035,10 +1411,15 @@ background-position: 50% 50%
 
 `array`: dispõem um vetor em um certo número de linhas, colunas e dimensões....
 
-```{r}
+
+```r
 # vetor
-ve <- 1:8
+ve &lt;- 1:8
 ve
+```
+
+```
+## [1] 1 2 3 4 5 6 7 8
 ```
 
 ---
@@ -1050,9 +1431,36 @@ ve
 ### 1 Dispondo elementos
 
 `array`: dispõem um vetor em um certo número de linhas, colunas e dimensões....
-```{r}
-ar <- array(data = ve, dim = c(2, 2, 4))
+
+```r
+ar &lt;- array(data = ve, dim = c(2, 2, 4))
 ar
+```
+
+```
+## , , 1
+## 
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+## 
+## , , 2
+## 
+##      [,1] [,2]
+## [1,]    5    7
+## [2,]    6    8
+## 
+## , , 3
+## 
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+## 
+## , , 4
+## 
+##      [,1] [,2]
+## [1,]    5    7
+## [2,]    6    8
 ```
 
 ---
@@ -1147,17 +1555,26 @@ background-size: 700px
 
 `data.frame`: combina vetores horizontalmente, um ao lado do outro. Semelhante à função `cbind`
 
-```{r}
+
+```r
 # criar três vetores
-vec.ch <- c("sp1", "sp2", "sp3")
-vec.nu <- c(4, 5, 6)
-vec.fa <- factor(c("campo", "floresta", "floresta"))
+vec.ch &lt;- c("sp1", "sp2", "sp3")
+vec.nu &lt;- c(4, 5, 6)
+vec.fa &lt;- factor(c("campo", "floresta", "floresta"))
 ```
 --
-```{r}
+
+```r
 # data.frame - combinar por colunas - horizontal - um ao lado do outro
-df <- data.frame(vec.ch, vec.nu, vec.fa)
+df &lt;- data.frame(vec.ch, vec.nu, vec.fa)
 df
+```
+
+```
+##   vec.ch vec.nu   vec.fa
+## 1    sp1      4    campo
+## 2    sp2      5 floresta
+## 3    sp3      6 floresta
 ```
 
 ---
@@ -1171,12 +1588,20 @@ df
 ### Também podemos informar o nome das colunas
 
 --
-```{r}
+
+```r
 # data.frame
-df <- data.frame(especies = vec.ch, 
+df &lt;- data.frame(especies = vec.ch, 
                  abundancia = vec.nu, 
                  vegetacao = vec.fa)
 df
+```
+
+```
+##   especies abundancia vegetacao
+## 1      sp1          4     campo
+## 2      sp2          5  floresta
+## 3      sp3          6  floresta
 ```
 
 ---
@@ -1184,28 +1609,52 @@ df
 # 3.10 Estrutura dos objetos: data frame
 
 ## Coerção de **data frame** para **matrix**
-```{r}
+
+```r
 # coercao de data frame para matrix
-ma <- as.matrix(df)
+ma &lt;- as.matrix(df)
 ma
 ```
 
+```
+##      especies abundancia vegetacao 
+## [1,] "sp1"    "4"        "campo"   
+## [2,] "sp2"    "5"        "floresta"
+## [3,] "sp3"    "6"        "floresta"
+```
+
 ### Seguindo aquela hierarquia
-### `DOMINANTE` **character** >> **numeric** >> **logical** `RECESSIVO`
+### `DOMINANTE` **character** &gt;&gt; **numeric** &gt;&gt; **logical** `RECESSIVO`
 
 ---
 
 # 3.10 Estrutura dos objetos: data frame
 
 ## Coerção de **matrix** para **data frame**
-```{r}
+
+```r
 # coercao de matrix para data frame
-df <- as.data.frame(ma)
+df &lt;- as.data.frame(ma)
 df
 ```
+
+```
+##   especies abundancia vegetacao
+## 1      sp1          4     campo
+## 2      sp2          5  floresta
+## 3      sp3          6  floresta
+```
 --
-```{r}
+
+```r
 str(df)
+```
+
+```
+## 'data.frame':	3 obs. of  3 variables:
+##  $ especies  : Factor w/ 3 levels "sp1","sp2","sp3": 1 2 3
+##  $ abundancia: Factor w/ 3 levels "4","5","6": 1 2 3
+##  $ vegetacao : Factor w/ 2 levels "campo","floresta": 1 2 2
 ```
 
 ---
@@ -1213,14 +1662,30 @@ str(df)
 # 3.10 Estrutura dos objetos: data frame
 
 ## Coerção de **matrix** para **data frame**
-```{r}
+
+```r
 # coercao de matrix para data frame
-df <- as.data.frame(ma, stringsAsFactors = FALSE)
+df &lt;- as.data.frame(ma, stringsAsFactors = FALSE)
 df
 ```
+
+```
+##   especies abundancia vegetacao
+## 1      sp1          4     campo
+## 2      sp2          5  floresta
+## 3      sp3          6  floresta
+```
 --
-```{r}
+
+```r
 str(df)
+```
+
+```
+## 'data.frame':	3 obs. of  3 variables:
+##  $ especies  : chr  "sp1" "sp2" "sp3"
+##  $ abundancia: chr  "4" "5" "6"
+##  $ vegetacao : chr  "campo" "floresta" "floresta"
 ```
 
 ---
@@ -1230,20 +1695,37 @@ str(df)
 ## **data frame** vs **cbind**
 
 ### Criação dos vetores
-```{r}
+
+```r
 ## vetores
-pa <- paste("parcela", 1:10, sep = "_")
+pa &lt;- paste("parcela", 1:10, sep = "_")
 pa
 ```
---
-```{r}
-pe <- sample(0:1, 10, rep = TRUE)
-pe
+
+```
+##  [1] "parcela_1"  "parcela_2"  "parcela_3"  "parcela_4"  "parcela_5" 
+##  [6] "parcela_6"  "parcela_7"  "parcela_8"  "parcela_9"  "parcela_10"
 ```
 --
-```{r}
-tr <- factor(rep(c("trat", "cont"), each = 5))
+
+```r
+pe &lt;- sample(0:1, 10, rep = TRUE)
+pe
+```
+
+```
+##  [1] 1 1 1 1 1 0 1 0 1 0
+```
+--
+
+```r
+tr &lt;- factor(rep(c("trat", "cont"), each = 5))
 tr
+```
+
+```
+##  [1] trat trat trat trat trat cont cont cont cont cont
+## Levels: cont trat
 ```
 
 ---
@@ -1252,13 +1734,29 @@ tr
 
 ### Qual a diferença?
 
-```{r}
+
+```r
 # uniao de vetores
-df <- data.frame(pa, pe, tr)
+df &lt;- data.frame(pa, pe, tr)
 df
 ```
+
+```
+##            pa pe   tr
+## 1   parcela_1  1 trat
+## 2   parcela_2  1 trat
+## 3   parcela_3  1 trat
+## 4   parcela_4  1 trat
+## 5   parcela_5  1 trat
+## 6   parcela_6  0 cont
+## 7   parcela_7  1 cont
+## 8   parcela_8  0 cont
+## 9   parcela_9  1 cont
+## 10 parcela_10  0 cont
+```
 --
-```{r, eval = FALSE}
+
+```r
 str(df)
 ```
 
@@ -1268,13 +1766,29 @@ str(df)
 
 ### Qual a diferença?
 
-```{r}
+
+```r
 # uniao de vetores
-df.c <- cbind(pa, pe, tr)
+df.c &lt;- cbind(pa, pe, tr)
 df.c
 ```
+
+```
+##       pa           pe  tr 
+##  [1,] "parcela_1"  "1" "2"
+##  [2,] "parcela_2"  "1" "2"
+##  [3,] "parcela_3"  "1" "2"
+##  [4,] "parcela_4"  "1" "2"
+##  [5,] "parcela_5"  "1" "2"
+##  [6,] "parcela_6"  "0" "1"
+##  [7,] "parcela_7"  "1" "1"
+##  [8,] "parcela_8"  "0" "1"
+##  [9,] "parcela_9"  "1" "1"
+## [10,] "parcela_10" "0" "1"
+```
 --
-```{r, eval = FALSE}
+
+```r
 str(df.c)
 ```
 
@@ -1318,11 +1832,26 @@ background-position: 50% 95%
 
 ## **6. List**: heterogêneo (*mais de um modo*) e unidimensional (*uma dimensão*)
 
-```{r}
-li <- list(rep(1, 20), # vector
+
+```r
+li &lt;- list(rep(1, 20), # vector
            factor(1, 1), # factor
            cbind(c(1, 2), c(1, 2))) # matrix
 li
+```
+
+```
+## [[1]]
+##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## 
+## [[2]]
+## [1] 1
+## Levels: 1
+## 
+## [[3]]
+##      [,1] [,2]
+## [1,]    1    1
+## [2,]    2    2
 ```
 
 ---
@@ -1348,12 +1877,12 @@ background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
 
 ## 1. Criem um novo script
 
-<br><br>
+&lt;br&gt;&lt;br&gt;
 
 ### Pasta
 `00_scripts`
 
-<br>
+&lt;br&gt;
 
 ### Arquivo
 `script_r_curso_r_aula03_estrutura_dados_exercicios_2019_01_d08.R`
@@ -1366,7 +1895,8 @@ background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
 
 --
 
-```{r}
+
+```r
 ### exercicios aula 03 - atributos dos dados ###
 
 # nome
@@ -1381,7 +1911,8 @@ background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
 
 --
 
-```{r}
+
+```r
 # solucao
 ## memoria
 rm(list = ls())
@@ -1397,10 +1928,34 @@ rm(list = ls())
 
 --
 
-```{r}
+
+```r
 # solucao
-lo <- paste("local", 1:100, sep = "_")
+lo &lt;- paste("local", 1:100, sep = "_")
 lo
+```
+
+```
+##   [1] "local_1"   "local_2"   "local_3"   "local_4"   "local_5"  
+##   [6] "local_6"   "local_7"   "local_8"   "local_9"   "local_10" 
+##  [11] "local_11"  "local_12"  "local_13"  "local_14"  "local_15" 
+##  [16] "local_16"  "local_17"  "local_18"  "local_19"  "local_20" 
+##  [21] "local_21"  "local_22"  "local_23"  "local_24"  "local_25" 
+##  [26] "local_26"  "local_27"  "local_28"  "local_29"  "local_30" 
+##  [31] "local_31"  "local_32"  "local_33"  "local_34"  "local_35" 
+##  [36] "local_36"  "local_37"  "local_38"  "local_39"  "local_40" 
+##  [41] "local_41"  "local_42"  "local_43"  "local_44"  "local_45" 
+##  [46] "local_46"  "local_47"  "local_48"  "local_49"  "local_50" 
+##  [51] "local_51"  "local_52"  "local_53"  "local_54"  "local_55" 
+##  [56] "local_56"  "local_57"  "local_58"  "local_59"  "local_60" 
+##  [61] "local_61"  "local_62"  "local_63"  "local_64"  "local_65" 
+##  [66] "local_66"  "local_67"  "local_68"  "local_69"  "local_70" 
+##  [71] "local_71"  "local_72"  "local_73"  "local_74"  "local_75" 
+##  [76] "local_76"  "local_77"  "local_78"  "local_79"  "local_80" 
+##  [81] "local_81"  "local_82"  "local_83"  "local_84"  "local_85" 
+##  [86] "local_86"  "local_87"  "local_88"  "local_89"  "local_90" 
+##  [91] "local_91"  "local_92"  "local_93"  "local_94"  "local_95" 
+##  [96] "local_96"  "local_97"  "local_98"  "local_99"  "local_100"
 ```
 
 ---
@@ -1413,15 +1968,16 @@ lo
 
 --
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-lo.u <- paste("local_00", 1:9, sep = "")
+lo.u &lt;- paste("local_00", 1:9, sep = "")
 lo.u
 
-lo.d <- paste("local_0", 10:99, sep = "")
+lo.d &lt;- paste("local_0", 10:99, sep = "")
 lo.d
 
-lo <- c(lo.u, lo.d, "local_100")
+lo &lt;- c(lo.u, lo.d, "local_100")
 lo
 ```
 
@@ -1435,15 +1991,16 @@ lo
 
 --
 
-```{r, eval = FALSE}
+
+```r
 # solucao 2
-lo.u <- paste("local", 1:9, sep = "_00")
+lo.u &lt;- paste("local", 1:9, sep = "_00")
 lo.u
 
-lo.d <- paste("local", 10:99, sep = "_0")
+lo.d &lt;- paste("local", 10:99, sep = "_0")
 lo.d
 
-lo <- c(lo.u, lo.d, "local_100")
+lo &lt;- c(lo.u, lo.d, "local_100")
 lo
 ```
 
@@ -1457,12 +2014,13 @@ lo
 
 --
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-re <- rep(c("cont", "trat"), each = 50)
+re &lt;- rep(c("cont", "trat"), each = 50)
 re
 
-tr <- factor(re, c("cont", "trat"))
+tr &lt;- factor(re, c("cont", "trat"))
 tr
 ```
 
@@ -1476,9 +2034,10 @@ tr
 
 --
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-tr <- factor(rep(c("cont", "trat"), each = 50),
+tr &lt;- factor(rep(c("cont", "trat"), each = 50),
 	        c("cont", "trat"))
 tr
 ```
@@ -1491,14 +2050,16 @@ tr
 
 --
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-ve <- sample(0:10, 100, rep = TRUE)
+ve &lt;- sample(0:10, 100, rep = TRUE)
 ve
 ```
 --
-```{r, eval = FALSE}
-ma <- matrix(ve, 10, 10, byrow = FALSE)
+
+```r
+ma &lt;- matrix(ve, 10, 10, byrow = FALSE)
 ma
 ```
 
@@ -1530,9 +2091,10 @@ ma
 
 ## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-pa <- c(paste("parcela", 1:9, sep = "_0"), "parcela_10")
+pa &lt;- c(paste("parcela", 1:9, sep = "_0"), "parcela_10")
 pa
 ```
 
@@ -1542,15 +2104,16 @@ pa
 
 ## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-sp1 <- sample(1:10, 10, rep = TRUE)
+sp1 &lt;- sample(1:10, 10, rep = TRUE)
 sp1
 
-sp2 <- sample(1:10, 10, rep = TRUE)
+sp2 &lt;- sample(1:10, 10, rep = TRUE)
 sp2
 
-sp3 <- sample(1:10, 10, rep = TRUE)
+sp3 &lt;- sample(1:10, 10, rep = TRUE)
 sp3
 ```
 
@@ -1560,18 +2123,19 @@ sp3
 
 ## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-te <- rnorm(10, 20, 3)
+te &lt;- rnorm(10, 20, 3)
 te
 
-pr <- rnorm(10, 1000, 200)
+pr &lt;- rnorm(10, 1000, 200)
 pr
 
-so <- rnorm(10, 50, 15)
+so &lt;- rnorm(10, 50, 15)
 so
 
-iv <- sample(0:1, 10, rep = TRUE)
+iv &lt;- sample(0:1, 10, rep = TRUE)
 iv
 ```
 
@@ -1581,9 +2145,10 @@ iv
 
 ## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
 
-```{r, eval = FALSE}
+
+```r
 # solucao
-df <- data.frame(pa, sp1, sp2, sp3, sp4, sp5, te, pr, so, iv)
+df &lt;- data.frame(pa, sp1, sp2, sp3, sp4, sp5, te, pr, so, iv)
 df
 ```
 
@@ -1595,12 +2160,14 @@ df
 
 --
 
-```{r, eval = FALSE}
+
+```r
 ls()
 ```
 --
-```{r, eval = FALSE}
-li <- list(df, iv, lo, lo.d, lo.u, pa, pr, so, sp1, sp2, sp3, sp4, sp5, te)
+
+```r
+li &lt;- list(df, iv, lo, lo.d, lo.u, pa, pr, so, sp1, sp2, sp3, sp4, sp5, te)
 li
 ```
 
@@ -1614,16 +2181,123 @@ class: clear, middle
 
 ## Maurício H. Vancine
 
-<br>
+&lt;br&gt;
 
 Contatos:
 
 |                                                                                                            |                                   |
 | :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
-| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
-| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
-| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
-| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
+| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
 
 Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

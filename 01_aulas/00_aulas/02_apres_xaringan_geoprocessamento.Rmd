@@ -1,8 +1,8 @@
 ---
-title: "Introdução à linguagem R: <br><br>"
-subtitle: "2 Funcionamento da linguagem R <br><br><br>"
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "2 Funcionamento da linguagem R <br><br> xaringan [presentation ninja]"
 author: "Maurício H. Vancine"
-date: "07/01/2019"
+date: "30/09/2019"
 output:
   xaringan::moon_reader:
     css: metropolis
@@ -37,17 +37,19 @@ background-position: 50% 50%
 <br>
 2.4 Atribuição (*<-*)
 <br>
-2.5 Funções
+2.5 Objetos
 <br>
-2.6 Pacotes
+2.6 Funções
 <br>
-2.7 Ambiente (*environment*/*workspace*)
+2.7 Pacotes
 <br>
-2.8 Ajuda (*help*)
+2.8 Ambiente (*environment*/*workspace*)
 <br>
-2.9 Citações
+2.9 Ajuda (*help*)
 <br>
-Exercícios
+2.10 Citações
+<br>
+2.11 Principais erros
 
 ---
 
@@ -118,7 +120,7 @@ background-position: 50% 70%
 
 ---
 
-background-image: url(https://media.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif)
+background-image: url(https://media.giphy.com/media/M11UVCRrc0LUk/giphy.gif)
 background-size: 600px
 background-position: 50% 70%
 
@@ -196,6 +198,7 @@ background-position: 50% 98%
 - **alt + -**: insere um sinal de atribuição (<-)
 - **ctrl + shift + M**: insere um operador pipe (%>%) 
 - **ctrl + shift + C**: comenta uma linha no script - insere um (#) 
+- **ctrl + shift + R**: insere uma sessão (# ----------------------)
 - **ctrl + shift + H**: abre uma janela para selecionar o diretório de trabalho
 - **ctrl + shift + f10**: reinicia o console
 - **ctrl + L**: limpa os comandos do console 
@@ -259,6 +262,18 @@ print("Isso é o resultado que deve aparecer no console")
 
 ---
 
+background-image: url(https://www.perl.com/images/building-a-utf8-encoder-in-perl/bart-simpson-utf8.png)
+background-size: 600px
+background-position: 50% 70%
+
+# 2.2 Editor/Roteiro (*code*/*script*)
+
+## Escolher UTF-8
+
+`Ferramentas (Tools) -> Opções Globais (Global Options) ->  (Code) -> s (Saving) -> Default text endcoding (UTF-8)`
+
+---
+
 background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/script4.png)
 background-size: 800px
 background-position: 50% 50%
@@ -289,23 +304,14 @@ background-position: 50% 50%
 
 # Vamos padronizar:
 
-## Na raiz do `C:`,  criem essa pasta:
+### Pasta do diretório `/disciplina-geoprocessamento/`:
 
-<br><br><br><br>
-
-## `curso_r`
-
----
-
-# Vamos padronizar:
-
-## Nessa pasta `C:/curso_r`, criem essas pastas:
-
-### **/00_scripts**
-### /01_dados
-### /02_aulas
-### /03_ementa
-### /04_material
+### 00_ementa
+### 01_aulas
+### **02_scripts**
+### 03_dados
+### 04_exercicios
+### 05_material
 
 ---
 
@@ -332,7 +338,7 @@ background-position: 50% 50%
 
 <br><br><br><br><br><br>
 
-### "script_r_curso_r_aula02_funcionamento_r_2019_01_d07.R"
+### "script_r_disciplina_geoprocessamento_aula_02_2019_09_d30.R"
 
 ---
 
@@ -384,7 +390,7 @@ background-position: 50% 50%
 
 class: inverse, center, middle
 
-# Todos entenderam como iremos fazer até o final do curso?
+# Todos entenderam como iremos fazer até o final dessa aula?
 
 ---
 
@@ -400,17 +406,17 @@ class: inverse, center, middle
 
 --
 
-### São úteis para **descrever informações** sobre o **script** ou **comandos**s
+### São úteis para **descrever informações** sobre o **script** ou **comandos**
 
 --
 
 ### Cabeçalho
 
 ```{r}
-### script curso de r - aula 02 - funcionamento do r ###
+### aula 02 - funcionamento do r ###
 
 # seu nome
-# 07-01-2019
+# 30-09-2019
 ```
 
 --
@@ -421,7 +427,7 @@ class: inverse, center, middle
 ## comentarios
 # o r nao le o codigo depois do # (hash)
 
-42 # esses palavras não são rodadas, apenas o 42
+42 # esses palavras nao sao executadas, apenas o 42
 ```
 
 ---
@@ -442,14 +448,22 @@ class: inverse, center, middle
 ```{r}
 10 * 2 # multiplicacao
 ```
---
+
+---
+
+# Calculadora
+
+## Ordem operações aritméticas (^ >> * ou / >> + ou -)
+
   
 ```{r}
-10 / 2 # divisao
+# sem especificar - segue a ordem
+1 * 2 + 2 ^ 2
 ```
 --
 ```{r}
-10 ^ 2 # potenciacao
+# especificando - segue os parênteses
+(1 * (2 + 2)) ^ 2
 ```
 
 ---
@@ -500,18 +514,20 @@ class: inverse, middle, center
 
 # 2.4 Atribuição (*<-*)
 
-### Vamos atribuir o **valor 10** à palavra **obj.10**
+### Vamos atribuir o **valor 10** à palavra **obj_10**
 
 --
 
 ```{r}
 ## atribuicao - simbolo (<-)
-obj.10 <- 10 
+obj_10 <- 10 
 ```
 
 --
 
-### Agora a palavra **obj.10** vale **10**
+### Agora a palavra **obj_10** vale **10**
+
+#### Mas....
 
 ---
 
@@ -532,8 +548,8 @@ background-position: 50% 50%
 
 ```{r}
 ## atribuicao - simbolo (<-)
-obj.10 <- 10 
-{{obj.10}}
+obj_10 <- 10 
+{{obj_10}}
 ```
 
 --
@@ -541,8 +557,8 @@ obj.10 <- 10
 ### Outro exemplo:
 ```{r}
 ## atribuicao - simbolo (<-)
-obj.2 <- 2
-{{obj.2}}
+obj_2 <- 2
+{{obj_2}}
 ```
 
 ---
@@ -612,7 +628,7 @@ obj
 
 ---
 
-# Operações com objetos
+# 2.5 Objetos
 
 ### Podemos utilizar **objetos** para fazer operações
 
@@ -629,7 +645,7 @@ va2
 
 ---
 
-# Operações com objetos
+# 2.5 Objetos
 
 ### Podemos utilizar **objetos** para fazer operações
 
@@ -641,19 +657,10 @@ va1 + va2 # adicao
 ```{r}
 va1 - va2 # subtracao
 ```
---
-```{r}
-va1 * va2 # multiplicacao
-```
---
-```{r}
-va1 / va2 # divisao
-```
---
 
 ---
 
-# Atribuição de resultados à objetos
+# 2.5 Objetos
 
 ### Podemos ainda **atribuir os resultados** das operações a **objetos**
 
@@ -667,16 +674,6 @@ adi
 sub <- va1 - va2 # subtracao
 sub
 ```
---
-```{r}
-mul <- va1 * va2 # multiplicacao
-mul
-```
---
-```{r}
-div <- va1 / va2 # divisao
-div
-```
 
 ---
 
@@ -686,7 +683,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
 
 ## Funções
 ### **Comandos** que realizam **operações** em **argumentos**
@@ -711,7 +708,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
 
 ### Os **argumentos** de uma função podem ser de **dois tipos**:
 
@@ -733,7 +730,7 @@ sum(1, NA, na.rm = TRUE)
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
 
 ## Argumentos como **valores**
 
@@ -756,7 +753,7 @@ prod(10, 2)
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
 
 ## Argumentos como **objetos**
 
@@ -779,7 +776,7 @@ prod(va1, va2)
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
 
 ## Nomes dos argumentos
 
@@ -800,22 +797,40 @@ rep(x = 1:5, each = 10)
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
+
+## Listar os argumentos
+
+```{r}
+args(sum)
+```
+
+<br><br>
+
+--
+
+```{r}
+args(lm)
+```
+
+---
+
+# 2.6 Funções
 
 ## Atribuição dos resultados das funções à objetos
 
 ```{r}
 ## atribuicao dos resultados
 # repeticao - todos
-rep.15.t <- rep(x = 1:5, times = 10)
-rep.15.t
+rep_times <- rep(x = 1:5, times = 10)
+rep_times
 ```
 --
 ```{r}
 ## atribuicao dos resultados
 # repeticao - todos
-rep.15.e <- rep(x = 1:5, each = 10)
-rep.15.e
+rep_each <- rep(x = 1:5, each = 10)
+rep_each
 ```
 
 ---
@@ -830,7 +845,7 @@ class: inverse, middle, center
 
 --
 
-### 1. **Criar** dois objetos
+**Criar** dois objetos
 ```{r}
 # criar dois objetos
 foo <- 2
@@ -839,20 +854,20 @@ bar <- 3
 
 --
 
-### 2. **Somar** esses objetos e **atribuição** ao objeto *soma*
+**Somar** esses objetos e **atribuição** ao objeto *su*
 ```{r}
 # somar e atribuir
-soma <- sum(foo, bar)
-soma
+su <- sum(foo, bar)
+su
 ```
 
 --
 
-### 3. **Raiz quadrada** do *soma* e **atribuição** ao *raiz.qua*
+**Raiz quadrada** do *su* e **atribuição** ao *sq*
 ```{r}
 # raiz e atribuir
-raiz.qua <- sqrt(soma)
-raiz.qua
+sq <- sqrt(su)
+sq
 ```
 
 ---
@@ -873,9 +888,7 @@ raiz.qua
 
 # Atribuição, função e linha temporal
 
---
-
-### 1. **Criar** dois objetos
+**Criar** dois objetos
 ```{r}
 # criar dois objetos
 foo <- 100
@@ -884,20 +897,20 @@ bar <- 300
 
 --
 
-### 2. **Multiplicar** esses objetos e **atribuição** ao objeto *mult*
+**Multiplicar** esses objetos e **atribuição** ao objeto *mult*
 ```{r}
 # multiplicar e atribuir
-mult <- prod(foo, bar)
-mult
+mu <- prod(foo, bar)
+mu
 ```
 
 --
 
-### 3. **Logaritmo natural** do *mult* e **atribuição** ao *log.nat*
+**Logaritmo natural** do *mu* e **atribuição** ao *lo*
 ```{r}
 # raiz e atribuir
-log.nat <- log(mult)
-log.nat
+lo <- log(mu)
+lo
 ```
 
 ---
@@ -930,7 +943,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.5 Funções
+# 2.6 Funções
 ## Funções vêm de **duas fontes**:
 
 <br><br><br>
@@ -950,7 +963,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ## **Coleção de funções** para executar **tarefas específicas**
 
@@ -977,7 +990,7 @@ library()
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ## Ex.: pacote `ggplot2` 
 
@@ -986,16 +999,16 @@ library()
 ## Fontes:
 
 ### Pacotes do CRAN
-https://cran.r-project.org/web/packages/ggplot2/index.html
+https://cran.r-project.org/web/packages/vegan/index.html
 
 <br>
 
 ### Pacotes do GitHub
-https://github.com/tidyverse/ggplot2
+https://github.com/vegandevs/vegan
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ## Instalar pacotes
 
@@ -1018,12 +1031,12 @@ https://github.com/tidyverse/ggplot2
 
 ```{r, eval = FALSE}
 # instalar pacotes
-install.packages("ggplot2")
+install.packages("vegan")
 ```
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ##  Carregar pacotes
 
@@ -1047,12 +1060,12 @@ install.packages("ggplot2")
 
 ```{r}
 # carregar pacotes
-library(ggplot2)
+library(vegan)
 ```
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ## Instalar pacotes do GitHub
 ### 1. Instalar pacote **devtools**
@@ -1073,15 +1086,15 @@ library(devtools)
 
 ```{r, eval = FALSE}
 # instalar pacote do github
-install_github("tidyverse/ggplot2")
+install_github("vegandevs/vegan")
 
 # carregar pacote do github
-library("ggplot2")
+library("vegan")
 ```
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ## Atualização de pacotes
 ### Pacotes são **atualizados com frequência** (bimensal | semestral | anual)
@@ -1097,7 +1110,7 @@ library("ggplot2")
 
 ```{r, eval = FALSE}
 # atualizacao dos pacotes instalados 
-update.packages() 
+update.packages(ask = FALSE) 
 ```
 
 ---
@@ -1108,7 +1121,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 <br><br><br>
 
@@ -1122,17 +1135,16 @@ C:/Users/**nome_do_computador**/Documentos/R/win-library/**numero_da_versao_r**
 
 ---
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
 ## Exemplos:
 
-### **vegan** – ecologia de comunidades e amostragens
-### **raster** – dados de sig
-### **ggplot2** – faz gráficos sensacionais!
-### **bblme** – aic
-### **dismo** – modelos de nicho ecológico
+### **vegan** – análises de comunidades
+### **raster** – manejo de rasters
+### **ggplot2** – gráficos
+### **bblme** – seleção de modelos (AIC)
+### **dismo** – modelos de distribuição de espécies
 ### **tidyverse** – data science
-
 
 ---
 
@@ -1143,12 +1155,16 @@ class: inverse, middle, center
 ---
 
 background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/pacotes.png)
-background-size: 800px
-background-position: 35% 50%
+background-size: 600px
+background-position: 35% 60%
 
-# 2.6 Pacotes
+# 2.7 Pacotes
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+```{r}
+nrow(available.packages(repos = "http://cran.r-project.org"))
+```
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 https://cran.r-project.org/web/packages/available_packages_by_name.html
 
@@ -1158,11 +1174,11 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 
 ---
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 ### Listar todos os objetos criados
 ```{r}
 # listar objetos criados
@@ -1179,7 +1195,7 @@ background-image: url(https://media.giphy.com/media/xB1md2I2W16IXil1BO/giphy.gif
 background-size: 600px
 background-position: 50% 70%
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 
 ## CUIDADO 3!
 
@@ -1187,7 +1203,7 @@ background-position: 50% 70%
 
 ---
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 
 <br><br>
 
@@ -1202,7 +1218,7 @@ background-position: 50% 70%
 
 ---
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 
 ### Remover um objeto
 
@@ -1220,7 +1236,7 @@ ls()
 
 ---
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 
 ### Remover todos os objetos
 
@@ -1238,7 +1254,7 @@ ls()
 
 ---
 
-# 2.7 Ambiente (*environment*/*workspace*)
+# 2.8 Ambiente (*environment*/*workspace*)
 
 <br><br><br><br>
 
@@ -1255,7 +1271,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 600px
 background-position: 50% 98%
 
-# 2.8 Ajuda (*help*)
+# 2.9 Ajuda (*help*)
 ## Descreve as informações de uma função
 
 ```{r}
@@ -1273,11 +1289,15 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 600px
 background-position: 50% 50%
 
-# 2.8 Ajuda (*help*)
+# 2.9 Ajuda (*help*)
 
 ---
 
-# 2.8 Ajuda (*help*)
+# 2.9 Ajuda (*help*)
+
+## Resumo do *help*
+
+<br><br>
 
 1. **Description**: faz um resumo geral sobre o uso da função
 2. **Usage**: mostra como a função deve ser utilizada e quais argumentos podem ser especificados
@@ -1285,7 +1305,6 @@ background-position: 50% 50%
 4. **Details**: explica alguns detalhes sobre o uso e aplicação da função (geralmente poucos)
 5. **Value**: mostra o que sai no output após usar a função (os resultados)
 6. **Note**: notas sobre a função
-6
 7. **Authors**: lista os autores da função (quem escreveu os códigos em R)
 8. **References**: referências para os métodos usados
 9. **See also**: mostra outras funções relacionadas que podem ser consultadas
@@ -1293,7 +1312,28 @@ background-position: 50% 50%
 
 ---
 
-# 2.9 Citações
+# 2.9 Ajuda (*help*)
+
+## Detalhes de um pacote
+
+```{r}
+library(help = "vegan")
+```
+
+<br><br><br>
+
+- Descrição
+- Versão
+- Autores
+- Dependências
+- Sites
+- Repositório
+- Índice de funções
+- Diretório
+
+---
+
+# 2.10 Citações
 
 ## Como citar o R e os pacotes em trabalhos?
 
@@ -1306,353 +1346,91 @@ citation()
 --
 ```{r, eval = FALSE}
 # citacao dos pacotes
-citation("ggplot2")
+citation("vegan")
 ```
 
 ---
 
-class: inverse, middle, center
+# 2.11 Principais erros
 
-# Dúvidas?
+## 1. Esquecer de completar um comando (+)
 
----
+Parênteses
+```{r, error = TRUE}
+sum(1, 2
++
+```
 
-class: inverse, middle, center
-
-# Exercícios!
-
----
-
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
-
----
-
-# Exercícios
-
-## 1. Criem um novo script com um nome apropriado, na pasta...
-
---
-
-<br>
-
-`00_scripts`
-
---
-
-<br><br>
-
-## ... e o nome?
---
-
-<br>
-
-`script_r_curso_r_aula02_funcionamento_r_exercicios_2019_01_d07.R`
+Aspas
+```{r, error = TRUE}
+"string
++
+```
 
 ---
 
-# Exercícios
+# 2.11 Principais erros
 
-## 2. Criem um cabeçalho descritivo nesse script
+## 2. Esquecer da vírgula
+```{r, error = TRUE}
+sum(1 2)
+```
 
---
+---
 
+# 2.10 Principais erros
+
+## 3. Chamar um objeto errado
+```{r, error = TRUE}
+obj <- 10
+OBJ
+```
+
+---
+
+# 2.11 Principais erros
+
+## 4. Esquecer de carregar um pacote
+```{r, error = TRUE}
+ggplot(iris) + aes(Sepal.Length, Sepal.Width) + geom_point()
+```
+
+---
+
+# 2.10 Principais erros
+
+## 4. Esquecer de carregar um pacote
 ```{r}
-### exercicios aula 02 - funcionamento do r ###
-
-# nome
-# data
+library(ggplot2)
+ggplot(iris) + aes(Sepal.Length, Sepal.Width) + geom_point() + theme_bw()
 ```
 
 ---
 
-# Exercícios
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/CamelCase_new.svg/1200px-CamelCase_new.svg.png)
+background-size: 350px
+background-position: 50% 90%
 
-## 3. Removam todos os objetos criados anteriormente
+# 2.11 Principais erros
 
---
-
-```{r}
-# solucao
-## memoria
-rm(list = ls())
+## 5. Usar o nome da função de forma errônea
+```{r, error = TRUE}
+rowSums(iris[1:10, -5])
 ```
 
 ---
 
-# Exercícios
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/CamelCase_new.svg/1200px-CamelCase_new.svg.png)
+background-size: 350px
+background-position: 50% 90%
 
-## 4. Instalem e carreguem o pacote do CRAN
+# 2.11 Principais erros
 
-`tidyverse`
-
---
-
-```{r, eval = FALSE}
-# solucao
-## pacotes
-# instalar
-install.packages("tidyverse")
-```
---
-```{r}
-# carregar
-library(tidyverse)
+## 5. Usar o nome da função de forma errônea
+```{r, error = TRUE}
+rowsums(iris[1:10, -5])
 ```
 
----
-
-# Exercícios
-
-## 5. Alguns cálculos simples:
-
---
-
-`|(2 * 5) - (3 ^ 2)|`
-
----
-
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/3oKIPmM4hkQIf4p5T2/giphy.gif)
-background-size: 800px
-background-position: 50% 50%
-
----
-
-class: clear
-background-image: url(http://material.curso-r.com/rbase/figures/ajuda_google.png)
-background-size: 800px
-background-position: 50% 50%
-
-## Lembrem-se da **maracutaia** do Google para ajudar!
-
----
-
-# Exercícios
-
-## 5. Alguns cálculos simples:
-
-`|(2 * 5) - (3 ^ 2)|`
-
---
-
-```{r}
-# solucao
-abs((2 * 5) - (3 ^ 2))
-```
-
----
-
-# Exercícios
-
-## 6. Alguns cálculos simples:
-
-`log10(10) + ln(100) * log2(1000)`
-
---
-
-```{r}
-# solucao
-log10(10) + log(100) * log2(1000)
-```
-
----
-
-# Exercícios
-
-## 7. Alguns cálculos simples:
-
-`Calculem o fatorial de 10: 10!.`
-
-`Atribuam ao objeto "fa.10".`
-
-`Em seguida, tirem a raiz quadrada desse objeto, atribuindo à outro "fa.10.rq".`
-
---
-
-```{r}
-# solucao
-fa.10 <- factorial(10)
-fa.10
-
-fa.10.rq <- sqrt(fa.10)
-fa.10.rq
-```
-
----
-
-# Exercícios
-
-## 8. Alguns cálculos simples:
-
-`Calculem a velocidade média de um carro que percorreu S = 400 km em t = 3.5 horas. Utilizem atribuições de uma letra!`
-
---
-
-```{r}
-# solucao
-s <- 400
-s
-
-t <- 3.5
-t
-
-v <- s / t
-v 
-```
-
----
-
-# Exercícios
-
-## 9. Sequências
-
-`Criem uma sequência unitária de 0 à 10.`
-
-`Atribuam à um objeto chamado "seq.10".`
-
-`Somem os elementos desse objeto cumulativamente, atribuindo ao objeto "seq.10.sum".` 
-
---
-
-```{r, results = "hide"}
-# solucao
-seq.10 <- 0:10
-seq.10
-```
-
-```{r}
-seq.10.sum <- cumsum(seq.10)
-seq.10.sum
-```
-
----
-
-# Exercícios
-
-## 10. Sequências
-
-`Criem uma sequência de 0 à 10000, espaçada de 10 em 10.`
-
-`Atribuam à um objeto chamado "seq.10000".`
-
-`Somem os elementos desse objeto, atribuindo ao objeto "seq.10000.sum".` 
-
---
-
-```{r, results = "hide"}
-# solucao
-seq.10000 <- seq(0, 10000, by = 10)
-seq.10000
-```
-
-```{r}
-seq.10000.sum <- sum(seq.10000)
-seq.10000.sum
-```
-
----
-
-# Exercícios
-
-## 11. Repetições
-
-`Criem uma sequência de 0 à 50, espaçada de 5 em 5.`
-
-`Atribuam à um objeto chamado "seq.50".`
-
-`Repitam os elementos desse objeto 10 vezes sequencialmente, atribuindo ao objeto "seq.50.rep.10.times"` 
---
-
-```{r}
-# solucao
-seq.50 <- seq(0, 50, by = 5)
-seq.50
-```
-
-```{r, results = "hide"}
-seq.50.rep.10.times <- rep(seq.50, times = 10)
-seq.50.rep.10.times
-```
-
----
-
-# Exercícios
-
-## 12. Repetições
-
-`Repitam os elementos do objeto "seq.50" 10 vezes cada um, atribuindo ao objeto "seq.50.rep.10.each"` 
---
-
-```{r}
-# solucao
-seq.50.rep.10.each <- rep(seq.50, each = 10)
-seq.50.rep.10.each
-```
-
----
-
-# Exercícios
-
-## 13. Amostragens aleatórias
-
-`Usem a função "sample" para escolher seis números para jogar na mega-sena.`
-
-`Lembrando: valores da mega-sena vão de 1 a 60.`
-
-`Lembrando: usem o help ?sample` 
-
---
-
-```{r, results = "hide"}
-# solucao
-mega <- 1:60
-mega
-```
---
-```{r}
-mega.num <- sample(mega, 6)
-mega.num
-```
-
----
-
-# Exercícios
-
-## 14. Amostragens aleatórias
-
-`Einstein disse que Deus não joga dados, mas o R joga!`
-
-`Simulem o resultado de 25 jogadas de um dado.`
-
-`Lembrando: usem o help ?sample` 
-
---
-
-```{r}
-# solucao
-dado <- 1:6
-dado
-
-dado.n <- sample(dado, 25, rep = TRUE)
-dado.n
-```
-
----
-
-# Exercícios
-
-## 15. Salvar workspace
-
-`Salvem os objetos criados em um arquivo "objetos.RData"`
-
---
-
-```{r}
-# solucao
-```
-### Salvar todos os objetos criados
-`Session -> Save Workspace As... -> meus_objetos.RData`
 
 ---
 
@@ -1664,18 +1442,18 @@ class: inverse, middle, center
 
 class: clear, middle
 
-## Maurício H. Vancine
+## Maurício Vancine
 
 <br>
 
 Contatos:
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
-| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
-| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
-| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
-| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
 
-Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
