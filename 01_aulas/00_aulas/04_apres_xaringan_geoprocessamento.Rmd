@@ -132,8 +132,8 @@ background-position: 50% 60%
 ---
 
 background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png)
-background-size: 300px
-background-position: 50% 68%
+background-size: 250px
+background-position: 50% 50%
 
 # 4.1 tidyverse
 
@@ -203,6 +203,8 @@ library(tidyverse)
 ## IMPORTANTE
 
 ### Todas as funções dos pacotes atrelados ao **tidyverse** usam `_` para separar as letras das funções
+
+<br><br>
 
 `read_csv`
 
@@ -283,6 +285,9 @@ ve
 ```
 --
 ```{r}
+# fixar amostragem
+set.seed(1)
+
 # com pipe
 ve <- rpois(100, 5) %>% 
   log10() %>%
@@ -291,12 +296,6 @@ ve <- rpois(100, 5) %>%
   sum()
 ve  
 ```
-
----
-
-class: inverse, center, middle
-background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
-background-size: 600px
 
 ---
 
@@ -336,6 +335,42 @@ background-position: 50% 50%
 --
 
 ### Para salvar arquivos no formato .csv: **write_csv()** e **write_csv2()**
+
+---
+
+background-image: url(https://miro.medium.com/fit/c/240/240/1*s5rAky37x3iZ5cC7OEKvbw.jpeg)
+background-size: 300px
+background-position: 50% 85%
+
+# Download de dados do GitHub
+
+## ** ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forests of South America**
+
+### Eu mesmo et al. (2018)
+
+---
+
+# 4.3 readr
+
+## **Formato .csv**
+
+### Podemos importar os dados .csv para o R de duas formas
+
+### 2 Download dos arquivos e importar do computador
+```{r, eval = FALSE}
+# diretorio
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
+```
+--
+```{r, eval = FALSE}
+si <- read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
+si
+```
+--
+```{r, eval = FALSE}
+sp <- read_csv("ATLANTIC_AMPHIBIANS_species.csv")
+sp
+```
 
 ---
 
@@ -394,101 +429,6 @@ library("writexl")
 
 ---
 
-background-image: url(https://miro.medium.com/fit/c/240/240/1*s5rAky37x3iZ5cC7OEKvbw.jpeg)
-background-size: 300px
-background-position: 50% 85%
-
-# Download de dados do GitHub
-
-## ** ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forests of South America**
-
-### Eu mesmo et al. (2018)
-
----
-
-background-image: url(https://octodex.github.com/images/octobiwan.jpg)
-background-size: 400px
-background-position: 50% 70%
-
-# Download de dados do GitHub
-
-## Vamos utilizar os dados que estão no meu **GitHub**
-`https://github.com/mauriciovancine/curso-r`
-
----
-
-# 4.3 readr
-
-## **Formato .csv**
-
-### Podemos importar os dados .csv para o R de duas formas
-
---
-
-### 1 Diretamente do .csv do GitHub
-
-`ATLANTIC_AMPHIBIANS_sites.csv -> Raw -> Copia o link`
-
---
-
-```{r, results = FALSE, message = FALSE}
-si <- read_csv("https://raw.githubusercontent.com/mauriciovancine/curso-r/master/data/ATLANTIC_AMPHIBIANS_sites.csv")
-si
-```
---
-```{r, results = FALSE, message = FALSE}
-sp <- read_csv("https://raw.githubusercontent.com/mauriciovancine/curso-r/master/data/ATLANTIC_AMPHIBIANS_species.csv")
-sp
-```
-
----
-
-# 4.3 readr
-
-## **Formato .csv**
-
-### Podemos importar os dados .csv para o R de duas formas
-
-### 2 Download dos arquivos e importar do computador
-
-1. Download de todos os dados:
-
-`https://github.com/mauriciovancine/curso-r -> Clone or Download -> Download zip`
-
-2. Adicionar na pasta `00_dados`
-
-3. Deszipar
-
-4. Mudar o diretório `setwd()`
-
-4. Importar usando o `read_csv()`
-
----
-
-# 4.3 readr
-
-## **Formato .csv**
-
-### Podemos importar os dados .csv para o R de duas formas
-
-### 2 Download dos arquivos e importar do computador
-```{r, eval = FALSE}
-# diretorio
-setwd("/media/mauricio/data/0000_curso_r_labic/01_dados")
-```
---
-```{r, eval = FALSE}
-si <- read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
-si
-```
---
-```{r, eval = FALSE}
-sp <- read_csv("ATLANTIC_AMPHIBIANS_species.csv")
-sp
-```
-
----
-
 # 4.4 readxl e writexl
 
 ## **Formato .xlsx**
@@ -496,7 +436,7 @@ sp
 ### 2 Download dos arquivos e importar do computador
 ```{r, eval = FALSE}
 # diretorio
-setwd("/media/mauricio/data/0000_curso_r_labic/01_dados")
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 ```
 --
 ```{r, eval = FALSE}
@@ -551,6 +491,11 @@ background-position: 50% 50%
 
 `glimpse()`
 
+```{r, include = FALSE}
+si <- read_csv("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas/ATLANTIC_AMPHIBIANS_sites.csv")
+sp <- read_csv("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas/ATLANTIC_AMPHIBIANS_species.csv")
+```
+
 ```{r}
 glimpse(si)
 ```
@@ -592,19 +537,19 @@ glimpse(tb)
 
 ### 2. A indexação com colchetes sempre retorna um **tibble**
 ```{r}
-df.ch <- df[, 1]
-class(df.ch)
+df_ch <- df[, 1]
+class(df_ch)
 ```
 --
 ```{r}
-tb.ch <- tb[, 1]
-class(tb.ch)
+tb_ch <- tb[, 1]
+class(tb_ch)
 ```
 --
 ```{r}
 # indexacao pelo nome devolve um vetor
-tb.ch <- tb$ch
-class(tb.ch)
+tb_ch <- tb$ch
+class(tb_ch)
 ```
 
 ---
@@ -653,20 +598,20 @@ background-position: 50% 50%
 
 # 4.6 dplyr
 
-### Sua gramática simples contém **funções verbais** que são comuns para manipulação de dados
+### Sua gramática simples contém **funções verbais** para manipulação de dados
 
 --
 
 ## Funções
 **1 select()**: seleciona colunas pelo nome gerando um tibble<br>
-**2 mutate()**: adiciona novas colunas de resultados de análises de colunas existentes<br>
+**2 pull()**: seleciona uma coluna como vetor<br>
 **3 rename()**: muda o nome das colunas<br>
-**4 pull()**: seleciona uma coluna como vetor<br>
+**4 mutate()**: adiciona novas colunas ou adiciona resultados em colunas existentes<br>
 **5 arrange()**: reordenar as linhas com base nos valores de colunas<br>
 **6 filter()**: seleciona linhas com base em valores<br>
-**7 slice()**: seleciona linhas pelos números<br>
-**8 n_sample()**: amostragem aleatória de linhas<br>
-**9 distinc()**: remove linhas com valores repetidos com base nos valores de colunas<br>
+**7 distinc()**: remove linhas com valores repetidos com base nos valores de colunas<br>
+**8 slice()**: seleciona linhas pelos números<br>
+**9 n_sample()**: amostragem aleatória de linhas<br>
 **10 summarise()**: agrega ou resume os dados através de funções, podendo considerar valores das colunas<br>
 **11 join()**: junta dados de duas tabelas através de uma coluna chave
 
@@ -688,12 +633,14 @@ background-position: 50% 50%
 
 --
 
+<br> 
+
 ### As funções verbais **não modificam** o tibble original
 
 --
 
 ```{r, eval = FALSE}
-sp.dplyr <- sp %>% 
+sp_dplyr <- sp %>% 
   funcao_verbal(argumento1, argumento2)
 ```
 
@@ -712,11 +659,13 @@ background-position: 50% 50%
 # 4.6 dplyr
 
 ## **1 select**
+
+### Seleciona colunas pelo nome
+
 ```{r}
-si.select <- si %>% 
-  select(id, longitude, latitude) %>% 
-  head()
-si.select
+si_select <- si %>% 
+  select(id, longitude, latitude)
+si_select
 ```
 
 ---
@@ -724,23 +673,27 @@ si.select
 # 4.6 dplyr
 
 ## **1 select**
+
+### Remove as colunas pelo nome
+
 ```{r}
-si.select <- si %>% 
-  select(-c(id, longitude, latitude)) %>% 
-  head()
-si.select
+si_select <- si %>% 
+  select(-c(id, longitude, latitude))
+si_select
 ```
 ---
 
 # 4.6 dplyr
 
 ## **1 select**
+
+### Seleciona colunas por um padrão
+
 ```{r}
 #  starts_with(), ends_with() e contains()
-si.select <- si %>% 
-  select(contains("sp")) %>% 
-  head()
-si.select
+si_select <- si %>% 
+  select(contains("sp"))
+si_select
 ```
 
 ---
@@ -760,9 +713,9 @@ background-position: 50% 50%
 ## **2 pull**
 
 ```{r}
-si.pull <- si %>% 
+si_pull <- si %>% 
   pull(id)
-si.pull
+si_pull
 ```
 
 ---
@@ -772,10 +725,45 @@ si.pull
 ## **2 pull**
 
 ```{r}
-si.pull <- si %>% 
-  select(starts_with("sp")) %>% 
-  pull()
-si.pull
+si_pull <- si %>% 
+  pull(species_number)
+si_pull
+```
+
+---
+
+# 4.6 dplyr
+
+## **3 rename**
+
+### Renomeia colunas
+```{r}
+si_rename <- si %>%
+  rename(sp = species_number)
+si_rename
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/mutate.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 dplyr
+
+## **4 mutate**
+
+---
+
+# 4.6 dplyr
+
+## **4 mutate**
+
+### Adiciona colunas novas ou vindas de operações
+```{r}
+si_mutate <- si %>% 
+  mutate(record_factor = as.factor(record))
+si_mutate
 ```
 
 ---
@@ -786,35 +774,34 @@ background-position: 50% 50%
 
 # 4.6 dplyr
 
-## **3 arrange**
+## **5 arrange**
 
 ---
 
 # 4.6 dplyr
 
-## **3 arrange**
+## **5 arrange**
 
-### Ordenar de forma crescente ela coluna **species_number**
+### Ordenar de forma crescente pela coluna **species_number**
 ```{r, eval = FALSE}
-si.arrange <- si %>% 
-  arrange(species_number) %>% 
-  head()
-si.arrange
+si_arrange <- si %>% 
+  arrange(species_number)
+si_arrange
 ```
 
 --
 
-### Ordenar de forma decrescente ela coluna **species_number**
+### Ordenar de forma decrescente pela coluna **species_number**
 ```{r, eval = FALSE}
-si.arrange <- si %>% 
-  arrange(desc(species_number)) %>% 
-  head()
+si_arrange <- si %>% 
+  arrange(desc(species_number))
+si_arrange
 ```
 --
 ```{r, eval = FALSE}
-si.arrange <- si %>% 
-  arrange(-species_number) %>% 
-  head()
+si_arrange <- si %>% 
+  arrange(-species_number)
+si_arrange
 ```
 
 ---
@@ -825,121 +812,96 @@ background-position: 50% 50%
 
 # 4.6 dplyr
 
-## **4 filter**
+## **6 filter**
 
 ---
 
 # 4.6 dplyr
 
-## **4 filter** 
+## **6 filter** 
 
-### operadores: >, >=, <, <=, ==, !=, is.na, !is.na
+### operadores: >, >=, <, <=, ==, !=, is.na, !is.na, %in%
 ```{r, eval = FALSE}
-si.filter <- si %>% 
-  filter(species_number > 5) %>% 
-  head()
-si.filter
+si_filter <- si %>% 
+  filter(species_number > 5)
+si_filter
 ```
 --
 ```{r, eval = FALSE}
-si.filter <- si %>% 
-  filter(between(species_number, 1, 5)) %>% 
-  head()
-si.filter
-```
-
----
-
-# 4.6 dplyr
-
-## **4 filter** 
-```{r, eval = FALSE}
-si.filter <- si %>% 
-  filter(is.na(passive_methods)) %>% 
-  head()
-si.filter
-```
---
-```{r, eval = FALSE}
-si.filter <- si %>% 
-  filter(species_number > 5 & state_abbreviation == "BR-SP")  %>% 
-  head()
-si.filter
-```
---
-```{r, eval = FALSE}
-si.filter <- si %>% 
-  filter(species_number > 5 & state_abbreviation == "BR-SP" | record == "ab")  %>% 
-  head()
-si.filter
+si_filter <- si %>% 
+  filter(between(species_number, 1, 5))
+si_filter
 ```
 
 ---
 
 # 4.6 dplyr
 
-## **5 slice** 
-### Selecionar pelo número da linha
+## **6 filter** 
+```{r, eval = FALSE}
+si_filter <- si %>% 
+  filter(is.na(passive_methods))
+si_filter
+```
+--
+```{r, eval = FALSE}
+si_filter <- si %>% 
+  filter(species_number > 5 & state_abbreviation == "BR-SP") 
+si_filter
+```
+--
+```{r, eval = FALSE}
+si_filter <- si %>% 
+  filter(species_number > 5 & state_abbreviation == "BR-SP" | record == "ab")
+si_filter
+```
+
+---
+
+# 4.6 dplyr
+
+## **7 distinct**
+### Remove linhas duplicadas
 --
 ```{r}
-si.slice <- si %>% 
-  slice(1:10) %>% 
-  head()
-si.slice
+si_distinct <- si %>% 
+  distinct(species_number)
+si_distinct
+```
+--
+```{r}
+si_distinct <- si %>% 
+  distinct(species_number, .keep_all = TRUE)
+si_distinct
 ```
 
 ---
 
 # 4.6 dplyr
 
-## **6 n_sample** 
-
-### Amostra linhas aleatoriamente
+## **8 slice** 
+### Selecionar tabela pelo número da linha
 --
 ```{r}
-si.sample_n <- si %>% 
+si_slice <- si %>% 
+  slice(1:10)
+si_slice
+```
+
+---
+
+# 4.6 dplyr
+
+## **9 n_sample** 
+
+### Amostrar linhas aleatoriamente
+--
+```{r}
+si_sample_n <- si %>% 
   sample_n(100)
-si.sample_n
+si_sample_n
 ```
 
----
-
-# 4.6 dplyr
-
-## **7 rename**
-
-### Renomeia colunas
-```{r}
-si.rename <- si %>%
-  rename(sp = species_number) %>% 
-  head()
-si.rename
-```
-
-
----
-
-background-image: url(http://www.flutterbys.com.au/stats/tut/images/mutate.png)
-background-size: 800px
-background-position: 50% 50%
-
-# 4.6 dplyr
-
-## **8 mutate**
-
----
-
-# 4.6 dplyr
-
-## **8 mutate**
-
-### Adiciona colunas vindas de operações
-```{r}
-si.mutate <- si %>% 
-  mutate(record_factor = as.factor(record)) %>% 
-  head()
-si.mutate
-```
 
 ---
 
@@ -957,9 +919,9 @@ background-position: 50% 50%
 
 ## **9 summarise**
 ```{r}
-si.summarise.nsp <- si %>% 
+si_summarise.nsp <- si %>% 
   summarise(min_sp = min(species_number))
-si.summarise.nsp
+si_summarise.nsp
 ```
 
 ---
@@ -969,10 +931,10 @@ si.summarise.nsp
 ## **9 summarise**
 
 ```{r}
-si.summarise.sp.est <- si %>% 
+si_summarise.sp.est <- si %>% 
   group_by(state_abbreviation) %>% 
   summarise(sp_est = n())
-si.summarise.sp.est
+si_summarise.sp.est
 ```
 
 ---
@@ -985,9 +947,9 @@ si.summarise.sp.est
 
 ### Selecionar as colunas que preciso da tabela **si**
 ```{r}
-si.lon.lat <- si %>% 
+si_lon.lat <- si %>% 
   select(id, longitude, latitude)
-si.lon.lat 
+si_lon.lat 
 ```
 
 ---
@@ -1000,7 +962,7 @@ si.lon.lat
 ```{r}
 # join dos dados
 sp.lon.lat.si <- sp %>% 
-  left_join(si.lon.lat, by = "id") %>% 
+  left_join(si_lon.lat, by = "id") %>% 
   head()
 ```
 

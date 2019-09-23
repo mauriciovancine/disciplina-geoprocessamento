@@ -1243,8 +1243,8 @@ class: inverse, center, middle
 ### **2 Seleção condicional**: selecionar elementos por condições 
 ```{r}
 # dois vetores
-foo <- c(2, 4)
-bar <- c(3, 6)
+foo <- 42
+bar <- 23
 ```
 --
 ```{r, eval = FALSE}
@@ -1323,7 +1323,7 @@ min(ve)
 
 ### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort*, *order* e *round*
 ```{r}
-# variacao
+# amplitude
 range(ve)
 ```
 --
@@ -1609,14 +1609,14 @@ background-position: 50% 75%
 
 ### **1 Indexação $**
 ```{r}
-# criar três vetores
+# criar tres vetores
 sp <- paste("sp", 1:10, sep = "")
 abu <- 1:10
 flo <- factor(rep(c("campo", "floresta"), each = 5))
 ```
 --
 ```{r}
-# data.frame
+# data frame
 df <- data.frame(sp, abu, flo)
 df
 ```
@@ -1667,6 +1667,7 @@ mode(df$abu)
 ```
 --
 ```{r}
+# converter colunas
 df$abu <- as.character(df$abu)
 ```
 --
