@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Introdução à linguagem R:</title>
-    <meta charset="utf-8">
+    <title>Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade</title>
+    <meta charset="utf-8" />
     <meta name="author" content="Maurício H. Vancine" />
     <meta name="date" content="2019-10-01" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
@@ -12,8 +12,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Introdução à linguagem R: <br><br>
-## 5 Introdução ao tidyverse<br><br><br>
+# Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>
+## 5 Introdução ao tidyverse <br><br> xaringan [presentation ninja]
 ### Maurício H. Vancine
 ### 10/01/2019
 
@@ -29,25 +29,27 @@ background-position: 50% 50%
 
 ---
 
-# 5 Introdução ao tidyverse
+# 4 Introdução ao tidyverse
 ## Tópicos
-5.1 tidyverse
+4.1 tidyverse
 &lt;br&gt;
-5.2 magrittr (pipe - %&gt;%)
+4.2 magrittr (pipe - %&gt;%)
 &lt;br&gt;
-5.3 readr
+4.3 readr
 &lt;br&gt;
-5.4 readxl e writexl
+4.4 readxl e writexl
 &lt;br&gt;
-5.5 tibble
+4.5 tibble
 &lt;br&gt;
-5.6 dplyr
+4.6 dplyr
 &lt;br&gt;
-5.7 tidyr
+4.7 tidyr
 &lt;br&gt;
-5.8 stringr
+4.8 stringr
 &lt;br&gt;
-5.9 forcats
+4.9 forcats
+&lt;br&gt;
+4.10 purrr
 
 ---
 
@@ -58,7 +60,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ### O tidyverse é um **pacote** com a função de **instalar** e **carregar** outros pacotes
 
@@ -91,14 +93,14 @@ background-size: 800px
 background-image: url(http://www.seec.uct.ac.za/sites/default/files/image_tool/images/330/tidy_workflow.png)
 background-size: 800px
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ---
 
 background-image: url(http://www.storybench.org/wp-content/uploads/2017/05/tidyverse-730x294.png)
 background-size: 800px
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ---
 
@@ -106,7 +108,7 @@ background-image: url(http://hadley.nz/hadley-wickham.jpg)
 background-size: 720px
 background-position: 50% 65%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## O idealizador foi o **Hadley Wickham** e atualmente **muitas pessoas** têm contribuído para sua expansão
 
@@ -120,7 +122,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 400px
 background-position: 50% 60%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Artigo: **Tidy Data (2014)** - *Journal of Statistics Software*
 
@@ -136,7 +138,7 @@ background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b
 background-size: 300px
 background-position: 50% 68%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Livro: **R for Data Science (2017)**
 
@@ -150,7 +152,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Sites
 
@@ -164,7 +166,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Sites
 
@@ -174,7 +176,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Para utilizar os pacotes do **tidyverse** é preciso instalar e carregar o pacote
 
@@ -190,7 +192,7 @@ install.packages("tidyverse")
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Notem a saída do carregamento do pacote
 
@@ -200,25 +202,25 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ──────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## ✔ ggplot2 3.1.0     ✔ purrr   0.2.5
-## ✔ tibble  2.0.0     ✔ dplyr   0.7.8
-## ✔ tidyr   0.8.2     ✔ stringr 1.3.1
-## ✔ readr   1.3.1     ✔ forcats 0.3.0
+## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0
 ```
 
 ```
-## ── Conflicts ─────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## IMPORTANTE
 
@@ -243,7 +245,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.2 magrittr (pipe - %&gt;%)
+# 4.2 magrittr (pipe - %&gt;%)
 
 ### O operador pipe (*%&gt;%*) permite o “encadeamento” de várias funções e **não é preciso de objetos** para armazenar resultados intermediários
 
@@ -261,7 +263,19 @@ background-position: 50% 50%
 
 ---
 
-# 5.2 magrittr (pipe - %&gt;%)
+class: inverse, center, middle
+background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
+background-size: 600px
+
+---
+
+class: inverse, center, middle
+background-image: url(https://media.giphy.com/media/Caf27W7LfUCgyjY1KF/giphy.gif)
+background-size: 600px
+
+---
+
+# 4.2 magrittr (pipe - %&gt;%)
 
 ### Atalho: `crtl + shift + M`
 
@@ -294,7 +308,7 @@ background-size: 800px
 
 ---
 
-# 5.2 magrittr (pipe - %&gt;%)
+# 4.2 magrittr (pipe - %&gt;%)
 
 ### Atalho: `crtl + shift + M`
 
@@ -329,8 +343,8 @@ ve
 ---
 
 class: inverse, center, middle
-background-image: url(https://media.giphy.com/media/7ND8xzTlR5b8s/giphy.gif)
-background-size: 800px
+background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
+background-size: 600px
 
 ---
 
@@ -347,7 +361,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ### **Carrega e salva** grandes arquivos de forma **mais rápida** no formato **.csv**
 
@@ -380,7 +394,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.4 readxl e writexl
+# 4.4 readxl e writexl
 
 ## São pacotes à parte do **tidyverse**
 
@@ -404,7 +418,7 @@ library("writexl")
 
 ---
 
-# 5.4 readxl e writexl
+# 4.4 readxl e writexl
 
 ### **Carrega e salva** grandes arquivos de forma **mais rápida** no formato **.xlsx**
 
@@ -453,7 +467,7 @@ background-position: 50% 70%
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ## **Formato .csv**
 
@@ -481,7 +495,7 @@ sp
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ## **Formato .csv**
 
@@ -499,11 +513,11 @@ sp
 
 4. Mudar o diretório `setwd()`
 
-5. Importar usando o `read_csv()`
+4. Importar usando o `read_csv()`
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ## **Formato .csv**
 
@@ -530,7 +544,7 @@ sp
 
 ---
 
-# 5.4 readxl e writexl
+# 4.4 readxl e writexl
 
 ## **Formato .xlsx**
 
@@ -567,7 +581,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ### O tibble (classe *tbl_df*) é um **tipo especial de data frame**
 
@@ -589,7 +603,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## Descrição dos modos das colunas através da função 
 
@@ -628,7 +642,7 @@ glimpse(si)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## Descrição dos modos das colunas através da função 
 
@@ -656,7 +670,7 @@ glimpse(sp)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## tibble vs data.frame
 
@@ -688,7 +702,7 @@ glimpse(tb)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## tibble vs data.frame
 
@@ -726,7 +740,7 @@ class(tb.ch)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## tibble vs data.frame
 
@@ -769,7 +783,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ### O **dplyr** é um pacote que **facilita** o trabalho com dados, com uma **gramática de manipulação** de dados **simples e flexível** (filtragem, reordenamento, seleção, entre outras)
 
@@ -783,27 +797,28 @@ background-position: 50% 50%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ### Sua gramática simples contém **funções verbais** que são comuns para manipulação de dados
 
 --
 
 ## Funções
-**select()**: seleciona colunas pelo nome gerando um tibble&lt;br&gt;
-**pull()**: seleciona uma coluna como vetor&lt;br&gt;
-**arrange()**: reordenar as linhas com base nos valores de colunas&lt;br&gt;
-**filter()**: seleciona linhas com base em valores&lt;br&gt;
-**slice()**: seleciona linhas pelos números&lt;br&gt;
-**n_sample()**: amostragem aleatória de linhas&lt;br&gt;
-**mutate()**: adiciona novas colunas de resultados de análises de colunas existentes&lt;br&gt;
-**rename()**: muda o nome das colunas&lt;br&gt;
-**summarise()**: agrega ou resume os dados através de funções, podendo considerar valores das colunas&lt;br&gt;
-**join**: junta dados de duas tabelas através de uma coluna chave
+**1 select()**: seleciona colunas pelo nome gerando um tibble&lt;br&gt;
+**2 mutate()**: adiciona novas colunas de resultados de análises de colunas existentes&lt;br&gt;
+**3 rename()**: muda o nome das colunas&lt;br&gt;
+**4 pull()**: seleciona uma coluna como vetor&lt;br&gt;
+**5 arrange()**: reordenar as linhas com base nos valores de colunas&lt;br&gt;
+**6 filter()**: seleciona linhas com base em valores&lt;br&gt;
+**7 slice()**: seleciona linhas pelos números&lt;br&gt;
+**8 n_sample()**: amostragem aleatória de linhas&lt;br&gt;
+**9 distinc()**: remove linhas com valores repetidos com base nos valores de colunas&lt;br&gt;
+**10 summarise()**: agrega ou resume os dados através de funções, podendo considerar valores das colunas&lt;br&gt;
+**11 join()**: junta dados de duas tabelas através de uma coluna chave
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ### O **tibble** é sempre o **primeiro argumento** das funções verbais
 
@@ -835,13 +850,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/select.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 
@@ -866,7 +881,7 @@ si.select
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 
@@ -895,7 +910,7 @@ si.select
 ```
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 
@@ -925,13 +940,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/vectorizedFn
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **2 pull**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **2 pull**
 
@@ -1141,7 +1156,7 @@ si.pull
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **2 pull**
 
@@ -1213,13 +1228,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/arrange.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **3 arrange**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **3 arrange**
 
@@ -1255,13 +1270,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/filter.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **4 filter**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **4 filter** 
 
@@ -1284,7 +1299,7 @@ si.filter
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **4 filter** 
 
@@ -1313,7 +1328,7 @@ si.filter
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **5 slice** 
 ### Selecionar pelo número da linha
@@ -1346,7 +1361,7 @@ si.slice
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **6 n_sample** 
 
@@ -1363,16 +1378,16 @@ si.sample_n
 ## # A tibble: 100 x 21
 ##    id    reference_number species_number record passive_methods
 ##    &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
-##  1 amp1…             1103             22 co     pt             
-##  2 amp1…             1089              5 co     &lt;NA&gt;           
-##  3 amp1…             1206             17 ab     &lt;NA&gt;           
-##  4 amp2…             1389              2 co     &lt;NA&gt;           
-##  5 amp1…             1061              5 ab     pt             
-##  6 amp2…             1389              1 co     &lt;NA&gt;           
-##  7 amp1…             1214             17 co     &lt;NA&gt;           
-##  8 amp1…             1044             29 co     pt             
-##  9 amp1…             1097              5 co     &lt;NA&gt;           
-## 10 amp1…             1282             10 co     &lt;NA&gt;           
+##  1 amp2…             1383             32 ab     pt             
+##  2 amp2…             1363              2 co     &lt;NA&gt;           
+##  3 amp1…             1006              5 ab     pt             
+##  4 amp1…             1091              8 co     &lt;NA&gt;           
+##  5 amp1…             1178             14 co     &lt;NA&gt;           
+##  6 amp1…             1178             17 co     &lt;NA&gt;           
+##  7 amp1…             1292             22 co     &lt;NA&gt;           
+##  8 amp1…             1235             24 co     &lt;NA&gt;           
+##  9 amp1…             1167             31 ab     &lt;NA&gt;           
+## 10 amp2…             1329             17 co     &lt;NA&gt;           
 ## # … with 90 more rows, and 16 more variables: complementary_methods &lt;chr&gt;,
 ## #   month_start &lt;dbl&gt;, year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;,
 ## #   year_finish &lt;dbl&gt;, effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;,
@@ -1383,7 +1398,7 @@ si.sample_n
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **7 rename**
 
@@ -1421,13 +1436,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/mutate.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **8 mutate**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **8 mutate**
 
@@ -1464,13 +1479,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/summarize.pn
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **9 summarise**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **9 summarise**
 
@@ -1489,7 +1504,7 @@ si.summarise.nsp
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **9 summarise**
 
@@ -1520,7 +1535,7 @@ si.summarise.sp.est
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **10 join**
 
@@ -1553,7 +1568,7 @@ si.lon.lat
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **10 join**
 
@@ -1568,7 +1583,7 @@ sp.lon.lat.si &lt;- sp %&gt;%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **10 join**
 
@@ -1586,7 +1601,7 @@ colnames(sp.lon.lat.si)
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1614,7 +1629,7 @@ da
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1643,7 +1658,7 @@ da
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1674,7 +1689,7 @@ da
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1719,7 +1734,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ### Os conjuntos de dados **tidy** (organizados) são fáceis de manipular, modelar e visualizar
 
@@ -1740,7 +1755,7 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/tidy1.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ---
 
@@ -1748,11 +1763,11 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/spread.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ---
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ## **spread**: long para wide (matriz de comunidades)
 
@@ -1835,7 +1850,7 @@ sp.comu
 
 ---
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ## **spread**: long para wide (matriz de comunidades)
 
@@ -1926,7 +1941,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ## Pacote para a manipulação de characters ou strings
 
@@ -1954,7 +1969,7 @@ str_sub("abc", 3)
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Inserir espaço em branco
 
@@ -1992,7 +2007,7 @@ str_trim(" abc ")
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Minuscúlas e maisúsculas
 
@@ -2024,7 +2039,7 @@ str_to_title("aBc")
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Ordenarção
 
@@ -2034,8 +2049,8 @@ le
 ```
 
 ```
-##  [1] "r" "c" "m" "m" "j" "z" "e" "v" "b" "k" "d" "f" "v" "s" "g" "m" "c"
-## [18] "j" "z" "q" "r" "i" "k" "z" "w" "y"
+##  [1] "t" "b" "e" "k" "b" "t" "c" "o" "f" "i" "o" "w" "e" "n" "e" "k" "k"
+## [18] "q" "a" "z" "m" "a" "s" "z" "w" "d"
 ```
 --
 
@@ -2044,8 +2059,8 @@ str_sort(le)
 ```
 
 ```
-##  [1] "b" "c" "c" "d" "e" "f" "g" "i" "j" "j" "k" "k" "m" "m" "m" "q" "r"
-## [18] "r" "s" "v" "v" "w" "y" "z" "z" "z"
+##  [1] "a" "a" "b" "b" "c" "d" "e" "e" "e" "f" "i" "k" "k" "k" "m" "n" "o"
+## [18] "o" "q" "s" "t" "t" "w" "w" "z" "z"
 ```
 --
 
@@ -2054,13 +2069,13 @@ str_sort(le, dec = TRUE)
 ```
 
 ```
-##  [1] "z" "z" "z" "y" "w" "v" "v" "s" "r" "r" "q" "m" "m" "m" "k" "k" "j"
-## [18] "j" "i" "g" "f" "e" "d" "c" "c" "b"
+##  [1] "z" "z" "w" "w" "t" "t" "s" "q" "o" "o" "n" "m" "k" "k" "k" "i" "f"
+## [18] "e" "e" "e" "d" "c" "b" "b" "a" "a"
 ```
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Extrair
 
@@ -2102,99 +2117,40 @@ background-position: 50% 50%
 
 ---
 
-# 5.9 forcats
+# 4.9 forcats
 
-## Pacote para manejar fatores
+## Pacote para manejar os **levels** dos fatores
 
-### Fator com os meses
-
-```r
-ch &lt;- c("Dez", "Abr", "Jan", "Mar")
-ch
-```
-
-```
-## [1] "Dez" "Abr" "Jan" "Mar"
-```
-
---
-
-### Ordenar não ajuda...
+### **fct_relevel**: reordena os levels de forma simples
 
 ```r
-sort(ch)
-```
+# fixar amostragem
+set.seed(1)
 
-```
-## [1] "Abr" "Dez" "Jan" "Mar"
-```
-
----
-
-# 5.9 forcats
-
-### Criar um vetor com todos os meses
-
-```r
-meses &lt;- c("Jan", "Fev", "Mar", "Abr", "Mai", "Jun", 
-  "Jul", "Ago", "Set", "Out", "Nov", "Dez")
-```
-
---
-
-### Criar o fator
-
-```r
-fa &lt;- factor(ch, levels = meses)
+# criar um fator
+fa &lt;- factor(sample(c("alto", "medio", "baixo"), 30, rep = TRUE))
 fa
 ```
 
 ```
-## [1] Dez Abr Jan Mar
-## Levels: Jan Fev Mar Abr Mai Jun Jul Ago Set Out Nov Dez
-```
-
---
-
-### Agora posso ordenar
-
-```r
-sort(fa)
-```
-
-```
-## [1] Jan Mar Abr Dez
-## Levels: Jan Fev Mar Abr Mai Jun Jul Ago Set Out Nov Dez
-```
-
----
-
-# 5.9 forcats
-
-### Utilizando a função **fct_relevel**
-
-```r
-fa.or &lt;- ch %&gt;% 
-  factor()
-fa.or
-```
-
-```
-## [1] Dez Abr Jan Mar
-## Levels: Abr Dez Jan Mar
+##  [1] alto  baixo alto  medio alto  baixo baixo medio medio baixo baixo
+## [12] alto  alto  alto  medio medio medio medio baixo alto  baixo alto 
+## [23] alto  alto  alto  medio alto  alto  medio medio
+## Levels: alto baixo medio
 ```
 --
 
 ```r
-fa.or &lt;- ch %&gt;% 
-  factor() %&gt;% 
-  fct_relevel(c("Jan", "Mar",  "Abr", "Dez"))
+fa.or &lt;- fa %&gt;% 
+  fct_relevel(c("baixo", "medio", "alto"))
 fa.or
 ```
 
 ```
-## [1] Dez Abr Jan Mar
-## Levels: Jan Mar Abr Dez
+##  [1] alto  baixo alto  medio alto  baixo baixo medio medio baixo baixo
+## [12] alto  alto  alto  medio medio medio medio baixo alto  baixo alto 
+## [23] alto  alto  alto  medio alto  alto  medio medio
+## Levels: baixo medio alto
 ```
 
 ---
@@ -2203,143 +2159,27 @@ class: inverse, center, middle
 
 # Dúvidas?
 
-
----
-
-class: clear, center, middle
-background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/rmarkdown.png)
-background-size: 400px
-background-position: 50% 50%
-
----
-
-# 5.10 rmarkdown
-
----
-
-class: inverse, middle, center
-
-# Exercícios!
-
----
-
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
-
----
-
-# Exercícios
-
-## 1. Criem um novo script
-
-&lt;br&gt;&lt;br&gt;
-
-### Pasta
-`00_scripts`
-
-&lt;br&gt;
-
-### Arquivo
-`script_r_curso_r_aula05_introducao_tidyverse_exercicios_2019_01_d010.R`
-
----
-
-# Exercícios
-
-## 2. Criem um cabeçalho descritivo nesse script
-
---
-
-
-```r
-### exercicios aula 05 - introducao tidyverse ###
-
-# nome
-# data
-```
-
----
-
-# Exercícios
-
-## 3. Removam todos os objetos criados anteriormente
-
---
-
-
-```r
-# solucao
-## memoria
-rm(list = ls())
-```
-
----
-
-# Exercícios
-
-## 4. Listem os pacotes necessários
-
---
-
-
-```r
-# solucao
-## pacotes
-library(tidyverse)
-library(readxl)
-library(writexl)
-```
-
----
-
-# Exercícios
-
-## 5. Definam um diretório e confiram o mesmo
-
---
-
-
-```r
-# solucao
-## diretorio
-setwd("")
-get()
-dir()
-```
-
----
-
-# Exercícios
-
-## Vamos improvisar
-
----
-
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/xT8qBvH1pAhtfSx52U/giphy.gif)
-background-size: 800px
-background-position: 50% 50%
-
 ---
 
 class: clear, middle
 
-## Maurício H. Vancine
+## Maurício Vancine
 
 &lt;br&gt;
 
 Contatos:
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
-| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
-| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
-| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
-| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]  | mauricio.vancine@gmail.com    |
+| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]   | mauriciovancine.netlify.com   |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]  | @mauriciovancine              |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
 
-Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightLines": true,
@@ -2348,16 +2188,74 @@ Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -2371,7 +2269,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

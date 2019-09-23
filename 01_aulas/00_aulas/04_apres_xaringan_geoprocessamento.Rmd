@@ -1,6 +1,6 @@
 ---
-title: "Introdução à linguagem R: <br><br>"
-subtitle: "5 Introdução ao tidyverse<br><br><br>"
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "5 Introdução ao tidyverse <br><br> xaringan [presentation ninja]"
 author: "Maurício H. Vancine"
 date: "10/01/2019"
 output:
@@ -26,25 +26,27 @@ background-position: 50% 50%
 
 ---
 
-# 5 Introdução ao tidyverse
+# 4 Introdução ao tidyverse
 ## Tópicos
-5.1 tidyverse
+4.1 tidyverse
 <br>
-5.2 magrittr (pipe - %>%)
+4.2 magrittr (pipe - %>%)
 <br>
-5.3 readr
+4.3 readr
 <br>
-5.4 readxl e writexl
+4.4 readxl e writexl
 <br>
-5.5 tibble
+4.5 tibble
 <br>
-5.6 dplyr
+4.6 dplyr
 <br>
-5.7 tidyr
+4.7 tidyr
 <br>
-5.8 stringr
+4.8 stringr
 <br>
-5.9 forcats
+4.9 forcats
+<br>
+4.10 purrr
 
 ---
 
@@ -55,7 +57,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ### O tidyverse é um **pacote** com a função de **instalar** e **carregar** outros pacotes
 
@@ -88,14 +90,14 @@ background-size: 800px
 background-image: url(http://www.seec.uct.ac.za/sites/default/files/image_tool/images/330/tidy_workflow.png)
 background-size: 800px
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ---
 
 background-image: url(http://www.storybench.org/wp-content/uploads/2017/05/tidyverse-730x294.png)
 background-size: 800px
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ---
 
@@ -103,7 +105,7 @@ background-image: url(http://hadley.nz/hadley-wickham.jpg)
 background-size: 720px
 background-position: 50% 65%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## O idealizador foi o **Hadley Wickham** e atualmente **muitas pessoas** têm contribuído para sua expansão
 
@@ -117,7 +119,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 400px
 background-position: 50% 60%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Artigo: **Tidy Data (2014)** - *Journal of Statistics Software*
 
@@ -133,7 +135,7 @@ background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b
 background-size: 300px
 background-position: 50% 68%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Livro: **R for Data Science (2017)**
 
@@ -147,7 +149,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Sites
 
@@ -161,7 +163,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Sites
 
@@ -171,7 +173,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Para utilizar os pacotes do **tidyverse** é preciso instalar e carregar o pacote
 
@@ -186,7 +188,7 @@ install.packages("tidyverse")
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## Notem a saída do carregamento do pacote
 ```{r}
@@ -196,7 +198,7 @@ library(tidyverse)
 
 ---
 
-# 5.1 tidyverse
+# 4.1 tidyverse
 
 ## IMPORTANTE
 
@@ -221,7 +223,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.2 magrittr (pipe - %>%)
+# 4.2 magrittr (pipe - %>%)
 
 ### O operador pipe (*%>%*) permite o “encadeamento” de várias funções e **não é preciso de objetos** para armazenar resultados intermediários
 
@@ -239,7 +241,13 @@ background-position: 50% 50%
 
 ---
 
-# 5.2 magrittr (pipe - %>%)
+class: inverse, center, middle
+background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
+background-size: 600px
+
+---
+
+# 4.2 magrittr (pipe - %>%)
 
 ### Atalho: `crtl + shift + M`
 ```{r}
@@ -262,7 +270,7 @@ background-size: 800px
 
 ---
 
-# 5.2 magrittr (pipe - %>%)
+# 4.2 magrittr (pipe - %>%)
 
 ### Atalho: `crtl + shift + M`
 ```{r}
@@ -287,8 +295,8 @@ ve
 ---
 
 class: inverse, center, middle
-background-image: url(https://media.giphy.com/media/7ND8xzTlR5b8s/giphy.gif)
-background-size: 800px
+background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
+background-size: 600px
 
 ---
 
@@ -305,7 +313,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ### **Carrega e salva** grandes arquivos de forma **mais rápida** no formato **.csv**
 
@@ -338,7 +346,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.4 readxl e writexl
+# 4.4 readxl e writexl
 
 ## São pacotes à parte do **tidyverse**
 
@@ -360,7 +368,7 @@ library("writexl")
 
 ---
 
-# 5.4 readxl e writexl
+# 4.4 readxl e writexl
 
 ### **Carrega e salva** grandes arquivos de forma **mais rápida** no formato **.xlsx**
 
@@ -409,7 +417,7 @@ background-position: 50% 70%
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ## **Formato .csv**
 
@@ -435,7 +443,7 @@ sp
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ## **Formato .csv**
 
@@ -453,11 +461,11 @@ sp
 
 4. Mudar o diretório `setwd()`
 
-5. Importar usando o `read_csv()`
+4. Importar usando o `read_csv()`
 
 ---
 
-# 5.3 readr
+# 4.3 readr
 
 ## **Formato .csv**
 
@@ -481,7 +489,7 @@ sp
 
 ---
 
-# 5.4 readxl e writexl
+# 4.4 readxl e writexl
 
 ## **Formato .xlsx**
 
@@ -515,7 +523,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ### O tibble (classe *tbl_df*) é um **tipo especial de data frame**
 
@@ -537,7 +545,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## Descrição dos modos das colunas através da função 
 
@@ -549,7 +557,7 @@ glimpse(si)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## Descrição dos modos das colunas através da função 
 
@@ -561,7 +569,7 @@ glimpse(sp)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## tibble vs data.frame
 
@@ -578,7 +586,7 @@ glimpse(tb)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## tibble vs data.frame
 
@@ -601,7 +609,7 @@ class(tb.ch)
 
 ---
 
-# 5.5 tibble
+# 4.5 tibble
 
 ## tibble vs data.frame
 
@@ -629,7 +637,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ### O **dplyr** é um pacote que **facilita** o trabalho com dados, com uma **gramática de manipulação** de dados **simples e flexível** (filtragem, reordenamento, seleção, entre outras)
 
@@ -643,7 +651,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ### Sua gramática simples contém **funções verbais** que são comuns para manipulação de dados
 
@@ -664,7 +672,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ### O **tibble** é sempre o **primeiro argumento** das funções verbais
 
@@ -695,13 +703,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/select.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 ```{r}
@@ -713,7 +721,7 @@ si.select
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 ```{r}
@@ -724,7 +732,7 @@ si.select
 ```
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **1 select**
 ```{r}
@@ -741,13 +749,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/vectorizedFn
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **2 pull**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **2 pull**
 
@@ -759,7 +767,7 @@ si.pull
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **2 pull**
 
@@ -776,13 +784,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/arrange.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **3 arrange**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **3 arrange**
 
@@ -815,13 +823,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/filter.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **4 filter**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **4 filter** 
 
@@ -842,7 +850,7 @@ si.filter
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **4 filter** 
 ```{r, eval = FALSE}
@@ -868,7 +876,7 @@ si.filter
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **5 slice** 
 ### Selecionar pelo número da linha
@@ -882,7 +890,7 @@ si.slice
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **6 n_sample** 
 
@@ -896,7 +904,7 @@ si.sample_n
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **7 rename**
 
@@ -915,13 +923,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/mutate.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **8 mutate**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **8 mutate**
 
@@ -939,13 +947,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/summarize.pn
 background-size: 800px
 background-position: 50% 50%
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **9 summarise**
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **9 summarise**
 ```{r}
@@ -956,7 +964,7 @@ si.summarise.nsp
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **9 summarise**
 
@@ -969,7 +977,7 @@ si.summarise.sp.est
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **10 join**
 
@@ -984,7 +992,7 @@ si.lon.lat
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **10 join**
 
@@ -998,7 +1006,7 @@ sp.lon.lat.si <- sp %>%
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 
 ## **10 join**
 
@@ -1009,7 +1017,7 @@ colnames(sp.lon.lat.si)
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1019,7 +1027,7 @@ da
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1030,7 +1038,7 @@ da
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1043,7 +1051,7 @@ da
 
 ---
 
-# 5.6 dplyr
+# 4.6 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1070,7 +1078,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ### Os conjuntos de dados **tidy** (organizados) são fáceis de manipular, modelar e visualizar
 
@@ -1091,7 +1099,7 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/tidy1.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ---
 
@@ -1099,11 +1107,11 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/spread.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ---
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ## **spread**: long para wide (matriz de comunidades)
 
@@ -1122,7 +1130,7 @@ sp.comu
 
 ---
 
-# 5.7 tidyr
+# 4.7 tidyr
 
 ## **spread**: long para wide (matriz de comunidades)
 
@@ -1149,7 +1157,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ## Pacote para a manipulação de characters ou strings
 
@@ -1167,7 +1175,7 @@ str_sub("abc", 3)
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Inserir espaço em branco
 ```{r}
@@ -1190,7 +1198,7 @@ str_trim(" abc ")
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Minuscúlas e maisúsculas
 ```{r}
@@ -1207,7 +1215,7 @@ str_to_title("aBc")
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Ordenarção
 ```{r}
@@ -1225,7 +1233,7 @@ str_sort(le, dec = TRUE)
 
 ---
 
-# 5.8 stringr
+# 4.8 stringr
 
 ### Extrair
 ```{r}
@@ -1251,7 +1259,7 @@ background-position: 50% 50%
 
 ---
 
-# 5.9 forcats
+# 4.9 forcats
 
 ## Pacote para manejar os **levels** dos fatores
 
@@ -1277,116 +1285,22 @@ class: inverse, center, middle
 
 # Dúvidas?
 
-
----
-
-class: inverse, middle, center
-
-# Exercícios!
-
----
-
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
-
----
-
-# Exercícios
-
-## 1. Criem um novo script
-
-<br><br>
-
-### Pasta
-`00_scripts`
-
-<br>
-
-### Arquivo
-`script_r_curso_r_aula05_introducao_tidyverse_exercicios_2019_01_d010.R`
-
----
-
-# Exercícios
-
-## 2. Criem um cabeçalho descritivo nesse script
-
---
-
-```{r}
-### exercicios aula 05 - introducao tidyverse ###
-
-# nome
-# data
-```
-
----
-
-# Exercícios
-
-## 3. Removam todos os objetos criados anteriormente
-
---
-
-```{r}
-# solucao
-## memoria
-rm(list = ls())
-```
-
----
-
-# Exercícios
-
-## 4. Listem os pacotes necessários
-
---
-
-```{r}
-# solucao
-## pacotes
-library(tidyverse)
-library(readxl)
-library(writexl)
-```
-
----
-
-# Exercícios
-
-## 5. Definam um diretório e confiram o mesmo
-
---
-
-```{r, eval = FALSE}
-# solucao
-## diretorio
-setwd("")
-get()
-dir()
-```
-
----
-
-# Exercícios
-
-
 ---
 
 class: clear, middle
 
-## Maurício H. Vancine
+## Maurício Vancine
 
 <br>
 
 Contatos:
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
-| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
-| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
-| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
-| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
 
-Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)

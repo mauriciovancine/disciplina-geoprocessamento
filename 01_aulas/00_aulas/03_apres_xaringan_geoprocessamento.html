@@ -22,8 +22,8 @@ class: center, middle, inverse, title-slide
 
 
 class: clear, center, middle
-background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
-background-size: 700px
+background-image: url(https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/05/Data-Types-350x300.png)
+background-size: 400px
 background-position: 50% 50%
 
 ---
@@ -69,8 +69,8 @@ background-position: 50% 50%
 
 ```r
 ## atribuicao - simbolo (&lt;-)
-obj.10 &lt;- 10 
-obj.10
+obj_10 &lt;- 10 
+obj_10
 ```
 
 ```
@@ -117,8 +117,8 @@ obj.10
 
 ```r
 # numeric
-obj.num &lt;- 1
-obj.num
+obj_num &lt;- 1
+obj_num
 ```
 
 ```
@@ -128,7 +128,7 @@ obj.num
 
 ```r
 # mode
-mode(obj.num)
+mode(obj_num)
 ```
 
 ```
@@ -145,8 +145,8 @@ mode(obj.num)
 
 ```r
 # character
-obj.cha &lt;- "a" # atencao para as aspas
-obj.cha
+obj_cha &lt;- "a" # atencao para as aspas
+obj_cha
 ```
 
 ```
@@ -156,7 +156,7 @@ obj.cha
 
 ```r
 # mode
-mode(obj.cha)
+mode(obj_cha)
 ```
 
 ```
@@ -174,8 +174,8 @@ mode(obj.cha)
 
 ```r
 # logical
-obj.log &lt;- TRUE # maiusculas e sem aspas
-obj.log
+obj_log &lt;- TRUE # maiusculas e sem aspas
+obj_log
 ```
 
 ```
@@ -185,7 +185,7 @@ obj.log
 
 ```r
 # mode
-mode(obj.log)
+mode(obj_log)
 ```
 
 ```
@@ -239,14 +239,6 @@ background-size: 800px
 background-position: 50% 50%
 
 # 3.6 Estrutura dos objetos
-
----
-
-background-image: url(http://www.simonqueenborough.info/R/basic/img/data/data-dimensions.png)
-background-size: 700px
-background-position: 50% 50%
-
-# 3.3 Estrutura dos objetos
 
 ---
 
@@ -311,12 +303,12 @@ temp
 --
 
 ```r
-amos &lt;- c("amostra_01", "amostra_02", "amostra_03", "amostra_04", "amostra_05")
+amos &lt;- c("amostra_01", "amostra_02", "amostra_03", "amostra_04")
 amos
 ```
 
 ```
-## [1] "amostra_01" "amostra_02" "amostra_03" "amostra_04" "amostra_05"
+## [1] "amostra_01" "amostra_02" "amostra_03" "amostra_04"
 ```
 
 ---
@@ -362,8 +354,8 @@ se.e
 # rep(x, times) # repete x tantas vezes
 # rep(x, each) # retete x tantas vezes de cada
 
-re.num.t &lt;- rep(x = c(1, 2), times = 5)
-re.num.t
+rep_times &lt;- rep(x = c(1, 2), times = 5)
+rep_times
 ```
 
 ```
@@ -373,76 +365,12 @@ re.num.t
 --
 
 ```r
-re.num.e &lt;- rep(x = c(1, 2), each = 5)
-re.num.e
-```
-
-```
-##  [1] 1 1 1 1 1 2 2 2 2 2
-```
-
----
-
-# 3.7 Estrutura dos objetos: vector
-
-### Há diversas formas de se criar um **vetor**:
-
-### 3. Repetição
-
-```r
-# repeticao
-# rep(x, times) # repete x tantas vezes
-# rep(x, each) # retete x tantas vezes de cada
-
-re.cha.n &lt;- rep(x = c("a", "b"), times = 5)
-re.cha.n
-```
-
-```
-##  [1] "a" "b" "a" "b" "a" "b" "a" "b" "a" "b"
-```
-&lt;br&gt;
---
-
-```r
-re.cha.c &lt;- rep(x = c("a", "b"), each = 5)
-re.cha.c
+rep_each &lt;- rep(x = c("a", "b"), each = 5)
+rep_each
 ```
 
 ```
 ##  [1] "a" "a" "a" "a" "a" "b" "b" "b" "b" "b"
-```
-
----
-
-# 3.7 Estrutura dos objetos: vector
-
-### Há diversas formas de se criar um **vetor**:
-
-### 3. Repetição
-
-```r
-# repeticao
-# rep(x, times) # repete x tantas vezes
-# rep(x, each) # retete x tantas vezes de cada
-
-re.log.n &lt;- rep(x = c(TRUE, FALSE), times = 5)
-re.log.n
-```
-
-```
-##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
-```
-&lt;br&gt;
---
-
-```r
-re.log.c &lt;- rep(x = c(TRUE, FALSE), each = 5)
-re.log.c
-```
-
-```
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
 ```
 
 ---
@@ -482,12 +410,6 @@ am2
 class: inverse, middle, center
 
 # Dúvidas?
-
----
-
-class: inverse, middle, center
-
-# Posso fazer uma pergunta!?
 
 ---
 
@@ -722,8 +644,8 @@ ve
 --
 
 ```r
-ve.c &lt;- as.character(ve)
-ve.c
+ve_ch &lt;- as.character(ve)
+ve_ch
 ```
 
 ```
@@ -732,7 +654,7 @@ ve.c
 --
 
 ```r
-mode(ve.c)
+mode(ve_ch)
 ```
 
 ```
@@ -757,8 +679,8 @@ ve
 --
 
 ```r
-ve.l &lt;- as.logical(ve)
-ve.l
+ve_lo &lt;- as.logical(ve)
+ve_lo
 ```
 
 ```
@@ -767,7 +689,7 @@ ve.l
 --
 
 ```r
-mode(ve.l)
+mode(ve_lo)
 ```
 
 ```
@@ -783,7 +705,7 @@ mode(ve.l)
 ### Forçar a ser **numeric**, vindo de um **character**
 
 ```r
-ve.c
+ve_ch
 ```
 
 ```
@@ -792,8 +714,8 @@ ve.c
 --
 
 ```r
-ve.n &lt;- as.numeric(ve.c)
-ve.n
+ve_nu &lt;- as.numeric(ve_ch)
+ve_nu
 ```
 
 ```
@@ -802,42 +724,7 @@ ve.n
 --
 
 ```r
-mode(ve.n)
-```
-
-```
-## [1] "numeric"
-```
-
----
-
-# Conversão
-
-## Podemos **forçar** um vetor a ter um **modo específico**
-
-### Forçar a ser **numeric**, vindo de um **logical**
-
-```r
-ve.l
-```
-
-```
-## [1] FALSE  TRUE  TRUE  TRUE  TRUE
-```
---
-
-```r
-ve.n &lt;- as.numeric(ve.l)
-ve.n
-```
-
-```
-## [1] 0 1 1 1 1
-```
---
-
-```r
-mode(ve.n)
+mode(ve_nu)
 ```
 
 ```
@@ -894,9 +781,9 @@ background-position: 50% 50%
 
 
 ```r
-fa.no &lt;- factor(x = c("fechada", "fechada", "aberta", "aberta", "aberta"),
+fa_no &lt;- factor(x = c("fechada", "fechada", "aberta", "aberta", "aberta"),
                 levels = c("aberta", "fechada"))
-fa.no
+fa_no
 ```
 
 ```
@@ -906,7 +793,7 @@ fa.no
 --
 
 ```r
-levels(fa.no)
+levels(fa_no)
 ```
 
 ```
@@ -919,9 +806,9 @@ levels(fa.no)
 ## **2. Factor ordinal**: variáveis ordinais
 
 ```r
-fa.or &lt;- factor(x = c("alta", "media", "baixa", "baixa", "media"),
+fa_or &lt;- factor(x = c("alta", "media", "baixa", "baixa", "media"),
                 levels = c("baixa", "media", "alta"), ordered = TRUE)
-fa.or
+fa_or
 ```
 
 ```
@@ -931,7 +818,7 @@ fa.or
 --
 
 ```r
-levels(fa.or)
+levels(fa_or)
 ```
 
 ```
@@ -949,8 +836,8 @@ levels(fa.or)
 ### Criar um vetor **character**
 
 ```r
-ve.ch &lt;- c("alta", "media", "baixa", "baixa", "media")
-ve.ch
+ve_ch &lt;- c("alta", "media", "baixa", "baixa", "media")
+ve_ch
 ```
 
 ```
@@ -959,7 +846,7 @@ ve.ch
 --
 
 ```r
-mode(ve.ch)
+mode(ve_ch)
 ```
 
 ```
@@ -968,7 +855,7 @@ mode(ve.ch)
 --
 
 ```r
-class(ve.ch)
+class(ve_ch)
 ```
 
 ```
@@ -986,8 +873,8 @@ class(ve.ch)
 ### Forçar a ser **factor nominal**
 
 ```r
-fa.no &lt;- as.factor(ve.ch)
-fa.no
+fa_no &lt;- as.factor(ve_ch)
+fa_no
 ```
 
 ```
@@ -997,7 +884,7 @@ fa.no
 --
 
 ```r
-levels(fa.no)
+levels(fa_no)
 ```
 
 ```
@@ -1006,47 +893,11 @@ levels(fa.no)
 --
 
 ```r
-class(fa.no)
+class(fa_no)
 ```
 
 ```
 ## [1] "factor"
-```
-
----
-
-# 3.8 Estrutura dos objetos: factor
-
-## **2. Factor**: conversão
-
-### Forçar a ser **factor ordinal**
-
-```r
-fa.no &lt;- as.ordered(ve.ch)
-fa.no
-```
-
-```
-## [1] alta  media baixa baixa media
-## Levels: alta &lt; baixa &lt; media
-```
---
-
-```r
-levels(fa.no)
-```
-
-```
-## [1] "alta"  "baixa" "media"
-```
---
-
-```r
-class(fa.no)
-```
-
-```
-## [1] "ordered" "factor"
 ```
 
 ---
@@ -1130,8 +981,8 @@ ve &lt;- 1:12
 
 ```r
 # matrix - preenchimento por linhas - horizontal
-ma.row &lt;- matrix(data = ve, nrow = 4, ncol = 3, byrow = TRUE)
-ma.row
+ma_row &lt;- matrix(data = ve, nrow = 4, ncol = 3, byrow = TRUE)
+ma_row
 ```
 
 ```
@@ -1162,8 +1013,8 @@ ve &lt;- 1:12
 
 ```r
 # matrix - preenchimento por colunas - vertical
-ma.col &lt;- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
-ma.col
+ma_col &lt;- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
+ma_col
 ```
 
 ```
@@ -1188,21 +1039,21 @@ ma.col
 
 ```r
 # criar dois vetores
-vec.1 &lt;- c(1, 2, 3)
-vec.2 &lt;- c(4, 5, 6)
+vec_1 &lt;- c(1, 2, 3)
+vec_2 &lt;- c(4, 5, 6)
 ```
 --
 
 ```r
 # combinar por linhas - vertical - um embaixo do outro
-ma.rbind &lt;- rbind(vec.1, vec.2)
-ma.rbind
+ma_rbind &lt;- rbind(vec_1, vec_2)
+ma_rbind
 ```
 
 ```
 ##       [,1] [,2] [,3]
-## vec.1    1    2    3
-## vec.2    4    5    6
+## vec_1    1    2    3
+## vec_2    4    5    6
 ```
 
 ---
@@ -1219,19 +1070,19 @@ ma.rbind
 
 ```r
 # criar dois vetores
-vec.1 &lt;- c(1, 2, 3)
-vec.2 &lt;- c(4, 5, 6)
+vec_1 &lt;- c(1, 2, 3)
+vec_2 &lt;- c(4, 5, 6)
 ```
 --
 
 ```r
 # combinar por colunas - horizontal - um ao lado do outro
-ma.cbind &lt;- cbind(vec.1, vec.2)
-ma.cbind
+ma_cbind &lt;- cbind(vec_1, vec_2)
+ma_cbind
 ```
 
 ```
-##      vec.1 vec.2
+##      vec_1 vec_2
 ## [1,]     1     4
 ## [2,]     2     5
 ## [3,]     3     6
@@ -1245,72 +1096,22 @@ ma.cbind
 
 ```r
 # criar dois vetores
-vec.ch &lt;- c("sp1", "sp2", "sp3")
-vec.nu &lt;- c(4, 5, 6)
+vec_ch &lt;- c("sp1", "sp2", "sp3")
+vec_nu &lt;- c(4, 5, 6)
 ```
 --
 
 ```r
 # combinar por colunas - horizontal - um ao lado do outro
-ma.ch &lt;- cbind(vec.ch, vec.nu)
-ma.ch
+ma_ch &lt;- cbind(vec_ch, vec_nu)
+ma_ch
 ```
 
 ```
-##      vec.ch vec.nu
+##      vec_ch vec_nu
 ## [1,] "sp1"  "4"   
 ## [2,] "sp2"  "5"   
 ## [3,] "sp3"  "6"
-```
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## Coerção
-
-```r
-# criar dois vetores
-vec.ch &lt;- c("sp1", "sp2", "sp3")
-vec.lo &lt;- c(TRUE, TRUE, FALSE)
-```
---
-
-```r
-# combinar por linhas - vertical - um embaixo do outro
-ma.ch &lt;- rbind(vec.ch, vec.lo)
-ma.ch
-```
-
-```
-##        [,1]   [,2]   [,3]   
-## vec.ch "sp1"  "sp2"  "sp3"  
-## vec.lo "TRUE" "TRUE" "FALSE"
-```
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## Coerção
-
-```r
-# criar dois vetores
-vec.nu &lt;- c(1, 2, 3)
-vec.lo &lt;- c(TRUE, TRUE, FALSE)
-```
---
-
-```r
-# combinar por linhas - vertical - um embaixo do outro
-ma.nu &lt;- rbind(vec.nu, vec.lo)
-ma.nu
-```
-
-```
-##        [,1] [,2] [,3]
-## vec.nu    1    2    3
-## vec.lo    1    1    0
 ```
 
 ---
@@ -1322,51 +1123,6 @@ ma.nu
 ## Essa mudança também segue a ordem:
 
 ### `DOMINANTE` **character** &gt;&gt; **numeric** &gt;&gt; **logical** `RECESSIVO`
-
----
-
-class: inverse, middle, center
-
-# E a **conversão**?
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## Conversão
-
---
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-
-```r
-as.character(ma.nu)
-```
-
-```
-## [1] "1" "1" "2" "1" "3" "0"
-```
-
----
-
-class: inverse, middle, center
-
-# Falhou miseravelmente....
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## As conversões
-
-### `as.numeric`
-
-### `as.character`
-
-### `as.logical`
-
-##  sempre geram um **vector**!
 
 ---
 
@@ -1424,6 +1180,11 @@ ve
 
 ---
 
+background-image: url(https://www.neonscience.org/sites/default/files/images/R/array.png)
+background-size: 350px
+background-position: 80% 85%
+
+
 # 3.10 Estrutura dos objetos: array
 
 ## Há **uma forma** de se construir um **array** no R:
@@ -1433,7 +1194,7 @@ ve
 `array`: dispõem um vetor em um certo número de linhas, colunas e dimensões....
 
 ```r
-ar &lt;- array(data = ve, dim = c(2, 2, 4))
+ar &lt;- array(data = ve, dim = c(2, 2, 2))
 ar
 ```
 
@@ -1445,18 +1206,6 @@ ar
 ## [2,]    2    4
 ## 
 ## , , 2
-## 
-##      [,1] [,2]
-## [1,]    5    7
-## [2,]    6    8
-## 
-## , , 3
-## 
-##      [,1] [,2]
-## [1,]    1    3
-## [2,]    2    4
-## 
-## , , 4
 ## 
 ##      [,1] [,2]
 ## [1,]    5    7
@@ -1558,20 +1307,20 @@ background-size: 700px
 
 ```r
 # criar três vetores
-vec.ch &lt;- c("sp1", "sp2", "sp3")
-vec.nu &lt;- c(4, 5, 6)
-vec.fa &lt;- factor(c("campo", "floresta", "floresta"))
+vec_ch &lt;- c("sp1", "sp2", "sp3")
+vec_nu &lt;- c(4, 5, 6)
+vec_fa &lt;- factor(c("campo", "floresta", "floresta"))
 ```
 --
 
 ```r
 # data.frame - combinar por colunas - horizontal - um ao lado do outro
-df &lt;- data.frame(vec.ch, vec.nu, vec.fa)
+df &lt;- data.frame(vec_ch, vec_nu, vec_fa)
 df
 ```
 
 ```
-##   vec.ch vec.nu   vec.fa
+##   vec_ch vec_nu   vec_fa
 ## 1    sp1      4    campo
 ## 2    sp2      5 floresta
 ## 3    sp3      6 floresta
@@ -1591,9 +1340,9 @@ df
 
 ```r
 # data.frame
-df &lt;- data.frame(especies = vec.ch, 
-                 abundancia = vec.nu, 
-                 vegetacao = vec.fa)
+df &lt;- data.frame(especies = vec_ch, 
+                 abundancia = vec_nu, 
+                 vegetacao = vec_fa)
 df
 ```
 
@@ -1698,33 +1447,32 @@ str(df)
 
 ```r
 ## vetores
-pa &lt;- paste("parcela", 1:10, sep = "_")
+pa &lt;- paste("parcela", 1:4, sep = "_")
 pa
 ```
 
 ```
-##  [1] "parcela_1"  "parcela_2"  "parcela_3"  "parcela_4"  "parcela_5" 
-##  [6] "parcela_6"  "parcela_7"  "parcela_8"  "parcela_9"  "parcela_10"
+## [1] "parcela_1" "parcela_2" "parcela_3" "parcela_4"
 ```
 --
 
 ```r
-pe &lt;- sample(0:1, 10, rep = TRUE)
+pe &lt;- sample(0:1, 4, rep = TRUE)
 pe
 ```
 
 ```
-##  [1] 1 1 1 1 1 0 1 0 1 0
+## [1] 1 1 0 0
 ```
 --
 
 ```r
-tr &lt;- factor(rep(c("trat", "cont"), each = 5))
+tr &lt;- factor(rep(c("trat", "cont"), each = 2))
 tr
 ```
 
 ```
-##  [1] trat trat trat trat trat cont cont cont cont cont
+## [1] trat trat cont cont
 ## Levels: cont trat
 ```
 
@@ -1742,22 +1490,23 @@ df
 ```
 
 ```
-##            pa pe   tr
-## 1   parcela_1  1 trat
-## 2   parcela_2  1 trat
-## 3   parcela_3  1 trat
-## 4   parcela_4  1 trat
-## 5   parcela_5  1 trat
-## 6   parcela_6  0 cont
-## 7   parcela_7  1 cont
-## 8   parcela_8  0 cont
-## 9   parcela_9  1 cont
-## 10 parcela_10  0 cont
+##          pa pe   tr
+## 1 parcela_1  1 trat
+## 2 parcela_2  1 trat
+## 3 parcela_3  0 cont
+## 4 parcela_4  0 cont
 ```
 --
 
 ```r
 str(df)
+```
+
+```
+## 'data.frame':	4 obs. of  3 variables:
+##  $ pa: Factor w/ 4 levels "parcela_1","parcela_2",..: 1 2 3 4
+##  $ pe: int  1 1 0 0
+##  $ tr: Factor w/ 2 levels "cont","trat": 2 2 1 1
 ```
 
 ---
@@ -1774,22 +1523,23 @@ df.c
 ```
 
 ```
-##       pa           pe  tr 
-##  [1,] "parcela_1"  "1" "2"
-##  [2,] "parcela_2"  "1" "2"
-##  [3,] "parcela_3"  "1" "2"
-##  [4,] "parcela_4"  "1" "2"
-##  [5,] "parcela_5"  "1" "2"
-##  [6,] "parcela_6"  "0" "1"
-##  [7,] "parcela_7"  "1" "1"
-##  [8,] "parcela_8"  "0" "1"
-##  [9,] "parcela_9"  "1" "1"
-## [10,] "parcela_10" "0" "1"
+##      pa          pe  tr 
+## [1,] "parcela_1" "1" "2"
+## [2,] "parcela_2" "1" "2"
+## [3,] "parcela_3" "0" "1"
+## [4,] "parcela_4" "0" "1"
 ```
 --
 
 ```r
 str(df.c)
+```
+
+```
+##  chr [1:4, 1:3] "parcela_1" "parcela_2" "parcela_3" "parcela_4" "1" ...
+##  - attr(*, "dimnames")=List of 2
+##   ..$ : NULL
+##   ..$ : chr [1:3] "pa" "pe" "tr"
 ```
 
 ---
@@ -1862,338 +1612,23 @@ class: inverse, middle, center
 
 ---
 
-class: inverse, middle, center
-
-# Exercícios!
-
----
-
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
-
----
-
-# Exercícios
-
-## 1. Criem um novo script
-
-&lt;br&gt;&lt;br&gt;
-
-### Pasta
-`00_scripts`
-
-&lt;br&gt;
-
-### Arquivo
-`script_r_curso_r_aula03_estrutura_dados_exercicios_2019_01_d08.R`
-
----
-
-# Exercícios
-
-## 2. Criem um cabeçalho descritivo nesse script
-
---
-
-
-```r
-### exercicios aula 03 - atributos dos dados ###
-
-# nome
-# data
-```
-
----
-
-# Exercícios
-
-## 3. Removam todos os objetos criados anteriormente
-
---
-
-
-```r
-# solucao
-## memoria
-rm(list = ls())
-```
-
----
-
-# Exercícios
-
-## 4. Criem um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ser dessa forma:
-
-`local_1, local_2, local_3, ...., local_100`
-
---
-
-
-```r
-# solucao
-lo &lt;- paste("local", 1:100, sep = "_")
-lo
-```
-
-```
-##   [1] "local_1"   "local_2"   "local_3"   "local_4"   "local_5"  
-##   [6] "local_6"   "local_7"   "local_8"   "local_9"   "local_10" 
-##  [11] "local_11"  "local_12"  "local_13"  "local_14"  "local_15" 
-##  [16] "local_16"  "local_17"  "local_18"  "local_19"  "local_20" 
-##  [21] "local_21"  "local_22"  "local_23"  "local_24"  "local_25" 
-##  [26] "local_26"  "local_27"  "local_28"  "local_29"  "local_30" 
-##  [31] "local_31"  "local_32"  "local_33"  "local_34"  "local_35" 
-##  [36] "local_36"  "local_37"  "local_38"  "local_39"  "local_40" 
-##  [41] "local_41"  "local_42"  "local_43"  "local_44"  "local_45" 
-##  [46] "local_46"  "local_47"  "local_48"  "local_49"  "local_50" 
-##  [51] "local_51"  "local_52"  "local_53"  "local_54"  "local_55" 
-##  [56] "local_56"  "local_57"  "local_58"  "local_59"  "local_60" 
-##  [61] "local_61"  "local_62"  "local_63"  "local_64"  "local_65" 
-##  [66] "local_66"  "local_67"  "local_68"  "local_69"  "local_70" 
-##  [71] "local_71"  "local_72"  "local_73"  "local_74"  "local_75" 
-##  [76] "local_76"  "local_77"  "local_78"  "local_79"  "local_80" 
-##  [81] "local_81"  "local_82"  "local_83"  "local_84"  "local_85" 
-##  [86] "local_86"  "local_87"  "local_88"  "local_89"  "local_90" 
-##  [91] "local_91"  "local_92"  "local_93"  "local_94"  "local_95" 
-##  [96] "local_96"  "local_97"  "local_98"  "local_99"  "local_100"
-```
-
----
-
-# Exercícios
-
-## 4. Criem um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ser dessa forma:
-
-`local_001, local_002, local_003, ...., local_100`
-
---
-
-
-```r
-# solucao
-lo.u &lt;- paste("local_00", 1:9, sep = "")
-lo.u
-
-lo.d &lt;- paste("local_0", 10:99, sep = "")
-lo.d
-
-lo &lt;- c(lo.u, lo.d, "local_100")
-lo
-```
-
----
-
-# Exercícios
-
-## 4. Criem um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ser dessa forma:
-
-`local_001, local_002, local_003, ...., local_100`
-
---
-
-
-```r
-# solucao 2
-lo.u &lt;- paste("local", 1:9, sep = "_00")
-lo.u
-
-lo.d &lt;- paste("local", 10:99, sep = "_0")
-lo.d
-
-lo &lt;- c(lo.u, lo.d, "local_100")
-lo
-```
-
----
-
-# Exercícios
-
-## 6. Criem um fator chamado "tr", com dois níveis ("cont" e "trat") para descrever 100 locais de amostragem, 50 de cada tratamento. O fator deve ser dessa forma:
-
-`cont, cont, cont, ...., cont, trat, trat, trat, ...., trat`
-
---
-
-
-```r
-# solucao
-re &lt;- rep(c("cont", "trat"), each = 50)
-re
-
-tr &lt;- factor(re, c("cont", "trat"))
-tr
-```
-
----
-
-# Exercícios
-
-## 6. Criem um fator chamado "tr", com dois níveis ("cont" e "trat") para descrever 100 locais de amostragem, 50 de cada tratamento. O fator deve ser dessa forma:
-
-`cont, cont, cont, ...., cont, trat, trat, ...., trat`
-
---
-
-
-```r
-# solucao
-tr &lt;- factor(rep(c("cont", "trat"), each = 50),
-	        c("cont", "trat"))
-tr
-```
-
----
-
-# Exercícios
-
-## 7. Criem uma matriz chamada "ma", da disposição de um vetor composto por 100 valores aleatórios entre 0 e 10. A matriz deve conter 10 linhas e ser preenchida por colunas
-
---
-
-
-```r
-# solucao
-ve &lt;- sample(0:10, 100, rep = TRUE)
-ve
-```
---
-
-```r
-ma &lt;- matrix(ve, 10, 10, byrow = FALSE)
-ma
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-`1. nome: nome das parcelas (parcela 1 a 10)`
-
-`2. sp1: abundância aleatória (valores entre 0 a 10) da sp1`
-
-`3. sp2: abundância aleatória (valores entre 0 a 10) da sp2`
-
-`4. sp3: abundância aleatória (valores entre 0 a 10) da sp3`
-
-`5. temp: distribuição normal da temperatura (média = 20 e desvio padrão = 3)`
-
-`6. prec: distribuição normal da precipitação (média = 1500 e desvio padrão = 200)`
-
-`7. ins: distribuição normal da incidência solar (média = 50 e desvio padrão = 15)`
-
-`8. inv: presençaa aleatória de uma planta invasora`
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-
-```r
-# solucao
-pa &lt;- c(paste("parcela", 1:9, sep = "_0"), "parcela_10")
-pa
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-
-```r
-# solucao
-sp1 &lt;- sample(1:10, 10, rep = TRUE)
-sp1
-
-sp2 &lt;- sample(1:10, 10, rep = TRUE)
-sp2
-
-sp3 &lt;- sample(1:10, 10, rep = TRUE)
-sp3
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-
-```r
-# solucao
-te &lt;- rnorm(10, 20, 3)
-te
-
-pr &lt;- rnorm(10, 1000, 200)
-pr
-
-so &lt;- rnorm(10, 50, 15)
-so
-
-iv &lt;- sample(0:1, 10, rep = TRUE)
-iv
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-
-```r
-# solucao
-df &lt;- data.frame(pa, sp1, sp2, sp3, sp4, sp5, te, pr, so, iv)
-df
-```
-
----
-
-# Exercícios
-
-## 9. Criem uma lista chamada "li" contendo todos os objetos criados nos exercícios
-
---
-
-
-```r
-ls()
-```
---
-
-```r
-li &lt;- list(df, iv, lo, lo.d, lo.u, pa, pr, so, sp1, sp2, sp3, sp4, sp5, te)
-li
-```
-
-class: inverse, middle, center
-
-# Dúvidas?
-
----
-
 class: clear, middle
 
-## Maurício H. Vancine
+## Maurício Vancine
 
 &lt;br&gt;
 
 Contatos:
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-paper-plane fa-fw"&gt;&lt;/i&gt;]               | mauricio.vancine@gmail.com       |
-| &lt;a href="mauriciovancine.github.io"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;] | mauriciovancine.github.io |
-| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                         |
-| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
-| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]                          | @mauriciovancine                       |
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]  | mauricio.vancine@gmail.com    |
+| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]   | mauriciovancine.netlify.com   |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]  | @mauriciovancine              |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
 
-Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

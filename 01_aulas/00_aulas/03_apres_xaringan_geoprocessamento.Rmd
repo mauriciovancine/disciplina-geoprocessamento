@@ -20,8 +20,8 @@ options(htmltools.dir.version = FALSE)
 ```
 
 class: clear, center, middle
-background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
-background-size: 700px
+background-image: url(https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/05/Data-Types-350x300.png)
+background-size: 400px
 background-position: 50% 50%
 
 ---
@@ -30,25 +30,21 @@ background-position: 50% 50%
 ## Tópicos
 3.1 Atributos dos objetos
 <br>
-3.2 Modos dos objetos
+3.2 Modos dos objetos (*numeric*, *character* e *logical*)
 <br>
-3.3 Modos dos objetos: numérico (**numeric**)
+3.3 Estrutura dos objetos (*vector*, *factor*, *matrix*, *data frame* e *list*)
 <br>
-3.4 Modos dos objetos: caracter (**character**)
+3.4 Diretório de trabalho
 <br>
-3.5 Modos dos objetos: lógico (**logical**)
+3.5 Importar dados
 <br>
-3.6 Estrutura dos objetos
+3.6 Conferir dados
 <br>
-3.7 Estrutura dos objetos: vetor (**vector**)
+3.7 Manejar dados
 <br>
-3.8 Estrutura dos objetos: fator (**factor**)
+3.8 Valores faltantes e especiais
 <br>
-3.9 Estrutura dos objetos: matriz (**matrix**)
-<br> 
-3.10 Estrutura dos objetos: data frame (**data frame**)
-<br> 
-3.11 Estrutura dos objetos: lista (**list**)
+3.9 Exportar dados
 
 ---
 
@@ -66,8 +62,8 @@ background-position: 50% 50%
 
 ```{r}
 ## atribuicao - simbolo (<-)
-obj.10 <- 10 
-obj.10
+obj_10 <- 10 
+obj_10
 ```
 
 ---
@@ -104,41 +100,41 @@ obj.10
 
 ---
 
-# 3.3 Modos dos objetos: numeric
+# 3.2 Modos dos objetos
 
 ## **Numeric**: números inteiros ou decimais
 ```{r}
 # numeric
-obj.num <- 1
-obj.num
+obj_num <- 1
+obj_num
 ```
 --
 ```{r}
 # mode
-mode(obj.num)
+mode(obj_num)
 ```
 
 ---
 
-# 3.4 Modos dos objetos: character
+# 3.2 Modos dos objetos
 
 ### 2. **character**: texto
 
 --
 ```{r}
 # character
-obj.cha <- "a" # atencao para as aspas
-obj.cha
+obj_cha <- "a" # atencao para as aspas
+obj_cha
 ```
 --
 ```{r}
 # mode
-mode(obj.cha)
+mode(obj_cha)
 ```
 
 ---
 
-# 3.5 Modos dos objetos: logical
+# 3.2 Modos dos objetos
 
 ### 3. **logical**: assume apenas dois valores (booleano)
 
@@ -146,18 +142,18 @@ mode(obj.cha)
 
 ```{r}
 # logical
-obj.log <- TRUE # maiusculas e sem aspas
-obj.log
+obj_log <- TRUE # maiusculas e sem aspas
+obj_log
 ```
 --
 ```{r}
 # mode
-mode(obj.log)
+mode(obj_log)
 ```
 
 ---
 
-# 3.5 Modos dos objetos: resumindo
+# 3.2 Modos dos objetos
 
 ## Resumindo:
 
@@ -181,7 +177,7 @@ class: inverse, middle, center
 
 ---
 
-# 3.6 Estrutura dos objetos
+# 3.3 Estrutura dos objetos
 
 ## Estruturas (*organização*): vector, factor, matrix, data frame e list
 
@@ -201,14 +197,6 @@ background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresN
 background-size: 800px
 background-position: 50% 50%
 
-# 3.6 Estrutura dos objetos
-
----
-
-background-image: url(http://www.simonqueenborough.info/R/basic/img/data/data-dimensions.png)
-background-size: 700px
-background-position: 50% 50%
-
 # 3.3 Estrutura dos objetos
 
 ---
@@ -217,13 +205,13 @@ background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresN
 background-size: 800px
 background-position: 50% 50%
 
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ## **1. Vector**
 
 ---
 
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ## **1. Vector**: homogêneo (*um modo*) e unidimensional (*uma dimensão*)
 
@@ -253,7 +241,7 @@ background-position: 50% 50%
 
 ---
 
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ### Há diversas formas de se criar um **vetor**:
 
@@ -268,13 +256,13 @@ temp
 <br>
 --
 ```{r}
-amos <- c("amostra_01", "amostra_02", "amostra_03", "amostra_04", "amostra_05")
+amos <- c("amostra_01", "amostra_02", "amostra_03", "amostra_04")
 amos
 ```
 
 ---
 
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ### Há diversas formas de se criar um **vetor**:
 
@@ -294,7 +282,7 @@ se.e
 
 ---
 
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ### Há diversas formas de se criar um **vetor**:
 
@@ -304,63 +292,19 @@ se.e
 # rep(x, times) # repete x tantas vezes
 # rep(x, each) # retete x tantas vezes de cada
 
-re.num.t <- rep(x = c(1, 2), times = 5)
-re.num.t
+rep_times <- rep(x = c(1, 2), times = 5)
+rep_times
 ```
 <br>
 --
 ```{r}
-re.num.e <- rep(x = c(1, 2), each = 5)
-re.num.e
+rep_each <- rep(x = c("a", "b"), each = 5)
+rep_each
 ```
 
 ---
 
-# 3.7 Estrutura dos objetos: vector
-
-### Há diversas formas de se criar um **vetor**:
-
-### 3. Repetição
-```{r}
-# repeticao
-# rep(x, times) # repete x tantas vezes
-# rep(x, each) # retete x tantas vezes de cada
-
-re.cha.n <- rep(x = c("a", "b"), times = 5)
-re.cha.n
-```
-<br>
---
-```{r}
-re.cha.c <- rep(x = c("a", "b"), each = 5)
-re.cha.c
-```
-
----
-
-# 3.7 Estrutura dos objetos: vector
-
-### Há diversas formas de se criar um **vetor**:
-
-### 3. Repetição
-```{r}
-# repeticao
-# rep(x, times) # repete x tantas vezes
-# rep(x, each) # retete x tantas vezes de cada
-
-re.log.n <- rep(x = c(TRUE, FALSE), times = 5)
-re.log.n
-```
-<br>
---
-```{r}
-re.log.c <- rep(x = c(TRUE, FALSE), each = 5)
-re.log.c
-```
-
----
-
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ### Há diversas formas de se criar um **vetor**:
 
@@ -389,17 +333,11 @@ class: inverse, middle, center
 
 class: inverse, middle, center
 
-# Posso fazer uma pergunta!?
-
----
-
-class: inverse, middle, center
-
 # E se eu criar um vetor com elementos de *modos diferentes*?
 
 ---
 
-# 3.7 Estrutura dos objetos: vector
+# 3.3 Estrutura dos objetos
 
 ## Vetor com elementos de **modos diferentes**:
 
@@ -534,12 +472,12 @@ ve
 ```
 --
 ```{r}
-ve.c <- as.character(ve)
-ve.c
+ve_ch <- as.character(ve)
+ve_ch
 ```
 --
 ```{r, error = TRUE}
-mode(ve.c)
+mode(ve_ch)
 ```
 
 ---
@@ -554,12 +492,12 @@ ve
 ```
 --
 ```{r}
-ve.l <- as.logical(ve)
-ve.l
+ve_lo <- as.logical(ve)
+ve_lo
 ```
 --
 ```{r, error = TRUE}
-mode(ve.l)
+mode(ve_lo)
 ```
 
 ---
@@ -570,36 +508,16 @@ mode(ve.l)
 
 ### Forçar a ser **numeric**, vindo de um **character**
 ```{r}
-ve.c
+ve_ch
 ```
 --
 ```{r}
-ve.n <- as.numeric(ve.c)
-ve.n
+ve_nu <- as.numeric(ve_ch)
+ve_nu
 ```
 --
 ```{r, error = TRUE}
-mode(ve.n)
-```
-
----
-
-# Conversão
-
-## Podemos **forçar** um vetor a ter um **modo específico**
-
-### Forçar a ser **numeric**, vindo de um **logical**
-```{r}
-ve.l
-```
---
-```{r}
-ve.n <- as.numeric(ve.l)
-ve.n
-```
---
-```{r, error = TRUE}
-mode(ve.n)
+mode(ve_nu)
 ```
 
 ---
@@ -614,13 +532,13 @@ background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresN
 background-size: 800px
 background-position: 50% 50%
 
-# 3.8 Estrutura dos objetos: factor
+# 3.3 Estrutura dos objetos
 
 ## **2. Factor**
 
 ---
 
-# 3.8 Estrutura dos objetos: factor
+# 3.3 Estrutura dos objetos
 
 ## **2. Factor**: homogêneo (*um modo* - sempre *numeric*), unidimensional (*uma dimensão*) e possui ainda **levels** (níveis)
 
@@ -646,37 +564,37 @@ background-position: 50% 50%
 
 ---
 
-# 3.8 Estrutura dos objetos: factor
+# 3.3 Estrutura dos objetos
 
 ## **2. Factor nominal**: variáveis nominais
 
 ```{r}
-fa.no <- factor(x = c("fechada", "fechada", "aberta", "aberta", "aberta"),
+fa_no <- factor(x = c("fechada", "fechada", "aberta", "aberta", "aberta"),
                 levels = c("aberta", "fechada"))
-fa.no
+fa_no
 ```
 --
 ```{r}
-levels(fa.no)
+levels(fa_no)
 ```
 ---
 
-# 3.8 Estrutura dos objetos: factor
+# 3.3 Estrutura dos objetos
 
 ## **2. Factor ordinal**: variáveis ordinais
 ```{r}
-fa.or <- factor(x = c("alta", "media", "baixa", "baixa", "media"),
+fa_or <- factor(x = c("alta", "media", "baixa", "baixa", "media"),
                 levels = c("baixa", "media", "alta"), ordered = TRUE)
-fa.or
+fa_or
 ```
 --
 ```{r}
-levels(fa.or)
+levels(fa_or)
 ```
 
 ---
 
-# 3.8 Estrutura dos objetos: factor
+# 3.3 Estrutura dos objetos
 
 ## **2. Factor** conversão
 
@@ -684,21 +602,21 @@ levels(fa.or)
 
 ### Criar um vetor **character**
 ```{r}
-ve.ch <- c("alta", "media", "baixa", "baixa", "media")
-ve.ch
+ve_ch <- c("alta", "media", "baixa", "baixa", "media")
+ve_ch
 ```
 --
 ```{r}
-mode(ve.ch)
+mode(ve_ch)
 ```
 --
 ```{r}
-class(ve.ch)
+class(ve_ch)
 ```
 
 ---
 
-# 3.8 Estrutura dos objetos: factor
+# 3.3 Estrutura dos objetos
 
 ## **2. Factor**: conversão
 
@@ -706,36 +624,16 @@ class(ve.ch)
 
 ### Forçar a ser **factor nominal**
 ```{r}
-fa.no <- as.factor(ve.ch)
-fa.no
+fa_no <- as.factor(ve_ch)
+fa_no
 ```
 --
 ```{r}
-levels(fa.no)
+levels(fa_no)
 ```
 --
 ```{r}
-class(fa.no)
-```
-
----
-
-# 3.8 Estrutura dos objetos: factor
-
-## **2. Factor**: conversão
-
-### Forçar a ser **factor ordinal**
-```{r}
-fa.no <- as.ordered(ve.ch)
-fa.no
-```
---
-```{r}
-levels(fa.no)
-```
---
-```{r}
-class(fa.no)
+class(fa_no)
 ```
 
 ---
@@ -744,13 +642,13 @@ background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresN
 background-size: 800px
 background-position: 50% 50%
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## **3. Matrix**
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## **3. Matrix**: homogêneo (*um modo*) e bidimensional (*duas dimensão*)
 
@@ -764,7 +662,7 @@ background-position: 50% 50%
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## **3. Matrix**: homogêneo (*um modo*) e bidimensional (*duas dimensão*)
 
@@ -788,7 +686,7 @@ background-image: url(https://i.blogs.es/5415b1/excel-calc/1366_2000.png)
 background-size: 700px
 background-position: 50% 60%
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## **3. Matrix**: planilhas eletrônicas
 
@@ -801,7 +699,7 @@ background-position: 50% 60%
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## Há **duas formas** de se construir uma **matrix** no R:
 
@@ -817,13 +715,13 @@ ve <- 1:12
 --
 ```{r}
 # matrix - preenchimento por linhas - horizontal
-ma.row <- matrix(data = ve, nrow = 4, ncol = 3, byrow = TRUE)
-ma.row
+ma_row <- matrix(data = ve, nrow = 4, ncol = 3, byrow = TRUE)
+ma_row
 ```
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## Há **duas formas** de se construir uma **matrix** no R:
 
@@ -839,13 +737,13 @@ ve <- 1:12
 --
 ```{r}
 # matrix - preenchimento por colunas - vertical
-ma.col <- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
-ma.col
+ma_col <- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
+ma_col
 ```
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## Há **duas formas** de se construir uma **matrix** no R:
 
@@ -856,19 +754,19 @@ ma.col
 
 ```{r}
 # criar dois vetores
-vec.1 <- c(1, 2, 3)
-vec.2 <- c(4, 5, 6)
+vec_1 <- c(1, 2, 3)
+vec_2 <- c(4, 5, 6)
 ```
 --
 ```{r}
 # combinar por linhas - vertical - um embaixo do outro
-ma.rbind <- rbind(vec.1, vec.2)
-ma.rbind
+ma_rbind <- rbind(vec_1, vec_2)
+ma_rbind
 ```
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## Há **duas formas** de se construir uma **matrix** no R:
 
@@ -879,70 +777,36 @@ ma.rbind
 
 ```{r}
 # criar dois vetores
-vec.1 <- c(1, 2, 3)
-vec.2 <- c(4, 5, 6)
+vec_1 <- c(1, 2, 3)
+vec_2 <- c(4, 5, 6)
 ```
 --
 ```{r}
 # combinar por colunas - horizontal - um ao lado do outro
-ma.cbind <- cbind(vec.1, vec.2)
-ma.cbind
+ma_cbind <- cbind(vec_1, vec_2)
+ma_cbind
 ```
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## Coerção
 ```{r}
 # criar dois vetores
-vec.ch <- c("sp1", "sp2", "sp3")
-vec.nu <- c(4, 5, 6)
+vec_ch <- c("sp1", "sp2", "sp3")
+vec_nu <- c(4, 5, 6)
 ```
 --
 ```{r}
 # combinar por colunas - horizontal - um ao lado do outro
-ma.ch <- cbind(vec.ch, vec.nu)
-ma.ch
+ma_ch <- cbind(vec_ch, vec_nu)
+ma_ch
 ```
 
 ---
 
-# 3.9 Estrutura dos objetos: matrix
-
-## Coerção
-```{r}
-# criar dois vetores
-vec.ch <- c("sp1", "sp2", "sp3")
-vec.lo <- c(TRUE, TRUE, FALSE)
-```
---
-```{r}
-# combinar por linhas - vertical - um embaixo do outro
-ma.ch <- rbind(vec.ch, vec.lo)
-ma.ch
-```
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## Coerção
-```{r}
-# criar dois vetores
-vec.nu <- c(1, 2, 3)
-vec.lo <- c(TRUE, TRUE, FALSE)
-```
---
-```{r}
-# combinar por linhas - vertical - um embaixo do outro
-ma.nu <- rbind(vec.nu, vec.lo)
-ma.nu
-```
-
----
-
-# 3.9 Estrutura dos objetos: matrix
+# 3.3 Estrutura dos objetos
 
 ## **3. Matrix**: homogêneo (*um modo*), bidimensional (*duas dimensão*)
 
@@ -952,57 +816,17 @@ ma.nu
 
 ---
 
-class: inverse, middle, center
-
-# E a **conversão**?
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## Conversão
-
---
-
-<br><br><br>
-
-```{r}
-as.character(ma.nu)
-```
-
----
-
-class: inverse, middle, center
-
-# Falhou miseravelmente....
-
----
-
-# 3.9 Estrutura dos objetos: matrix
-
-## As conversões
-
-### `as.numeric`
-
-### `as.character`
-
-### `as.logical`
-
-##  sempre geram um **vector**!
-
----
-
 background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresNew.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 3.10 Estrutura dos objetos: array
+# 3.3 Estrutura dos objetos
 
 ## **4. Array**
 
 ---
 
-# 3.10 Estrutura dos objetos: array
+# 3.3 Estrutura dos objetos
 
 ## **4. Array**: homogêneo (*um modo*) e multidimensional (*mais que duas dimensões*)
 
@@ -1025,7 +849,7 @@ background-position: 50% 50%
 
 ---
 
-# 3.10 Estrutura dos objetos: array
+# 3.3 Estrutura dos objetos
 
 ## Há **uma forma** de se construir um **array** no R:
 
@@ -1041,7 +865,12 @@ ve
 
 ---
 
-# 3.10 Estrutura dos objetos: array
+background-image: url(https://www.neonscience.org/sites/default/files/images/R/array.png)
+background-size: 350px
+background-position: 80% 85%
+
+
+# 3.3 Estrutura dos objetos
 
 ## Há **uma forma** de se construir um **array** no R:
 
@@ -1049,7 +878,7 @@ ve
 
 `array`: dispõem um vetor em um certo número de linhas, colunas e dimensões....
 ```{r}
-ar <- array(data = ve, dim = c(2, 2, 4))
+ar <- array(data = ve, dim = c(2, 2, 2))
 ar
 ```
 
@@ -1079,13 +908,13 @@ background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresN
 background-size: 800px
 background-position: 50% 50%
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## **5. Data frame**
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## **5. Data frame**: heterogêneo (*mais de um modo*) e bidimensional (*duas dimensões*)
 
@@ -1103,7 +932,7 @@ background-image: url(http://s3.amazonaws.com/libapps/accounts/17830/images/r_da
 background-size: 800px
 background-position: 50% 60%
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## **5. Data frame**: heterogêneo (*mais de um modo*) e bidimensional (*duas dimensões*)
 
@@ -1119,7 +948,7 @@ background-image: url(https://i.blogs.es/5415b1/excel-calc/1366_2000.png)
 background-size: 700px
 background-position: 50% 60%
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## **5. Data frame**: planilhas eletrônicas
 
@@ -1137,7 +966,7 @@ background-size: 700px
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## Há **uma forma** de se construir um **data frame** no R:
 
@@ -1147,20 +976,20 @@ background-size: 700px
 
 ```{r}
 # criar três vetores
-vec.ch <- c("sp1", "sp2", "sp3")
-vec.nu <- c(4, 5, 6)
-vec.fa <- factor(c("campo", "floresta", "floresta"))
+vec_ch <- c("sp1", "sp2", "sp3")
+vec_nu <- c(4, 5, 6)
+vec_fa <- factor(c("campo", "floresta", "floresta"))
 ```
 --
 ```{r}
 # data.frame - combinar por colunas - horizontal - um ao lado do outro
-df <- data.frame(vec.ch, vec.nu, vec.fa)
+df <- data.frame(vec_ch, vec_nu, vec_fa)
 df
 ```
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## Há **uma forma** de se construir um **data frame** no R:
 
@@ -1171,15 +1000,15 @@ df
 --
 ```{r}
 # data.frame
-df <- data.frame(especies = vec.ch, 
-                 abundancia = vec.nu, 
-                 vegetacao = vec.fa)
+df <- data.frame(especies = vec_ch, 
+                 abundancia = vec_nu, 
+                 vegetacao = vec_fa)
 df
 ```
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## Coerção de **data frame** para **matrix**
 ```{r}
@@ -1193,7 +1022,7 @@ ma
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## Coerção de **matrix** para **data frame**
 ```{r}
@@ -1208,7 +1037,7 @@ str(df)
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## Coerção de **matrix** para **data frame**
 ```{r}
@@ -1223,30 +1052,30 @@ str(df)
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ## **data frame** vs **cbind**
 
 ### Criação dos vetores
 ```{r}
 ## vetores
-pa <- paste("parcela", 1:10, sep = "_")
+pa <- paste("parcela", 1:4, sep = "_")
 pa
 ```
 --
 ```{r}
-pe <- sample(0:1, 10, rep = TRUE)
+pe <- sample(0:1, 4, rep = TRUE)
 pe
 ```
 --
 ```{r}
-tr <- factor(rep(c("trat", "cont"), each = 5))
+tr <- factor(rep(c("trat", "cont"), each = 2))
 tr
 ```
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ### Qual a diferença?
 
@@ -1256,13 +1085,13 @@ df <- data.frame(pa, pe, tr)
 df
 ```
 --
-```{r, eval = FALSE}
+```{r}
 str(df)
 ```
 
 ---
 
-# 3.10 Estrutura dos objetos: data frame
+# 3.3 Estrutura dos objetos
 
 ### Qual a diferença?
 
@@ -1272,7 +1101,7 @@ df.c <- cbind(pa, pe, tr)
 df.c
 ```
 --
-```{r, eval = FALSE}
+```{r}
 str(df.c)
 ```
 
@@ -1282,13 +1111,13 @@ background-image: url(http://venus.ifca.unican.es/Rintro/_images/dataStructuresN
 background-size: 800px
 background-position: 50% 50%
 
-# 3.11 Estrutura dos objetos: list
+# 3.3 Estrutura dos objetos
 
 ## **6. List**
 
 ---
 
-# 3.11 Estrutura dos objetos: list
+# 3.3 Estrutura dos objetos
 
 ## **6. List**: heterogêneo (*mais de um modo*) e unidimensional (*uma dimensão*)
 
@@ -1312,7 +1141,7 @@ background-position: 50% 95%
 
 ---
 
-# 3.11 Estrutura dos objetos: list
+# 3.3 Estrutura dos objetos
 
 ## **6. List**: heterogêneo (*mais de um modo*) e unidimensional (*uma dimensão*)
 
@@ -1331,297 +1160,201 @@ class: inverse, middle, center
 
 ---
 
-class: inverse, middle, center
+# 3.4 Diretório de trabalho
 
-# Exercícios!
+## Endereço da pasta onde o R irá **importar e exportar** os dados
+
+**Atalho**: `ctrl + shift + H`
+
+### **Windows: inverter as barras ("\" por "/")!**
+
+```{r, eval = FALSE}
+## diretorio de trabalho
+# pasta onde o r ira importar e exportar os arquivos
+
+# definir o diretorio de trabalho
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados")
+```
+--
+```{r, eval = FALSE}
+# verificar o diretorio
+getwd()
+```
+--
+```{r, eval = FALSE}
+# verificar os arquivos
+dir()
+```
 
 ---
 
-class: inverse, middle, center
-background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
+# 3.5 Importar dados
+
+## Download de dados direto do GitHub
+download.file(url = "https://github.com/mauriciovancine/ATLANTIC-AMPHIBIANS/blob/master/DataS1.zip",
+              file = "DataS1.zip")
 
 ---
 
-# Exercícios
+# 3.5 Importar dados
 
-## 1. Criem um novo script
+## Os arquivos de dados podem estar em **três** formatos diferentes:
 
 <br><br>
 
-### Pasta
-`00_scripts`
-
-<br>
-
-### Arquivo
-`script_r_curso_r_aula03_estrutura_dados_exercicios_2019_01_d08.R`
+### 1. txt
+### 2. csv
+### 3. xlsx
 
 ---
 
-# Exercícios
+# 3.5 Importar dados
 
-## 2. Criem um cabeçalho descritivo nesse script
+## Ler uma planilha eletrônica (.csv)
+```{r}
+# ler uma planilha eletronica (.csv)
+read.csv("ATLANTIC_BUTTERFLIES_sites.csv")
+```
+
+---
+
+# 3.5 Importar dados
+
+## Ler uma planilha eletrônica (.csv) 
+```{r}
+# ler uma planilha eletronica (.csv)
+read.csv("ATLANTIC_BUTTERFLIES_sites.csv", sep = ";", dec = ".")
+```
+
+---
+
+# 3.5 Importar dados
+
+## Ler e atribuir uma planilha eletrônica (.csv) a um objeto
 
 --
 
 ```{r}
-### exercicios aula 03 - atributos dos dados ###
-
-# nome
-# data
+# ler e atribuir uma planilha eletronica (.csv) a um objeto
+da <- read.csv("ATLANTIC_BUTTERFLIES_sites.csv", sep = ";", dec = ".")
+```
+--
+```{r, eval = FALSE}
+# ver os dados
+da
+```
+--
+```{r}
+# conferir a classe
+class(da)
 ```
 
 ---
 
-# Exercícios
+class: inverse, center, middle
 
-## 3. Removam todos os objetos criados anteriormente
+# IMPORTANTE: a tabela importada para o R sempre será um **data frame**!
+
+---
+
+# 3.5 Importar dados
+
+## Ler e atribuir uma planilha simples (.txt) a um objeto
 
 --
 
 ```{r}
-# solucao
-## memoria
-rm(list = ls())
+# ler e atribuir uma planilha simples (.txt) a um objeto
+da <- read.table("ATLANTIC_BUTTERFLIES_sites.txt", header = TRUE, sep = "\t")
 ```
 
 ---
 
-# Exercícios
+# 3.5 Importar dados
 
-## 4. Criem um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ser dessa forma:
+## Ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
 
-`local_1, local_2, local_3, ...., local_100`
+### Pacote **openxlsx**
+```{r, results = "hide"}
+# pacote openxlsx
+# install.packages("openxlsx")
+library(openxlsx)
+```
 
 --
 
+### Importar os dados
 ```{r}
-# solucao
-lo <- paste("local", 1:100, sep = "_")
-lo
+# ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
+da <- openxlsx::read.xlsx("ATLANTIC_BUTTERFLIES_sites.xlsx", sheet = 1)
 ```
 
 ---
 
-# Exercícios
+# 3.5 Importar dados
 
-## 4. Criem um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ser dessa forma:
+## Ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
 
-`local_001, local_002, local_003, ...., local_100`
+### Pacote **xlsx**
+```{r, eval = FALSE}
+# pacote xlsx
+# install.packages("xlsx")
+library(xlsx)
+```
 
 --
 
+### Importar os dados
 ```{r, eval = FALSE}
-# solucao
-lo.u <- paste("local_00", 1:9, sep = "")
-lo.u
-
-lo.d <- paste("local_0", 10:99, sep = "")
-lo.d
-
-lo <- c(lo.u, lo.d, "local_100")
-lo
+# ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
+da <- xlsx::read.xlsx("ATLANTIC_BUTTERFLIES_sites.xlsx", sheetIndex = 1)
 ```
 
 ---
 
-# Exercícios
+# 3.5 Importar dados
 
-## 4. Criem um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ser dessa forma:
+## Ler e atribuir uma planilha eletrônica (.ods) a um objeto
 
-`local_001, local_002, local_003, ...., local_100`
+### Pacote **readODS**
+```{r}
+# pacote
+# install.packages("readODS")
+library(readODS)
+```
 
 --
 
+### Importar os dados
 ```{r, eval = FALSE}
-# solucao 2
-lo.u <- paste("local", 1:9, sep = "_00")
-lo.u
-
-lo.d <- paste("local", 10:99, sep = "_0")
-lo.d
-
-lo <- c(lo.u, lo.d, "local_100")
-lo
+# ler e atribuir planilha eletronica (.ods) a um objeto
+da <- read_ods("ATLANTIC_BUTTERFLIES_sites.ods")
 ```
 
 ---
-
-# Exercícios
-
-## 6. Criem um fator chamado "tr", com dois níveis ("cont" e "trat") para descrever 100 locais de amostragem, 50 de cada tratamento. O fator deve ser dessa forma:
-
-`cont, cont, cont, ...., cont, trat, trat, trat, ...., trat`
-
---
-
-```{r, eval = FALSE}
-# solucao
-re <- rep(c("cont", "trat"), each = 50)
-re
-
-tr <- factor(re, c("cont", "trat"))
-tr
-```
-
----
-
-# Exercícios
-
-## 6. Criem um fator chamado "tr", com dois níveis ("cont" e "trat") para descrever 100 locais de amostragem, 50 de cada tratamento. O fator deve ser dessa forma:
-
-`cont, cont, cont, ...., cont, trat, trat, ...., trat`
-
---
-
-```{r, eval = FALSE}
-# solucao
-tr <- factor(rep(c("cont", "trat"), each = 50),
-	        c("cont", "trat"))
-tr
-```
-
----
-
-# Exercícios
-
-## 7. Criem uma matriz chamada "ma", da disposição de um vetor composto por 100 valores aleatórios entre 0 e 10. A matriz deve conter 10 linhas e ser preenchida por colunas
-
---
-
-```{r, eval = FALSE}
-# solucao
-ve <- sample(0:10, 100, rep = TRUE)
-ve
-```
---
-```{r, eval = FALSE}
-ma <- matrix(ve, 10, 10, byrow = FALSE)
-ma
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-`1. nome: nome das parcelas (parcela 1 a 10)`
-
-`2. sp1: abundância aleatória (valores entre 0 a 10) da sp1`
-
-`3. sp2: abundância aleatória (valores entre 0 a 10) da sp2`
-
-`4. sp3: abundância aleatória (valores entre 0 a 10) da sp3`
-
-`5. temp: distribuição normal da temperatura (média = 20 e desvio padrão = 3)`
-
-`6. prec: distribuição normal da precipitação (média = 1500 e desvio padrão = 200)`
-
-`7. ins: distribuição normal da incidência solar (média = 50 e desvio padrão = 15)`
-
-`8. inv: presençaa aleatória de uma planta invasora`
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-```{r, eval = FALSE}
-# solucao
-pa <- c(paste("parcela", 1:9, sep = "_0"), "parcela_10")
-pa
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-```{r, eval = FALSE}
-# solucao
-sp1 <- sample(1:10, 10, rep = TRUE)
-sp1
-
-sp2 <- sample(1:10, 10, rep = TRUE)
-sp2
-
-sp3 <- sample(1:10, 10, rep = TRUE)
-sp3
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-```{r, eval = FALSE}
-# solucao
-te <- rnorm(10, 20, 3)
-te
-
-pr <- rnorm(10, 1000, 200)
-pr
-
-so <- rnorm(10, 50, 15)
-so
-
-iv <- sample(0:1, 10, rep = TRUE)
-iv
-```
-
----
-
-# Exercícios
-
-## 8. Criem um data frame com dados fictícios de uma amostragem de plantas em 10 parcelas, contendo as seguintes colunas:
-
-```{r, eval = FALSE}
-# solucao
-df <- data.frame(pa, sp1, sp2, sp3, sp4, sp5, te, pr, so, iv)
-df
-```
-
----
-
-# Exercícios
-
-## 9. Criem uma lista chamada "li" contendo todos os objetos criados nos exercícios
-
---
-
-```{r, eval = FALSE}
-ls()
-```
---
-```{r, eval = FALSE}
-li <- list(df, iv, lo, lo.d, lo.u, pa, pr, so, sp1, sp2, sp3, sp4, sp5, te)
-li
-```
 
 class: inverse, middle, center
 
 # Dúvidas?
 
+
+
 ---
 
 class: clear, middle
 
-## Maurício H. Vancine
+## Maurício Vancine
 
 <br>
 
 Contatos:
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
-| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
-| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
-| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
-| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
 
-Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)

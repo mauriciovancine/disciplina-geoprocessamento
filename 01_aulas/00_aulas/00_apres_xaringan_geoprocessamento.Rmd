@@ -407,20 +407,20 @@ Enviar uma nova versão do **repositório remoto (GitHub)** para o **repositóri
 ---
 
 background-image: url(http://www.geo.uzh.ch/microsite/reproducible_research/post/rr-rstudio-git/img/Rstudio-GitShell.png)
-background-size: 700px
+background-size: 600px
 background-position: 50% 90%
 
 # 0.10 Controle de versão no RStudio
 
 ## RStudio
 
-### Configurar o nome de usuário e e-mail
+### Configurar o nome de usuário, e-mail e senha
 
-```{bash}
-git config --global user.name "mauriciovancine"
-git config --global user.email "mauricio.vancine@gmail.com"
+```{bash, eval = FALSE}
+git config --global user.name "seu_usuario"
+git config --global user.email "seu_email"
 eval $(ssh-agent -s)
-ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa # digite a senha
 ```
 
 ---

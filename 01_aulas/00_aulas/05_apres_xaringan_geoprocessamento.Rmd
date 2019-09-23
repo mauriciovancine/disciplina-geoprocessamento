@@ -1,6 +1,6 @@
 ---
-title: "Introdução à linguagem R: <br><br>"
-subtitle: "6 Visualização de dados<br><br><br>"
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "5 Visualização de dados <br><br> xaringan [presentation ninja]"
 author: "Maurício H. Vancine"
 date: "11/01/2019"
 output:
@@ -26,22 +26,25 @@ background-position: 50% 50%
 
 ---
 
-# 6 Visualização de dados
+# 5 Visualização de dados
 ## Tópicos
-6.1 Principais pacotes para gráficos no R
+5.1 Tipos de dados (*variáveis = colunas*)
 <br>
-6.2 Colunas como eixos dos gráficos
+5.2 Principais tipos de gráficos
 <br>
-6.3 Principais tipos de gráficos (tipos de variáveis)
+5.3 Gráficos no R (pacotes *graphics*, *ggplot2*, *esquisse*, *ggpubr*)
 <br>
-6.4 Histograma (histogram)
+5.4 Histograma (*histogram*)
 <br>
-6.5 Gráfico de caixa (box plot)
+5.5 Gráfico de caixa (*box plot*)
 <br>
-6.6 Gráfico de barras (bar plot)
+5.6 Gráfico de barras (*bar plot*)
 <br>
-6.7 Gráfico de dispersão (scatter plot)
-
+5.7 Gráfico de setores (*pie chart* e *danut plot*)
+<br>
+5.8 Gráfico de dispersão (*scatter plot*)
+<br>
+5.9 Gráfico pareado (*pairs plot*)
 ---
 
 # 6 Visualização de dados
@@ -66,7 +69,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Atualmente, há três principais pacotes para gerar gráficos no R:
 
@@ -84,7 +87,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 <br><br>
 
@@ -111,7 +114,7 @@ background-size: 600px
 
 ---
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## **base**
 
@@ -167,7 +170,7 @@ background-image: url(http://hadley.nz/hadley-wickham.jpg)
 background-size: 720px
 background-position: 50% 65%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## O idealizador e mantenedor do pacote **ggplot2** foi de novo o **Hadley Wickham**
 
@@ -181,7 +184,7 @@ background-image: url(https://images.springer.com/sgw/books/medium/9783319242750
 background-size: 230px
 background-position: 50% 63%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Livros
 
@@ -197,7 +200,7 @@ background-image: url(https://covers.oreillystatic.com/images/0636920063704/lrg.
 background-size: 280px
 background-position: 50% 63%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Livros
 
@@ -213,7 +216,7 @@ background-image: url(https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b
 background-size: 270px
 background-position: 50% 65%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Livros
 
@@ -229,7 +232,7 @@ background-image: url(https://bookdown.org/rdpeng/exdata/cover_sm.png)
 background-size: 300px
 background-position: 50% 65%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Livros
 
@@ -245,7 +248,7 @@ background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2
 background-size: 300px
 background-position: 50% 60%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Sites
 
@@ -261,7 +264,7 @@ background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2015/10
 background-size: 400px
 background-position: 50% 60%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Sites
 
@@ -280,11 +283,10 @@ background-position: 50% 50%
 
 ---
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ```{r, message = FALSE, warning = FALSE}
 # pacotes
-library(plotly)
 library(tidyverse)
 
 # dados
@@ -310,7 +312,7 @@ background-image: url(https://plotly-book.cpsievert.me/images/plotly.png)
 background-size: 300px
 background-position: 50% 60%
 
-# 6.1 Principais pacotes para gráficos no R
+# 5.1 Principais pacotes para gráficos no R
 
 ## Livros
 
@@ -332,7 +334,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 6.2 Colunas como eixos do gráficos
+# 5.2 Colunas como eixos do gráficos
 
 ---
 
@@ -340,7 +342,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 6.2 Colunas como eixos (tipos de variáveis)
+# 5.2 Colunas como eixos (tipos de variáveis)
 
 ---
 
@@ -354,7 +356,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 800px
 background-position: 50% 50%
 
-# 6.3 Principais tipos de gráficos
+# 5.3 Principais tipos de gráficos
 
 ---
 
@@ -362,7 +364,7 @@ background-image: url(https://d1fq16qvu9tpz9.cloudfront.net/uploads/ckeditor/pic
 background-size: 800px
 background-position: 50% 50%
 
-# 6.3 Principais tipos de gráficos
+# 5.3 Principais tipos de gráficos
 
 ---
 
@@ -391,7 +393,7 @@ background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2017/11
 background-size: 300px
 background-position: 50% 80%
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ### **Representa os dados de**: uma coluna
 
@@ -406,7 +408,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 .pull-left[
@@ -422,7 +424,7 @@ hist(da$species_number) #<<
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 .pull-left[
@@ -440,7 +442,7 @@ hist(da$species_number,
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 .pull-left[
@@ -459,7 +461,7 @@ hist(da$species_number,
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 .pull-left[
@@ -480,7 +482,7 @@ hist(da$species_number,
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 .pull-left[
@@ -502,7 +504,7 @@ hist(da$species_number,
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 .pull-left[
@@ -527,7 +529,7 @@ hist(da$species_number,
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 ```{r, eval = FALSE}
@@ -548,7 +550,7 @@ lines(density(da$species_number)) #<<
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 ```{r, echo = FALSE}
@@ -569,7 +571,7 @@ lines(density(da$species_number))
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 
@@ -581,7 +583,7 @@ setwd("")
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 
@@ -593,7 +595,7 @@ tiff("meu_primeiro_histograma.tif", wi = 15, he = 15, un = "cm",
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 
@@ -615,7 +617,7 @@ lines(density(da$species_number))
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## Base
 
@@ -637,7 +639,7 @@ background-image: url(https://cxlabsblog.files.wordpress.com/2017/10/2017-10-24-
 background-size: 700px
 background-position: 50% 50%
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 
@@ -649,7 +651,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 .pull-left[
@@ -665,7 +667,7 @@ ggplot(data = da) #<<
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 .pull-left[
@@ -682,7 +684,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 .pull-left[
@@ -700,7 +702,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 .pull-left[
@@ -718,7 +720,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -729,7 +731,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, echo = FALSE}
@@ -740,7 +742,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -757,7 +759,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, echo = FALSE}
@@ -774,7 +776,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -790,7 +792,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, echo = FALSE}
@@ -810,13 +812,13 @@ background-image: url(https://cxlabsblog.files.wordpress.com/2017/10/2017-10-24-
 background-size: 700px
 background-position: 50% 50%
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -834,7 +836,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, echo = FALSE}
@@ -852,7 +854,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -870,7 +872,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, echo = FALSE}
@@ -888,7 +890,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -907,7 +909,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, echo = FALSE}
@@ -927,7 +929,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ggplot2
 ```{r, eval = FALSE}
@@ -956,7 +958,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ploty
 ```{r, eval = FALSE}
@@ -970,7 +972,7 @@ library(plotly)
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ploty
 ```{r, eval = FALSE}
@@ -980,7 +982,7 @@ plot_ly(x = da$species_number,
 
 ---
 
-# 6.4 Histograma (histogram)
+# 5.4 Histograma (histogram)
 
 ## ploty
 ```{r, echo = FALSE}
@@ -994,7 +996,7 @@ background-image: url(https://www.r-graph-gallery.com/wp-content/uploads/2017/11
 background-size: 300px
 background-position: 50% 80%
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ## **Representa os dados de**: duas colunas
 ## **Modo das colunas**: X = categórico e Y = contínuo
@@ -1006,7 +1008,7 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/
 background-size: 400px
 background-position: 50% 80%
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### Intervalo inter-quartil
 ### Limite inferior ou superipor (1.5 x IQR)
@@ -1021,7 +1023,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### base
 ```{r, eval = FALSE}
@@ -1039,7 +1041,7 @@ boxplot(species_number ~ as.factor(record), #<<
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### base
 ```{r, echo = FALSE}
@@ -1064,7 +1066,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### ggplott2
 ```{r, eval = FALSE}
@@ -1082,7 +1084,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### ggplott2
 ```{r, echo = FALSE}
@@ -1099,7 +1101,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### ggplott2
 ```{r, eval = FALSE}
@@ -1117,7 +1119,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### ggplott2
 ```{r, echo = FALSE}
@@ -1135,7 +1137,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### ggplott2
 ```{r, eval = FALSE}
@@ -1154,7 +1156,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.5 Gráfico de caixa (box plot)
+# 5.5 Gráfico de caixa (box plot)
 
 ### ggplott2
 ```{r, echo = FALSE}
@@ -1178,7 +1180,7 @@ background-size: 300px
 background-position: 50% 80%
 
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### **Representa os dados de**: duas colunas
 
@@ -1195,7 +1197,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### Tabela de frequência
 
@@ -1209,7 +1211,7 @@ ta
 
 ---
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### Tabela de frequência
 
@@ -1227,7 +1229,7 @@ barplot(table(da$record),
 
 ---
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### Tabela de frequência
 
@@ -1252,7 +1254,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### ggplot2
 ```{r}
@@ -1264,7 +1266,7 @@ ta
 
 ---
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### ggplot2
 ```{r, eval = FALSE}
@@ -1281,7 +1283,7 @@ ggplot(data = ta) +
 
 ---
 
-# 6.6 Gráfico de barras (bar plot)
+# 5.6 Gráfico de barras (bar plot)
 
 ### ggplot2
 ```{r, echo = FALSE}
@@ -1303,7 +1305,7 @@ background-size: 300px
 background-position: 50% 80%
 
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 
 ### **Representa os dados de**: duas colunas
@@ -1319,7 +1321,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 ### ggplot2
 ```{r, eval = FALSE}
@@ -1339,7 +1341,7 @@ points(da$effort_months, da$species_number, cex = 2.3,
 
 ---
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 ### base
 ```{r, echo = FALSE}
@@ -1366,7 +1368,7 @@ background-position: 50% 50%
 
 ---
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 ### ggplot2
 ```{r, eval = FALSE, message=FALSE, warning=FALSE}
@@ -1384,7 +1386,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 ### ggplot2
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
@@ -1402,7 +1404,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 ### ggplot2
 ```{r, eval = FALSE, message=FALSE, warning=FALSE}
@@ -1421,7 +1423,7 @@ ggplot(data = da) +
 
 ---
 
-# 6.7 Gráfico de dispersão (scatter plot)
+# 5.7 Gráfico de dispersão (scatter plot)
 
 ### ggplot2
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
@@ -1534,7 +1536,7 @@ dir()
 
 # Exercícios
 
-## 6. Façam um histograma das colunas `effort_months`, `altitude`, `temperatura`, `precipitation` utilizando os pacotes **graphics** e **ggplot2**
+## 5. Façam um histograma das colunas `effort_months`, `altitude`, `temperatura`, `precipitation` utilizando os pacotes **graphics** e **ggplot2**
 
 --
 
@@ -1586,18 +1588,18 @@ dir()
 
 class: clear, middle
 
-## Maurício H. Vancine
+## Maurício Vancine
 
 <br>
 
 Contatos:
 
-|                                                                                                            |                                   |
-| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-paper-plane fa-fw"></i>]               | mauricio.vancine@gmail.com       |
-| <a href="mauriciovancine.github.io">.RUred[<i class="fa fa-link fa-fw"></i>] | mauriciovancine.github.io |
-| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]                          | @mauriciovancine                         |
-| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]                          | @mauriciovancine                       |
-| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]                          | @mauriciovancine                       |
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
 
-Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)
