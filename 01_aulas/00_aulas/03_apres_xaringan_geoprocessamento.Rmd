@@ -1188,11 +1188,29 @@ dir()
 
 ---
 
+class: inverse, middle, center
+
+# Vamos trabalhar com dados?
+
+---
+
+background-image: url(https://pbs.twimg.com/media/D5Mbmy2UYAENL3D.jpg)
+background-size: 300px
+background-position: 50% 85%
+
 # 3.5 Importar dados
 
-## Download de dados direto do GitHub
-download.file(url = "https://github.com/mauriciovancine/ATLANTIC-AMPHIBIANS/blob/master/DataS1.zip",
-              file = "DataS1.zip")
+---
+
+background-image: url(https://miro.medium.com/fit/c/240/240/1*s5rAky37x3iZ5cC7OEKvbw.jpeg)
+background-size: 300px
+background-position: 50% 85%
+
+# Dados reais
+
+## **ATLANTIC AMPHIBIANS: a dataset of amphibian communities from the Atlantic Forests of South America**
+
+### Eu mesmo et al. (2018)
 
 ---
 
