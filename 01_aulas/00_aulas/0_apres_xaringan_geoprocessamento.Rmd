@@ -225,17 +225,19 @@ background-position: 85% 80%
 <br>
 3.3 Estrutura dos objetos (*vector*, *factor*, *matrix*, *data frame* e *list*)
 <br>
-3.4 Diretório de trabalho
+3.4 Manejo de dados unidimensionais
 <br>
-3.5 Importar dados
+3.5 Manejo de dados bidimensionais
 <br>
-3.6 Conferir dados
+3.6 Valores faltantes e especiais
 <br>
-3.7 Manejar dados
+3.7 Diretório de trabalho
 <br>
-3.8 Valores faltantes e especiais
+3.8 Importar dados
 <br>
-3.9 Exportar dados
+3.9 Conferir e manejar dados importados
+<br>
+3.10 Exportar dados
 
 ---
 

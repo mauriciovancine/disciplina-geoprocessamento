@@ -2,10 +2,10 @@
 title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
 subtitle: "5 Visualização de dados <br><br> xaringan [presentation ninja]"
 author: "Maurício H. Vancine"
-date: "11/01/2019"
+date: "30/09/2019"
 output:
   xaringan::moon_reader:
-    css: [metropolis]
+    css: metropolis
     lib_dir: libs
     nature:
       #highlightStyle: github

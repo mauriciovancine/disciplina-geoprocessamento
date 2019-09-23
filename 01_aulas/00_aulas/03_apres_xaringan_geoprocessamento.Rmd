@@ -34,17 +34,19 @@ background-position: 50% 50%
 <br>
 3.3 Estrutura dos objetos (*vector*, *factor*, *matrix*, *data frame* e *list*)
 <br>
-3.4 Diretório de trabalho
+3.4 Manejo de dados unidimensionais
 <br>
-3.5 Importar dados
+3.5 Manejo de dados bidimensionais
 <br>
-3.6 Conferir dados
+3.6 Valores faltantes e especiais
 <br>
-3.7 Manejar dados
+3.7 Diretório de trabalho
 <br>
-3.8 Valores faltantes e especiais
+3.8 Importar dados
 <br>
-3.9 Exportar dados
+3.9 Conferir e manejar dados importados
+<br>
+3.10 Exportar dados
 
 ---
 
@@ -596,7 +598,7 @@ levels(fa_or)
 
 # 3.3 Estrutura dos objetos
 
-## **2. Factor** conversão
+## **2. Factor**: conversão
 
 --
 
@@ -619,8 +621,6 @@ class(ve_ch)
 # 3.3 Estrutura dos objetos
 
 ## **2. Factor**: conversão
-
---
 
 ### Forçar a ser **factor nominal**
 ```{r}
@@ -888,7 +888,7 @@ background-image: url(http://www.simonqueenborough.info/R/basic/img/data/data-ar
 background-size: 700px
 background-position: 50% 120%
 
-# 3.10 Estrutura dos objetos
+# 3.3 Estrutura dos objetos
 
 ## Até o momento vimos **estruturas homogêneas**
 
@@ -898,7 +898,7 @@ background-image: url(http://www.simonqueenborough.info/R/basic/img/data/data-sa
 background-size: 700px
 background-position: 50% 120%
 
-# 3.10 Estrutura dos objetos
+# 3.3 Estrutura dos objetos
 
 ## Agora veremos as **estruturas heterogêneos**
 
@@ -1097,12 +1097,12 @@ str(df)
 
 ```{r}
 # uniao de vetores
-df.c <- cbind(pa, pe, tr)
-df.c
+df_c <- cbind(pa, pe, tr)
+df_c
 ```
 --
 ```{r}
-str(df.c)
+str(df_c)
 ```
 
 ---
@@ -1154,13 +1154,1139 @@ li
 
 ---
 
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **1. Indexação []**: acessa elementos de vetores e fatores
+```{r}
+## indexacao []
+# vetor
+ve <- seq(10, 100, 10)
+ve
+```
+
+---
+
 class: inverse, middle, center
 
 # Dúvidas?
 
 ---
 
-# 3.4 Diretório de trabalho
+class: inverse, middle, center
+
+# Bora manejar isso tudo?
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **1. Indexação []**: acessa elementos de vetores e fatores
+
+### Selecionar elementos
+```{r}
+# seleciona o quinto elemento
+ve[5]
+```
+--
+```{r}
+# seleciona os elementos de 10 a 50
+ve[1:5] 
+```
+--
+```{r}
+# seleciona os elementos 10 e 100 e atribuir
+ve_sel <- ve[c(1, 10)]
+ve_sel
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **1. Indexação []**: acessa elementos de vetores e fatores
+
+### Retirar elementos
+```{r}
+# retirar o decimo elemento
+ve[-10]
+```
+--
+```{r}
+# retirar os elementos 20 a 90
+ve[-(2:9)]
+```
+--
+```{r}
+# retirar os elementos 50 e 100 e atribuir
+ve_sub <- ve[-c(5, 10)]
+ve_sub
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **2 Seleção condicional**: selecionar elementos por condições 
+```{r}
+# dois vetores
+foo <- c(2, 4)
+bar <- c(3, 6)
+```
+--
+```{r, eval = FALSE}
+# operadores relacionais - saidas booleanas (TRUE ou FALSE)
+foo == bar # igualdade
+foo != bar # diferenca 
+foo > bar # maior
+foo >= bar # maior ou igual
+foo < bar # menor
+foo <= bar # menor ou igual
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **2 Seleção condicional**: selecionar elementos por condições 
+```{r}
+# fixar a amostragem
+set.seed(42)
+```
+--
+```{r}
+# vetor
+ve <- rnorm(10)
+ve
+```
+--
+```{r}
+# quais valores sao maiores que 1?
+ve > 1 
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **2 Seleção condicional**: selecionar elementos por condições
+```{r}
+# valores acima de 1
+ve[ve > 1] 
+```
+--
+```{r}
+# atribuir valores maiores que 1
+ve_maior1 <- ve[ve > 1]
+ve_maior1
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort*, *order* e *round*
+```{r}
+# maximo
+max(ve)
+```
+--
+```{r}
+# minimo
+min(ve)
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort*, *order* e *round*
+```{r}
+# variacao
+range(ve)
+```
+--
+```{r}
+# comprimento
+length(ve)
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort* e *round*
+```{r}
+# ordenar crescente
+sort(ve)
+```
+--
+```{r}
+# ordenar decrescente
+sort(ve, dec = TRUE)
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort* e *round*
+```{r}
+# mostrar a ordem da ordenacao crescente
+order(ve)
+```
+--
+```{r}
+# mostrar a ordem da ordenacao decrescente
+order(ve, decreasing = TRUE)
+```
+--
+```{r}
+# mostrar a ordem da ordenacao "sort"
+order(sort(ve))
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort* e *round*
+```{r}
+# arredondamento
+ve
+```
+--
+```{r}
+# arredondamento
+round(ve, digits = 1)
+```
+--
+```{r}
+# arredondamento
+round(ve, 3)
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *any()*, *all()* e *which()*
+```{r}
+# algum?
+any(ve > 1)
+```
+--
+```{r}
+# todos?
+all(ve > 1)
+```
+--
+```{r}
+# qual(is)?
+which(ve > 1)
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Vetor e fator
+
+### **3 Funções de manejo**: *subset* e *ifelse*
+```{r}
+# subconjunto
+subset(ve, ve > 1)
+```
+--
+```{r}
+# condicao para uma operacao
+ifelse(ve > 1, 1, 0)
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Listas
+
+### **1. Indexação []**: acessa elementos de listas
+```{r}
+## indexacao []
+# lista
+li <- list(elem1 = 1, elem2 = 2, elem3 = 3)
+li
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Listas
+
+### **1. Indexação []**: acessa elementos de listas
+
+### Selecionar elementos
+```{r}
+# acessar o primeiro elemento
+li[1]
+```
+--
+```{r}
+# acessar o primeiro e o terceiro elementos e atribuir
+li2 <- li[c(1, 3)]
+li2
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Listas
+
+### **1. Indexação []**: acessa elementos de listas
+
+### Retirar elementos
+```{r}
+# retirar o primeiro elemento
+li[-1]
+```
+--
+```{r}
+# retirar o segundo elemento e atribuir
+li_13 <- li[-2]
+li_13
+```
+
+---
+
+# 3.4 Manejo de dados unidimensionais
+
+## Listas
+
+### **3. Funções**: *length* e *names*
+```{r}
+# comprimento
+length(li)
+```
+--
+```{r}
+# names
+names(li)
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+background-image: url(https://www.guru99.com/images/r_programming/032918_1452_RDataFrames2.png)
+background-size: 700px
+background-position: 50% 70%
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **1 Indexação []**
+```{r}
+# matriz
+ma <- matrix(1:12, 4, 3)
+ma 
+```
+
+---
+
+background-image: url(https://www.guru99.com/images/r_programming/032918_1452_RDataFrames1.png)
+background-size: 400px
+background-position: 50% 50%
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **1 Indexação []**
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **1 Indexação []**
+```{r}
+ma[3, ] # linha 3
+```
+--
+```{r}
+ma[, 2] # coluna 2
+```
+--
+```{r}
+ma[1, 2] # elemento da linha 1 e coluna 2
+```
+--
+```{r}
+ma[1, 1:2] # elementos da linha 1 e coluna 1 e 2
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **1 Indexação []**
+```{r}
+ma[1, c(1, 3)] # elementos da linha 1 e coluna 1 e 3
+```
+--
+```{r}
+ma_sel <- ma[1, c(1, 3)]
+ma_sel
+```
+
+---
+
+background-image: url(https://www.guru99.com/images/r_programming/032918_1452_RDataFrames2.png)
+background-size: 700px
+background-position: 50% 75%
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **1 Indexação []**: resumindo
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **1 Indexação $**
+```{r}
+# criar três vetores
+sp <- paste("sp", 1:10, sep = "")
+abu <- 1:10
+flo <- factor(rep(c("campo", "floresta"), each = 5))
+```
+--
+```{r}
+# data.frame
+df <- data.frame(sp, abu, flo)
+df
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **1 Indexação $**
+```{r}
+# $ funciona apenas para data frame 
+df$sp 
+```
+--
+```{r}
+df$abu
+```
+--
+```{r}
+df$flo
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **1 Indexação $**
+```{r}
+length(df$abu)
+max(df$abu)
+min(df$abu)
+range(df$abu)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **1 Indexação $ e mudanças de colunas**
+```{r}
+mode(df$abu)
+```
+--
+```{r}
+df$abu <- as.character(df$abu)
+```
+--
+```{r}
+df$abu
+mode(df$abu)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **1 Indexação $ e mudanças de colunas**
+```{r}
+df$abu <- as.numeric(df$abu)
+```
+--
+```{r}
+df$abu
+mode(df$abu)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **1 Indexação $ e adicionar uma coluna**
+```{r}
+set.seed(1)
+df$abu2 <- sample(0:1, nrow(df), rep = TRUE)
+```
+--
+```{r}
+df$abu2
+```
+--
+```{r}
+df
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **2 Seleção condicional**
+
+### Selecionar linhas = filtro do planilha eletrônica
+```{r}
+# selecionar linhas de uma matriz ou data frame 
+df[df$abu > 4, ]
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **2 Seleção condicional**
+
+### Selecionar linhas = filtro do planilha eletrônica
+```{r}
+# selecionar linhas de uma matriz ou data frame 
+df[df$abu2 == 0, ]
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Data Frames
+
+### **2 Seleção condicional**
+
+### Selecionar linhas = filtro do planilha eletrônica
+```{r}
+# selecionar linhas de uma matriz ou data frame 
+df[df$flo == "floresta", ]
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+**head()**: mostra as primeiras 6 linhas<br>
+**tail()**: mostra as últimas 6 linhas<br>
+**nrow()**: mostra o número de linhas<br>
+**ncol()**: mostra o número de colunas<br>
+**dim()**: mostra o número de linhas e de colunas<br>
+**rownames()**: mostra os nomes das linhas (locais)<br>
+**colnames()**: mostra os nomes das colunas (variáveis)<br>
+**str()**: mostra as classes de cada coluna (estrutura)<br>
+**summary()**: mostra um resumo dos valores de cada coluna<br>
+**rowSums()**: calcula a soma das linhas (horizontal)<br>
+**colSums()**: calcula a soma das colunas (vertical)<br>
+**rowMeans()**: calcula a média das linhas (horizontal)<br>
+**colMeans()**: calcula a média das colunas (vertical)
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+head(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+head(df, 10)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+tail(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+nrow(df)
+```
+--
+```{r}
+ncol(df)
+```
+--
+```{r}
+dim(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+rownames(df)
+```
+--
+```{r}
+colnames(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### Mudar o nome das linhas
+```{r}
+df
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### Mudar o nome das linhas
+```{r}
+rownames(df)
+```
+--
+```{r}
+rownames(df) <- c(paste("local", 1:9, sep = "_0"), "local_10")
+```
+--
+```{r}
+rownames(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### Mudar o nome das linhas
+```{r}
+df
+```
+
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+str(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+summary(df)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+```{r}
+# criar uma matriz
+ma <- matrix(c(12, 5, 8, 0, 15, 0, 0, 2, 7), 3)
+ma
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### **rowSums()**: calcula a soma das linhas - horizontal - soma a abundância das espécies por local de amostragem
+```{r}
+# matriz
+ma
+
+# soma das linhas
+rowSums(ma)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### **colSums()**: calcula a soma das colunas - vertical - soma a abundância total por espécie
+```{r}
+# matriz
+ma
+
+# soma das colunas
+colSums(ma)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### **rowMeans()**: calcula a média das linhas - horizontal - calcula a média das abundância das espécies por local de amostragem
+```{r}
+# matriz
+ma
+
+# media das linhas
+rowMeans(ma)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **3 Funções de visualização e manejo**
+
+### **colMeans()**: calcula a média das colunas - vertical - calcula a média da abundância por espécie
+```{r}
+# matriz
+ma
+
+# media das linhas
+colMeans(ma)
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **4 Amostragem de linhas**
+```{r}
+## amostragem de linhas
+n_row <- 1:10
+n_row
+```
+--
+```{r}
+n_row_sa <- sample(n_row, 4)
+n_row_sa
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **4 Amostragem de linhas**
+```{r}
+df_sa <- df[n_row_sa, ]
+df_sa
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **4 Amostragem de linhas**
+```{r}
+# fixar amostragem
+set.seed(5)
+
+# amostragem de linhas
+n_row <- 1:10
+n_row
+```
+--
+```{r}
+n_row_sa <- sample(n_row, 4)
+n_row_sa
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **4 Amostragem de linhas**
+```{r}
+df_sa <- df[n_row_sa, ]
+df_sa
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **5 Ordenação de linhas**
+```{r}
+# ordencao de linhas
+df_so <- df[order(df$abu, decreasing = TRUE), ]
+df_so
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **5 Ordenação de linhas**
+```{r}
+# ordencao de linhas
+df_so <- df[order(df$abu, decreasing = FALSE), ]
+df_so
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **6 Subconjunto**
+```{r}
+# filtro
+df_su <- subset(df, flo == "floresta")
+df_su
+```
+
+---
+
+# 3.5 Manejo de dados bidimensionais
+
+## Matrizes e Data Frames
+
+### **6 Subconjunto**
+
+```{r}
+# filtro
+df_su <- subset(df, abu2 == 1)
+df_su
+```
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## São **valores reservados** que representam *dados faltantes*, *indefinições matemáticas*, *infinitos* e *objetos nulos*
+
+<br><br>
+
+### **1 NA (Not Available)**
+
+### **2 NaN (Not a Number)**
+
+### **3 Inf (Infinito)**
+
+### **4 NULL**
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **1 NA (Not Available)**
+
+### Significa dado faltante/indisponível
+
+### **NA** deve ser maiúsculo
+
+```{r}
+# na - not available
+foo_na <- NA
+foo_na
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **1 NA (Not Available)**
+
+### Criar um data frame com NA
+```{r}
+# data frame
+df <- data.frame(var1 = c(1, 4, 2, NA), var2 = c(1, 4, 5, 2))
+df
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **1 NA (Not Available)**
+
+### Função para verificar a **presença/ausência** de NA's
+```{r}
+is.na(df)
+```
+
+--
+
+### Função para verificar a **presença de algum** NA's
+```{r}
+any(is.na(df))
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **1 NA (Not Available)**
+
+### Vamos retirar as linhas que possuem NA's
+```{r}
+df_sem_na <- na.omit(df)
+df_sem_na
+```
+--
+```{r}
+nrow(df)
+nrow(df_sem_na)
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **1 NA (Not Available)**
+
+### Vamos substituir os NA's por 0
+```{r}
+# substituir na por 0
+df[is.na(df)] <- 0
+df
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **2 NaN (Not a Number)**
+
+### Representa indefinições matemáticas como 0/0 e log(-1)
+
+```{r}
+# nan - not a number
+0/0
+
+log(-1)
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **2 NaN (Not a Number)**
+
+### Um **NaN** é um **NA**, mas o **NA** não é um **NaN**
+
+```{r}
+# criar um vetor
+ve <- c(1, 2, 3, NA, NaN)
+ve
+```
+--
+```{r}
+# verificar a presenca de na
+is.na(ve)
+```
+--
+```{r}
+# verificar a presenca de nan
+is.nan(ve)
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **3 Inf (Infinito)**
+
+### É um número muito grande ou um limite matemático, e.g., 10^310 e 1/0
+```{r}
+# limite matematico
+1/0
+
+# numero grande
+10^310
+```
+
+---
+
+# 3.6 Valores faltantes e especiais
+
+## **4 NULL**
+
+### Representa um objeto nulo
+
+### Útil para preenchimento de laços e outras aplicações de programação
+
+```{r}
+# objeto nulo
+nulo <- NULL
+nulo
+```
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+# 3.7 Diretório de trabalho
 
 ## Endereço da pasta onde o R irá **importar e exportar** os dados
 
@@ -1168,12 +2294,12 @@ class: inverse, middle, center
 
 ### **Windows: inverter as barras ("\" por "/")!**
 
-```{r, eval = FALSE}
+```{r}
 ## diretorio de trabalho
 # pasta onde o r ira importar e exportar os arquivos
 
 # definir o diretorio de trabalho
-setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados")
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 ```
 --
 ```{r, eval = FALSE}
@@ -1194,11 +2320,11 @@ class: inverse, middle, center
 
 ---
 
-background-image: url(https://pbs.twimg.com/media/D5Mbmy2UYAENL3D.jpg)
-background-size: 300px
-background-position: 50% 85%
+class: inverse, middle, center
 
-# 3.5 Importar dados
+background-image: url(https://pbs.twimg.com/media/D5Mbmy2UYAENL3D.jpg)
+background-size: 500px
+background-position: 50% 40%
 
 ---
 
@@ -1214,47 +2340,37 @@ background-position: 50% 85%
 
 ---
 
-# 3.5 Importar dados
+# 3.8 Importar dados
 
-## Os arquivos de dados podem estar em **três** formatos diferentes:
+## Os arquivos de tabelas podem estar em **três** principais formatos:
 
 <br><br>
 
-### 1. txt
-### 2. csv
+### 1. csv
+### 2. txt
 ### 3. xlsx
 
 ---
 
-# 3.5 Importar dados
+# 3.8 Importar dados
 
 ## Ler uma planilha eletrônica (.csv)
-```{r}
+```{r, eval = FALSE}
 # ler uma planilha eletronica (.csv)
-read.csv("ATLANTIC_BUTTERFLIES_sites.csv")
+read.csv("ATLANTIC_AMPHIBIANS_sites.csv")
 ```
 
 ---
 
-# 3.5 Importar dados
-
-## Ler uma planilha eletrônica (.csv) 
-```{r}
-# ler uma planilha eletronica (.csv)
-read.csv("ATLANTIC_BUTTERFLIES_sites.csv", sep = ";", dec = ".")
-```
-
----
-
-# 3.5 Importar dados
+# 3.8 Importar dados
 
 ## Ler e atribuir uma planilha eletrônica (.csv) a um objeto
 
 --
 
-```{r}
+```{r, eval = FALSE}
 # ler e atribuir uma planilha eletronica (.csv) a um objeto
-da <- read.csv("ATLANTIC_BUTTERFLIES_sites.csv", sep = ";", dec = ".")
+da <- read.csv("ATLANTIC_AMPHIBIANS_sites.csv")
 ```
 --
 ```{r, eval = FALSE}
@@ -1262,7 +2378,7 @@ da <- read.csv("ATLANTIC_BUTTERFLIES_sites.csv", sep = ";", dec = ".")
 da
 ```
 --
-```{r}
+```{r, eval = FALSE}
 # conferir a classe
 class(da)
 ```
@@ -1275,25 +2391,26 @@ class: inverse, center, middle
 
 ---
 
-# 3.5 Importar dados
+# 3.8 Importar dados
 
 ## Ler e atribuir uma planilha simples (.txt) a um objeto
 
 --
 
-```{r}
+```{r, eval = FALSE}
 # ler e atribuir uma planilha simples (.txt) a um objeto
-da <- read.table("ATLANTIC_BUTTERFLIES_sites.txt", header = TRUE, sep = "\t")
+da <- read.table("ATLANTIC_AMPHIBIANS_sites.txt", header = TRUE, sep = "\t")
+da
 ```
 
 ---
 
-# 3.5 Importar dados
+# 3.8 Importar dados
 
 ## Ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
 
 ### Pacote **openxlsx**
-```{r, results = "hide"}
+```{r, eval = FALSE}
 # pacote openxlsx
 # install.packages("openxlsx")
 library(openxlsx)
@@ -1302,51 +2419,198 @@ library(openxlsx)
 --
 
 ### Importar os dados
-```{r}
+```{r, eval = FALSE}
 # ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
-da <- openxlsx::read.xlsx("ATLANTIC_BUTTERFLIES_sites.xlsx", sheet = 1)
+da <- openxlsx::read.xlsx("ATLANTIC_AMPHIBIANS_sites.xlsx", sheet = 1)
+da
 ```
 
 ---
 
-# 3.5 Importar dados
+# 3.9 Conferir e manejar dados importados
 
-## Ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
+## Conjunto de funções para conferir os dados
 
-### Pacote **xlsx**
-```{r, eval = FALSE}
-# pacote xlsx
-# install.packages("xlsx")
-library(xlsx)
+<br><br>
+
+**head()**: mostra as primeiras 6 linhas<br>
+**tail()**: mostra as últimas 6 linhas<br>
+**nrow()**: mostra o número de linhas<br>
+**ncol()**: mostra o número de colunas<br>
+**dim()**: mostra o número de linhas e de colunas<br>
+**rownames()**: mostra os nomes das linhas (locais)<br>
+**colnames()**: mostra os nomes das colunas (variáveis)<br>
+**str()**: mostra as classes de cada coluna (estrutura)<br>
+**summary()**: mostra um resumo dos valores de cada coluna
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **head()**: mostra as primeiras 6 linhas
+```{r, include = FALSE}
+# ler e atribuir uma planilha eletronica (.csv) a um objeto
+da <- read.csv("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas/ATLANTIC_AMPHIBIANS_sites.csv")
 ```
 
---
-
-### Importar os dados
-```{r, eval = FALSE}
-# ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
-da <- xlsx::read.xlsx("ATLANTIC_BUTTERFLIES_sites.xlsx", sheetIndex = 1)
+```{r}
+head(da)
 ```
 
 ---
 
-# 3.5 Importar dados
+# 3.9 Conferir e manejar dados importados
 
-## Ler e atribuir uma planilha eletrônica (.ods) a um objeto
-
-### Pacote **readODS**
+## **head()**: mostra as primeiras 10 linhas
 ```{r}
-# pacote
-# install.packages("readODS")
-library(readODS)
+head(da, 10)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **tail()**: mostra as últimas 6 linhas
+```{r}
+tail(da)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **nrow()**: mostra o número de linhas
+```{r}
+nrow(da)
 ```
 
 --
 
-### Importar os dados
+## **ncol()**: mostra o número de colunas
+```{r}
+ncol(da)
+```
+
+--
+
+## **dim()**: mostra o número de linhas e de colunas
+```{r}
+dim(da)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **rownames()**: mostra os nomes das linhas (locais)
+```{r}
+rownames(da)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **colnames()**: mostra os nomes das colunas (variáveis)
+```{r}
+colnames(da)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **str()**: mostra as classes de cada coluna (estrutura)
+```{r}
+str(da)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## **summary()**: mostra um resumo dos valores de cada coluna
+```{r}
+summary(da)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## Verificar a presença de NAs
+```{r}
+# algum?
+any(is.na(da))
+```
+--
+```{r}
+# quais?
+which(is.na(da))
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## Retirar os NAs
+```{r}
+da_na <- na.omit(da)
+```
+--
+```{r}
+nrow(da)
+```
+--
+```{r}
+nrow(da_na)
+```
+
+---
+
+# 3.9 Conferir e manejar dados importados
+
+## Subset das linhas
+```{r}
+# subset das linhas com amostragens em pernambuco
+da_per <- da[da$state == "Pernambuco", ]
+da_per
+```
+
+---
+
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
+# 3.10 Exportar dados
+
+## Exportar uma tabela de dados na pasta do diretório
+
+--
+
+### Planilha eletrônica (.csv)
 ```{r, eval = FALSE}
-# ler e atribuir planilha eletronica (.ods) a um objeto
-da <- read_ods("ATLANTIC_BUTTERFLIES_sites.ods")
+write.csv(da_per, "ATLANTIC_AMPHIBIAN_sites_pernambuco.csv", 
+          row.names = FALSE, quote = FALSE)
+```
+
+--
+
+### Planilha de texto (.txt)
+```{r, eval = FALSE}
+write.table(da_per, "ATLANTIC_AMPHIBIAN_sites_pernambuco.txt", 
+            row.names = FALSE, quote = FALSE)
+```
+
+--
+
+### Planilha eletrônica (.xlsx)
+```{r, warning = FALSE}
+openxlsx::write.xlsx(da_per, "ATLANTIC_AMPHIBIAN_sites_pernambuco.xlsx", 
+                     row.names = FALSE, quote = FALSE)
 ```
 
 ---
@@ -1354,8 +2618,6 @@ da <- read_ods("ATLANTIC_BUTTERFLIES_sites.ods")
 class: inverse, middle, center
 
 # Dúvidas?
-
-
 
 ---
 
