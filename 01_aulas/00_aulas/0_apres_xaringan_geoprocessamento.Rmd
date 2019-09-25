@@ -260,9 +260,9 @@ background-position: 75% 75%
 <br>
 4.5 magrittr (*pipe - %>%*)
 <br>
-4.6 dplyr
+4.6 tidyr
 <br>
-4.7 tidyr
+4.7 dplyr
 <br>
 4.8 stringr
 <br>
@@ -285,15 +285,15 @@ background-position: 90% 80%
 <br>
 5.2 Principais tipos de gráficos
 <br>
-5.3 Gráficos no R (pacotes *graphics*, *ggplot2*, *esquisse*, *ggpubr*)
+5.3 Gráficos no R (pacotes *graphics*, *ggplot2* e *ggpubr*)
 <br>
 5.4 Histograma (*histogram*)
 <br>
-5.5 Gráfico de caixa (*box plot*)
+5.5 Gráfico de setores (*pie chart* e *danut plot*)
 <br>
 5.6 Gráfico de barras (*bar plot*)
 <br>
-5.7 Gráfico de setores (*pie chart* e *danut plot*)
+5.7 Gráfico de caixa (*box plot* e *violin plot*)
 <br>
 5.8 Gráfico de dispersão (*scatter plot*)
 <br>

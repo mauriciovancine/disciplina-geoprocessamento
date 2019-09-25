@@ -40,9 +40,9 @@ background-position: 50% 50%
 &lt;br&gt;
 4.5 tibble
 &lt;br&gt;
-4.6 dplyr
+4.6 tidyr
 &lt;br&gt;
-4.7 tidyr
+4.7 dplyr
 &lt;br&gt;
 4.8 stringr
 &lt;br&gt;
@@ -94,12 +94,6 @@ background-size: 800px
 
 # 4.1 tidyverse
 
----
-
-background-image: url(http://www.storybench.org/wp-content/uploads/2017/05/tidyverse-730x294.png)
-background-size: 800px
-
-# 4.1 tidyverse
 
 ---
 
@@ -223,7 +217,7 @@ library(tidyverse)
 
 ## IMPORTANTE
 
-### Todas as funções dos pacotes atrelados ao **tidyverse** usam `_` para separar as letras das funções
+### Todas as funções dos pacotes atrelados ao **tidyverse** usam `_` para separar os nomes internos das funções
 
 &lt;br&gt;&lt;br&gt;
 
@@ -264,9 +258,24 @@ background-position: 50% 50%
 
 ---
 
-class: inverse, center, middle
-background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
-background-size: 600px
+# 4.2 magrittr (pipe - %&gt;%)
+
+### Atalho: `crtl + shift + M`
+
+```r
+# sem pipe
+sqrt(sum(1:100))
+```
+
+```
+## [1] 71.06335
+```
+
+--
+
+background-image: url(https://i.ytimg.com/vi/UiTZp86c04o/maxresdefault.jpg)
+background-size: 500px
+background-position: 50% 80%
 
 ---
 
@@ -282,7 +291,7 @@ sqrt(sum(1:100))
 ```
 ## [1] 71.06335
 ```
---
+
 
 ```r
 # com pipe
@@ -296,7 +305,6 @@ sqrt(sum(1:100))
 ```
 
 ---
-
 class: inverse, center, middle
 background-image: url(https://media.giphy.com/media/7ND8xzTlR5b8s/giphy.gif)
 background-size: 800px
@@ -337,6 +345,12 @@ ve
 ```
 ## [1] 80.24719
 ```
+
+---
+
+class: inverse, center, middle
+background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
+background-size: 600px
 
 ---
 
@@ -395,9 +409,6 @@ background-position: 50% 85%
 
 ## **Formato .csv**
 
-### Podemos importar os dados .csv para o R de duas formas
-
-### 2 Download dos arquivos e importar do computador
 
 ```r
 # diretorio
@@ -406,15 +417,44 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 --
 
 ```r
+# import sites
 si &lt;- read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
 si
 ```
 --
 
 ```r
+# import species
 sp &lt;- read_csv("ATLANTIC_AMPHIBIANS_species.csv")
 sp
 ```
+
+---
+
+# 4.3 readr
+
+## **Formato .txt**
+
+
+```r
+# diretorio
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
+```
+--
+
+```r
+# import sites
+si &lt;- read_table2("ATLANTIC_AMPHIBIANS_sites.txt")
+si
+```
+--
+
+```r
+# import species
+sp &lt;- read_table2("ATLANTIC_AMPHIBIANS_species.txt")
+sp
+```
+
 
 ---
 
@@ -479,7 +519,6 @@ library("writexl")
 
 ## **Formato .xlsx**
 
-### 2 Download dos arquivos e importar do computador
 
 ```r
 # diretorio
@@ -488,12 +527,14 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 --
 
 ```r
+# import sites
 si &lt;- read_xlsx("ATLANTIC_AMPHIBIANS_sites.xlsx")
 si
 ```
 --
 
 ```r
+# import species
 sp &lt;- read_xlsx("ATLANTIC_AMPHIBIANS_species.xlsx")
 sp
 ```
@@ -541,7 +582,7 @@ background-position: 50% 50%
 `glimpse()`
 
 
-
+--
 
 ```r
 glimpse(si)
@@ -681,7 +722,7 @@ class(tb_ch)
 
 ## tibble vs data.frame
 
-### Não faz correspondência parcial, retorna **NULL** se a coluna não existe com o nome especificado
+### 3. Não faz correspondência parcial, retorna **NULL** se a coluna não existe com o nome especificado
 
 ```r
 df$c 
@@ -714,13 +755,262 @@ class: inverse, middle, center
 ---
 
 class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 4.6 tidyr
+
+### Os conjuntos de dados **tidy** (organizados) são fáceis de manipular, modelar e visualizar
+
+--
+
+### Um conjunto de dados está **arrumado ou não**, dependendo de como linhas, colunas e células são combinadas com observações, variáveis e valores
+
+--
+
+## Nos dados tidy:
+### 1 Cada variável em uma coluna
+### 2 Cada observação em uma linha
+### 3 Cada valor como uma célula
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/tidy1.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+**1 unite()**: junta dados de múltiplas colunas em uma&lt;br&gt;
+**2 separate()**: separa caracteres em múlplica colunas&lt;br&gt;
+**3 drop_na()**: retira linhas com NA&lt;br&gt;
+**4 replace_na()**: substitui NA&lt;br&gt;
+**5 spread()**: long para wide&lt;br&gt;
+**6 gather()**: wide para long&lt;br&gt;
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/unite.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **1 unite**
+
+### unir as colunas latirude e longitude separadas por uma vírgula
+
+```r
+si_unite &lt;- si %&gt;% 
+  unite("lat_lon", latitude:longitude, sep = ",")
+si_unite$lat_lon
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/separate.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **2 separate**
+
+### separar os dados de "period" em quatro colunas dos seus valores
+
+```r
+si_separate &lt;- si %&gt;% 
+  separate("period", c("mo", "da", "tw", "ni"), remove = FALSE)
+si_separate[, c(1, 9:13)]
+```
+
+---
+
+# 4.6 tidyr
+
+## **3 drop_na()**
+
+### remove as linhas com NA de todas as colunas
+
+```r
+si_drop_na &lt;- si %&gt;% 
+  drop_na()
+si_drop_na
+```
+--
+### remove as linhas com NA da coluna "year_start"
+
+```r
+si_drop_na &lt;- si %&gt;% 
+  drop_na(year_start)
+si_drop_na
+```
+
+---
+
+# 4.6 tidyr
+
+## **4 replace_na()**
+
+### substituir os NAs da coluna "year_start" por 0 
+
+```r
+si_replace_na &lt;- si %&gt;% 
+  replace_na(list(year_start = 0))
+si_replace_na
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/spread.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **5 spread()** 
+
+Long para wide
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+
+```r
+si_spread &lt;- si[, c("id", "record", "species_number")] %&gt;% 
+  spread(key = record, value = species_number, fill = 0)
+si_spread
+```
+
+```
+## # A tibble: 1,163 x 3
+##    id         ab    co
+##    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 amp1001    19     0
+##  2 amp1002     0    16
+##  3 amp1003     0    14
+##  4 amp1004     0    13
+##  5 amp1005     0    30
+##  6 amp1006     0    42
+##  7 amp1007     0    23
+##  8 amp1008     0    19
+##  9 amp1009    13     0
+## 10 amp1010     1     0
+## # … with 1,153 more rows
+```
+
+---
+
+# 4.6 tidyr
+
+## **5 spread()** 
+
+Long para wide
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+
+```r
+si_spread &lt;- si[, c("id", "record", "species_number")] %&gt;% 
+  spread(key = state_abbreviation, value = species_number, fill = 0)
+si_spread
+```
+
+---
+
+# 4.6 tidyr
+
+## **5 spread()** 
+
+Long para wide
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+
+```r
+sp_spread &lt;- sp[1:1000, c("id", "species", "individuals")] %&gt;% 
+  spread(key = species, value = individuals, fill = 0)
+sp_spread
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/gather.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **6 gather()**
+
+wide para long
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+
+```r
+si_gather &lt;- si_spread %&gt;% 
+  gather(key = record, value = species_number, -id)
+si_gather
+```
+
+```
+## # A tibble: 2,326 x 3
+##    id      record species_number
+##    &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
+##  1 amp1001 ab                 19
+##  2 amp1002 ab                  0
+##  3 amp1003 ab                  0
+##  4 amp1004 ab                  0
+##  5 amp1005 ab                  0
+##  6 amp1006 ab                  0
+##  7 amp1007 ab                  0
+##  8 amp1008 ab                  0
+##  9 amp1009 ab                 13
+## 10 amp1010 ab                  1
+## # … with 2,316 more rows
+```
+
+---
+
+class: clear, center, middle
 background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/dplyr.png)
 background-size: 400px
 background-position: 50% 50%
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ### O **dplyr** é um pacote que **facilita** o trabalho com dados, com uma **gramática de manipulação** de dados **simples e flexível** (filtragem, reordenamento, seleção, entre outras)
 
@@ -734,7 +1024,7 @@ background-position: 50% 50%
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ### Sua gramática simples contém **funções verbais** para manipulação de dados
 
@@ -755,7 +1045,7 @@ background-position: 50% 50%
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ### O **tibble** é sempre o **primeiro argumento** das funções verbais
 
@@ -789,13 +1079,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/select.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
@@ -827,7 +1117,7 @@ si_select
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
@@ -864,7 +1154,7 @@ si_select
 ```
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
@@ -901,18 +1191,19 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/vectorizedFn
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **2 pull**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **2 pull**
 
 
 ```r
+# coluna para vetor
 si_pull &lt;- si %&gt;% 
   pull(id)
 si_pull
@@ -1117,12 +1408,13 @@ si_pull
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **2 pull**
 
 
 ```r
+# coluna para vetor
 si_pull &lt;- si %&gt;% 
   pull(species_number)
 si_pull
@@ -1184,13 +1476,14 @@ si_pull
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **3 rename**
 
 ### Renomeia colunas
 
 ```r
+# rename
 si_rename &lt;- si %&gt;%
   rename(sp = species_number)
 si_rename
@@ -1225,39 +1518,43 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/mutate.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **4 mutate**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **4 mutate**
 
-### Adiciona colunas vindas de operações
+### Adiciona colunas novas ou vindas de operações
 
 ```r
+# add colum
 si_mutate &lt;- si %&gt;% 
-  mutate(record_factor = as.factor(record)) %&gt;% 
-  head()
+  mutate(record_factor = as.factor(record))
 si_mutate
 ```
 
 ```
-## # A tibble: 6 x 26
-##   id    reference_number species_number record sampled_habitat
-##   &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
-## 1 amp1…             1001             19 ab     fo,ll          
-## 2 amp1…             1002             16 co     fo,la,ll       
-## 3 amp1…             1002             14 co     fo,la,ll       
-## 4 amp1…             1002             13 co     fo,la,ll       
-## 5 amp1…             1003             30 co     fo,ll,br       
-## 6 amp1…             1004             42 co     tp,pp,la,ll,is 
-## # … with 21 more variables: active_methods &lt;chr&gt;, passive_methods &lt;chr&gt;,
-## #   complementary_methods &lt;chr&gt;, period &lt;chr&gt;, month_start &lt;dbl&gt;,
-## #   year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;, year_finish &lt;dbl&gt;,
-## #   effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;,
+## # A tibble: 1,163 x 26
+##    id    reference_number species_number record sampled_habitat
+##    &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
+##  1 amp1…             1001             19 ab     fo,ll          
+##  2 amp1…             1002             16 co     fo,la,ll       
+##  3 amp1…             1002             14 co     fo,la,ll       
+##  4 amp1…             1002             13 co     fo,la,ll       
+##  5 amp1…             1003             30 co     fo,ll,br       
+##  6 amp1…             1004             42 co     tp,pp,la,ll,is 
+##  7 amp1…             1005             23 co     sp             
+##  8 amp1…             1005             19 co     sp,la,sw       
+##  9 amp1…             1005             13 ab     fo             
+## 10 amp1…             1006              1 ab     fo             
+## # … with 1,153 more rows, and 21 more variables: active_methods &lt;chr&gt;,
+## #   passive_methods &lt;chr&gt;, complementary_methods &lt;chr&gt;, period &lt;chr&gt;,
+## #   month_start &lt;dbl&gt;, year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;,
+## #   year_finish &lt;dbl&gt;, effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;,
 ## #   state_abbreviation &lt;chr&gt;, municipality &lt;chr&gt;, site &lt;chr&gt;,
 ## #   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;, coordinate_precision &lt;chr&gt;,
 ## #   altitude &lt;dbl&gt;, temperature &lt;dbl&gt;, precipitation &lt;dbl&gt;,
@@ -1270,40 +1567,39 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/arrange.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **3 arrange**
+## **5 arrange**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **3 arrange**
+## **5 arrange**
 
-### Ordena as linhas
+### Ordenar de forma crescente pela coluna **species_number**
 
 ```r
 si_arrange &lt;- si %&gt;% 
-  arrange(species_number) %&gt;% 
-  head()
+  arrange(species_number)
 si_arrange
 ```
 
 --
 
-### Ordenar de forma decrescente ela coluna **species_number**
+### Ordenar de forma decrescente pela coluna **species_number**
 
 ```r
 si_arrange &lt;- si %&gt;% 
-  arrange(desc(species_number)) %&gt;% 
-  head()
+  arrange(desc(species_number))
+si_arrange
 ```
 --
 
 ```r
 si_arrange &lt;- si %&gt;% 
-  arrange(-species_number) %&gt;% 
-  head()
+  arrange(-species_number)
+si_arrange
 ```
 
 ---
@@ -1312,87 +1608,168 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/filter.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **4 filter**
-
----
-
-# 4.6 dplyr
-
-## **4 filter** 
-
-### operadores: &gt;, &gt;=, &lt;, &lt;=, ==, !=, is.na, !is.na
-
-```r
-si_filter &lt;- si %&gt;% 
-  filter(species_number &gt; 5) %&gt;% 
-  head()
-si_filter
-```
---
-
-```r
-si_filter &lt;- si %&gt;% 
-  filter(between(species_number, 1, 5)) %&gt;% 
-  head()
-si_filter
-```
+## **6 filter**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **4 filter** 
+## **6 filter** 
+
+### operadores: &gt;, &gt;=, &lt;, &lt;=, ==, !=, is.na, !is.na, %in%
+### Filtrar para locais com mais de 5 espécies
 
 ```r
 si_filter &lt;- si %&gt;% 
-  filter(is.na(passive_methods)) %&gt;% 
-  head()
+  filter(species_number &gt; 5)
 si_filter
 ```
 --
+### Filtrar para locais centre 1 e 5 espécies
 
 ```r
 si_filter &lt;- si %&gt;% 
-  filter(species_number &gt; 5 &amp; state_abbreviation == "BR-SP")  %&gt;% 
-  head()
-si_filter
-```
---
-
-```r
-si_filter &lt;- si %&gt;% 
-  filter(species_number &gt; 5 &amp; state_abbreviation == "BR-SP" | record == "ab")  %&gt;% 
-  head()
+  filter(between(species_number, 1, 5))
 si_filter
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **5 slice** 
-### Selecionar pelo número da linha
+## **6 filter** 
+### Filtrar para locais sem NA no métodos passivos
+
+```r
+si_filter &lt;- si %&gt;% 
+  filter(is.na(passive_methods))
+si_filter
+```
 --
+### Filtrar para locais sem NA no métodos ativos **E** passivos
+
+```r
+si_filter &lt;- si$ %&gt;% 
+  filter(is.na(active_methods) &amp; is.na(passive_methods))
+si_filter
+```
+
+---
+
+# 4.7 dplyr
+
+## **6 filter** 
+### Filtrar para locais amostrados com mais de 5 espécies **E** em Pernambuco
+
+```r
+si_filter &lt;- si %&gt;% 
+  filter(species_number &gt; 5 &amp; state_abbreviation == "BR-PE") 
+si_filter
+```
+--
+### Filtrar para locais amostrados com mais de 5 espécies **OU** em Pernambuco
+
+```r
+si_filter &lt;- si %&gt;% 
+  filter(species_number &gt; 5 | state_abbreviation == "BR-PE")
+si_filter
+```
+
+---
+
+# 4.7 dplyr
+
+## **7 distinct**
+### Remove linhas duplicadas considerando a coluna número de espécies
+
+```r
+si_distinct &lt;- si %&gt;% 
+  distinct(species_number)
+si_distinct
+```
+
+```
+## # A tibble: 58 x 1
+##    species_number
+##             &lt;dbl&gt;
+##  1             19
+##  2             16
+##  3             14
+##  4             13
+##  5             30
+##  6             42
+##  7             23
+##  8              1
+##  9              2
+## 10              4
+## # … with 48 more rows
+```
+
+---
+
+# 4.7 dplyr
+
+## **7 distinct**
+### Remove linhas duplicadas considerando a coluna número de espécies e mantém as demais
+
+```r
+si_distinct &lt;- si %&gt;% 
+  distinct(species_number, .keep_all = TRUE)
+si_distinct
+```
+
+```
+## # A tibble: 58 x 25
+##    id    reference_number species_number record sampled_habitat
+##    &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
+##  1 amp1…             1001             19 ab     fo,ll          
+##  2 amp1…             1002             16 co     fo,la,ll       
+##  3 amp1…             1002             14 co     fo,la,ll       
+##  4 amp1…             1002             13 co     fo,la,ll       
+##  5 amp1…             1003             30 co     fo,ll,br       
+##  6 amp1…             1004             42 co     tp,pp,la,ll,is 
+##  7 amp1…             1005             23 co     sp             
+##  8 amp1…             1006              1 ab     fo             
+##  9 amp1…             1006              2 ab     fo             
+## 10 amp1…             1006              4 ab     fo             
+## # … with 48 more rows, and 20 more variables: active_methods &lt;chr&gt;,
+## #   passive_methods &lt;chr&gt;, complementary_methods &lt;chr&gt;, period &lt;chr&gt;,
+## #   month_start &lt;dbl&gt;, year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;,
+## #   year_finish &lt;dbl&gt;, effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;,
+## #   state_abbreviation &lt;chr&gt;, municipality &lt;chr&gt;, site &lt;chr&gt;,
+## #   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;, coordinate_precision &lt;chr&gt;,
+## #   altitude &lt;dbl&gt;, temperature &lt;dbl&gt;, precipitation &lt;dbl&gt;
+```
+
+---
+
+# 4.7 dplyr
+
+## **8 slice** 
+### Selecionar linhas 1 a 10
 
 ```r
 si_slice &lt;- si %&gt;% 
-  slice(1:10) %&gt;% 
-  head()
+  slice(1:10)
 si_slice
 ```
 
 ```
-## # A tibble: 6 x 25
-##   id    reference_number species_number record sampled_habitat
-##   &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
-## 1 amp1…             1001             19 ab     fo,ll          
-## 2 amp1…             1002             16 co     fo,la,ll       
-## 3 amp1…             1002             14 co     fo,la,ll       
-## 4 amp1…             1002             13 co     fo,la,ll       
-## 5 amp1…             1003             30 co     fo,ll,br       
-## 6 amp1…             1004             42 co     tp,pp,la,ll,is 
+## # A tibble: 10 x 25
+##    id    reference_number species_number record sampled_habitat
+##    &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
+##  1 amp1…             1001             19 ab     fo,ll          
+##  2 amp1…             1002             16 co     fo,la,ll       
+##  3 amp1…             1002             14 co     fo,la,ll       
+##  4 amp1…             1002             13 co     fo,la,ll       
+##  5 amp1…             1003             30 co     fo,ll,br       
+##  6 amp1…             1004             42 co     tp,pp,la,ll,is 
+##  7 amp1…             1005             23 co     sp             
+##  8 amp1…             1005             19 co     sp,la,sw       
+##  9 amp1…             1005             13 ab     fo             
+## 10 amp1…             1006              1 ab     fo             
 ## # … with 20 more variables: active_methods &lt;chr&gt;, passive_methods &lt;chr&gt;,
 ## #   complementary_methods &lt;chr&gt;, period &lt;chr&gt;, month_start &lt;dbl&gt;,
 ## #   year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;, year_finish &lt;dbl&gt;,
@@ -1404,12 +1781,11 @@ si_slice
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **6 n_sample** 
+## **9 n_sample** 
 
-### Amostra linhas aleatoriamente
---
+### Amostrar 100 linhas aleatoriamente
 
 ```r
 si_sample_n &lt;- si %&gt;% 
@@ -1447,74 +1823,79 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/summarize.pn
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **9 summarise**
-
----
-
-# 4.6 dplyr
-
-## **9 summarise**
-
-```r
-si_summarise.nsp &lt;- si %&gt;% 
-  summarise(min_sp = min(species_number))
-si_summarise.nsp
-```
-
-```
-## # A tibble: 1 x 1
-##   min_sp
-##    &lt;dbl&gt;
-## 1      1
-```
+## **10 summarise**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **9 summarise**
+## **10 summarise**
+
+### Média e desvio padrão do número de espécies total
 
 
 ```r
-si_summarise.sp.est &lt;- si %&gt;% 
-  group_by(state_abbreviation) %&gt;% 
-  summarise(sp_est = n())
-si_summarise.sp.est
+si_summarise &lt;- si %&gt;% 
+  summarise(mean_sp = mean(species_number), sd_sp = sd(species_number))
+si_summarise
 ```
 
 ```
-## # A tibble: 23 x 2
-##    state_abbreviation sp_est
-##    &lt;chr&gt;               &lt;int&gt;
-##  1 AR-N                   14
-##  2 BR-AL                   5
-##  3 BR-BA                  89
-##  4 BR-CE                   8
-##  5 BR-ES                  39
-##  6 BR-GO                   4
-##  7 BR-MG                 117
-##  8 BR-MS                   1
-##  9 BR-PB                  27
-## 10 BR-PE                  32
-## # … with 13 more rows
+## # A tibble: 1 x 2
+##   mean_sp sd_sp
+##     &lt;dbl&gt; &lt;dbl&gt;
+## 1    15.2  11.2
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **10 join**
+## **10 summarise**
+### Média e desvio padrão do número de espécies por país
+
+```r
+si_summarise_group &lt;- si %&gt;% 
+  group_by(country) %&gt;% 
+  summarise(mean_sp = mean(species_number), sd_sp = sd(species_number))
+si_summarise_group
+```
+
+```
+## # A tibble: 3 x 3
+##   country   mean_sp sd_sp
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+## 1 Argentina    8.36  7.73
+## 2 Brazil      15.2  11.3 
+## 3 Paraguay    28     2.92
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/leftjoin.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.7 dplyr
+
+## **11 join**
+
+---
+
+# 4.7 dplyr
+
+## **11 join**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
 ### Selecionar as colunas que preciso da tabela **si**
 
 ```r
-si_lon.lat &lt;- si %&gt;% 
+si_coord &lt;- si %&gt;% 
   select(id, longitude, latitude)
-si_lon.lat 
+si_coord 
 ```
 
 ```
@@ -1536,29 +1917,51 @@ si_lon.lat
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **10 join**
+## **11 join**
 
-### Join
+## Adicionar longitute e latitude na tabela de espécies
+
+### Join com as tabelas pela coluna "id"
 
 ```r
 # join dos dados
-sp.lon.lat.si &lt;- sp %&gt;% 
-  left_join(si_lon.lat, by = "id") %&gt;% 
-  head()
+sp_join &lt;- sp %&gt;% 
+  left_join(si_coord, by = "id")
+sp_join
+```
+
+```
+## # A tibble: 17,619 x 12
+##    id    order superfamily family subfamily genus species valid_name
+##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     
+##  1 amp1… &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;  Adenom… &lt;NA&gt;      
+##  2 amp1… Anura &lt;NA&gt;        Hylid… Lophyohy… Cory… Coryth… Corythoma…
+##  3 amp1… Anura &lt;NA&gt;        Hylid… Dendrops… Dend… Dendro… Dendropso…
+##  4 amp1… Anura &lt;NA&gt;        Micro… Gastroph… Derm… Dermat… Dermatono…
+##  5 amp1… &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;   &lt;NA&gt;      &lt;NA&gt;  Leptod… &lt;NA&gt;      
+##  6 amp1… Anura &lt;NA&gt;        Lepto… Leptodac… Lept… Leptod… Leptodact…
+##  7 amp1… Anura &lt;NA&gt;        Lepto… Leptodac… Lept… Leptod… Leptodact…
+##  8 amp1… Anura &lt;NA&gt;        Lepto… Leptodac… Lept… Leptod… Leptodact…
+##  9 amp1… Anura &lt;NA&gt;        Lepto… Leptodac… Lept… Leptod… Leptodact…
+## 10 amp1… Anura &lt;NA&gt;        Lepto… Leptodac… Lept… Leptod… Leptodact…
+## # … with 17,609 more rows, and 4 more variables: individuals &lt;dbl&gt;,
+## #   endemic &lt;dbl&gt;, longitude &lt;dbl&gt;, latitude &lt;dbl&gt;
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **10 join**
+## **11 join**
 
-### Join
+## Adicionar longitute e latitude na tabela de espécies
+
+### Nome das colunas
 
 ```r
-colnames(sp.lon.lat.si)
+colnames(sp_join)
 ```
 
 ```
@@ -1569,7 +1972,7 @@ colnames(sp.lon.lat.si)
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1597,7 +2000,7 @@ da
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1626,7 +2029,7 @@ da
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1657,7 +2060,7 @@ da
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 
 ```r
@@ -1685,214 +2088,6 @@ da
 ##  9 BR-GO                          4
 ## 10 BR-SE                          4
 ## # … with 13 more rows
-```
-
----
-
-class: inverse, center, middle
-
-# Dúvidas?
-
----
-
-class: clear, center, middle
-background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png)
-background-size: 400px
-background-position: 50% 50%
-
----
-
-# 4.7 tidyr
-
-### Os conjuntos de dados **tidy** (organizados) são fáceis de manipular, modelar e visualizar
-
---
-
-### Um conjunto de dados está **arrumado ou não**, dependendo de como linhas, colunas e células são combinadas com observações, variáveis e valores
-
---
-
-## Nos dados tidy:
-### 1 Cada variável em uma coluna
-### 2 Cada observação em uma linha
-### 3 Cada valor como uma célula
-
----
-
-background-image: url(http://www.flutterbys.com.au/stats/tut/images/tidy1.png)
-background-size: 800px
-background-position: 50% 50%
-
-# 4.7 tidyr
-
----
-
-background-image: url(http://www.flutterbys.com.au/stats/tut/images/spread.png)
-background-size: 800px
-background-position: 50% 50%
-
-# 4.7 tidyr
-
----
-
-# 4.7 tidyr
-
-## **spread**: long para wide (matriz de comunidades)
-
-1. **key**: variável categórica que irá definir os nomes das colunas
-
-2. **value**: variável numérica que irá preencher os dados
-
-
-```r
-sp.comu &lt;- sp %&gt;% 
-  select(id, valid_name, individuals) %&gt;% 
-  filter(!is.na(valid_name)) %&gt;% 
-  distinct(valid_name, .keep_all = TRUE) %&gt;% 
-  spread(key = valid_name, value = individuals)
-sp.comu
-```
-
-```
-## # A tibble: 208 x 529
-##    id    `"Eleutherodact… `Adelophryne ba… `Adelophryne gl…
-##    &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-##  1 amp1…               NA               NA               NA
-##  2 amp1…               NA               NA               NA
-##  3 amp1…               NA               NA               NA
-##  4 amp1…               NA               NA               NA
-##  5 amp1…               NA               NA               NA
-##  6 amp1…               NA               NA               NA
-##  7 amp1…               NA               NA               NA
-##  8 amp1…               NA               NA               NA
-##  9 amp1…               NA               NA               NA
-## 10 amp1…               NA               NA               NA
-## # … with 198 more rows, and 525 more variables: `Adelophryne
-## #   mucronatus` &lt;dbl&gt;, `Adelophryne pachydactyla` &lt;dbl&gt;, `Adenomera
-## #   ajurauna` &lt;dbl&gt;, `Adenomera araucaria` &lt;dbl&gt;, `Adenomera
-## #   bokermanni` &lt;dbl&gt;, `Adenomera diptyx` &lt;dbl&gt;, `Adenomera
-## #   engelsi` &lt;dbl&gt;, `Adenomera hylaedactyla` &lt;dbl&gt;, `Adenomera
-## #   marmorata` &lt;dbl&gt;, `Adenomera nana` &lt;dbl&gt;, `Adenomera thomei` &lt;dbl&gt;,
-## #   `Allobates goianus` &lt;dbl&gt;, `Allobates olfersioides` &lt;dbl&gt;, `Ameerega
-## #   flavopicta` &lt;dbl&gt;, `Ameerega picta` &lt;dbl&gt;, `Aparasphenodon
-## #   bokermanni` &lt;dbl&gt;, `Aparasphenodon brunoi` &lt;dbl&gt;, `Aplastodiscus
-## #   albofrenatus` &lt;dbl&gt;, `Aplastodiscus albosignatus` &lt;dbl&gt;,
-## #   `Aplastodiscus arildae` &lt;dbl&gt;, `Aplastodiscus cavicola` &lt;dbl&gt;,
-## #   `Aplastodiscus cochranae` &lt;dbl&gt;, `Aplastodiscus ehrhardti` &lt;dbl&gt;,
-## #   `Aplastodiscus eugenioi` &lt;dbl&gt;, `Aplastodiscus flumineus` &lt;dbl&gt;,
-## #   `Aplastodiscus ibirapitanga` &lt;dbl&gt;, `Aplastodiscus leucopygius` &lt;dbl&gt;,
-## #   `Aplastodiscus perviridis` &lt;dbl&gt;, `Aplastodiscus sibilatus` &lt;dbl&gt;,
-## #   `Aplastodiscus weygoldti` &lt;dbl&gt;, `Arcovomer passarellii` &lt;dbl&gt;,
-## #   `Barycholos ternetzi` &lt;dbl&gt;, `Boana albomarginata` &lt;dbl&gt;, `Boana
-## #   albopunctata` &lt;dbl&gt;, `Boana atlantica` &lt;dbl&gt;, `Boana
-## #   bandeirantes` &lt;dbl&gt;, `Boana bischoffi` &lt;dbl&gt;, `Boana botumirim` &lt;dbl&gt;,
-## #   `Boana caingua` &lt;dbl&gt;, `Boana caipora` &lt;dbl&gt;, `Boana cambui` &lt;dbl&gt;,
-## #   `Boana cipoensis` &lt;dbl&gt;, `Boana crepitans` &lt;dbl&gt;, `Boana
-## #   curupi` &lt;dbl&gt;, `Boana ericae` &lt;dbl&gt;, `Boana exastis` &lt;dbl&gt;, `Boana
-## #   faber` &lt;dbl&gt;, `Boana freicanecae` &lt;dbl&gt;, `Boana geographica` &lt;dbl&gt;,
-## #   `Boana guentheri` &lt;dbl&gt;, `Boana jaguariaivensis` &lt;dbl&gt;, `Boana
-## #   joaquini` &lt;dbl&gt;, `Boana latistriata` &lt;dbl&gt;, `Boana
-## #   leptolineata` &lt;dbl&gt;, `Boana lundii` &lt;dbl&gt;, `Boana marginata` &lt;dbl&gt;,
-## #   `Boana multifasciata` &lt;dbl&gt;, `Boana paranaiba` &lt;dbl&gt;, `Boana
-## #   pardalis` &lt;dbl&gt;, `Boana poaju` &lt;dbl&gt;, `Boana polytaenia` &lt;dbl&gt;, `Boana
-## #   pombali` &lt;dbl&gt;, `Boana prasina` &lt;dbl&gt;, `Boana pulchella` &lt;dbl&gt;, `Boana
-## #   punctata` &lt;dbl&gt;, `Boana raniceps` &lt;dbl&gt;, `Boana secedens` &lt;dbl&gt;,
-## #   `Boana semiguttata` &lt;dbl&gt;, `Boana semilineata` &lt;dbl&gt;, `Boana
-## #   stenocephala` &lt;dbl&gt;, `Bokermannohyla ahenea` &lt;dbl&gt;, `Bokermannohyla
-## #   alvarengai` &lt;dbl&gt;, `Bokermannohyla astartea` &lt;dbl&gt;, `Bokermannohyla
-## #   capra` &lt;dbl&gt;, `Bokermannohyla caramaschii` &lt;dbl&gt;, `Bokermannohyla
-## #   carvalhoi` &lt;dbl&gt;, `Bokermannohyla circumdata` &lt;dbl&gt;, `Bokermannohyla
-## #   hylax` &lt;dbl&gt;, `Bokermannohyla ibitipoca` &lt;dbl&gt;, `Bokermannohyla
-## #   izecksohni` &lt;dbl&gt;, `Bokermannohyla langei` &lt;dbl&gt;, `Bokermannohyla
-## #   lucianae` &lt;dbl&gt;, `Bokermannohyla luctuosa` &lt;dbl&gt;, `Bokermannohyla
-## #   martinsi` &lt;dbl&gt;, `Bokermannohyla nanuzae` &lt;dbl&gt;, `Bokermannohyla
-## #   oxente` &lt;dbl&gt;, `Bokermannohyla saxicola` &lt;dbl&gt;, `Brachycephalus
-## #   alipioi` &lt;dbl&gt;, `Brachycephalus didactylus` &lt;dbl&gt;, `Brachycephalus
-## #   ephippium` &lt;dbl&gt;, `Brachycephalus garbeanus` &lt;dbl&gt;, `Brachycephalus
-## #   hermogenesi` &lt;dbl&gt;, `Brachycephalus nodoterga` &lt;dbl&gt;, `Brachycephalus
-## #   pernix` &lt;dbl&gt;, `Brachycephalus pitanga` &lt;dbl&gt;, `Brachycephalus
-## #   pulex` &lt;dbl&gt;, `Brachycephalus tridactylus` &lt;dbl&gt;, `Ceratophrys
-## #   aurita` &lt;dbl&gt;, `Ceratophrys ornata` &lt;dbl&gt;, `Chiasmocleis
-## #   alagoana` &lt;dbl&gt;, …
-```
-
----
-
-# 4.7 tidyr
-
-## **spread**: long para wide (matriz de comunidades)
-
-1. **key**: variável categórica que irá definir os nomes das colunas
-
-2. **value**: variável numérica que irá preencher os dados
-
-
-```r
-sp.comu[is.na(sp.comu)] &lt;- 0
-sp.comu
-```
-
-```
-## # A tibble: 208 x 529
-##    id    `"Eleutherodact… `Adelophryne ba… `Adelophryne gl…
-##    &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-##  1 amp1…                0                0                0
-##  2 amp1…                0                0                0
-##  3 amp1…                0                0                0
-##  4 amp1…                0                0                0
-##  5 amp1…                0                0                0
-##  6 amp1…                0                0                0
-##  7 amp1…                0                0                0
-##  8 amp1…                0                0                0
-##  9 amp1…                0                0                0
-## 10 amp1…                0                0                0
-## # … with 198 more rows, and 525 more variables: `Adelophryne
-## #   mucronatus` &lt;dbl&gt;, `Adelophryne pachydactyla` &lt;dbl&gt;, `Adenomera
-## #   ajurauna` &lt;dbl&gt;, `Adenomera araucaria` &lt;dbl&gt;, `Adenomera
-## #   bokermanni` &lt;dbl&gt;, `Adenomera diptyx` &lt;dbl&gt;, `Adenomera
-## #   engelsi` &lt;dbl&gt;, `Adenomera hylaedactyla` &lt;dbl&gt;, `Adenomera
-## #   marmorata` &lt;dbl&gt;, `Adenomera nana` &lt;dbl&gt;, `Adenomera thomei` &lt;dbl&gt;,
-## #   `Allobates goianus` &lt;dbl&gt;, `Allobates olfersioides` &lt;dbl&gt;, `Ameerega
-## #   flavopicta` &lt;dbl&gt;, `Ameerega picta` &lt;dbl&gt;, `Aparasphenodon
-## #   bokermanni` &lt;dbl&gt;, `Aparasphenodon brunoi` &lt;dbl&gt;, `Aplastodiscus
-## #   albofrenatus` &lt;dbl&gt;, `Aplastodiscus albosignatus` &lt;dbl&gt;,
-## #   `Aplastodiscus arildae` &lt;dbl&gt;, `Aplastodiscus cavicola` &lt;dbl&gt;,
-## #   `Aplastodiscus cochranae` &lt;dbl&gt;, `Aplastodiscus ehrhardti` &lt;dbl&gt;,
-## #   `Aplastodiscus eugenioi` &lt;dbl&gt;, `Aplastodiscus flumineus` &lt;dbl&gt;,
-## #   `Aplastodiscus ibirapitanga` &lt;dbl&gt;, `Aplastodiscus leucopygius` &lt;dbl&gt;,
-## #   `Aplastodiscus perviridis` &lt;dbl&gt;, `Aplastodiscus sibilatus` &lt;dbl&gt;,
-## #   `Aplastodiscus weygoldti` &lt;dbl&gt;, `Arcovomer passarellii` &lt;dbl&gt;,
-## #   `Barycholos ternetzi` &lt;dbl&gt;, `Boana albomarginata` &lt;dbl&gt;, `Boana
-## #   albopunctata` &lt;dbl&gt;, `Boana atlantica` &lt;dbl&gt;, `Boana
-## #   bandeirantes` &lt;dbl&gt;, `Boana bischoffi` &lt;dbl&gt;, `Boana botumirim` &lt;dbl&gt;,
-## #   `Boana caingua` &lt;dbl&gt;, `Boana caipora` &lt;dbl&gt;, `Boana cambui` &lt;dbl&gt;,
-## #   `Boana cipoensis` &lt;dbl&gt;, `Boana crepitans` &lt;dbl&gt;, `Boana
-## #   curupi` &lt;dbl&gt;, `Boana ericae` &lt;dbl&gt;, `Boana exastis` &lt;dbl&gt;, `Boana
-## #   faber` &lt;dbl&gt;, `Boana freicanecae` &lt;dbl&gt;, `Boana geographica` &lt;dbl&gt;,
-## #   `Boana guentheri` &lt;dbl&gt;, `Boana jaguariaivensis` &lt;dbl&gt;, `Boana
-## #   joaquini` &lt;dbl&gt;, `Boana latistriata` &lt;dbl&gt;, `Boana
-## #   leptolineata` &lt;dbl&gt;, `Boana lundii` &lt;dbl&gt;, `Boana marginata` &lt;dbl&gt;,
-## #   `Boana multifasciata` &lt;dbl&gt;, `Boana paranaiba` &lt;dbl&gt;, `Boana
-## #   pardalis` &lt;dbl&gt;, `Boana poaju` &lt;dbl&gt;, `Boana polytaenia` &lt;dbl&gt;, `Boana
-## #   pombali` &lt;dbl&gt;, `Boana prasina` &lt;dbl&gt;, `Boana pulchella` &lt;dbl&gt;, `Boana
-## #   punctata` &lt;dbl&gt;, `Boana raniceps` &lt;dbl&gt;, `Boana secedens` &lt;dbl&gt;,
-## #   `Boana semiguttata` &lt;dbl&gt;, `Boana semilineata` &lt;dbl&gt;, `Boana
-## #   stenocephala` &lt;dbl&gt;, `Bokermannohyla ahenea` &lt;dbl&gt;, `Bokermannohyla
-## #   alvarengai` &lt;dbl&gt;, `Bokermannohyla astartea` &lt;dbl&gt;, `Bokermannohyla
-## #   capra` &lt;dbl&gt;, `Bokermannohyla caramaschii` &lt;dbl&gt;, `Bokermannohyla
-## #   carvalhoi` &lt;dbl&gt;, `Bokermannohyla circumdata` &lt;dbl&gt;, `Bokermannohyla
-## #   hylax` &lt;dbl&gt;, `Bokermannohyla ibitipoca` &lt;dbl&gt;, `Bokermannohyla
-## #   izecksohni` &lt;dbl&gt;, `Bokermannohyla langei` &lt;dbl&gt;, `Bokermannohyla
-## #   lucianae` &lt;dbl&gt;, `Bokermannohyla luctuosa` &lt;dbl&gt;, `Bokermannohyla
-## #   martinsi` &lt;dbl&gt;, `Bokermannohyla nanuzae` &lt;dbl&gt;, `Bokermannohyla
-## #   oxente` &lt;dbl&gt;, `Bokermannohyla saxicola` &lt;dbl&gt;, `Brachycephalus
-## #   alipioi` &lt;dbl&gt;, `Brachycephalus didactylus` &lt;dbl&gt;, `Brachycephalus
-## #   ephippium` &lt;dbl&gt;, `Brachycephalus garbeanus` &lt;dbl&gt;, `Brachycephalus
-## #   hermogenesi` &lt;dbl&gt;, `Brachycephalus nodoterga` &lt;dbl&gt;, `Brachycephalus
-## #   pernix` &lt;dbl&gt;, `Brachycephalus pitanga` &lt;dbl&gt;, `Brachycephalus
-## #   pulex` &lt;dbl&gt;, `Brachycephalus tridactylus` &lt;dbl&gt;, `Ceratophrys
-## #   aurita` &lt;dbl&gt;, `Ceratophrys ornata` &lt;dbl&gt;, `Chiasmocleis
-## #   alagoana` &lt;dbl&gt;, …
 ```
 
 ---
@@ -1977,7 +2172,7 @@ str_trim(" abc ")
 
 # 4.8 stringr
 
-### Minuscúlas e maisúsculas
+### Minúsculas e maiúsculas
 
 ```r
 str_to_upper("abc")
@@ -2078,6 +2273,12 @@ str_split("a-b-c", "-")
 
 ---
 
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
 class: clear, center, middle
 background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/forcats.png)
 background-size: 400px
@@ -2106,7 +2307,14 @@ fa
 ## [23] alto  alto  alto  medio alto  alto  medio medio
 ## Levels: alto baixo medio
 ```
---
+
+---
+
+# 4.9 forcats
+
+## Pacote para manejar os **levels** dos fatores
+
+### **fct_relevel**: reordena os levels de forma simples
 
 ```r
 fa.or &lt;- fa %&gt;% 
@@ -2120,6 +2328,54 @@ fa.or
 ## [23] alto  alto  alto  medio alto  alto  medio medio
 ## Levels: baixo medio alto
 ```
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/purrr.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 4.10 purrr
+
+## Pacote que implementa **Programação Funcional**
+
+### Calcular a média para várias colunas
+
+```r
+mean_var &lt;- si %&gt;% 
+  select(species_number, altitude) %&gt;% 
+  map_dbl(mean)
+mean_var
+```
+
+```
+## species_number       altitude 
+##       15.16509      545.64144
+```
+
+---
+
+# 4.10 purrr
+
+## Pacote que implementa **Programação Funcional**
+
+### Calcular o desvio padrão para várias colunas
+
+```r
+mean_var &lt;- si %&gt;% 
+  select(species_number, altitude) %&gt;% 
+  map_dbl(sd)
+mean_var
+```
+
+```
+## species_number       altitude 
+##       11.24582      392.40221
+```
+
 
 ---
 

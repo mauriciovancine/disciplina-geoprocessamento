@@ -38,9 +38,9 @@ background-position: 50% 50%
 <br>
 4.5 tibble
 <br>
-4.6 dplyr
+4.6 tidyr
 <br>
-4.7 tidyr
+4.7 dplyr
 <br>
 4.8 stringr
 <br>
@@ -92,12 +92,6 @@ background-size: 800px
 
 # 4.1 tidyverse
 
----
-
-background-image: url(http://www.storybench.org/wp-content/uploads/2017/05/tidyverse-730x294.png)
-background-size: 800px
-
-# 4.1 tidyverse
 
 ---
 
@@ -202,7 +196,7 @@ library(tidyverse)
 
 ## IMPORTANTE
 
-### Todas as funções dos pacotes atrelados ao **tidyverse** usam `_` para separar as letras das funções
+### Todas as funções dos pacotes atrelados ao **tidyverse** usam `_` para separar os nomes internos das funções
 
 <br><br>
 
@@ -243,9 +237,19 @@ background-position: 50% 50%
 
 ---
 
-class: inverse, center, middle
-background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
-background-size: 600px
+# 4.2 magrittr (pipe - %>%)
+
+### Atalho: `crtl + shift + M`
+```{r}
+# sem pipe
+sqrt(sum(1:100))
+```
+
+--
+
+background-image: url(https://i.ytimg.com/vi/UiTZp86c04o/maxresdefault.jpg)
+background-size: 500px
+background-position: 50% 80%
 
 ---
 
@@ -256,7 +260,7 @@ background-size: 600px
 # sem pipe
 sqrt(sum(1:100))
 ```
---
+
 ```{r}
 # com pipe
 1:100 %>% 
@@ -265,7 +269,6 @@ sqrt(sum(1:100))
 ```
 
 ---
-
 class: inverse, center, middle
 background-image: url(https://media.giphy.com/media/7ND8xzTlR5b8s/giphy.gif)
 background-size: 800px
@@ -296,6 +299,12 @@ ve <- rpois(100, 5) %>%
   sum()
 ve  
 ```
+
+---
+
+class: inverse, center, middle
+background-image: url(https://i.4pcdn.org/pol/1483757174562.gif)
+background-size: 600px
 
 ---
 
@@ -354,23 +363,46 @@ background-position: 50% 85%
 
 ## **Formato .csv**
 
-### Podemos importar os dados .csv para o R de duas formas
-
-### 2 Download dos arquivos e importar do computador
 ```{r, eval = FALSE}
 # diretorio
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 ```
 --
 ```{r, eval = FALSE}
+# import sites
 si <- read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
 si
 ```
 --
 ```{r, eval = FALSE}
+# import species
 sp <- read_csv("ATLANTIC_AMPHIBIANS_species.csv")
 sp
 ```
+
+---
+
+# 4.3 readr
+
+## **Formato .txt**
+
+```{r, eval = FALSE}
+# diretorio
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
+```
+--
+```{r, eval = FALSE}
+# import sites
+si <- read_table2("ATLANTIC_AMPHIBIANS_sites.txt")
+si
+```
+--
+```{r, eval = FALSE}
+# import species
+sp <- read_table2("ATLANTIC_AMPHIBIANS_species.txt")
+sp
+```
+
 
 ---
 
@@ -433,18 +465,19 @@ library("writexl")
 
 ## **Formato .xlsx**
 
-### 2 Download dos arquivos e importar do computador
 ```{r, eval = FALSE}
 # diretorio
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 ```
 --
 ```{r, eval = FALSE}
+# import sites
 si <- read_xlsx("ATLANTIC_AMPHIBIANS_sites.xlsx")
 si
 ```
 --
 ```{r, eval = FALSE}
+# import species
 sp <- read_xlsx("ATLANTIC_AMPHIBIANS_species.xlsx")
 sp
 ```
@@ -495,7 +528,7 @@ background-position: 50% 50%
 si <- read_csv("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas/ATLANTIC_AMPHIBIANS_sites.csv")
 sp <- read_csv("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas/ATLANTIC_AMPHIBIANS_species.csv")
 ```
-
+--
 ```{r}
 glimpse(si)
 ```
@@ -558,7 +591,7 @@ class(tb_ch)
 
 ## tibble vs data.frame
 
-### Não faz correspondência parcial, retorna **NULL** se a coluna não existe com o nome especificado
+### 3. Não faz correspondência parcial, retorna **NULL** se a coluna não existe com o nome especificado
 ```{r}
 df$c 
 ```
@@ -576,13 +609,219 @@ class: inverse, middle, center
 ---
 
 class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 4.6 tidyr
+
+### Os conjuntos de dados **tidy** (organizados) são fáceis de manipular, modelar e visualizar
+
+--
+
+### Um conjunto de dados está **arrumado ou não**, dependendo de como linhas, colunas e células são combinadas com observações, variáveis e valores
+
+--
+
+## Nos dados tidy:
+### 1 Cada variável em uma coluna
+### 2 Cada observação em uma linha
+### 3 Cada valor como uma célula
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/tidy1.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+**1 unite()**: junta dados de múltiplas colunas em uma<br>
+**2 separate()**: separa caracteres em múlplica colunas<br>
+**3 drop_na()**: retira linhas com NA<br>
+**4 replace_na()**: substitui NA<br>
+**5 spread()**: long para wide<br>
+**6 gather()**: wide para long<br>
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/unite.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **1 unite**
+
+### unir as colunas latirude e longitude separadas por uma vírgula
+```{r, eval = FALSE}
+si_unite <- si %>% 
+  unite("lat_lon", latitude:longitude, sep = ",")
+si_unite$lat_lon
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/separate.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **2 separate**
+
+### separar os dados de "period" em quatro colunas dos seus valores
+```{r, eval = FALSE}
+si_separate <- si %>% 
+  separate("period", c("mo", "da", "tw", "ni"), remove = FALSE)
+si_separate[, c(1, 9:13)]
+```
+
+---
+
+# 4.6 tidyr
+
+## **3 drop_na()**
+
+### remove as linhas com NA de todas as colunas
+```{r, eval = FALSE}
+si_drop_na <- si %>% 
+  drop_na()
+si_drop_na
+```
+--
+### remove as linhas com NA da coluna "year_start"
+```{r, eval = FALSE}
+si_drop_na <- si %>% 
+  drop_na(year_start)
+si_drop_na
+```
+
+---
+
+# 4.6 tidyr
+
+## **4 replace_na()**
+
+### substituir os NAs da coluna "year_start" por 0 
+```{r, eval = FALSE}
+si_replace_na <- si %>% 
+  replace_na(list(year_start = 0))
+si_replace_na
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/spread.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **5 spread()** 
+
+Long para wide
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+```{r}
+si_spread <- si[, c("id", "record", "species_number")] %>% 
+  spread(key = record, value = species_number, fill = 0)
+si_spread
+```
+
+---
+
+# 4.6 tidyr
+
+## **5 spread()** 
+
+Long para wide
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+```{r, eval = FALSE}
+si_spread <- si[, c("id", "record", "species_number")] %>% 
+  spread(key = state_abbreviation, value = species_number, fill = 0)
+si_spread
+```
+
+---
+
+# 4.6 tidyr
+
+## **5 spread()** 
+
+Long para wide
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+```{r, eval = FALSE}
+sp_spread <- sp[1:1000, c("id", "species", "individuals")] %>% 
+  spread(key = species, value = individuals, fill = 0)
+sp_spread
+```
+
+---
+
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/gather.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+# 4.6 tidyr
+
+## **6 gather()**
+
+wide para long
+
+1. **key**: variável categórica que irá definir os nomes das colunas
+
+2. **value**: variável numérica que irá preencher os dados
+
+```{r}
+si_gather <- si_spread %>% 
+  gather(key = record, value = species_number, -id)
+si_gather
+```
+
+---
+
+class: clear, center, middle
 background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/dplyr.png)
 background-size: 400px
 background-position: 50% 50%
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ### O **dplyr** é um pacote que **facilita** o trabalho com dados, com uma **gramática de manipulação** de dados **simples e flexível** (filtragem, reordenamento, seleção, entre outras)
 
@@ -596,7 +835,7 @@ background-position: 50% 50%
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ### Sua gramática simples contém **funções verbais** para manipulação de dados
 
@@ -617,7 +856,7 @@ background-position: 50% 50%
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ### O **tibble** é sempre o **primeiro argumento** das funções verbais
 
@@ -650,13 +889,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/select.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
@@ -670,7 +909,7 @@ si_select
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
@@ -683,7 +922,7 @@ si_select
 ```
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **1 select**
 
@@ -702,17 +941,18 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/vectorizedFn
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **2 pull**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **2 pull**
 
 ```{r}
+# coluna para vetor
 si_pull <- si %>% 
   pull(id)
 si_pull
@@ -720,11 +960,12 @@ si_pull
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **2 pull**
 
 ```{r}
+# coluna para vetor
 si_pull <- si %>% 
   pull(species_number)
 si_pull
@@ -732,12 +973,13 @@ si_pull
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **3 rename**
 
 ### Renomeia colunas
 ```{r}
+# rename sp colum
 si_rename <- si %>%
   rename(sp = species_number)
 si_rename
@@ -749,18 +991,19 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/mutate.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **4 mutate**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **4 mutate**
 
 ### Adiciona colunas novas ou vindas de operações
 ```{r}
+# add colum record as factor
 si_mutate <- si %>% 
   mutate(record_factor = as.factor(record))
 si_mutate
@@ -772,13 +1015,13 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/arrange.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **5 arrange**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **5 arrange**
 
@@ -810,23 +1053,25 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/filter.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **6 filter**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **6 filter** 
 
 ### operadores: >, >=, <, <=, ==, !=, is.na, !is.na, %in%
+### Filtrar para locais com mais de 5 espécies
 ```{r, eval = FALSE}
 si_filter <- si %>% 
   filter(species_number > 5)
 si_filter
 ```
 --
+### Filtrar para locais centre 1 e 5 espécies
 ```{r, eval = FALSE}
 si_filter <- si %>% 
   filter(between(species_number, 1, 5))
@@ -835,40 +1080,60 @@ si_filter
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **6 filter** 
+### Filtrar para locais sem NA no métodos passivos
 ```{r, eval = FALSE}
 si_filter <- si %>% 
   filter(is.na(passive_methods))
 si_filter
 ```
 --
+### Filtrar para locais sem NA no métodos ativos **E** passivos
 ```{r, eval = FALSE}
 si_filter <- si %>% 
-  filter(species_number > 5 & state_abbreviation == "BR-SP") 
-si_filter
-```
---
-```{r, eval = FALSE}
-si_filter <- si %>% 
-  filter(species_number > 5 & state_abbreviation == "BR-SP" | record == "ab")
+  filter(is.na(active_methods) & is.na(passive_methods))
 si_filter
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
+
+## **6 filter** 
+### Filtrar para locais amostrados com mais de 5 espécies **E** em Pernambuco
+```{r, eval = FALSE}
+si_filter <- si %>% 
+  filter(species_number > 5 & state_abbreviation == "BR-PE") 
+si_filter
+```
+--
+### Filtrar para locais amostrados com mais de 5 espécies **OU** em Pernambuco
+```{r, eval = FALSE}
+si_filter <- si %>% 
+  filter(species_number > 5 | state_abbreviation == "BR-PE")
+si_filter
+```
+
+---
+
+# 4.7 dplyr
 
 ## **7 distinct**
-### Remove linhas duplicadas
---
+### Remove linhas duplicadas considerando a coluna número de espécies
 ```{r}
 si_distinct <- si %>% 
   distinct(species_number)
 si_distinct
 ```
---
+
+---
+
+# 4.7 dplyr
+
+## **7 distinct**
+### Remove linhas duplicadas considerando a coluna número de espécies e mantém as demais
 ```{r}
 si_distinct <- si %>% 
   distinct(species_number, .keep_all = TRUE)
@@ -877,11 +1142,10 @@ si_distinct
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **8 slice** 
-### Selecionar tabela pelo número da linha
---
+### Selecionar linhas 1 a 10
 ```{r}
 si_slice <- si %>% 
   slice(1:10)
@@ -890,12 +1154,11 @@ si_slice
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
 ## **9 n_sample** 
 
-### Amostrar linhas aleatoriamente
---
+### Amostrar 100 linhas aleatoriamente
 ```{r}
 si_sample_n <- si %>% 
   sample_n(100)
@@ -909,77 +1172,94 @@ background-image: url(http://www.flutterbys.com.au/stats/tut/images/summarize.pn
 background-size: 800px
 background-position: 50% 50%
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **9 summarise**
+## **10 summarise**
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **9 summarise**
+## **10 summarise**
+
+### Média e desvio padrão do número de espécies total
+
 ```{r}
-si_summarise.nsp <- si %>% 
-  summarise(min_sp = min(species_number))
-si_summarise.nsp
+si_summarise <- si %>% 
+  summarise(mean_sp = mean(species_number), sd_sp = sd(species_number))
+si_summarise
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **9 summarise**
-
+## **10 summarise**
+### Média e desvio padrão do número de espécies por país
 ```{r}
-si_summarise.sp.est <- si %>% 
-  group_by(state_abbreviation) %>% 
-  summarise(sp_est = n())
-si_summarise.sp.est
+si_summarise_group <- si %>% 
+  group_by(country) %>% 
+  summarise(mean_sp = mean(species_number), sd_sp = sd(species_number))
+si_summarise_group
 ```
 
 ---
 
-# 4.6 dplyr
+background-image: url(http://www.flutterbys.com.au/stats/tut/images/leftjoin.png)
+background-size: 800px
+background-position: 50% 50%
 
-## **10 join**
+# 4.7 dplyr
+
+## **11 join**
+
+---
+
+# 4.7 dplyr
+
+## **11 join**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
 ### Selecionar as colunas que preciso da tabela **si**
 ```{r}
-si_lon.lat <- si %>% 
+si_coord <- si %>% 
   select(id, longitude, latitude)
-si_lon.lat 
+si_coord 
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **10 join**
+## **11 join**
 
-### Join
+## Adicionar longitute e latitude na tabela de espécies
+
+### Join com as tabelas pela coluna "id"
 ```{r}
 # join dos dados
-sp.lon.lat.si <- sp %>% 
-  left_join(si_lon.lat, by = "id") %>% 
-  head()
+sp_join <- sp %>% 
+  left_join(si_coord, by = "id")
+sp_join
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 
-## **10 join**
+## **11 join**
 
-### Join
+## Adicionar longitute e latitude na tabela de espécies
+
+### Nome das colunas
 ```{r}
-colnames(sp.lon.lat.si)
+colnames(sp_join)
 ```
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -989,7 +1269,7 @@ da
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1000,7 +1280,7 @@ da
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1013,7 +1293,7 @@ da
 
 ---
 
-# 4.6 dplyr
+# 4.7 dplyr
 ## manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
@@ -1023,86 +1303,6 @@ da <- si %>%
   summarise(nsp_state_abb = n()) %>% 
   arrange(nsp_state_abb)
 da
-```
-
----
-
-class: inverse, center, middle
-
-# Dúvidas?
-
----
-
-class: clear, center, middle
-background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyr.png)
-background-size: 400px
-background-position: 50% 50%
-
----
-
-# 4.7 tidyr
-
-### Os conjuntos de dados **tidy** (organizados) são fáceis de manipular, modelar e visualizar
-
---
-
-### Um conjunto de dados está **arrumado ou não**, dependendo de como linhas, colunas e células são combinadas com observações, variáveis e valores
-
---
-
-## Nos dados tidy:
-### 1 Cada variável em uma coluna
-### 2 Cada observação em uma linha
-### 3 Cada valor como uma célula
-
----
-
-background-image: url(http://www.flutterbys.com.au/stats/tut/images/tidy1.png)
-background-size: 800px
-background-position: 50% 50%
-
-# 4.7 tidyr
-
----
-
-background-image: url(http://www.flutterbys.com.au/stats/tut/images/spread.png)
-background-size: 800px
-background-position: 50% 50%
-
-# 4.7 tidyr
-
----
-
-# 4.7 tidyr
-
-## **spread**: long para wide (matriz de comunidades)
-
-1. **key**: variável categórica que irá definir os nomes das colunas
-
-2. **value**: variável numérica que irá preencher os dados
-
-```{r}
-sp.comu <- sp %>% 
-  select(id, valid_name, individuals) %>% 
-  filter(!is.na(valid_name)) %>% 
-  distinct(valid_name, .keep_all = TRUE) %>% 
-  spread(key = valid_name, value = individuals)
-sp.comu
-```
-
----
-
-# 4.7 tidyr
-
-## **spread**: long para wide (matriz de comunidades)
-
-1. **key**: variável categórica que irá definir os nomes das colunas
-
-2. **value**: variável numérica que irá preencher os dados
-
-```{r}
-sp.comu[is.na(sp.comu)] <- 0
-sp.comu
 ```
 
 ---
@@ -1162,7 +1362,7 @@ str_trim(" abc ")
 
 # 4.8 stringr
 
-### Minuscúlas e maisúsculas
+### Minúsculas e maiúsculas
 ```{r}
 str_to_upper("abc")
 ```
@@ -1214,6 +1414,12 @@ str_split("a-b-c", "-")
 
 ---
 
+class: inverse, center, middle
+
+# Dúvidas?
+
+---
+
 class: clear, center, middle
 background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/forcats.png)
 background-size: 400px
@@ -1234,12 +1440,55 @@ set.seed(1)
 fa <- factor(sample(c("alto", "medio", "baixo"), 30, rep = TRUE))
 fa
 ```
---
+
+---
+
+# 4.9 forcats
+
+## Pacote para manejar os **levels** dos fatores
+
+### **fct_relevel**: reordena os levels de forma simples
 ```{r}
 fa.or <- fa %>% 
   fct_relevel(c("baixo", "medio", "alto"))
 fa.or
 ```
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/purrr.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 4.10 purrr
+
+## Pacote que implementa **Programação Funcional**
+
+### Calcular a média para várias colunas
+```{r}
+mean_var <- si %>% 
+  select(species_number, altitude) %>% 
+  map_dbl(mean)
+mean_var
+```
+
+---
+
+# 4.10 purrr
+
+## Pacote que implementa **Programação Funcional**
+
+### Calcular o desvio padrão para várias colunas
+```{r}
+mean_var <- si %>% 
+  select(species_number, altitude) %>% 
+  map_dbl(sd)
+mean_var
+```
+
 
 ---
 

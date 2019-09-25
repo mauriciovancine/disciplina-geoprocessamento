@@ -216,7 +216,7 @@ ma_ch
 
 # 4. array: homogeneo (um modo) e multidimensional (mais que duas dimensoes)
 # 1 Dispondo elementos
-# `array`: dispõem um vetor em um certo número de linhas, colunas e dimensões
+# `array`: dispõem um vetor em um certo numero de linhas, colunas e dimensões
 
 # vetor
 ve <- 1:8
@@ -225,11 +225,11 @@ ve
 ar <- array(data = ve, dim = c(2, 2, 2))
 ar
 
-# 5. data frame: heterogêneo (mais de um modo) e bidimensional (duas dimensões)
+# 5. data frame: heterogeneo (mais de um modo) e bidimensional (duas dimensões)
 # 1 Combinando vetores horizontalmente
-# `data.frame`: combina vetores horizontalmente, um ao lado do outro. Semelhante à função `cbind`
+# `data.frame`: combina vetores horizontalmente, um ao lado do outro. Semelhante à funcao `cbind`
 
-# criar três vetores
+# criar tres vetores
 vec_ch <- c("sp1", "sp2", "sp3")
 vec_nu <- c(4, 5, 6)
 vec_fa <- factor(c("campo", "floresta", "floresta"))
@@ -284,7 +284,7 @@ df_c
 
 str(df_c)
 
-# 6. list: heterogêneo (mais de um modo) e unidimensional (uma dimensão)
+# 6. list: heterogeneo (mais de um modo) e unidimensional (uma dimensao)
 li <- list(rep(1, 20), # vector
            factor(1, 1), # factor
            cbind(c(1, 2), c(1, 2))) # matrix
@@ -317,7 +317,7 @@ ve[-(2:9)]
 ve_sub <- ve[-c(5, 10)]
 ve_sub
 
-# 2 selecao condicional: selecionar elementos por condições 
+# 2 selecao condicional: selecionar elementos por condicões 
 # dois vetores
 foo <- 42
 bar <- 23
@@ -488,22 +488,22 @@ head(df)
 # head(): mostra as primeiras 10 linhas
 head(df, 10)
 
-# tail(): mostra as últimas 6 linhas
+# tail(): mostra as ultimas 6 linhas
 tail(df)
 
-# nrow(): mostra o número de linhas
+# nrow(): mostra o numero de linhas
 nrow(df)
 
-# ncol(): mostra o número de colunas
+# ncol(): mostra o numero de colunas
 ncol(df)
 
-# dim(): mostra o número de linhas e de colunas
+# dim(): mostra o numero de linhas e de colunas
 dim(df)
 
 # rownames(): mostra os nomes dfs linhas (locais)
 rownames(df)
 
-# colnames(): mostra os nomes dfs colunas (variáveis)
+# colnames(): mostra os nomes dfs colunas (variaveis)
 colnames(df)
 
 # mudfr o nome dfs linhas
@@ -583,10 +583,10 @@ foo_na
 df <- data.frame(var1 = c(1, 4, 2, NA), var2 = c(1, 4, 5, 2))
 df
 
-# verificar a presença/ausência de NA's
+# verificar a presenca/ausencia de NA's
 is.na(df)
 
-# verificar a presença de algum NA's
+# verificar a presenca de algum NA's
 any(is.na(df))
 
 # retirar as linhas que possuem NA's
@@ -656,19 +656,19 @@ da
 # install.packages("openxlsx")
 library(openxlsx)
   
-# ler e atribuir uma planilha eletrônica (.xlsx) a um objeto
+# ler e atribuir uma planilha eletronica (.xlsx) a um objeto
 da <- openxlsx::read.xlsx("ATLANTIC_AMPHIBIANS_sites.xlsx", sheet = 1)
 da
 
 # 3.9 Conferir e manejar dados importados ---------------------------------
 # conjunto de funcoes para conferir os dados
 # head(): mostra as primeiras 6 linhas
-# tail(): mostra as últimas 6 linhas
-# nrow(): mostra o número de linhas
-# ncol(): mostra o número de colunas
-# dim(): mostra o número de linhas e de colunas
+# tail(): mostra as ultimas 6 linhas
+# nrow(): mostra o numero de linhas
+# ncol(): mostra o numero de colunas
+# dim(): mostra o numero de linhas e de colunas
 # rownames(): mostra os nomes das linhas (locais)
-# colnames(): mostra os nomes das colunas (variáveis)
+# colnames(): mostra os nomes das colunas (variaveis)
 # str(): mostra as classes de cada coluna (estrutura)
 # summary(): mostra um resumo dos valores de cada coluna
 
@@ -682,22 +682,22 @@ head(da)
 # head(): mostra as primeiras 10 linhas
 head(da, 10)
 
-# tail(): mostra as últimas 6 linhas
+# tail(): mostra as ultimas 6 linhas
 tail(da)
 
-# nrow(): mostra o número de linhas
+# nrow(): mostra o numero de linhas
 nrow(da)
 
-# ncol(): mostra o número de colunas
+# ncol(): mostra o numero de colunas
 ncol(da)
 
-# dim(): mostra o número de linhas e de colunas
+# dim(): mostra o numero de linhas e de colunas
 dim(da)
 
 # rownames(): mostra os nomes das linhas (locais)
 rownames(da)
 
-# colnames(): mostra os nomes das colunas (variáveis)
+# colnames(): mostra os nomes das colunas (variaveis)
 colnames(da)
 
 # str(): mostra as classes de cada coluna (estrutura)
@@ -706,7 +706,7 @@ str(da)
 # summary(): mostra um resumo dos valores de cada coluna
 summary(da)
 
-# Verificar a presença de NAs
+# Verificar a presenca de NAs
 # algum?
 any(is.na(da))
 
@@ -724,16 +724,16 @@ da_per <- da[da$state == "Pernambuco", ]
 da_per
 
 # 3.10 Exportar dados -----------------------------------------------------
-# Planilha eletrônica (.csv)
+# planilha eletronica (.csv)
 write.csv(da_per, "ATLANTIC_AMPHIBIAN_sites_pernambuco.csv", 
           row.names = FALSE, quote = FALSE)
 
 
-# Planilha de texto (.txt)
+# planilha de texto (.txt)
 write.table(da_per, "ATLANTIC_AMPHIBIAN_sites_pernambuco.txt", 
             row.names = FALSE, quote = FALSE)
 
-# Planilha eletrônica (.xlsx)
+# planilha eletronica (.xlsx)
 openxlsx::write.xlsx(da_per, "ATLANTIC_AMPHIBIAN_sites_pernambuco.xlsx", 
                      row.names = FALSE, quote = FALSE)
 

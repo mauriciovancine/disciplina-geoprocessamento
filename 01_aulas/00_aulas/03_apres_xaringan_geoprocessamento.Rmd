@@ -2317,7 +2317,7 @@ dir()
 
 class: inverse, middle, center
 
-# Vamos trabalhar com dados?
+# Vamos trabalhar com dados reais?
 
 ---
 
