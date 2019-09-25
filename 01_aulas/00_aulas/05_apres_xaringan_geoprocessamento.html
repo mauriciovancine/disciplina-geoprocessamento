@@ -104,6 +104,7 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 
 # importar
 da &lt;- read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
+da
 
 # verificar
 glimpse(da)
@@ -169,6 +170,7 @@ background-position: 50% 50%
 
 
 ```r
+# graphics
 plot(species_number ~ effort_months, data = da)
 ```
 
@@ -223,6 +225,7 @@ background-position: 50% 50%
 
 
 ```r
+# ggplot2
 library(ggplot2)
 ggplot(data = da) + aes(effort_months, species_number) + geom_point()
 ```
@@ -1037,7 +1040,7 @@ background-position: 50% 70%
 
 ## **Representa os dados de**: uma coluna
 ## **Tipo de dado**: categórico
-## Proporção de dados categóricos
+## Proporção ou porcentagem de dados categóricos
 
 ---
 
@@ -1176,13 +1179,19 @@ ggpie(ta_por,
 
 class: inverse, middle, center
 
-# Mas todos dizem pra jogar o gráfico de pizza fora e pedir uma pizza...
+# Mas todos dizem para jogar o gráfico de pizza fora e pedir uma pizza...
 
 ---
 
 class: inverse, middle, center
 
-# ... e eu concordo... Mas vamos usar algo maquiado: vamos retirar o recheio...
+# ... e eu concordo...
+
+---
+
+class: inverse, middle, center
+
+# Então vamos usar algo mais saudável: vamos retirar o recheio da pizza...
 
 ---
 
@@ -1193,10 +1202,8 @@ background-position: 50% 70%
 # 5.4 Gráfico de setores (donut chart)
 
 ### **Representa os dados de**: uma coluna
-
 ### **Tipo de dado**: categórico
-
-### **Modo da coluna**: character ou factor
+## Proporção ou porcentagem de dados categóricos
 
 ---
 
@@ -1759,8 +1766,7 @@ ggplot(data = da) +
   aes(x = effort_months, y = species_number) +
 * geom_point(colour = "black", fill = "forest green", size = 5,
 *            alpha = .5, pch = 21) +
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
+  labs(x = "Esforço amostral", y = "Número de espécies") +
   theme_classic() +
   theme(axis.title = element_text(size = 24),
         axis.text.x = element_text(size = 20),
@@ -1776,18 +1782,53 @@ ggplot(data = da) +
 
 ---
 
+class: clear, center, middle
+background-image: url(http://www.sthda.com/english/sthda-upload/images/symplyr/ggpubr-300.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 5.8 Gráfico de dispersão (scatter plot)
+
+## ggpubr
+
+```r
+ggscatter(data = da,
+          x = "effort_months", 
+          y = "species_number",
+          color = "black",
+          fill = "forestgreen",
+          shape = 21, 
+          size = 5,
+          xlab = "Esforço amostral", 
+          ylab = "Número de espécies")
+```
+
+---
+
+# 5.8 Gráfico de dispersão (scatter plot)
+
+## ggpubr
+&lt;img src="05_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-79-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
 class: inverse, middle, center
 
 # Dúvidas?
 
 ---
 
-# 5.9 Gráfico pareado (*pairs plot*)
+background-image: url(https://www.data-to-viz.com/img/section/Correlogram150.png)
+background-size: 300px
+background-position: 50% 80%
+
+# 5.9 Gráfico pareado (pairs plot)
 
 ## **Representa os dados de**: muitas colunas
 ## **Modo das colunas**: X = numérico e Y = numérico
 ## Plota a relação entre duas variáveis contínuas, mas para várias colunas
-
 
 ---
 
@@ -1798,47 +1839,122 @@ background-position: 50% 50%
 
 ---
 
+# 5.9 Gráfico pareado (pairs plot)
+
+## Selecionar as colunas
+
+```r
+# selecionar as colunas
+da_sel &lt;- da %&gt;% 
+  select(temperature, precipitation, altitude)
+da_sel
+```
+
+```
+## # A tibble: 1,163 x 3
+##    temperature precipitation altitude
+##          &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;
+##  1        25.0           853      543
+##  2        26.5          1318       15
+##  3        26.4          1248       29
+##  4        26.6          1376       25
+##  5        21.4          1689      750
+##  6        20.4          1249      745
+##  7        21.6          1520      863
+##  8        21.5          1474      878
+##  9        21.8          1450      826
+## 10        25.4          1332       93
+## # … with 1,153 more rows
+```
+
+---
+
+# 5.9 Gráfico pareado (pairs plot)
+
 ## graphics
 
 ```r
-ggplot(data = da) +
-  aes(x = effort_months, y = species_number) +
-  geom_point(colour = "black", fill = "forest green", size = 5, 
-             alpha = .5, pch = 21) +
-* stat_smooth(method = "lm", level = .95) +
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
-  theme_classic() +
-  theme(axis.title = element_text(size = 24),
-        axis.text.x = element_text(size = 20),
-        axis.text.y = element_text(size = 20))
+# pairs plot
+pairs(da_sel,
+      pch = 20,
+      upper.panel = NULL)
 ```
-
 
 ---
 
-## ggplot2
+# 5.9 Gráfico pareado (pairs plot)
+
+## graphics
+&lt;img src="05_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-82-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/ggplot2.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 5.9 Gráfico pareado (pairs plot)
+
+## GGally
 
 ```r
-ggplot(data = da) +
-  aes(x = effort_months, y = species_number) +
-  geom_point(colour = "black", fill = "forest green", size = 5, 
-             alpha = .5, pch = 21) +
-* stat_smooth(method = "lm", level = .95) +
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
-  theme_classic() +
-  theme(axis.title = element_text(size = 24),
-        axis.text.x = element_text(size = 20),
-        axis.text.y = element_text(size = 20))
+# package
+install.packages("GGally")
+library(GGally)
+
+# ggpairs
+ggpairs(data = da_sel) +
+  theme_bw()
 ```
 
 ---
 
-# 5.9 Gráfico pareado (*pairs plot*)
+# 5.9 Gráfico pareado (pairs plot)
 
-## ggplot2
-![](05_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-80-1.png)&lt;!-- --&gt;
+## GGally
+&lt;img src="05_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-84-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: clear, center, middle
+background-image: url(http://www.sthda.com/english/sthda-upload/images/symplyr/ggpubr-300.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# 5.9 Gráfico pareado (pairs plot)
+
+## psych
+
+```r
+# package
+install.packages("psych")
+library(psych)
+
+# pairs
+pairs.panels(da_sel, 
+             method = "spearman",
+             pch = 20, 
+             ellipses = FALSE, 
+             density = FALSE, 
+             stars = TRUE, 
+             hist.col = "gray",
+             digits = 2,
+             rug = FALSE,
+             breaks = 10,
+             ci = TRUE)
+```
+
+---
+
+# 5.9 Gráfico pareado (pairs plot)
+
+## ggpubr
+&lt;img src="05_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-86-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 

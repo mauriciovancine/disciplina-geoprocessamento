@@ -1458,7 +1458,7 @@ pe
 ```
 
 ```
-## [1] 1 1 1 1
+## [1] 0 0 0 0
 ```
 --
 
@@ -1487,10 +1487,10 @@ df
 
 ```
 ##          pa pe   tr
-## 1 parcela_1  1 trat
-## 2 parcela_2  1 trat
-## 3 parcela_3  1 cont
-## 4 parcela_4  1 cont
+## 1 parcela_1  0 trat
+## 2 parcela_2  0 trat
+## 3 parcela_3  0 cont
+## 4 parcela_4  0 cont
 ```
 --
 
@@ -1501,7 +1501,7 @@ str(df)
 ```
 ## 'data.frame':	4 obs. of  3 variables:
 ##  $ pa: Factor w/ 4 levels "parcela_1","parcela_2",..: 1 2 3 4
-##  $ pe: int  1 1 1 1
+##  $ pe: int  0 0 0 0
 ##  $ tr: Factor w/ 2 levels "cont","trat": 2 2 1 1
 ```
 
@@ -1520,10 +1520,10 @@ df_c
 
 ```
 ##      pa          pe  tr 
-## [1,] "parcela_1" "1" "2"
-## [2,] "parcela_2" "1" "2"
-## [3,] "parcela_3" "1" "1"
-## [4,] "parcela_4" "1" "1"
+## [1,] "parcela_1" "0" "2"
+## [2,] "parcela_2" "0" "2"
+## [3,] "parcela_3" "0" "1"
+## [4,] "parcela_4" "0" "1"
 ```
 --
 
@@ -1532,7 +1532,7 @@ str(df_c)
 ```
 
 ```
-##  chr [1:4, 1:3] "parcela_1" "parcela_2" "parcela_3" "parcela_4" "1" ...
+##  chr [1:4, 1:3] "parcela_1" "parcela_2" "parcela_3" "parcela_4" "0" ...
 ##  - attr(*, "dimnames")=List of 2
 ##   ..$ : NULL
 ##   ..$ : chr [1:3] "pa" "pe" "tr"
@@ -1727,8 +1727,8 @@ class: inverse, center, middle
 
 ```r
 # dois vetores
-foo &lt;- c(2, 4)
-bar &lt;- c(3, 6)
+foo &lt;- 42
+bar &lt;- 23
 ```
 --
 
@@ -2307,7 +2307,7 @@ flo &lt;- factor(rep(c("campo", "floresta"), each = 5))
 --
 
 ```r
-# data.frame
+# data frame
 df &lt;- data.frame(sp, abu, flo)
 df
 ```
@@ -2422,6 +2422,7 @@ mode(df$abu)
 --
 
 ```r
+# converter colunas
 df$abu &lt;- as.character(df$abu)
 ```
 --
@@ -3531,7 +3532,7 @@ dir()
 
 class: inverse, middle, center
 
-# Vamos trabalhar com dados?
+# Vamos trabalhar com dados reais?
 
 ---
 

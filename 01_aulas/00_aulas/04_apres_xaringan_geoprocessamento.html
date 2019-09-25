@@ -1483,7 +1483,7 @@ si_pull
 ### Renomeia colunas
 
 ```r
-# rename
+# rename sp colum
 si_rename &lt;- si %&gt;%
   rename(sp = species_number)
 si_rename
@@ -1531,7 +1531,7 @@ background-position: 50% 50%
 ### Adiciona colunas novas ou vindas de operações
 
 ```r
-# add colum
+# add colum record as factor
 si_mutate &lt;- si %&gt;% 
   mutate(record_factor = as.factor(record))
 si_mutate
@@ -1651,7 +1651,7 @@ si_filter
 ### Filtrar para locais sem NA no métodos ativos **E** passivos
 
 ```r
-si_filter &lt;- si$ %&gt;% 
+si_filter &lt;- si %&gt;% 
   filter(is.na(active_methods) &amp; is.na(passive_methods))
 si_filter
 ```

@@ -101,6 +101,7 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
 
 # importar
 da <- read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
+da
 
 # verificar
 glimpse(da)
@@ -168,6 +169,7 @@ background-position: 50% 50%
 ## **graphics**
 
 ```{r, warning=FALSE, message=FALSE, fig.align='center', out.width = '50%'}
+# graphics
 plot(species_number ~ effort_months, data = da)
 ```
 
@@ -219,6 +221,7 @@ background-position: 50% 50%
 ## **ggplot2**
 
 ```{r, warning=FALSE, message=FALSE, fig.align='center', out.width = '50%'}
+# ggplot2
 library(ggplot2)
 ggplot(data = da) + aes(effort_months, species_number) + geom_point()
 ```
@@ -1101,7 +1104,7 @@ background-position: 50% 70%
 
 ## **Representa os dados de**: uma coluna
 ## **Tipo de dado**: categórico
-## Proporção de dados categóricos
+## Proporção ou porcentagem de dados categóricos
 
 ---
 
@@ -1250,13 +1253,19 @@ ggpie(ta_por,
 
 class: inverse, middle, center
 
-# Mas todos dizem pra jogar o gráfico de pizza fora e pedir uma pizza...
+# Mas todos dizem para jogar o gráfico de pizza fora e pedir uma pizza...
 
 ---
 
 class: inverse, middle, center
 
-# ... e eu concordo... Mas vamos usar algo maquiado: vamos retirar o recheio...
+# ... e eu concordo...
+
+---
+
+class: inverse, middle, center
+
+# Então vamos usar algo mais saudável: vamos retirar o recheio da pizza...
 
 ---
 
@@ -1267,10 +1276,8 @@ background-position: 50% 70%
 # 5.4 Gráfico de setores (donut chart)
 
 ### **Representa os dados de**: uma coluna
-
 ### **Tipo de dado**: categórico
-
-### **Modo da coluna**: character ou factor
+## Proporção ou porcentagem de dados categóricos
 
 ---
 
@@ -2030,6 +2037,10 @@ class: inverse, middle, center
 
 ---
 
+background-image: url(https://www.data-to-viz.com/img/section/Correlogram150.png)
+background-size: 300px
+background-position: 50% 80%
+
 # 5.9 Gráfico pareado (pairs plot)
 
 ## **Representa os dados de**: muitas colunas
@@ -2048,7 +2059,7 @@ background-position: 50% 50%
 # 5.9 Gráfico pareado (pairs plot)
 
 ## Selecionar as colunas
-```{r, eval = FALSE}
+```{r}
 # selecionar as colunas
 da_sel <- da %>% 
   select(temperature, precipitation, altitude)
@@ -2059,11 +2070,13 @@ da_sel
 
 # 5.9 Gráfico pareado (pairs plot)
 
-## Selecionar as colunas
+## graphics
 ```{r, eval = FALSE}
-pairs(da_sel)
+# pairs plot
+pairs(da_sel,
+      pch = 20,
+      upper.panel = NULL)
 ```
-
 
 ---
 
@@ -2071,14 +2084,9 @@ pairs(da_sel)
 
 ## graphics
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', out.width = '60%'}
-plot(species_number ~ effort_months,
-     data = da,
-     pch = 20,
-     xlab = "Esforço amostral",
-     ylab = "Número de espécies",
-     cex.lab = 1.5,
-     cex.axis = 1.3,
-     bty = "l")
+# pairs plot
+pairs(da_sel,
+      pch = 20)
 ```
 
 ---
@@ -2092,36 +2100,30 @@ background-position: 50% 50%
 
 # 5.9 Gráfico pareado (pairs plot)
 
-## ggplot2
+## GGally
 ```{r, eval = FALSE, message=FALSE, warning=FALSE}
-ggplot(data = da) +
-  aes(x = effort_months, y = species_number) +
-  geom_point(colour = "black", fill = "forest green", size = 5,  #<<
-             alpha = .5, pch = 21) + #<<
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
-  theme_classic() +
-  theme(axis.title = element_text(size = 24),
-        axis.text.x = element_text(size = 20),
-        axis.text.y = element_text(size = 20))
+# package
+install.packages("GGally")
+library(GGally)
+
+# ggpairs
+ggpairs(data = da_sel) +
+  theme_bw()
+        
 ```
 
 ---
 
 # 5.9 Gráfico pareado (pairs plot)
 
-## ggplot2
+## GGally
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', out.width = '60%'}
-ggplot(data = da) +
-  aes(x = effort_months, y = species_number) +
-  geom_point(colour = "black", fill = "forest green", size = 5,  #<<
-             alpha = .5, pch = 21) + #<<
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
-  theme_classic() +
-  theme(axis.title = element_text(size = 24),
-        axis.text.x = element_text(size = 20),
-        axis.text.y = element_text(size = 20))
+# package
+library(GGally)
+
+# ggpairs
+ggpairs(data = da_sel) +
+  theme_bw()
 ```
 
 ---
@@ -2135,18 +2137,24 @@ background-position: 50% 50%
 
 # 5.9 Gráfico pareado (pairs plot)
 
-## ggpubr
+## psych
 ```{r, eval = FALSE, message=FALSE, warning=FALSE}
-ggplot(data = da) +
-  aes(x = effort_months, y = species_number) +
-  geom_point(colour = "black", fill = "forest green", size = 5,  #<<
-             alpha = .5, pch = 21) + #<<
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
-  theme_classic() +
-  theme(axis.title = element_text(size = 24),
-        axis.text.x = element_text(size = 20),
-        axis.text.y = element_text(size = 20))
+# package
+install.packages("psych")
+library(psych)
+
+# pairs
+pairs.panels(da_sel, 
+             method = "spearman",
+             pch = 20, 
+             ellipses = FALSE, 
+             density = FALSE, 
+             stars = TRUE, 
+             hist.col = "gray",
+             digits = 2,
+             rug = FALSE,
+             breaks = 10,
+             ci = TRUE)
 ```
 
 ---
@@ -2155,16 +2163,21 @@ ggplot(data = da) +
 
 ## ggpubr
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', out.width = '60%'}
-ggplot(data = da) +
-  aes(x = effort_months, y = species_number) +
-  geom_point(colour = "black", fill = "forest green", size = 5,  #<<
-             alpha = .5, pch = 21) + #<<
-  labs(x = "Esforço amostral",
-          y = "Número de espécies") +
-  theme_classic() +
-  theme(axis.title = element_text(size = 24),
-        axis.text.x = element_text(size = 20),
-        axis.text.y = element_text(size = 20))
+# package
+library(psych)
+
+# pairs
+pairs.panels(da_sel, 
+             method = "spearman",
+             pch = 20, 
+             ellipses = FALSE, 
+             density = FALSE, 
+             stars = TRUE, 
+             hist.col = "gray",
+             digits = 2,
+             rug = FALSE,
+             breaks = 10,
+             ci = TRUE)
 ```
 
 ---
