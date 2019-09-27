@@ -324,17 +324,17 @@ background-position: 95% 85%
 <br>
 6.7 Dados vetoriais (ponto, linha e polígono)
 <br>
-6.8 Formato de arquivos vetoriais (shapefile - .dbf, .prj, .shx, .shp)
+6.8 Tabela de atributos
 <br>
-6.9 Tabela de atributos
+6.9 Formato de arquivos vetoriais (shapefile - .dbf, .prj, .shx, .shp)
 <br>
 6.10 Dados matriciais (gride ou raster)
 <br>
 6.11 Formatos de arquivos matriciais (.tif)
 <br>
-6.12 Banco de dados espaciais (geopackage - .gpkg)
+6.12 Banco de dados geoespaciais (geopackage - .gpkg)
 <br>
-6.13 Repositórios de dados espaciais
+6.13 Repositórios de dados geoespaciais
 
 ---
 
@@ -520,9 +520,9 @@ background-position: 85% 80%
 ## Conteúdo
 
 ### 9 Introdução e funcionamento do software GRASS GIS (sexta)
-9.1 Funcionamento do GRASS GIS: terminal, layer manager e map display
+9.1 Funcionamento do GRASS GIS (terminal, layer manager e map display)
 <br>
-9.2 Estrutura de dados no GRASS GIS: GRASS database, location e mapset
+9.2 Estrutura de dados no GRASS GIS (GRASS database, location e mapset)
 <br>
 9.3 Region (= região computacional)
 <br>
