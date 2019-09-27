@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+  title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
 subtitle: "<br><br> xaringan [presentation ninja] <br>"
 author: "Maurício H. Vancine"
 date: "30/09/2019"
