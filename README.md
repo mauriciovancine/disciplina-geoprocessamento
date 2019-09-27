@@ -20,7 +20,7 @@ Prof. Maurício Vancine (UNESP- Rio Claro)
 15 + 5 especiais
 
 **Resumo** <br>
-A disciplina oferecerá os principais conceitos teórico-práticos introdutórios de geoprocessamento aplicado à Ecologia. A parte prática será desenvolvida através de ferramentas na linguagem R e dos softwares QGIS e GRASS GIS. Serão abordados os seguintes temas: (i) introdução e funcionamento da linguagem R e do software RStudio, (ii) estrutura e manejo de dados na linguagem R, (iii) introdução ao tidyverse, (iv) visualização de dados, (v) estrutura e fonte de dados espaciais, (vi) introdução e funcionamento do software QGIS, (vii) estrutura e manejo de dados espacias na linguagem R, e (viii) introdução e funcionamento do software GRASS GIS. A carga horária total será de 60 horas, onde em cada dia serão ministrados 6 horas teóricas-práticas num total de 30 horas. As 30 horas restantes serão direcionadas à realização de exercícios práticos, que serão aplicados remotamente como forma de avaliação para compor a nota final da disciplina. Após a realização da disciplina, espera-se que os alunos adquiram conceitos gerais da estrutura e manipulação de dados espaciais, assim como domínio das técnicas e métodos para alcançar autonomia e produzir soluções para suas próprias questões relativas ao geoprocessamento aplicados à Ecologia.
+A disciplina oferecerá os principais conceitos teórico-práticos introdutórios de geoprocessamento aplicado à Ecologia. A parte prática será desenvolvida através de ferramentas na linguagem R e do software QGIS. Serão abordados os seguintes temas: (i) controle de versão, Git e GitHub, (ii) introdução e funcionamento da linguagem R e do software RStudio, (iii) estrutura e manejo de dados na linguagem R, (iv) introdução ao tidyverse, (v) visualização de dados, (vi) estrutura e fonte de dados geoespaciais, (vii) introdução e funcionamento do software QGIS, e (viii) estrutura e manejo de dados geoespaciais na linguagem R. A carga horária total será de 45 horas, onde nos cinco dias iniciais serão ministrados 6 horas teóricas-práticas, num total de 30 horas. As 15 horas restantes serão direcionadas à realização de exercícios práticos, que serão aplicados remotamente como forma de avaliação para compor a nota final da disciplina. Após a realização da disciplina, espera-se que os alunos adquiram conceitos gerais da estrutura e manipulação de dados espaciais, assim como domínio das técnicas e métodos para alcançar autonomia e produzir soluções para suas próprias questões relativas ao geoprocessamento.
 
 ---
 
@@ -33,7 +33,7 @@ Exercícios-atividades assistidas remotamente: 07/09 – 11/09 (15 horas)
 **Local** <br>
 
 **Ementa** <br> 
-[pdf](https://gitlab.com/mauriciovancine/disciplina-geoprocessamento/blob/master/00_ementa/ementa.pdf)
+[pdf](https://github.com/mauriciovancine/disciplina-geoprocessamento/blob/master/00_ementa/ementa_v02.pdf)
 
 **Contato** <br>
 Para mais informações ou dúvidas, envie e-mail para Maurício Vancine (mauricio.vancine@gmail.com)
