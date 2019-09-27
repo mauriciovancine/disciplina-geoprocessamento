@@ -4,53 +4,33 @@
 # 30-09-2019
 # -------------------------------------------------------------------------
 
-# occurrences -------------------------------------------------------------
+# github ------------------------------------------------------------------
+if(!require(devtools)) install.packages("devtools", dependencies = TRUE)
+
+# data manipulation and visualization -------------------------------------
 # manipulation and visualization
 if(!require(tidyverse)) install.packages("tidyverse", dependencies = TRUE)
-if(!require(lubridate)) install.packages("lubridate", dependencies = TRUE)
 
-# occurrences download
-if(!require(spocc)) install.packages("spocc", dependencies = TRUE)
+# xlsx
+if(!require(openxlsx)) install.packages("openxlsx", dependencies = TRUE)
+if(!require(readxl)) install.packages("readxl", dependencies = TRUE)
+if(!require(writexl)) install.packages("writexl", dependencies = TRUE)
 
-# clear - taxonomy
-if(!require(taxize)) install.packages("taxize", dependencies = TRUE)
+# plot in ggpubr
+if(!require(ggpubr)) install.packages("ggpubr", dependencies = TRUE)
 
-# clear - spatial
-if(!require(CoordinateCleaner)) install.packages("CoordinateCleaner", dependencies = TRUE)
+# geospatial data ---------------------------------------------------------
+# vectors
+if(!require(geobr)) devtools::install_github("ipeaGIT/geobr")
+if(!require(rnaturalearth)) install.packages("rnaturalearth", dependencies = TRUE)
 if(!require(sf)) install.packages("sf", dependencies = TRUE)
 
-# variables ------------------------------------------------------
 # manipulation and visualization
-if(!require(ggspatial)) install.packages("ggspatial", dependencies = TRUE)
-if(!require(landscapetools)) install.packages("landscapetools", dependencies = TRUE)
 if(!require(raster)) install.packages("raster", dependencies = TRUE)
 if(!require(rgdal)) install.packages("rgdal", dependencies = TRUE)
-if(!require(devtools)) install.packages("devtools", dependencies = TRUE)
 if(!require(wesanderson)) devtools::install_github("karthik/wesanderson")
 
-# limits
-if(!require(rnaturalearth)) install.packages("rnaturalearth", dependencies = TRUE)
-
-# selection - correlation
-if(!require(corrr)) install.packages("corrr", dependencies = TRUE)
-if(!require(caret)) install.packages("caret", dependencies = TRUE)
-if(!require(psych)) install.packages("psych", dependencies = TRUE)
-
-# algorithms --------------------------------------------------------------
-# bioclim, domain, and mahalanobis
-if(!require(dismo)) install.packages("dismo", dependencies = TRUE)
-
-# svm
-if(!require(kernlab)) install.packages("kernlab", dependencies = TRUE)
-
-# random forest
-if(!require(randomForest)) install.packages("randomForest", dependencies = TRUE)
-
-# ensemble
-if(!require(vegan)) install.packages("vegan", dependencies = TRUE)
-
-# notifications -----------------------------------------------------------
-# notification - sound
-if(!require(beepr)) install.packages("beepr", dependencies = TRUE)
+# maps
+if(!require(tmap)) install.packages("tmap", dependencies = TRUE)
 
 # end ---------------------------------------------------------------------
