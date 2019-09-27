@@ -33,7 +33,7 @@ Exercícios-atividades assistidas remotamente: 07/09 – 11/09 (15 horas)
 **Local** <br>
 
 **Ementa** <br> 
-[pdf](https://github.com/mauriciovancine/disciplina-geoprocessamento/blob/master/00_ementa/ementa_v02.pdf)
+[pdf](https://github.com/mauriciovancine/disciplina-geoprocessamento/blob/master/00_ementa/ementa.pdf)
 
 **Contato** <br>
 Para mais informações ou dúvidas, envie e-mail para Maurício Vancine (mauricio.vancine@gmail.com)
