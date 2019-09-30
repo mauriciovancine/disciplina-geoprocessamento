@@ -1,5 +1,5 @@
 ---
-  title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
 subtitle: "<br><br> xaringan [presentation ninja] <br>"
 author: "Maurício H. Vancine"
 date: "30/09/2019"
@@ -198,11 +198,11 @@ background-position: 85% 85%
 <br>
 2.6 Funções
 <br>
-2.7 Pacotes
+2.7 Ajuda (*help*)
 <br>
-2.8 Ambiente (*environment*/*workspace*)
+2.8 Pacotes
 <br>
-2.9 Ajuda (*help*)
+2.9 Ambiente (*environment*/*workspace*)
 <br>
 2.10 Citações
 <br>
@@ -359,25 +359,23 @@ background-position: 100% 80%
 <br>
 7.6 Propriedades de dados vetoriais
 <br>
-7.7 Projeção de dados vetoriais
+7.7 Tabela de atributos
 <br>
-7.8 Tabela de atributos
+7.8 Cálculo de área, perímetro e distância de dados vetoriais
 <br>
-7.9 Cálculo de área, perímetro e distância de dados vetoriais
+7.9 Criação de dados vetoriais
 <br>
-7.10 Criação de dados vetoriais
+7.10 Edição de dados vetoriais
 <br>
-7.11 Edição de dados vetoriais
+7.11 Geoprocessamento de dados vetoriais
 <br>
-7.12 Geoprocessamento de dados vetoriais
+7.12 Fotointerpretação de imagens
 <br>
-7.13 Fotointerpretação de imagens
+7.13 Verificação geométrica e ajuste topológico
 <br>
-7.14 Verificação geométrica e ajuste topológico
+7.14 Reprojeção de dados vetoriais
 <br>
-7.15 Reprojeção de dados vetoriais
-<br>
-7.16 Exportar dados vetoriais
+7.15 Exportar dados vetoriais
 
 ---
 
@@ -390,31 +388,29 @@ background-position: 100% 93%
 ## Conteúdo
 
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
-7.17 Adicionar dados matriciais preexistentes
+7.16 Adicionar dados matriciais preexistentes
 <br>
-7.18 Propriedades de dados matriciais
+7.17 Propriedades de dados matriciais
 <br>
-7.19 Projeção de dados matriciais
+7.18 Georreferenciamento de dados matriciais
 <br>
-7.20 Georreferenciamento de dados matriciais
+7.19 Mosaico (união de imagens)
 <br>
-7.21 Mosaico (união de imagens)
+7.20 Recorte (extração de máscara)
 <br>
-7.22 Recorte (extração de máscara)
+7.21 Alinhar raster (extensão e resolução)
 <br>
-7.23 Alinhar raster (extensão e resolução)
+7.22 Análises de superfície (mapas de calor, interpolação, proximidade)
 <br>
-7.24 Análises de superfície (mapas de calor, interpolação, proximidade)
+7.23 Estatística zonal
 <br>
-7.25 Estatística zonal
+7.24 Calculadora raster
 <br>
-7.26 Calculadora raster
+7.25 Conversão de dados vetoriais e dados matriciais
 <br>
-7.27 Conversão de dados vetoriais e dados matriciais
+7.26 Reprojeção de dados matriciais
 <br>
-7.29 Reprojeção de dados matriciais
-<br>
-7.30 Exportar dados matriciais
+7.27 Exportar dados matriciais
 
 ---
 
@@ -428,15 +424,15 @@ background-position: 100% 93%
 
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
 
-7.31 Sensoriamento Remoto (bandas espectrais – composição e extração)
+7.28 Sensoriamento Remoto (bandas espectrais – composição e extração)
 <br>
-7.32 Classificação supervisionada
+7.29 Classificação supervisionada
 <br>
-7.33 Índices de vegetação (NDVI/EVI)
+7.30 Índices de vegetação (NDVI/EVI)
 <br>
-7.34 Topografia (MDE, MDS, MDT, elevação, declividade, aspecto, hidrologia)
+7.31 Topografia (MDE, MDS, MDT, elevação, declividade, aspecto, hidrologia)
 <br>
-7.35 Elaboração de mapa temáticos
+7.32 Elaboração de mapa temáticos
 
 ---
 
@@ -448,10 +444,10 @@ background-position: 85% 80%
 
 ## Conteúdo
 
-### 8 Estrutura e manejo de dados espaciais na linguagem R (quinta-sexta)
-8.1 Material e pacotes para análise de dados espacias
+### 8 Estrutura e manejo de dados geoespaciais na linguagem R (quinta-sexta)
+8.1 Material e pacotes para análise de dados geoespacias
 <br>
-8.2 Vetor: pacote sp e sf
+8.2 Vetor: pacote sf
 <br>
 8.3 Importar dados vetoriais
 <br>
@@ -484,7 +480,7 @@ background-position: 85% 80%
 
 ### 8 Estrutura e manejo de dados espaciais na linguagem R (quinta-sexta)
 
-8.12 Raster: pacotes raster e rgdal
+8.12 Raster: pacotes raster
 <br>
 8.13 Importar dados matriciais
 <br>
@@ -507,40 +503,6 @@ background-position: 85% 80%
 8.22 Elaboração de mapas (ggplot e tmap)
 <br>
 8.23 Automação de processamentos
-
----
-
-background-image: url(https://grass.osgeo.org/uploads/images/logo/grassgis_logo_colorlogo_text_alphabg.png)
-background-size: 200px
-background-position: 85% 80%
-
-
-# Disciplina
-
-## Conteúdo
-
-### 9 Introdução e funcionamento do software GRASS GIS (sexta)
-9.1 Funcionamento do GRASS GIS (terminal, layer manager e map display)
-<br>
-9.2 Estrutura de dados no GRASS GIS (GRASS database, location e mapset)
-<br>
-9.3 Region (= região computacional)
-<br>
-9.4 Módulos (= funções)
-<br>
-9.5 Módulos para processamentos gerais (g.)
-<br>
-9.6 Módulos para processamento de dados vetoriais (v.)
-<br>
-9.7 Módulos para processamento de dados raster (r.)
-<br>
-9.8 Módulos para processamento de dados de imagem de satélites (i.)
-<br>
-9.9 Visualização de dados vetoriais, raster e imagens
-<br>
-9.10 Escalas, símbolos, grades, legenda, perfis e histogramas
-<br>
-9.11 Python para automação de processamentos
 
 ---
 

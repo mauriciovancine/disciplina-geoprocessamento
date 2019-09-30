@@ -115,7 +115,11 @@ background-position: 50% 50%
 
 --
 
-### 4. Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
+### 4. Tem uma **comunidade grande e acolhedora**
+
+--
+
+### 5. Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
 
 ---
 
@@ -198,10 +202,12 @@ class: inverse, middle, center
 ## Análises
 - Estatísticas univariadas e multivariadas
 - Análises de dados ecológicos (população, comunidades e ecossistemas)
-- Análise de dados espaciais, temporais e sonoros
-- Análise de dados funcionais, genéticos e filogenéticos
+- Análise de dados de séries temporais
+- Análise de dados sonoros, funcionais, genéticos e filogenéticos
 - Análise de dados geoespaciais
-- Visualização de todos os dados anteriores...
+- Diversas formas de visualização de todos os dados anteriores...
+
+*[https://cran.r-project.org/web/views/Environmetrics.html]
 
 --
 

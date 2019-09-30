@@ -1,0 +1,289 @@
+---
+title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
+subtitle: "8 Estrutura e manejo de dados geoespaciais na linguagem R <br><br> xaringan [presentation ninja]"
+author: "Maurício H. Vancine"
+date: "03-04/10/2019"
+output:
+  xaringan::moon_reader:
+    css: metropolis
+    lib_dir: libs
+    nature:
+      #highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+    includes:
+      in_header: header.html
+---
+
+```{r, setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: clear, center, middle
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_data.png)
+background-size: 800px
+background-position: 50% 50%
+
+---
+
+### 8 Estrutura e manejo de dados geoespaciais na linguagem R (quinta-sexta)
+
+## Tópicos
+8.1 Material e pacotes para análise de dados geoespacias
+<br>
+8.2 Vetor: pacote sf
+<br>
+8.3 Importar dados vetoriais
+<br>
+8.4 Tipos de dados vetoriais
+<br>
+8.5 Estrutura de dados vetoriais
+<br>
+8.6 Visualizar dados vetoriais (graphics, ggplot e tmap)
+<br>
+8.7 Projeção de dados vetoriais
+<br>
+8.8 Tabela de atributos
+<br>
+8.9 Operações de atributos de dados vetoriais
+<br>
+8.10 Operações geométricas de dados vetoriais
+<br>
+8.11 Operações espaciais de dados vetoriais
+
+---
+
+### 8 Estrutura e manejo de dados geoespaciais na linguagem R (quinta-sexta)
+
+## Tópicos
+
+8.12 Raster: pacote raster
+<br>
+8.13 Importar dados matriciais
+<br>
+8.14 Tipos de dados matriciais
+<br>
+8.15 Estrutura de dados matriciais
+<br>
+8.16 Visualizar dados matriciais (graphics, ggplot e tmap)
+<br>
+8.17 Projeção de dados matriciais
+<br>
+8.18 Manipulando dados matriciais
+<br>
+8.19 Operação geométricas de dados matriciais
+<br>
+8.20 Operação espaciais de dados matriciais
+<br>
+8.21 Vetor para raster: pacote fasterize
+<br>
+8.22 Elaboração de mapas (ggplot e tmap)
+<br>
+8.23 Automação de processamentos
+
+---
+
+background-image: url(https://geocompr.robinlovelace.net/images/cover.png)
+background-size: 230px
+background-position: 50% 75%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **Geocomputation with R (2019)**
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://geocompr.robinlovelace.net/
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9781461476177.jpg)
+background-size: 230px
+background-position: 50% 75%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **Applied Spatial Data Analysis with R (2008, 2013)**
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://www.springer.com/gp/book/9781461476177
+
+---
+
+background-image: url(https://images-na.ssl-images-amazon.com/images/I/41biGRepK9L._SX349_BO1,204,203,200_.jpg)
+background-size: 230px
+background-position: 50% 71%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **An introduction to R for spatial analysis & mapping (2015, 2018)**
+
+<br><br><br><br><br><br><br><br><br>
+
+[*] https://bookdown.org/lexcomber/brunsdoncomber2e/
+
+---
+
+background-image: url(https://images.springer.com/sgw/books/medium/9783030019884.jpg)
+background-size: 230px
+background-position: 50% 70%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **Spatial Ecology and Conservation Modeling: applications with R (2018)**
+
+<br><br><br><br><br><br><br><br><br><br>
+
+[*] https://www.springer.com/gp/book/9783030019884
+
+---
+
+background-image: url(http://www.opengeohub.org/sites/default/files/styles/height/public/team/Edzer_Pebesma.jpg)
+background-size: 230px
+background-position: 50% 70%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **Spatial Data Science (2019)**
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://keen-swartz-3146c4.netlify.com/
+
+---
+
+background-image: url(https://images.tandf.co.uk/common/jackets/amazon/978081539/9780815392750.jpg)
+background-size: 200px
+background-position: 50% 65%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **Spatial Data Analysis in Ecology and Agriculture Using R (2012, 2019)**
+
+<br><br><br><br><br><br><br><br>
+
+[*] https://www.crcpress.com/Spatial-Data-Analysis-in-Ecology-and-Agriculture-Using-R-Second-Edition/Plant/p/book/9780815392750
+
+---
+
+background-image: url(https://mundogeo.com/wp-content/uploads/2019/06/livro-analise-espacial-com-software-r.jpg)
+background-size: 230px
+background-position: 50% 75%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Livros
+
+### **Análise espacial com R (2019)**
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://www.dropbox.com/s/blgtp2bmpdghol7/AnaliseEspacialComR.pdf?dl=0
+
+---
+
+background-image: url(https://atlan.com/images/new/illustrations/gis-course/landing-img-gis_course-250.png)
+background-size: 280px
+background-position: 50% 75%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Apostilas
+
+### **Introduction to GIS: Manipulating and Mapping Geospatial Data in R (2019)**
+
+<br><br><br><br><br><br><br><br><br>
+
+[*] https://cdn2.hubspot.net/hubfs/2287011/Atlan%20GIS%20Course/All%20lessons.pdf
+
+---
+
+background-image: url(https://desp.ucdavis.edu/sites/default/files/styles/profile_picture/public/robert-j.hijmans.jpg?itok=ybvwHsUL)
+background-size: 230px
+background-position: 50% 75%
+
+# 8.1 Material e pacotes para análise de dados geoespacias
+
+## Apostilas
+
+### **Spatial Data Analysis and Modeling with R (2019)**
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+[*] http://rspatial.org
+
+---
+
+background-image: url(https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif)
+background-size: 350px
+background-position: 50% 50%
+
+# 8.2 Vetor: pacote sf
+
+## Pacote sf
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+[*] https://journal.r-project.org/archive/2018/RJ-2018-009/RJ-2018-009.pdf
+
+---
+
+# 8.3 Importar dados vetoriais
+
+
+---
+
+# 8.3 Importar dados vetoriais
+
+
+---
+
+
+# 8.3 Importar dados vetoriais
+
+---
+
+background-image: url(https://geocompr.robinlovelace.net/figures/sf-classes.png)
+background-size: 450px
+background-position: 50% 60%
+
+# 8.4 Tipos de dados vetoriais
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: clear, middle
+
+## Maurício Vancine
+
+<br>
+
+Contatos:
+
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| <a href="mailto:mauricio.vancine@gmail.com">.RUred[<i class="fa fa-envelope fa-fw"></i>]  | mauricio.vancine@gmail.com    |
+| <a href="https://mauriciovancine.netlify.com/">.RUred[<i class="fa fa-link fa-fw"></i>]   | mauriciovancine.netlify.com   |
+| <a href="http://twitter.com/mauriciovancine">.RUred[<i class="fa fa-twitter fa-fw"></i>]  | @mauriciovancine              |
+| <a href="http://gitlab.com/mauriciovancine">.RUred[<i class="fa fa-gitlab fa-fw"></i>]    | @mauriciovancine              |
+| <a href="http://github.com/mauriciovancine">.RUred[<i class="fa fa-github fa-fw"></i>]    | @mauriciovancine              |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis)

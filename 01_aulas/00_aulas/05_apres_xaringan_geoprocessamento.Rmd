@@ -2,7 +2,7 @@
 title: "Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>"
 subtitle: "5 Visualização de dados <br><br> xaringan [presentation ninja]"
 author: "Maurício H. Vancine"
-date: "30/09/2019"
+date: "01/09/2019"
 output:
   xaringan::moon_reader:
     css: metropolis
@@ -255,7 +255,6 @@ background-position: 50% 50%
 `ggviolin()`<br>
 `ggbarplot()`<br>
 `ggscatter()`<br>
-`ggpaired()`<br>
 
 ---
 
@@ -335,8 +334,8 @@ background-position: 50% 65%
 ---
 
 background-image: url(https://serialmentor.com/dataviz/cover.png)
-background-size: 300px
-background-position: 50% 60%
+background-size: 280px
+background-position: 50% 65%
 
 # 5.1 Principais pacotes para gráficos no R
 
@@ -422,7 +421,7 @@ class: inverse, middle, center
 
 class: inverse, middle, center
 
-# Os elementos de um gráfico são representações das colunas (eixos) e linhas (elementos) das nossas matrizes de dados
+# Os elementos de um gráfico são representações das **colunas (eixos)** e **linhas (elementos)** das nossas matrizes de dados
 
 ---
 
@@ -444,7 +443,7 @@ background-position: 50% 50%
 
 class: inverse, middle, center
 
-# Ou seja <u>**tipo e quantidade das variáveis**</u> irá indicar o melhor tipo de gráfico para <u>**representar</u>** os dados
+# Ou seja, o <u>**tipo e quantidade das variáveis**</u> irá indicar o tipo de gráfico mais apropriado para <u>**representar</u>** os dados
 
 ---
 
@@ -477,6 +476,12 @@ background-position: 50% 60%
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 [*] https://www.data-to-viz.com/
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
 
 ---
 

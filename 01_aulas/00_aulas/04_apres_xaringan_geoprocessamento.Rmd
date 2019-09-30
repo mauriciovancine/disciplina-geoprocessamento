@@ -403,7 +403,6 @@ sp <- read_table2("ATLANTIC_AMPHIBIANS_species.txt")
 sp
 ```
 
-
 ---
 
 class: clear, center, middle
@@ -642,12 +641,14 @@ background-position: 50% 50%
 
 # 4.6 tidyr
 
-**1 unite()**: junta dados de múltiplas colunas em uma<br>
-**2 separate()**: separa caracteres em múlplica colunas<br>
-**3 drop_na()**: retira linhas com NA<br>
-**4 replace_na()**: substitui NA<br>
-**5 spread()**: long para wide<br>
-**6 gather()**: wide para long<br>
+## Funções
+
+### **1 unite()**: junta dados de múltiplas colunas em uma<br>
+### **2 separate()**: separa caracteres em múlplica colunas<br>
+### **3 drop_na()**: retira linhas com NA<br>
+### **4 replace_na()**: substitui NA<br>
+### **5 spread()**: long para wide<br>
+### **6 gather()**: wide para long<br>
 
 ---
 
@@ -734,6 +735,14 @@ background-position: 50% 50%
 
 ---
 
+background-image: url(https://datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
 # 4.6 tidyr
 
 ## **5 spread()** 
@@ -762,8 +771,8 @@ Long para wide
 
 2. **value**: variável numérica que irá preencher os dados
 
-```{r, eval = FALSE}
-si_spread <- si[, c("id", "record", "species_number")] %>% 
+```{r}
+si_spread <- si[, c("id", "state_abbreviation", "species_number")] %>% 
   spread(key = state_abbreviation, value = species_number, fill = 0)
 si_spread
 ```
@@ -780,7 +789,7 @@ Long para wide
 
 2. **value**: variável numérica que irá preencher os dados
 
-```{r, eval = FALSE}
+```{r}
 sp_spread <- sp[1:1000, c("id", "species", "individuals")] %>% 
   spread(key = species, value = individuals, fill = 0)
 sp_spread
@@ -789,6 +798,14 @@ sp_spread
 ---
 
 background-image: url(http://www.flutterbys.com.au/stats/tut/images/gather.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+background-image: url(https://datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
 background-size: 800px
 background-position: 50% 50%
 
@@ -807,9 +824,9 @@ wide para long
 2. **value**: variável numérica que irá preencher os dados
 
 ```{r}
-si_gather <- si_spread %>% 
+sp_gather <- sp_spread %>% 
   gather(key = record, value = species_number, -id)
-si_gather
+sp_gather
 ```
 
 ---
@@ -891,13 +908,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ---
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ### Seleciona colunas pelo nome
 
@@ -911,7 +928,7 @@ si_select
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ### Remove as colunas pelo nome
 
@@ -924,7 +941,7 @@ si_select
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ### Seleciona colunas por um padrão
 
@@ -943,13 +960,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **2 pull**
+## **2 pull()**
 
 ---
 
 # 4.7 dplyr
 
-## **2 pull**
+## **2 pull()**
 
 ```{r}
 # coluna para vetor
@@ -962,7 +979,7 @@ si_pull
 
 # 4.7 dplyr
 
-## **2 pull**
+## **2 pull()**
 
 ```{r}
 # coluna para vetor
@@ -975,7 +992,7 @@ si_pull
 
 # 4.7 dplyr
 
-## **3 rename**
+## **3 rename()**
 
 ### Renomeia colunas
 ```{r}
@@ -993,13 +1010,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **4 mutate**
+## **4 mutate()**
 
 ---
 
 # 4.7 dplyr
 
-## **4 mutate**
+## **4 mutate()**
 
 ### Adiciona colunas novas ou vindas de operações
 ```{r}
@@ -1017,13 +1034,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **5 arrange**
+## **5 arrange()**
 
 ---
 
 # 4.7 dplyr
 
-## **5 arrange**
+## **5 arrange()**
 
 ### Ordenar de forma crescente pela coluna **species_number**
 ```{r, eval = FALSE}
@@ -1055,13 +1072,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **6 filter**
+## **6 filter()**
 
 ---
 
 # 4.7 dplyr
 
-## **6 filter** 
+## **6 filter()** 
 
 ### operadores: >, >=, <, <=, ==, !=, is.na, !is.na, %in%
 ### Filtrar para locais com mais de 5 espécies
@@ -1082,7 +1099,7 @@ si_filter
 
 # 4.7 dplyr
 
-## **6 filter** 
+## **6 filter()** 
 ### Filtrar para locais sem NA no métodos passivos
 ```{r, eval = FALSE}
 si_filter <- si %>% 
@@ -1101,7 +1118,7 @@ si_filter
 
 # 4.7 dplyr
 
-## **6 filter** 
+## **6 filter()** 
 ### Filtrar para locais amostrados com mais de 5 espécies **E** em Pernambuco
 ```{r, eval = FALSE}
 si_filter <- si %>% 
@@ -1120,7 +1137,7 @@ si_filter
 
 # 4.7 dplyr
 
-## **7 distinct**
+## **7 distinct()**
 ### Remove linhas duplicadas considerando a coluna número de espécies
 ```{r}
 si_distinct <- si %>% 
@@ -1132,7 +1149,7 @@ si_distinct
 
 # 4.7 dplyr
 
-## **7 distinct**
+## **7 distinct()**
 ### Remove linhas duplicadas considerando a coluna número de espécies e mantém as demais
 ```{r}
 si_distinct <- si %>% 
@@ -1144,7 +1161,7 @@ si_distinct
 
 # 4.7 dplyr
 
-## **8 slice** 
+## **8 slice()** 
 ### Selecionar linhas 1 a 10
 ```{r}
 si_slice <- si %>% 
@@ -1156,7 +1173,7 @@ si_slice
 
 # 4.7 dplyr
 
-## **9 n_sample** 
+## **9 n_sample()** 
 
 ### Amostrar 100 linhas aleatoriamente
 ```{r}
@@ -1174,13 +1191,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **10 summarise**
+## **10 summarise()**
 
 ---
 
 # 4.7 dplyr
 
-## **10 summarise**
+## **10 summarise()**
 
 ### Média e desvio padrão do número de espécies total
 
@@ -1194,7 +1211,7 @@ si_summarise
 
 # 4.7 dplyr
 
-## **10 summarise**
+## **10 summarise()**
 ### Média e desvio padrão do número de espécies por país
 ```{r}
 si_summarise_group <- si %>% 
@@ -1211,13 +1228,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ---
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
@@ -1232,7 +1249,7 @@ si_coord
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
@@ -1248,7 +1265,7 @@ sp_join
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
@@ -1260,7 +1277,7 @@ colnames(sp_join)
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
   select(id, state_abbreviation, species_number)
@@ -1270,7 +1287,7 @@ da
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
   select(id, state_abbreviation, species_number) %>% 
@@ -1281,7 +1298,7 @@ da
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
   select(id, state_abbreviation, species_number) %>% 
@@ -1294,7 +1311,7 @@ da
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 ```{r}
 da <- si %>% 
   select(id, state_abbreviation, species_number) %>% 

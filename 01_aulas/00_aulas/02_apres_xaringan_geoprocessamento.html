@@ -43,11 +43,11 @@ background-position: 50% 50%
 &lt;br&gt;
 2.6 Funções
 &lt;br&gt;
-2.7 Pacotes
+2.7 Ajuda (*help*)
 &lt;br&gt;
-2.8 Ambiente (*environment*/*workspace*)
+2.8 Pacotes
 &lt;br&gt;
-2.9 Ajuda (*help*)
+2.9 Ambiente (*environment*/*workspace*)
 &lt;br&gt;
 2.10 Citações
 &lt;br&gt;
@@ -323,7 +323,7 @@ background-position: 50% 50%
 
 # Vamos padronizar:
 
-### Pasta do diretório `/disciplina-geoprocessamento/`:
+### Pasta do diretório `github/disciplina-geoprocessamento/`:
 
 ### 00_ementa
 ### 01_aulas
@@ -357,7 +357,7 @@ background-position: 50% 50%
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-### "script_r_disciplina_geoprocessamento_aula_02_2019_09_d30.R"
+## "script_aula_02.R"
 
 ---
 
@@ -1156,11 +1156,63 @@ background-position: 50% 50%
 
 class: inverse, middle, center
 
+# E como saber como usar uma função?
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_help.png)
+background-size: 600px
+background-position: 50% 98%
+
+# 2.7 Ajuda (*help*)
+## Descreve as informações de uma função
+
+
+```r
+## ajuda
+# descreve as informacoes de uma funcao
+
+help("mean") # arquivo .html
+
+?mean
+```
+
+---
+
+background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/help.png)
+background-size: 600px
+background-position: 50% 50%
+
+# 2.7 Ajuda (*help*)
+
+---
+
+# 2.7 Ajuda (*help*)
+
+## Resumo do *help*
+
+&lt;br&gt;&lt;br&gt;
+
+1. **Description**: faz um resumo geral sobre o uso da função
+2. **Usage**: mostra como a função deve ser utilizada e quais argumentos podem ser especificados
+3. **Arguments**: explica o que é cada um dos argumentos
+4. **Details**: explica alguns detalhes sobre o uso e aplicação da função (geralmente poucos)
+5. **Value**: mostra o que sai no output após usar a função (os resultados)
+6. **Note**: notas sobre a função
+7. **Authors**: lista os autores da função (quem escreveu os códigos em R)
+8. **References**: referências para os métodos usados
+9. **See also**: mostra outras funções relacionadas que podem ser consultadas
+10. **Examples**: exemplos do uso da função. Copie e cole os exemplos no R para ver como funciona
+
+---
+
+class: inverse, middle, center
+
 # E de onde vêm as funções?!
 
 ---
 
-# 2.6 Funções
+# 2.8 Pacotes
 ## Funções vêm de **duas fontes**:
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
@@ -1180,7 +1232,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 ## **Coleção de funções** para executar **tarefas específicas**
 
@@ -1214,9 +1266,9 @@ library()
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
-## Ex.: pacote `ggplot2` 
+## Ex.: pacote `vegan` 
 
 &lt;br&gt;&lt;br&gt;
 
@@ -1232,7 +1284,7 @@ https://github.com/vegandevs/vegan
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 ## Instalar pacotes
 
@@ -1261,7 +1313,7 @@ install.packages("vegan")
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 ##  Carregar pacotes
 
@@ -1298,12 +1350,12 @@ library(vegan)
 ```
 
 ```
-## This is vegan 2.6-0
+## This is vegan 2.5-6
 ```
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 ## Instalar pacotes do GitHub
 ### 1. Instalar pacote **devtools**
@@ -1334,7 +1386,7 @@ library("vegan")
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 ## Atualização de pacotes
 ### Pacotes são **atualizados com frequência** (bimensal | semestral | anual)
@@ -1362,7 +1414,7 @@ class: inverse, middle, center
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -1376,7 +1428,7 @@ C:/Users/**nome_do_computador**/Documentos/R/win-library/**numero_da_versao_r**
 
 ---
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 ## Exemplos:
 
@@ -1399,7 +1451,7 @@ background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/
 background-size: 600px
 background-position: 35% 60%
 
-# 2.7 Pacotes
+# 2.8 Pacotes
 
 
 ```r
@@ -1407,7 +1459,7 @@ nrow(available.packages(repos = "http://cran.r-project.org"))
 ```
 
 ```
-## [1] 14950
+## [1] 14960
 ```
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
@@ -1416,15 +1468,37 @@ https://cran.r-project.org/web/packages/available_packages_by_name.html
 
 ---
 
+# 2.8 Pacotes
+
+## Detalhes de um pacote
+
+
+```r
+library(help = "vegan")
+```
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+- Descrição
+- Versão
+- Autores
+- Dependências
+- Sites
+- Repositório
+- Índice de funções
+- Diretório
+
+---
+
 background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_ambiente.png)
 background-size: 800px
 background-position: 50% 50%
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 
 ---
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 ### Listar todos os objetos criados
 
 ```r
@@ -1455,7 +1529,7 @@ background-image: url(https://media.giphy.com/media/xB1md2I2W16IXil1BO/giphy.gif
 background-size: 600px
 background-position: 50% 70%
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 
 ## CUIDADO 3!
 
@@ -1463,7 +1537,7 @@ background-position: 50% 70%
 
 ---
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 
 &lt;br&gt;&lt;br&gt;
 
@@ -1478,7 +1552,7 @@ background-position: 50% 70%
 
 ---
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 
 ### Remover um objeto
 
@@ -1511,7 +1585,7 @@ ls()
 
 ---
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 
 ### Remover todos os objetos
 
@@ -1542,7 +1616,7 @@ ls()
 
 ---
 
-# 2.8 Ambiente (*environment*/*workspace*)
+# 2.9 Ambiente (*environment*/*workspace*)
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -1553,74 +1627,6 @@ ls()
 ```r
 ls()
 ```
-
----
-
-background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/rstudio_help.png)
-background-size: 600px
-background-position: 50% 98%
-
-# 2.9 Ajuda (*help*)
-## Descreve as informações de uma função
-
-
-```r
-## ajuda
-# descreve as informacoes de uma funcao
-
-help("mean") # arquivo .html
-
-?mean
-```
-
----
-
-background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/help.png)
-background-size: 600px
-background-position: 50% 50%
-
-# 2.9 Ajuda (*help*)
-
----
-
-# 2.9 Ajuda (*help*)
-
-## Resumo do *help*
-
-&lt;br&gt;&lt;br&gt;
-
-1. **Description**: faz um resumo geral sobre o uso da função
-2. **Usage**: mostra como a função deve ser utilizada e quais argumentos podem ser especificados
-3. **Arguments**: explica o que é cada um dos argumentos
-4. **Details**: explica alguns detalhes sobre o uso e aplicação da função (geralmente poucos)
-5. **Value**: mostra o que sai no output após usar a função (os resultados)
-6. **Note**: notas sobre a função
-7. **Authors**: lista os autores da função (quem escreveu os códigos em R)
-8. **References**: referências para os métodos usados
-9. **See also**: mostra outras funções relacionadas que podem ser consultadas
-10. **Examples**: exemplos do uso da função. Copie e cole os exemplos no R para ver como funciona
-
----
-
-# 2.9 Ajuda (*help*)
-
-## Detalhes de um pacote
-
-
-```r
-library(help = "vegan")
-```
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-- Descrição
-- Versão
-- Autores
-- Dependências
-- Sites
-- Repositório
-- Índice de funções
-- Diretório
 
 ---
 
@@ -1635,11 +1641,66 @@ library(help = "vegan")
 # citacao do R
 citation()
 ```
---
+
+```
+## 
+## To cite R in publications use:
+## 
+##   R Core Team (2019). R: A language and environment for
+##   statistical computing. R Foundation for Statistical Computing,
+##   Vienna, Austria. URL https://www.R-project.org/.
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {R: A Language and Environment for Statistical Computing},
+##     author = {{R Core Team}},
+##     organization = {R Foundation for Statistical Computing},
+##     address = {Vienna, Austria},
+##     year = {2019},
+##     url = {https://www.R-project.org/},
+##   }
+## 
+## We have invested a lot of time and effort in creating R, please
+## cite it when using it for data analysis. See also
+## 'citation("pkgname")' for citing R packages.
+```
+
+---
+
+# 2.10 Citações
+
+## Como citar o R e os pacotes em trabalhos?
 
 ```r
 # citacao dos pacotes
 citation("vegan")
+```
+
+```
+## 
+## To cite package 'vegan' in publications use:
+## 
+##   Jari Oksanen, F. Guillaume Blanchet, Michael Friendly, Roeland
+##   Kindt, Pierre Legendre, Dan McGlinn, Peter R. Minchin, R. B.
+##   O'Hara, Gavin L. Simpson, Peter Solymos, M. Henry H. Stevens,
+##   Eduard Szoecs and Helene Wagner (2019). vegan: Community Ecology
+##   Package. R package version 2.5-6.
+##   https://CRAN.R-project.org/package=vegan
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {vegan: Community Ecology Package},
+##     author = {Jari Oksanen and F. Guillaume Blanchet and Michael Friendly and Roeland Kindt and Pierre Legendre and Dan McGlinn and Peter R. Minchin and R. B. O'Hara and Gavin L. Simpson and Peter Solymos and M. Henry H. Stevens and Eduard Szoecs and Helene Wagner},
+##     year = {2019},
+##     note = {R package version 2.5-6},
+##     url = {https://CRAN.R-project.org/package=vegan},
+##   }
+## 
+## ATTENTION: This citation information has been auto-generated from
+## the package DESCRIPTION file and may need manual editing, see
+## 'help("citation")'.
 ```
 
 ---
@@ -1694,7 +1755,7 @@ sum(1 2)
 
 ---
 
-# 2.10 Principais erros
+# 2.11 Principais erros
 
 ## 3. Chamar um objeto errado
 
@@ -1723,7 +1784,7 @@ ggplot(iris) + aes(Sepal.Length, Sepal.Width) + geom_point()
 
 ---
 
-# 2.10 Principais erros
+# 2.11 Principais erros
 
 ## 4. Esquecer de carregar um pacote
 

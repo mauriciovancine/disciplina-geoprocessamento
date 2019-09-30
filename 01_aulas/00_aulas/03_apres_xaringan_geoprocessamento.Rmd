@@ -50,6 +50,14 @@ background-position: 50% 50%
 
 ---
 
+# 3 Estrutura e manejo de dados
+
+## Carreguem o script:
+<br><br><br><br><br>
+##.center[script_aula_03.R]
+
+---
+
 # 3.1 Atributos dos objetos
 
 ## Atribuição
@@ -104,7 +112,7 @@ obj_10
 
 # 3.2 Modos dos objetos
 
-## **Numeric**: números inteiros ou decimais
+## **1. numeric**: números inteiros ou decimais
 ```{r}
 # numeric
 obj_num <- 1
@@ -120,7 +128,7 @@ mode(obj_num)
 
 # 3.2 Modos dos objetos
 
-### 2. **character**: texto
+## **2. character**: texto
 
 --
 ```{r}
@@ -138,7 +146,7 @@ mode(obj_cha)
 
 # 3.2 Modos dos objetos
 
-### 3. **logical**: assume apenas dois valores (booleano)
+## **3. logical**: assume apenas dois valores (booleano)
 
 --
 
@@ -1154,6 +1162,18 @@ li
 
 ---
 
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Bora manejar isso tudo?
+
+---
+
 # 3.4 Manejo de dados unidimensionais
 
 ## Vetor e fator
@@ -1165,18 +1185,6 @@ li
 ve <- seq(10, 100, 10)
 ve
 ```
-
----
-
-class: inverse, middle, center
-
-# Dúvidas?
-
----
-
-class: inverse, middle, center
-
-# Bora manejar isso tudo?
 
 ---
 
@@ -1338,7 +1346,7 @@ length(ve)
 
 ## Vetor e fator
 
-### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort* e *round*
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort*, *order* e *round*
 ```{r}
 # ordenar crescente
 sort(ve)
@@ -1355,7 +1363,7 @@ sort(ve, dec = TRUE)
 
 ## Vetor e fator
 
-### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort* e *round*
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort*, *order* e *round*
 ```{r}
 # mostrar a ordem da ordenacao crescente
 order(ve)
@@ -1377,7 +1385,7 @@ order(sort(ve))
 
 ## Vetor e fator
 
-### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort* e *round*
+### **3 Funções de manejo**: *max*, *min*, *range*, *length*, *sort*, *order* e *round*
 ```{r}
 # arredondamento
 ve

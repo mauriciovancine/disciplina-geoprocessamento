@@ -52,6 +52,14 @@ background-position: 50% 50%
 
 ---
 
+# 3 Estrutura e manejo de dados
+
+## Carreguem o script:
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+##.center[script_aula_03.R]
+
+---
+
 # 3.1 Atributos dos objetos
 
 ## Atribuição
@@ -111,7 +119,7 @@ obj_10
 
 # 3.2 Modos dos objetos
 
-## **Numeric**: números inteiros ou decimais
+## **1. numeric**: números inteiros ou decimais
 
 ```r
 # numeric
@@ -137,7 +145,7 @@ mode(obj_num)
 
 # 3.2 Modos dos objetos
 
-### 2. **character**: texto
+## **2. character**: texto
 
 --
 
@@ -165,7 +173,7 @@ mode(obj_cha)
 
 # 3.2 Modos dos objetos
 
-### 3. **logical**: assume apenas dois valores (booleano)
+## **3. logical**: assume apenas dois valores (booleano)
 
 --
 
@@ -1458,7 +1466,7 @@ pe
 ```
 
 ```
-## [1] 0 0 0 0
+## [1] 0 1 0 0
 ```
 --
 
@@ -1488,7 +1496,7 @@ df
 ```
 ##          pa pe   tr
 ## 1 parcela_1  0 trat
-## 2 parcela_2  0 trat
+## 2 parcela_2  1 trat
 ## 3 parcela_3  0 cont
 ## 4 parcela_4  0 cont
 ```
@@ -1501,7 +1509,7 @@ str(df)
 ```
 ## 'data.frame':	4 obs. of  3 variables:
 ##  $ pa: Factor w/ 4 levels "parcela_1","parcela_2",..: 1 2 3 4
-##  $ pe: int  0 0 0 0
+##  $ pe: int  0 1 0 0
 ##  $ tr: Factor w/ 2 levels "cont","trat": 2 2 1 1
 ```
 
@@ -1521,7 +1529,7 @@ df_c
 ```
 ##      pa          pe  tr 
 ## [1,] "parcela_1" "0" "2"
-## [2,] "parcela_2" "0" "2"
+## [2,] "parcela_2" "1" "2"
 ## [3,] "parcela_3" "0" "1"
 ## [4,] "parcela_4" "0" "1"
 ```
@@ -1602,6 +1610,18 @@ li
 
 ---
 
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Bora manejar isso tudo?
+
+---
+
 # 3.4 Manejo de dados unidimensionais
 
 ## Vetor e fator
@@ -1618,18 +1638,6 @@ ve
 ```
 ##  [1]  10  20  30  40  50  60  70  80  90 100
 ```
-
----
-
-class: inverse, middle, center
-
-# Dúvidas?
-
----
-
-class: inverse, middle, center
-
-# Bora manejar isso tudo?
 
 ---
 

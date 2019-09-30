@@ -27,6 +27,12 @@ background-size: 500px
 
 ---
 
+class: inverse, middle, center
+
+# Alguém conhece ou usa o controle de versão e GitHub?
+
+---
+
 background-image: url(https://miro.medium.com/max/1366/1*mtsk3fQ_BRemFidhkel3dA.png)
 background-size: 400px
 background-position: 85% 85%
@@ -39,7 +45,7 @@ background-position: 85% 85%
 &lt;br&gt;
 0.1 Controle de versão
 &lt;br&gt;
-0.2 Git
+0.2 git
 &lt;br&gt;
 0.3 GitHub
 &lt;br&gt;
@@ -61,7 +67,7 @@ background-position: 85% 85%
 
 class: inverse, middle, center
 
-# Vamos conferir os notebooks?!
+# Mas antes, vamos conferir os notebooks?!
 
 ---
 
@@ -161,7 +167,7 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/
 background-size: 500px
 background-position: 50% 70%
 
-# 0.2 Git
+# 0.2 git
 
 ## Software que faz o controle de versão
 
@@ -177,7 +183,7 @@ background-position: 50% 70%
 
 ## Repositório remoto
 
-### Plataforma de hospedagem de código-fonte com controle de versão usando o Git
+### Plataforma de hospedagem de código-fonte com controle de versão usando o git
 
 ---
 
@@ -193,7 +199,7 @@ background-position: 50% 80%
 
 # 0.3 GitHub
 
-### **Git**: software que faz o controle de versão
+### **git**: software que faz o controle de versão
 
 ### **GitHub**: repositório remoto que hospeda os arquivos versionados
 
@@ -201,7 +207,7 @@ background-position: 50% 80%
 
 # 0.3 GitHub
 
-## Vamos criar uma conta no GitHub (caso não possuam)
+## Vamos criar uma conta no GitHub (Sign up)
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 ##.center[https://github.com]
 
@@ -239,7 +245,7 @@ background-position: 50% 60%
 
 # 0.5 Fork
 
-## Fork: cópia de um repositório remoto para o seu GitHub
+## Fork: copia um repositório remoto (outro GitHub) para o seu GitHub
 
 ---
 
@@ -378,10 +384,10 @@ background-position: 50% 90%
 # 0.7 Add e Commit
 
 ## Add
-**Adicionar** as mudanças após edições (stage)
+**Adiciona** as mudanças após edições (stage)
 
 ## Commit
-**Criar** uma nova versão no repositório local
+**Cria** uma nova versão no repositório local
 
 ---
 
@@ -392,7 +398,7 @@ background-position: 50% 90%
 # 0.8 Push
 
 ## Push
-Enviar uma nova versão do **repositório local** para o **repositório remoto (GitHub)**
+Envia uma nova versão do **repositório local** para o **repositório remoto (GitHub)**
 
 ---
 
@@ -403,7 +409,20 @@ background-position: 50% 90%
 # 0.9 Pull
 
 ## Pull
-Enviar uma nova versão do **repositório remoto (GitHub)** para o **repositório local**
+Envia uma nova versão do **repositório remoto (GitHub)** para o **repositório local**
+
+---
+
+background-image: url(https://saagie.zendesk.com/hc/article_attachments/360003474399/image2018-12-18_16-46-24.jpg)
+background-size: 400px
+background-position: 50% 80%
+
+# 0.10 Controle de versão no RStudio
+
+## RStudio
+
+### Criar o SSH (Secure Shell)
+Conectar git ao GitHub sem fornecer seu nome de usuário ou senha a cada visita (em teoria...)
 
 ---
 
@@ -421,21 +440,10 @@ background-position: 50% 90%
 ```bash
 git config --global user.name "seu_usuario"
 git config --global user.email "seu_email"
+
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa # digite a senha
 ```
-
----
-
-background-image: url(https://saagie.zendesk.com/hc/article_attachments/360003474399/image2018-12-18_16-46-24.jpg)
-background-size: 400px
-background-position: 50% 80%
-
-# 0.10 Controle de versão no RStudio
-
-## RStudio
-
-### Criar o SSH
 
 ---
 

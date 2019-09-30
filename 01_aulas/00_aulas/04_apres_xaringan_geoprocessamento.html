@@ -195,7 +195,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -206,7 +206,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -454,7 +454,6 @@ si
 sp &lt;- read_table2("ATLANTIC_AMPHIBIANS_species.txt")
 sp
 ```
-
 
 ---
 
@@ -788,12 +787,14 @@ background-position: 50% 50%
 
 # 4.6 tidyr
 
-**1 unite()**: junta dados de múltiplas colunas em uma&lt;br&gt;
-**2 separate()**: separa caracteres em múlplica colunas&lt;br&gt;
-**3 drop_na()**: retira linhas com NA&lt;br&gt;
-**4 replace_na()**: substitui NA&lt;br&gt;
-**5 spread()**: long para wide&lt;br&gt;
-**6 gather()**: wide para long&lt;br&gt;
+## Funções
+
+### **1 unite()**: junta dados de múltiplas colunas em uma&lt;br&gt;
+### **2 separate()**: separa caracteres em múlplica colunas&lt;br&gt;
+### **3 drop_na()**: retira linhas com NA&lt;br&gt;
+### **4 replace_na()**: substitui NA&lt;br&gt;
+### **5 spread()**: long para wide&lt;br&gt;
+### **6 gather()**: wide para long&lt;br&gt;
 
 ---
 
@@ -885,6 +886,14 @@ background-position: 50% 50%
 
 ---
 
+background-image: url(https://datacarpentry.org/R-ecology-lesson/img/spread_data_R.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
 # 4.6 tidyr
 
 ## **5 spread()** 
@@ -933,9 +942,30 @@ Long para wide
 
 
 ```r
-si_spread &lt;- si[, c("id", "record", "species_number")] %&gt;% 
+si_spread &lt;- si[, c("id", "state_abbreviation", "species_number")] %&gt;% 
   spread(key = state_abbreviation, value = species_number, fill = 0)
 si_spread
+```
+
+```
+## # A tibble: 1,163 x 24
+##    id    `AR-N` `BR-AL` `BR-BA` `BR-CE` `BR-ES` `BR-GO` `BR-MG` `BR-MS`
+##    &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 amp1…      0       0       0       0       0       0       0       0
+##  2 amp1…      0       0       0      16       0       0       0       0
+##  3 amp1…      0       0       0      14       0       0       0       0
+##  4 amp1…      0       0       0      13       0       0       0       0
+##  5 amp1…      0       0       0      30       0       0       0       0
+##  6 amp1…      0       0       0      42       0       0       0       0
+##  7 amp1…      0       0       0      23       0       0       0       0
+##  8 amp1…      0       0       0      19       0       0       0       0
+##  9 amp1…      0       0       0      13       0       0       0       0
+## 10 amp1…      0       0       0       0       0       0       0       0
+## # … with 1,153 more rows, and 15 more variables: `BR-PB` &lt;dbl&gt;,
+## #   `BR-PE` &lt;dbl&gt;, `BR-PI` &lt;dbl&gt;, `BR-PR` &lt;dbl&gt;, `BR-RJ` &lt;dbl&gt;,
+## #   `BR-RN` &lt;dbl&gt;, `BR-RS` &lt;dbl&gt;, `BR-SC` &lt;dbl&gt;, `BR-SE` &lt;dbl&gt;,
+## #   `BR-SP` &lt;dbl&gt;, `PY-13` &lt;dbl&gt;, `PY-14` &lt;dbl&gt;, `PY-2` &lt;dbl&gt;,
+## #   `PY-4` &lt;dbl&gt;, `PY-7` &lt;dbl&gt;
 ```
 
 ---
@@ -957,9 +987,81 @@ sp_spread &lt;- sp[1:1000, c("id", "species", "individuals")] %&gt;%
 sp_spread
 ```
 
+```
+## # A tibble: 91 x 179
+##    id    `Adelophryne ba… `Adenomera cf. … `Adenomera hyla…
+##    &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+##  1 amp1…                0                0                0
+##  2 amp1…                0                0                0
+##  3 amp1…                0                0                0
+##  4 amp1…                0                0                0
+##  5 amp1…                0                0                0
+##  6 amp1…                0                0                0
+##  7 amp1…                0                0                0
+##  8 amp1…                0                0                0
+##  9 amp1…               72                0                0
+## 10 amp1…                0                0                0
+## # … with 81 more rows, and 175 more variables: `Adenomera
+## #   marmorata` &lt;dbl&gt;, `Adenomera sp.` &lt;dbl&gt;, `Adenomera sp. n.` &lt;dbl&gt;,
+## #   `Agalychnis granulosa` &lt;dbl&gt;, `Boana albomarginata` &lt;dbl&gt;, `Boana
+## #   atlantica` &lt;dbl&gt;, `Boana crepitans` &lt;dbl&gt;, `Boana exastis` &lt;dbl&gt;,
+## #   `Boana faber` &lt;dbl&gt;, `Boana raniceps` &lt;dbl&gt;, `Boana
+## #   semilineata` &lt;dbl&gt;, `Bufo crucifer` &lt;dbl&gt;, `Bufo gr.
+## #   margaritifer` &lt;dbl&gt;, `Bufo granulosus` &lt;dbl&gt;, `Bufo schneideri` &lt;dbl&gt;,
+## #   `Bufo sp.` &lt;dbl&gt;, `Chiasmocleis alagoana` &lt;dbl&gt;, `Chiasmocleis
+## #   alagoanus` &lt;dbl&gt;, `Chiasmocleis sp. 1` &lt;dbl&gt;, `Chthonerpeton aff.
+## #   arii` &lt;dbl&gt;, `Corythomantis greeningi` &lt;dbl&gt;, `Dendropsophus aff.
+## #   decipiens` &lt;dbl&gt;, `Dendropsophus branneri` &lt;dbl&gt;, `Dendropsophus
+## #   decipiens` &lt;dbl&gt;, `Dendropsophus dutrai` &lt;dbl&gt;, `Dendropsophus
+## #   elegans` &lt;dbl&gt;, `Dendropsophus gr. microcephalus` &lt;dbl&gt;,
+## #   `Dendropsophus gr. nanus` &lt;dbl&gt;, `Dendropsophus gr. oliveirai` &lt;dbl&gt;,
+## #   `Dendropsophus haddadi` &lt;dbl&gt;, `Dendropsophus leucophyllatus` &lt;dbl&gt;,
+## #   `Dendropsophus microcephalus` &lt;dbl&gt;, `Dendropsophus minutus` &lt;dbl&gt;,
+## #   `Dendropsophus nanus` &lt;dbl&gt;, `Dendropsophus oliveirai` &lt;dbl&gt;,
+## #   `Dendropsophus soaresi` &lt;dbl&gt;, `Dendropsophus sp.` &lt;dbl&gt;,
+## #   `Dendropsophus sp. (gr. microcephalus)` &lt;dbl&gt;, `Dendropsophus sp.
+## #   1` &lt;dbl&gt;, `Dendropsophus sp.2` &lt;dbl&gt;, `Dendropsophus studerae` &lt;dbl&gt;,
+## #   `Dermatonotus muelleri` &lt;dbl&gt;, `Elachistocleis cesarii` &lt;dbl&gt;,
+## #   `Elachistocleis ovalis` &lt;dbl&gt;, `Elachistocleis piauiensis` &lt;dbl&gt;,
+## #   `Elachistocleys cesarii` &lt;dbl&gt;, `Eleutherodactylus gr. ramagii` &lt;dbl&gt;,
+## #   `Eleutherodactylus sp. 1` &lt;dbl&gt;, `Eleutherodactylus sp. 2` &lt;dbl&gt;,
+## #   `Frostius pernambucensis` &lt;dbl&gt;, `Gastrotheca fissipes` &lt;dbl&gt;,
+## #   `Haddadus binotatus` &lt;dbl&gt;, `Hyla albomarginata` &lt;dbl&gt;, `Hyla
+## #   branneri` &lt;dbl&gt;, `Hyla crepitans` &lt;dbl&gt;, `Hyla elegans` &lt;dbl&gt;, `Hyla
+## #   faber` &lt;dbl&gt;, `Hyla gr. nana` &lt;dbl&gt;, `Hyla minuta` &lt;dbl&gt;, `Hyla
+## #   raniceps` &lt;dbl&gt;, `Hyla soaresi` &lt;dbl&gt;, `Hylomantis granulosa` &lt;dbl&gt;,
+## #   `Hypsiboas albomarginatus` &lt;dbl&gt;, `Hypsiboas atlanticus` &lt;dbl&gt;,
+## #   `Hypsiboas crepitans` &lt;dbl&gt;, `Hypsiboas exastis` &lt;dbl&gt;, `Hypsiboas
+## #   faber` &lt;dbl&gt;, `Hypsiboas fasciatus` &lt;dbl&gt;, `Hypsiboas
+## #   freicanecae` &lt;dbl&gt;, `Hypsiboas multifasciatus` &lt;dbl&gt;, `Hypsiboas
+## #   pardalis` &lt;dbl&gt;, `Hypsiboas puncatatus` &lt;dbl&gt;, `Hypsiboas
+## #   raniceps` &lt;dbl&gt;, `Hypsiboas semilineatus` &lt;dbl&gt;, `Hypsiboas
+## #   sp.` &lt;dbl&gt;, `Hypsiboas sp. 1` &lt;dbl&gt;, `Ischnocnema gr. ramagii` &lt;dbl&gt;,
+## #   `Ischnocnema ramagii` &lt;dbl&gt;, `Ischnocnema sp.` &lt;dbl&gt;, `Ischnocnema sp.
+## #   1` &lt;dbl&gt;, `Ischnocnema sp. 2` &lt;dbl&gt;, `Ischnocnema vinhai` &lt;dbl&gt;,
+## #   `Leptdactylus fuscus` &lt;dbl&gt;, `Leptodactylus aff. hylaedactylus` &lt;dbl&gt;,
+## #   `Leptodactylus aff. pustulatus` &lt;dbl&gt;, `Leptodactylus aff.
+## #   syphax` &lt;dbl&gt;, `Leptodactylus cf. latrans` &lt;dbl&gt;, `Leptodactylus
+## #   furnarius` &lt;dbl&gt;, `Leptodactylus fuscus` &lt;dbl&gt;, `Leptodactylus gr.
+## #   marmoratus` &lt;dbl&gt;, `Leptodactylus gr. ocellatus` &lt;dbl&gt;, `Leptodactylus
+## #   labyrinthicus` &lt;dbl&gt;, `Leptodactylus latrans` &lt;dbl&gt;, `Leptodactylus
+## #   macrosternum` &lt;dbl&gt;, `Leptodactylus marmoratus` &lt;dbl&gt;, `Leptodactylus
+## #   mystaceus` &lt;dbl&gt;, `Leptodactylus mystacinus` &lt;dbl&gt;, `Leptodactylus
+## #   natalensis` &lt;dbl&gt;, `Leptodactylus ocellatus` &lt;dbl&gt;, `Leptodactylus
+## #   pustulatus` &lt;dbl&gt;, …
+```
+
 ---
 
 background-image: url(http://www.flutterbys.com.au/stats/tut/images/gather.png)
+background-size: 800px
+background-position: 50% 50%
+
+# 4.6 tidyr
+
+---
+
+background-image: url(https://datacarpentry.org/R-ecology-lesson/img/gather_data_R.png)
 background-size: 800px
 background-position: 50% 50%
 
@@ -979,26 +1081,26 @@ wide para long
 
 
 ```r
-si_gather &lt;- si_spread %&gt;% 
+sp_gather &lt;- sp_spread %&gt;% 
   gather(key = record, value = species_number, -id)
-si_gather
+sp_gather
 ```
 
 ```
-## # A tibble: 2,326 x 3
-##    id      record species_number
-##    &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;
-##  1 amp1001 ab                 19
-##  2 amp1002 ab                  0
-##  3 amp1003 ab                  0
-##  4 amp1004 ab                  0
-##  5 amp1005 ab                  0
-##  6 amp1006 ab                  0
-##  7 amp1007 ab                  0
-##  8 amp1008 ab                  0
-##  9 amp1009 ab                 13
-## 10 amp1010 ab                  1
-## # … with 2,316 more rows
+## # A tibble: 16,198 x 3
+##    id      record                   species_number
+##    &lt;chr&gt;   &lt;chr&gt;                             &lt;dbl&gt;
+##  1 amp1001 Adelophryne baturitensis              0
+##  2 amp1002 Adelophryne baturitensis              0
+##  3 amp1003 Adelophryne baturitensis              0
+##  4 amp1004 Adelophryne baturitensis              0
+##  5 amp1005 Adelophryne baturitensis              0
+##  6 amp1006 Adelophryne baturitensis              0
+##  7 amp1007 Adelophryne baturitensis              0
+##  8 amp1008 Adelophryne baturitensis              0
+##  9 amp1009 Adelophryne baturitensis             72
+## 10 amp1010 Adelophryne baturitensis              0
+## # … with 16,188 more rows
 ```
 
 ---
@@ -1081,13 +1183,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ---
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ### Seleciona colunas pelo nome
 
@@ -1119,7 +1221,7 @@ si_select
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ### Remove as colunas pelo nome
 
@@ -1156,7 +1258,7 @@ si_select
 
 # 4.7 dplyr
 
-## **1 select**
+## **1 select()**
 
 ### Seleciona colunas por um padrão
 
@@ -1193,13 +1295,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **2 pull**
+## **2 pull()**
 
 ---
 
 # 4.7 dplyr
 
-## **2 pull**
+## **2 pull()**
 
 
 ```r
@@ -1410,7 +1512,7 @@ si_pull
 
 # 4.7 dplyr
 
-## **2 pull**
+## **2 pull()**
 
 
 ```r
@@ -1478,7 +1580,7 @@ si_pull
 
 # 4.7 dplyr
 
-## **3 rename**
+## **3 rename()**
 
 ### Renomeia colunas
 
@@ -1520,13 +1622,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **4 mutate**
+## **4 mutate()**
 
 ---
 
 # 4.7 dplyr
 
-## **4 mutate**
+## **4 mutate()**
 
 ### Adiciona colunas novas ou vindas de operações
 
@@ -1569,13 +1671,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **5 arrange**
+## **5 arrange()**
 
 ---
 
 # 4.7 dplyr
 
-## **5 arrange**
+## **5 arrange()**
 
 ### Ordenar de forma crescente pela coluna **species_number**
 
@@ -1610,13 +1712,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **6 filter**
+## **6 filter()**
 
 ---
 
 # 4.7 dplyr
 
-## **6 filter** 
+## **6 filter()** 
 
 ### operadores: &gt;, &gt;=, &lt;, &lt;=, ==, !=, is.na, !is.na, %in%
 ### Filtrar para locais com mais de 5 espécies
@@ -1639,7 +1741,7 @@ si_filter
 
 # 4.7 dplyr
 
-## **6 filter** 
+## **6 filter()** 
 ### Filtrar para locais sem NA no métodos passivos
 
 ```r
@@ -1660,7 +1762,7 @@ si_filter
 
 # 4.7 dplyr
 
-## **6 filter** 
+## **6 filter()** 
 ### Filtrar para locais amostrados com mais de 5 espécies **E** em Pernambuco
 
 ```r
@@ -1681,7 +1783,7 @@ si_filter
 
 # 4.7 dplyr
 
-## **7 distinct**
+## **7 distinct()**
 ### Remove linhas duplicadas considerando a coluna número de espécies
 
 ```r
@@ -1711,7 +1813,7 @@ si_distinct
 
 # 4.7 dplyr
 
-## **7 distinct**
+## **7 distinct()**
 ### Remove linhas duplicadas considerando a coluna número de espécies e mantém as demais
 
 ```r
@@ -1747,7 +1849,7 @@ si_distinct
 
 # 4.7 dplyr
 
-## **8 slice** 
+## **8 slice()** 
 ### Selecionar linhas 1 a 10
 
 ```r
@@ -1783,7 +1885,7 @@ si_slice
 
 # 4.7 dplyr
 
-## **9 n_sample** 
+## **9 n_sample()** 
 
 ### Amostrar 100 linhas aleatoriamente
 
@@ -1825,13 +1927,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **10 summarise**
+## **10 summarise()**
 
 ---
 
 # 4.7 dplyr
 
-## **10 summarise**
+## **10 summarise()**
 
 ### Média e desvio padrão do número de espécies total
 
@@ -1853,7 +1955,7 @@ si_summarise
 
 # 4.7 dplyr
 
-## **10 summarise**
+## **10 summarise()**
 ### Média e desvio padrão do número de espécies por país
 
 ```r
@@ -1880,13 +1982,13 @@ background-position: 50% 50%
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ---
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
@@ -1919,7 +2021,7 @@ si_coord
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
@@ -1954,7 +2056,7 @@ sp_join
 
 # 4.7 dplyr
 
-## **11 join**
+## **11 join()**
 
 ## Adicionar longitute e latitude na tabela de espécies
 
@@ -1973,7 +2075,7 @@ colnames(sp_join)
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 
 ```r
 da &lt;- si %&gt;% 
@@ -2001,7 +2103,7 @@ da
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 
 ```r
 da &lt;- si %&gt;% 
@@ -2030,7 +2132,7 @@ da
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 
 ```r
 da &lt;- si %&gt;% 
@@ -2061,7 +2163,7 @@ da
 ---
 
 # 4.7 dplyr
-## manipular os dados de forma mais simples
+## Manipular os dados de forma mais simples
 
 ```r
 da &lt;- si %&gt;% 
