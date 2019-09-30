@@ -19,7 +19,7 @@
 
 # 4.1 tidyverse -----------------------------------------------------------
 # instalar o pacote
-install.packages("tidyverse")
+# install.packages("tidyverse")
 
 # carregar o pacote
 library(tidyverse)
@@ -72,10 +72,10 @@ sp
 
 # 4.4 readxl e writexl ----------------------------------------------------
 # packages
-install.packages("readxl")
+# install.packages("readxl")
 library("readxl")
 
-install.packages("writexl")
+# install.packages("writexl")
 library("writexl")
 
 # import sites
@@ -158,12 +158,11 @@ si_replace_na
 # long para wide
 # 1. key: variavel categorica que ira definir os nomes das colunas
 # 2. value: variavel numerica que ira preencher os dados
-
 si_spread <- si[, c("id", "record", "species_number")] %>% 
   spread(key = record, value = species_number, fill = 0)
 si_spread
 
-si_spread <- si[, c("id", "record", "species_number")] %>% 
+si_spread <- si[, c("id", "state_abbreviation", "species_number")] %>% 
   spread(key = state_abbreviation, value = species_number, fill = 0)
 si_spread
 
@@ -175,7 +174,6 @@ sp_spread
 # wide para long
 # 1. key: variavel categorica que ira definir os nomes das colunas
 # 2. value: variavel numerica que ira preencher os dados
-
 si_gather <- si_spread %>% 
   gather(key = record, value = species_number, -id)
 si_gather

@@ -330,7 +330,7 @@ background-position: 95% 85%
 <br>
 6.10 Dados matriciais (gride ou raster)
 <br>
-6.11 Formatos de arquivos matriciais (.tif)
+6.11 Formatos de arquivos matriciais (.tif e .bil)
 <br>
 6.12 Banco de dados geoespaciais (geopackage - .gpkg)
 <br>
@@ -340,14 +340,14 @@ background-position: 95% 85%
 
 background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.png)
 background-size: 400px
-background-position: 100% 80%
+background-position: 100% 90%
 
 # Disciplina
 
 ## Conteúdo
 
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
-7.1 Interface do QGIS (menus, camadas, visualização, ferramentas e status)
+7.1 Interface do QGIS
 <br>
 7.2 Plugins (complementos)
 <br>
@@ -361,78 +361,50 @@ background-position: 100% 80%
 <br>
 7.7 Tabela de atributos
 <br>
-7.8 Cálculo de área, perímetro e distância de dados vetoriais
+7.8 Tabela de atributos - cálculos
 <br>
-7.9 Criação de dados vetoriais
+7.9 Geoprocessamento de dados vetoriais
 <br>
-7.10 Edição de dados vetoriais
+7.10 Criação de dados vetoriais
 <br>
-7.11 Geoprocessamento de dados vetoriais
+7.11 Edição de dados vetoriais
 <br>
 7.12 Fotointerpretação de imagens
 <br>
 7.13 Verificação geométrica e ajuste topológico
 <br>
-7.14 Reprojeção de dados vetoriais
-<br>
-7.15 Exportar dados vetoriais
+7.14 Reprojetar e exportar dados vetoriais
 
 ---
 
 background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.png)
 background-size: 400px
-background-position: 100% 93%
+background-position: 100% 90%
 
 # Disciplina
 
 ## Conteúdo
 
 ### 7 Introdução e funcionamento do software QGIS (terça - quarta)
-7.16 Adicionar dados matriciais preexistentes
+7.15 Adicionar dados matriciais preexistentes
 <br>
-7.17 Propriedades de dados matriciais
+7.16 Propriedades de dados matriciais
 <br>
-7.18 Georreferenciamento de dados matriciais
+7.17 Mosaico (unir raster)
 <br>
-7.19 Mosaico (união de imagens)
+7.18 Recorte (extração de máscara)
 <br>
-7.20 Recorte (extração de máscara)
+7.19 Alinhar raster
 <br>
-7.21 Alinhar raster (extensão e resolução)
+7.20 Topografia
 <br>
-7.22 Análises de superfície (mapas de calor, interpolação, proximidade)
+7.21 Conversão de dados vetoriais e dados matriciais
 <br>
-7.23 Estatística zonal
+7.22 Calculadora raster
 <br>
-7.24 Calculadora raster
+7.23 Reprojetar e exportar dados matriciais
 <br>
-7.25 Conversão de dados vetoriais e dados matriciais
-<br>
-7.26 Reprojeção de dados matriciais
-<br>
-7.27 Exportar dados matriciais
-
----
-
-background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.png)
-background-size: 400px
-background-position: 100% 93%
-
-# Disciplina
-
-## Conteúdo
-
-### 7 Introdução e funcionamento do software QGIS (terça - quarta)
-
-7.28 Sensoriamento Remoto (bandas espectrais – composição e extração)
-<br>
-7.29 Classificação supervisionada
-<br>
-7.30 Índices de vegetação (NDVI/EVI)
-<br>
-7.31 Topografia (MDE, MDS, MDT, elevação, declividade, aspecto, hidrologia)
-<br>
-7.32 Elaboração de mapa temáticos
+7.24 Elaboração de mapa temáticos
 
 ---
 

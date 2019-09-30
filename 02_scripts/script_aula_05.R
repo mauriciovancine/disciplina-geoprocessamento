@@ -189,7 +189,7 @@ ggplot(data = da) +
         axis.text.x = element_text(size = 20),
         axis.text.y = element_text(size = 20))
 
-# theme_
+# theme_*
 ggplot(data = da) +
   aes(species_number) +
   geom_histogram(color = "black", fill = "forest green", bins = 10, 
@@ -451,7 +451,6 @@ ggviolin(data = da,
          xlab = "Número de espécies",
          ylab = "Frequeência absoluta",
          legend = "none")
-
 
 # 5.8 grafico de dispersao (scatter plot) ---------------------------------
 # graphics

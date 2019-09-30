@@ -2133,13 +2133,6 @@ ggpairs(data = da_sel) +
 
 ---
 
-class: clear, center, middle
-background-image: url(http://www.sthda.com/english/sthda-upload/images/symplyr/ggpubr-300.png)
-background-size: 400px
-background-position: 50% 50%
-
----
-
 # 5.9 Gráfico pareado (pairs plot)
 
 ## psych
@@ -2166,7 +2159,7 @@ pairs.panels(da_sel,
 
 # 5.9 Gráfico pareado (pairs plot)
 
-## ggpubr
+## psych
 ```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.align='center', out.width = '60%'}
 # package
 library(psych)

@@ -190,8 +190,8 @@ ma_col <- matrix(data = ve, nrow = 4, ncol = 3, byrow = FALSE)
 ma_col
 
 #  2 combinando vetores
-# `rbind`: combina vetores por linha, i.e., vetor embaixo do outro
-# `cbind`: combina vetores por coluna, i.e., vetor ao lado do outro
+# rbind: combina vetores por linha, i.e., vetor embaixo do outro
+# cbind: combina vetores por coluna, i.e., vetor ao lado do outro
 
 # criar dois vetores
 vec_1 <- c(1, 2, 3)
@@ -216,7 +216,7 @@ ma_ch
 
 # 4. array: homogeneo (um modo) e multidimensional (mais que duas dimensoes)
 # 1 Dispondo elementos
-# `array`: dispõem um vetor em um certo numero de linhas, colunas e dimensões
+# array: dispõem um vetor em um certo numero de linhas, colunas e dimensões
 
 # vetor
 ve <- 1:8
@@ -227,7 +227,7 @@ ar
 
 # 5. data frame: heterogeneo (mais de um modo) e bidimensional (duas dimensões)
 # 1 Combinando vetores horizontalmente
-# `data.frame`: combina vetores horizontalmente, um ao lado do outro. Semelhante à funcao `cbind`
+# data.frame: combina vetores horizontalmente, um ao lado do outro. Semelhante à funcao cbind
 
 # criar tres vetores
 vec_ch <- c("sp1", "sp2", "sp3")

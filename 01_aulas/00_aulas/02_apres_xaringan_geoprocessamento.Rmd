@@ -402,7 +402,7 @@ background-position: 50% 50%
 
 class: inverse, center, middle
 
-# Todos entenderam como iremos fazer até o final dessa aula?
+# Todos entenderam como iremos fazer até o final desse curso?
 
 ---
 
