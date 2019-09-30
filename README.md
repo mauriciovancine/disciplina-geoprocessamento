@@ -57,14 +57,7 @@ R, RStudio, QGIS e GRASS GIS <br>
 [Curso Básico de QGIS](https://www.youtube.com/playlist?list=PLRrETkwtvTrMEeicAyYABdNwPpnzZdw5q) <br>
 [Curso de QGIS 3.6 - MasterGIS](https://www.youtube.com/watch?v=anSaq5pbCpk&list=PLjHRAtOKOOLhHyQHUXBCfSqOWHFJZ1Pnf)
 
-3. Instalar a versão mais estável do [GRASS GIS (7.6.1 stable)](https://grass.osgeo.org/#) <br>
-[Vídeo de instalação do GRASS GIS](https://youtu.be/wKRCtwq65VU) <br>
-[Curso de GRASS GIS](https://www.youtube.com/watch?v=56xkXMd9XBM&list=PLycBDiXWmuxnfLUjs1wkm6WvYsazeLZ0K)
-
-4. Instalar o [Sublime Text](https://www.sublimetext.com/) <br>
-[Vídeo de instalação do Sublime Text](https://youtu.be/j61dqr7geRo) <br>
-
-5. Instalar o [git](https://git-scm.com/downloads) <br>
+3. Instalar o [git](https://git-scm.com/downloads) <br>
 [Vídeo de instalação do git](https://youtu.be/QSfHNEiBd2k) <br>
 
 #### Linux (Ubuntu e Linux Mint)
@@ -94,15 +87,6 @@ sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt update # mint 19 ou ubuntu
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6B827C12C2D425E227EDCA75089EBE08314DF160 # ubuntu 19
 sudo add-apt-repository "deb http://ppa.launchpad.net/ubuntugis/ppa/ubuntu bionic main" # ubuntu 19
 sudo apt install -y qgis qgis-plugin-grass
-
-# grass
-sudo apt install -y grass
-
-# sublime text
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update
-sudo apt install -y sublime-text
 
 # git
 sudo add-apt-repository ppa:git-core/ppa && sudo apt update
