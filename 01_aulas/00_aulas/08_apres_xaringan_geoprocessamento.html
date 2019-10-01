@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 # Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>
-## 8 Estrutura e manejo de dados geoespaciais na linguagem R <br><br> xaringan [presentation ninja]
+## 8 Estrutura e manejo de dados geoespaciais no R <br><br> xaringan [presentation ninja]
 ### Maurício H. Vancine
 ### 03-04/10/2019
 
@@ -22,13 +22,13 @@ class: center, middle, inverse, title-slide
 
 
 class: clear, center, middle
-background-image: url(https://raw.githubusercontent.com/mauriciovancine/curso-r/master/imagens/r_data.png)
-background-size: 800px
-background-position: 50% 50%
+background-image: url(https://community.rstudio.com/uploads/default/original/2X/3/3eaa7ae0ff05c5dd3933d153be865811847ce4be.jpeg)
+background-size: 400px
+background-position: 50% 60%
 
 ---
 
-### 8 Estrutura e manejo de dados geoespaciais na linguagem R (quinta-sexta)
+# 8 Dados geoespaciais no R
 
 ## Tópicos
 8.1 Material e pacotes para análise de dados geoespacias
@@ -55,7 +55,7 @@ background-position: 50% 50%
 
 ---
 
-### 8 Estrutura e manejo de dados geoespaciais na linguagem R (quinta-sexta)
+# 8 Dados geoespaciais no R
 
 ## Tópicos
 
@@ -85,17 +85,33 @@ background-position: 50% 50%
 
 ---
 
+background-image: url(https://mundogeo.com/wp-content/uploads/2019/06/livro-analise-espacial-com-software-r.jpg)
+background-size: 250px
+background-position: 50% 65%
+
+# 8.1 Material manejar dados geoespacias
+
+## Livros
+
+### **Análise espacial com R (2019)**
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://www.dropbox.com/s/blgtp2bmpdghol7/AnaliseEspacialComR.pdf?dl=0
+
+---
+
 background-image: url(https://geocompr.robinlovelace.net/images/cover.png)
 background-size: 230px
-background-position: 50% 75%
+background-position: 50% 65%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Livros
 
 ### **Geocomputation with R (2019)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://geocompr.robinlovelace.net/
 
@@ -103,15 +119,15 @@ background-position: 50% 75%
 
 background-image: url(https://images.springer.com/sgw/books/medium/9781461476177.jpg)
 background-size: 230px
-background-position: 50% 75%
+background-position: 50% 65%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Livros
 
 ### **Applied Spatial Data Analysis with R (2008, 2013)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://www.springer.com/gp/book/9781461476177
 
@@ -119,15 +135,15 @@ background-position: 50% 75%
 
 background-image: url(https://images-na.ssl-images-amazon.com/images/I/41biGRepK9L._SX349_BO1,204,203,200_.jpg)
 background-size: 230px
-background-position: 50% 71%
+background-position: 50% 65%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Livros
 
 ### **An introduction to R for spatial analysis &amp; mapping (2015, 2018)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://bookdown.org/lexcomber/brunsdoncomber2e/
 
@@ -137,13 +153,13 @@ background-image: url(https://images.springer.com/sgw/books/medium/9783030019884
 background-size: 230px
 background-position: 50% 70%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Livros
 
 ### **Spatial Ecology and Conservation Modeling: applications with R (2018)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://www.springer.com/gp/book/9783030019884
 
@@ -151,49 +167,33 @@ background-position: 50% 70%
 
 background-image: url(http://www.opengeohub.org/sites/default/files/styles/height/public/team/Edzer_Pebesma.jpg)
 background-size: 230px
-background-position: 50% 70%
+background-position: 50% 65%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Livros
 
 ### **Spatial Data Science (2019)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://keen-swartz-3146c4.netlify.com/
 
 ---
 
 background-image: url(https://images.tandf.co.uk/common/jackets/amazon/978081539/9780815392750.jpg)
-background-size: 200px
+background-size: 230px
 background-position: 50% 65%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Livros
 
 ### **Spatial Data Analysis in Ecology and Agriculture Using R (2012, 2019)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-
-[*] https://www.crcpress.com/Spatial-Data-Analysis-in-Ecology-and-Agriculture-Using-R-Second-Edition/Plant/p/book/9780815392750
-
----
-
-background-image: url(https://mundogeo.com/wp-content/uploads/2019/06/livro-analise-espacial-com-software-r.jpg)
-background-size: 230px
-background-position: 50% 75%
-
-# 8.1 Material e pacotes para análise de dados geoespacias
-
-## Livros
-
-### **Análise espacial com R (2019)**
-
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
-[*] https://www.dropbox.com/s/blgtp2bmpdghol7/AnaliseEspacialComR.pdf?dl=0
+[*] https://www.crcpress.com/Spatial-Data-Analysis-in-Ecology-and-Agriculture-Using-R-Second-Edition/Plant/p/book/9780815392750
 
 ---
 
@@ -201,13 +201,13 @@ background-image: url(https://atlan.com/images/new/illustrations/gis-course/land
 background-size: 280px
 background-position: 50% 75%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Apostilas
 
 ### **Introduction to GIS: Manipulating and Mapping Geospatial Data in R (2019)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://cdn2.hubspot.net/hubfs/2287011/Atlan%20GIS%20Course/All%20lessons.pdf
 
@@ -215,46 +215,121 @@ background-position: 50% 75%
 
 background-image: url(https://desp.ucdavis.edu/sites/default/files/styles/profile_picture/public/robert-j.hijmans.jpg?itok=ybvwHsUL)
 background-size: 230px
-background-position: 50% 75%
+background-position: 50% 70%
 
-# 8.1 Material e pacotes para análise de dados geoespacias
+# 8.1 Material manejar dados geoespacias
 
 ## Apostilas
 
 ### **Spatial Data Analysis and Modeling with R (2019)**
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] http://rspatial.org
 
 ---
 
 background-image: url(https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif)
-background-size: 350px
-background-position: 50% 50%
+background-size: 300px
+background-position: 50% 70%
 
 # 8.2 Vetor: pacote sf
 
 ## Pacote sf
 
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+```r
+# sf
+install.packages("sf")
+library(sf)
+```
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 [*] https://journal.r-project.org/archive/2018/RJ-2018-009/RJ-2018-009.pdf
 
 ---
 
-# 8.3 Importar dados vetoriais
+# 8.2 Vetor: pacote sf
 
+## Pacote sf
+
+### Rápida importação e exportação de dados
+
+--
+
+### Desempenho aprimorado de plot
+
+--
+
+### Objetos sf podem ser tratados como data frames (tibble) na maioria das operações
+
+--
+
+### As funções sf podem ser combinadas usando o operador `%&gt;%` e funcionam bem com `tidyverse`.
+
+--
+
+### Os nomes das funções sf são relativamente consistentes e intuitivos (todos começam com `st_`).
 
 ---
 
 # 8.3 Importar dados vetoriais
 
+## Dados preexistentes
+
+
+
+```r
+# directory
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_raw/USO")
+
+# import
+pe &lt;- sf::st_read("PE_2611606_USO.shp")
+```
+
+
+```r
+# view
+pe
+```
+
+```
+## Simple feature collection with 4 features and 6 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 277747.8 ymin: 9098056 xmax: 294953.5 ymax: 9122997
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+##   GEOCODIGO MUNICIPIO UF CD_UF         CLASSE_USO   AREA_HA
+## 1   2611606    RECIFE PE    26               água   771.057
+## 2   2611606    RECIFE PE    26   área antropizada  4011.280
+## 3   2611606    RECIFE PE    26     área edificada 11276.900
+## 4   2611606    RECIFE PE    26 formação florestal  5791.350
+##                         geometry
+## 1 MULTIPOLYGON (((285004.8 91...
+## 2 MULTIPOLYGON (((284949.9 90...
+## 3 MULTIPOLYGON (((289120.5 91...
+## 4 MULTIPOLYGON (((280462.9 91...
+```
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: rnaturalearth
+
+```r
+install.packages("rnaturalearth")
+library(rnaturalearth)
+```
+
 
 ---
 
 
 # 8.3 Importar dados vetoriais
+
 
 ---
 
@@ -263,6 +338,23 @@ background-size: 450px
 background-position: 50% 60%
 
 # 8.4 Tipos de dados vetoriais
+
+---
+
+background-image: url(https://www.neonscience.org/sites/default/files/images/dc-spatial-vector/pnt_line_poly.png)
+background-size: 500px
+background-position: 50% 70%
+
+# 8.2 Vetor: pacote sf
+
+---
+
+background-image: url(https://www.neonscience.org/sites/default/files/images/dc-spatial-vector/pnt_line_poly.png)
+background-size: 500px
+background-position: 50% 70%
+
+# 8.2 Vetor: pacote sf
+
 
 ---
 
