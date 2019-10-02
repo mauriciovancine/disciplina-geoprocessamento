@@ -41,25 +41,24 @@ background-position: 50% 60%
 &lt;br&gt;
 8.5 Estrutura de dados vetoriais
 &lt;br&gt;
-8.6 Visualizar dados vetoriais (graphics, ggplot e tmap)
+8.6 Tabela de atributos
 &lt;br&gt;
-8.7 Projeção de dados vetoriais
+8.7 Operações de atributos de dados vetoriais
 &lt;br&gt;
-8.8 Tabela de atributos
+8.8 Operações geométricas de dados vetoriais
 &lt;br&gt;
-8.9 Operações de atributos de dados vetoriais
+8.9 Operações espaciais de dados vetoriais
 &lt;br&gt;
-8.10 Operações geométricas de dados vetoriais
+8.10 Reprojeção e exportar dados vetoriais
 &lt;br&gt;
-8.11 Operações espaciais de dados vetoriais
+8.11 Visualizar dados vetoriais (graphics, ggplot e tmap)
 
 ---
 
 # 8 Dados geoespaciais no R
 
 ## Tópicos
-
-8.12 Raster: pacote raster
+8.12 Raster: pacotes raster
 &lt;br&gt;
 8.13 Importar dados matriciais
 &lt;br&gt;
@@ -67,21 +66,17 @@ background-position: 50% 60%
 &lt;br&gt;
 8.15 Estrutura de dados matriciais
 &lt;br&gt;
-8.16 Visualizar dados matriciais (graphics, ggplot e tmap)
+8.16 Manipulando dados matriciais
 &lt;br&gt;
-8.17 Projeção de dados matriciais
+8.17 Operação geométricas de dados matriciais
 &lt;br&gt;
-8.18 Manipulando dados matriciais
+8.18 Operação espaciais de dados matriciais
 &lt;br&gt;
-8.19 Operação geométricas de dados matriciais
+8.19 Vetor para raster: pacote fasterize
 &lt;br&gt;
-8.20 Operação espaciais de dados matriciais
+8.20 Reprojeção e exportar dados matriciais
 &lt;br&gt;
-8.21 Vetor para raster: pacote fasterize
-&lt;br&gt;
-8.22 Elaboração de mapas (ggplot e tmap)
-&lt;br&gt;
-8.23 Automação de processamentos
+8.21 Elaboração de mapas (ggplot e tmap)
 
 ---
 
@@ -252,7 +247,7 @@ library(sf)
 
 # 8.2 Vetor: pacote sf
 
-## Pacote sf
+## **Pacote sf**
 
 ### Rápida importação e exportação de dados
 
@@ -285,13 +280,13 @@ library(sf)
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_raw/USO")
 
 # import
-pe &lt;- sf::st_read("PE_2611606_USO.shp")
+rec_uso &lt;- sf::st_read("PE_2611606_USO.shp")
 ```
 
 
 ```r
 # view
-pe
+rec_uso
 ```
 
 ```
@@ -317,6 +312,180 @@ pe
 
 # 8.3 Importar dados vetoriais
 
+## Dados preexistentes - visualizar
+
+```r
+plot(rec_uso[1])
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-5-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Download
+
+```r
+# diretorio
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor")
+dir.create("recife_prefeitura")
+setwd("recife_prefeitura")
+```
+
+--
+
+
+```r
+# download
+download.file(url = "http://www.recife.pe.gov.br/ESIG/documentos/SHP/ProjetoRecife_SHP.zip",
+              destfile = "ProjetoRecife_SHP.zip")
+
+# unzip
+unzip(zipfile = "ProjetoRecife_SHP.zip")
+```
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Importar bairros
+
+
+
+```r
+# directory
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
+
+# import
+rec_bairros &lt;- sf::st_read("Bairros.shp", quiet = TRUE)
+```
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados preexistentes - visualizar
+
+```r
+plot(rec_bairros[1])
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-10-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+background-image: url(https://raw.githubusercontent.com/ipeaGIT/geobr/master/man/figures/geobr_logo_b.png)
+background-size: 300px
+background-position: 50% 70%
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: geobr
+
+```r
+install.packages("geobr")
+library(geobr)
+```
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] https://github.com/ipeaGIT/geobr
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: geobr
+
+```r
+# brazil
+br_2018 &lt;- geobr::read_country(year = 2018)
+br_2018
+
+plot(br_2018[1], col = "gray", main = NA)
+```
+
+
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-14-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: geobr
+
+```r
+# brazil
+br_1872 &lt;- geobr::read_country(year = 1872)
+br_1872
+
+plot(br_1872[1], col = "gray", main = NA)
+```
+
+
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-17-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: geobr
+
+```r
+# pernambuco
+per_2018 &lt;- geobr::read_state(code_state = "PE", year = 2018)
+per_2018
+
+plot(per_2018[1], col = "gray", main = NA)
+```
+
+
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-20-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: geobr
+
+```r
+# pernambuco municipios
+per_mun_2018 &lt;- geobr::read_municipality(code_muni = "PE", year = 2018)
+per_mun_2018
+
+plot(per_mun_2018[1], col = "gray", main = NA)
+```
+
+
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-23-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: geobr
+
+&lt;br&gt;&lt;br&gt;
+
+|Function|Geographies available|Years available|Source|
+|-----|-----|-----|-----|
+|`read_country`| Country | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018 | IBGE |
+|`read_state`| States | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018 | IBGE |
+|`read_municipality`| Municipality | 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2005, 2007, 2010, 2013, 2014, 2015, 2016, 2017, 2018 | IBGE | 
+
+---
+
+background-image: url(https://ropensci.github.io/ambassador-packet/slides/images/ropensci.png)
+background-size: 650px
+background-position: 50% 50%
+
+# 8.3 Importar dados vetoriais
+
 ## Dados de pacotes: rnaturalearth
 
 ```r
@@ -324,12 +493,53 @@ install.packages("rnaturalearth")
 library(rnaturalearth)
 ```
 
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+[*] http://www.naturalearthdata.com/ 
+
+[*] https://docs.ropensci.org/rnaturalearth/
 
 ---
 
+# 8.3 Importar dados vetoriais
+
+## Dados de pacotes: rnaturalearth
+
+```r
+# america do sul
+south_america &lt;- rnaturalearth::ne_countries(scale = "small", continent = "South America", returnclass = "sf")
+south_america
+
+plot(south_america[1], col = "gray", main = NA)
+```
+
+
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-27-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
 
 # 8.3 Importar dados vetoriais
 
+## Dados de pacotes: rnaturalearth
+
+```r
+# america do sul
+coastline &lt;- rnaturalearth::ne_coastline(scale = "small", returnclass = "sf")
+coastline
+
+plot(coastline[1], col = "blue", main = NA)
+```
+
+
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-30-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
 
 ---
 
@@ -345,16 +555,762 @@ background-image: url(https://www.neonscience.org/sites/default/files/images/dc-
 background-size: 500px
 background-position: 50% 70%
 
-# 8.2 Vetor: pacote sf
+# 8.4 Tipos de dados vetoriais
 
 ---
 
-background-image: url(https://www.neonscience.org/sites/default/files/images/dc-spatial-vector/pnt_line_poly.png)
-background-size: 500px
-background-position: 50% 70%
+# 8.5 Estrutura de dados vetoriais
 
-# 8.2 Vetor: pacote sf
+## Informações geográficas e da tabela de atributos
 
+```r
+# bairros de refice
+rec_bairros
+```
+
+```
+## Simple feature collection with 94 features and 10 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 277547.5 ymin: 9098032 xmax: 295287.7 ymax: 9123296
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 10 features:
+##    CBAIRRCODI VBAIRROID         EBAIRRNOME CRPAAACODI CMICROCODI
+## 1          19         0             RECIFE          1          1
+## 2          27         0      SANTO ANTONIO          1          2
+## 3          35         0           SAO JOSE          1          2
+## 4          43         0 ILHA JOANA BEZERRA          1          3
+## 5          51         0            CABANGA          1          2
+## 6          60         0            COELHOS          1          3
+## 7          78         0      ILHA DO LEITE          1          2
+## 8          86         0          BOA VISTA          1          2
+## 9          94         0          PAISSANDU          1          2
+## 10        108         0        SANTO AMARO          1          1
+##    TBAIRRULAT CEMPRECODI AUSUACMATR         EBAIRRNO_1 EBAIRRLINK
+## 1  1899-12-30          0          0             Recife       &lt;NA&gt;
+## 2  1899-12-30          0          0      Santo Antônio       &lt;NA&gt;
+## 3  1899-12-30          0          0           São José       &lt;NA&gt;
+## 4  1899-12-30          0          0 Ilha Joana Bezerra       &lt;NA&gt;
+## 5  1899-12-30          0          0            Cabanga       &lt;NA&gt;
+## 6  1899-12-30          0          0            Coelhos       &lt;NA&gt;
+## 7  1899-12-30          0          0      Ilha do Leite       &lt;NA&gt;
+## 8  1899-12-30          0          0          Boa Vista       &lt;NA&gt;
+## 9  1899-12-30          0          0          Paissandú       &lt;NA&gt;
+## 10 1899-12-30          0          0        Santo Amaro       &lt;NA&gt;
+##                          geometry
+## 1  MULTIPOLYGON (((294617.4 91...
+## 2  MULTIPOLYGON (((293353.3 91...
+## 3  MULTIPOLYGON (((292458 9107...
+## 4  MULTIPOLYGON (((290464.9 91...
+## 5  MULTIPOLYGON (((291566 9106...
+## 6  MULTIPOLYGON (((291634.3 91...
+## 7  MULTIPOLYGON (((291634.2 91...
+## 8  MULTIPOLYGON (((291721.3 91...
+## 9  MULTIPOLYGON (((291140.4 91...
+## 10 MULTIPOLYGON (((294038.3 91...
+```
+
+---
+
+# 8.5 Estrutura de dados vetoriais
+
+## Informações geográficas e da tabela de atributos
+
+
+```r
+# extention
+sf::st_bbox(rec_bairros)
+```
+
+```
+##      xmin      ymin      xmax      ymax 
+##  277547.5 9098032.4  295287.7 9123295.7
+```
+
+--
+
+
+```r
+# projection
+sf::st_crs(rec_bairros)
+```
+
+```
+## Coordinate Reference System:
+##   EPSG: 31985 
+##   proj4string: "+proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+```
+
+---
+
+# 8.6 Tabela de atributos
+
+## Acessar a tabela de atributos de um `sf`
+
+```r
+# acessar a tabela de atributos
+rec_bairros_tab &lt;- sf::st_drop_geometry(rec_bairros)
+rec_bairros_tab
+```
+
+```
+##    CBAIRRCODI VBAIRROID           EBAIRRNOME CRPAAACODI CMICROCODI
+## 1          19         0               RECIFE          1          1
+## 2          27         0        SANTO ANTONIO          1          2
+## 3          35         0             SAO JOSE          1          2
+## 4          43         0   ILHA JOANA BEZERRA          1          3
+## 5          51         0              CABANGA          1          2
+## 6          60         0              COELHOS          1          3
+## 7          78         0        ILHA DO LEITE          1          2
+## 8          86         0            BOA VISTA          1          2
+## 9          94         0            PAISSANDU          1          2
+## 10        108         0          SANTO AMARO          1          1
+## 11        116         0             SOLEDADE          1          2
+## 12        124         0           ESPINHEIRO          3          1
+## 13        132         0              AFLITOS          3          1
+## 14        140         0                DERBY          3          1
+## 15        159         0             JAQUEIRA          3          1
+## 16        167         0               GRACAS          3          1
+## 17        175         0         ENCRUZILHADA          2          1
+## 18        183         0            ROSARINHO          2          1
+## 19        191         0          TAMARINEIRA          3          1
+## 20        205         0           BOA VIAGEM          6          1
+## 21        213         0                IPSEP          6          1
+## 22        221         0               JORDAO          6          2
+## 23        230         0                IBURA          6          2
+## 24        248         0                 PINA          6          1
+## 25        256         0     BRASILIA TEIMOSA          6          1
+## 26        264         0          IMBIRIBEIRA          6          1
+## 27        272         0              TORREAO          2          1
+## 28        280         0         CAMPO GRANDE          2          1
+## 29        299         0            PEIXINHOS          2          1
+## 30        302         0            HIPODROMO          2          1
+## 31        310         0   CAMPINA DO BARRETO          2          1
+## 32        329         0               ARRUDA          2          1
+## 33        337         0            AGUA FRIA          2          2
+## 34        345         0               FUNDAO          2          2
+## 35        353         0             CAJUEIRO          2          2
+## 36        361         0     PORTO DA MADEIRA          2          2
+## 37        370         0             BEBERIBE          2          3
+## 38        388         0        LINHA DO TIRO          2          3
+## 39        396         0          DOIS UNIDOS          2          3
+## 40        400         0           PASSARINHO          3          3
+## 41        418         0            GUABIRABA          3          3
+## 42        426         0   BOMBA DO HEMETERIO          2          2
+## 43        434         0         CASA AMARELA          3          1
+## 44        442         0           CASA FORTE          3          1
+## 45        450         0              SANTANA          3          1
+## 46        469         0           PARNAMIRIM          3          1
+## 47        477         0                 POCO          3          1
+## 48        485         0             MONTEIRO          3          1
+## 49        493         0        ALTO DO MANDU          3          1
+## 50        507         0             APIPUCOS          3          1
+## 51        515         0           MANGABEIRA          3          2
+## 52        523         0   ALTO JOSE DO PINHO          3          2
+## 53        531         0   MORRO DA CONCEICAO          3          2
+## 54        540         0  ALTO JOSE BONIFACIO          3          2
+## 55        558         0        VASCO DA GAMA          3          2
+## 56        566         0      NOVA DESCOBERTA          3          3
+## 57        574         0    BREJO DE BEBERIBE          3          3
+## 58        582         0            MACAXEIRA          3          3
+## 59        590         0          DOIS IRMAOS          3          1
+## 60        604         0     SITIO DOS PINTOS          3          1
+## 61        612         0   BREJO DA GUABIRABA          3          3
+## 62        620         0  CORREGO DO JENIPAPO          3          3
+## 63        639         0            PAU FERRO          3          3
+## 64        647         0             MADALENA          4          1
+## 65        655         0                TORRE          4          1
+## 66        663         0                PRADO          4          1
+## 67        671         0                ZUMBI          4          1
+## 68        680         0             CORDEIRO          4          1
+## 69        698         0             IPUTINGA          4          1
+## 70        701         0              TORROES          4          2
+## 71        710         0      ENGENHO DO MEIO          4          2
+## 72        728         0 CIDADE UNIVERSITARIA          4          3
+## 73        736         0               VARZEA          4          3
+## 74        744         0              CAXANGA          4          3
+## 75        752         0               CURADO          5          1
+## 76        760         0       ILHA DO RETIRO          4          1
+## 77        779         0             AFOGADOS          5          3
+## 78        787         0          MUSTARDINHA          5          3
+## 79        795         0            MANGUEIRA          5          3
+## 80        809         0                BONGI          5          3
+## 81        817         0           SAN MARTIN          5          3
+## 82        825         0               JIQUIA          5          2
+## 83        833         0             ESTANCIA          5          1
+## 84        841         0               CACOTE          5          2
+## 85        850         0               AREIAS          5          2
+## 86        868         0     JARDIM SAO PAULO          5          1
+## 87        876         0                BARRO          5          1
+## 88        884         0                COHAB          6          3
+## 89        892         0              TEJIPIO          5          1
+## 90        906         0               SANCHO          5          1
+## 91        914         0                 TOTO          5          1
+## 92        922         0            COQUEIRAL          5          1
+## 93        930         0      PONTO DE PARADA          2          1
+## 94        949         0  ALTO STA. TEREZINHA          2          2
+##    TBAIRRULAT CEMPRECODI AUSUACMATR           EBAIRRNO_1 EBAIRRLINK
+## 1  1899-12-30          0          0               Recife       &lt;NA&gt;
+## 2  1899-12-30          0          0        Santo Antônio       &lt;NA&gt;
+## 3  1899-12-30          0          0             São José       &lt;NA&gt;
+## 4  1899-12-30          0          0   Ilha Joana Bezerra       &lt;NA&gt;
+## 5  1899-12-30          0          0              Cabanga       &lt;NA&gt;
+## 6  1899-12-30          0          0              Coelhos       &lt;NA&gt;
+## 7  1899-12-30          0          0        Ilha do Leite       &lt;NA&gt;
+## 8  1899-12-30          0          0            Boa Vista       &lt;NA&gt;
+## 9  1899-12-30          0          0            Paissandú       &lt;NA&gt;
+## 10 1899-12-30          0          0          Santo Amaro       &lt;NA&gt;
+## 11 1899-12-30          0          0             Soledade       &lt;NA&gt;
+## 12 1899-12-30          0          0           Espinheiro       &lt;NA&gt;
+## 13 1899-12-30          0          0              Aflitos       &lt;NA&gt;
+## 14 1899-12-30          0          0                Derby       &lt;NA&gt;
+## 15 1899-12-30          0          0             Jaqueira       &lt;NA&gt;
+## 16 1899-12-30          0          0               Graças       &lt;NA&gt;
+## 17 1899-12-30          0          0         Encruzilhada       &lt;NA&gt;
+## 18 1899-12-30          0          0            Rosarinho       &lt;NA&gt;
+## 19 1899-12-30          0          0          Tamarineira       &lt;NA&gt;
+## 20 1899-12-30          0          0           Boa Viagem       &lt;NA&gt;
+## 21 1899-12-30          0          0                Ipsep       &lt;NA&gt;
+## 22 1899-12-30          0          0               Jordão       &lt;NA&gt;
+## 23 1899-12-30          0          0                Ibura       &lt;NA&gt;
+## 24 1899-12-30          0          0                 Pina       &lt;NA&gt;
+## 25 1899-12-30          0          0     Brasília Teimosa       &lt;NA&gt;
+## 26 1899-12-30          0          0          Imbiribeira       &lt;NA&gt;
+## 27 1899-12-30          0          0              Torreão       &lt;NA&gt;
+## 28 1899-12-30          0          0         Campo Grande       &lt;NA&gt;
+## 29 1899-12-30          0          0            Peixinhos       &lt;NA&gt;
+## 30 1899-12-30          0          0            Hipódromo       &lt;NA&gt;
+## 31 1899-12-30          0          0   Campina do Barreto       &lt;NA&gt;
+## 32 1899-12-30          0          0               Arruda       &lt;NA&gt;
+## 33 1899-12-30          0          0            Água Fria       &lt;NA&gt;
+## 34 1899-12-30          0          0               Fundão       &lt;NA&gt;
+## 35 1899-12-30          0          0             Cajueiro       &lt;NA&gt;
+## 36 1899-12-30          0          0     Porto da Madeira       &lt;NA&gt;
+## 37 1899-12-30          0          0             Beberibe       &lt;NA&gt;
+## 38 1899-12-30          0          0        Linha do Tiro       &lt;NA&gt;
+## 39 1899-12-30          0          0          Dois Unidos       &lt;NA&gt;
+## 40 1899-12-30          0          0           Passarinho       &lt;NA&gt;
+## 41 1899-12-30          0          0            Guabiraba       &lt;NA&gt;
+## 42 1899-12-30          0          0   Bomba do Hemetério       &lt;NA&gt;
+## 43 1899-12-30          0          0         Casa Amarela       &lt;NA&gt;
+## 44 1899-12-30          0          0           Casa Forte       &lt;NA&gt;
+## 45 1899-12-30          0          0              Santana       &lt;NA&gt;
+## 46 1899-12-30          0          0           Parnamirim       &lt;NA&gt;
+## 47 1899-12-30          0          0                 Poço       &lt;NA&gt;
+## 48 1899-12-30          0          0             Monteiro       &lt;NA&gt;
+## 49 1899-12-30          0          0        Alto do Mandú       &lt;NA&gt;
+## 50 1899-12-30          0          0             Apipucos       &lt;NA&gt;
+## 51 1899-12-30          0          0           Mangabeira       &lt;NA&gt;
+## 52 1899-12-30          0          0   Alto José do Pinho       &lt;NA&gt;
+## 53 1899-12-30          0          0   Morro da Conceição       &lt;NA&gt;
+## 54 1899-12-30          0          0  Alto José Bonifácio       &lt;NA&gt;
+## 55 1899-12-30          0          0        Vasco da Gama       &lt;NA&gt;
+## 56 1899-12-30          0          0      Nova Descoberta       &lt;NA&gt;
+## 57 1899-12-30          0          0    Brejo de Beberibe       &lt;NA&gt;
+## 58 1899-12-30          0          0            Macaxeira       &lt;NA&gt;
+## 59 1899-12-30          0          0          Dois Irmãos       &lt;NA&gt;
+## 60 1899-12-30          0          0     Sítio dos Pintos       &lt;NA&gt;
+## 61 1899-12-30          0          0   Brejo da Guabiraba       &lt;NA&gt;
+## 62 1899-12-30          0          0  Córrego do Jenipapo       &lt;NA&gt;
+## 63 1899-12-30          0          0            Pau Ferro       &lt;NA&gt;
+## 64 1899-12-30          0          0             Madalena       &lt;NA&gt;
+## 65 1899-12-30          0          0                Torre       &lt;NA&gt;
+## 66 1899-12-30          0          0                Prado       &lt;NA&gt;
+## 67 1899-12-30          0          0                Zumbi       &lt;NA&gt;
+## 68 1899-12-30          0          0             Cordeiro       &lt;NA&gt;
+## 69 1899-12-30          0          0             Iputinga       &lt;NA&gt;
+## 70 1899-12-30          0          0              Torrões       &lt;NA&gt;
+## 71 1899-12-30          0          0      Engenho do Meio       &lt;NA&gt;
+## 72 1899-12-30          0          0 Cidade Universitária       &lt;NA&gt;
+## 73 1899-12-30          0          0               Várzea       &lt;NA&gt;
+## 74 1899-12-30          0          0              Caxangá       &lt;NA&gt;
+## 75 1899-12-30          0          0               Curado       &lt;NA&gt;
+## 76 1899-12-30          0          0       Ilha do Retiro       &lt;NA&gt;
+## 77 1899-12-30          0          0             Afogados       &lt;NA&gt;
+## 78 1899-12-30          0          0          Mustardinha       &lt;NA&gt;
+## 79 1899-12-30          0          0            Mangueira       &lt;NA&gt;
+## 80 1899-12-30          0          0                Bongi       &lt;NA&gt;
+## 81 1899-12-30          0          0           San Martin       &lt;NA&gt;
+## 82 1899-12-30          0          0               Jiquiá       &lt;NA&gt;
+## 83 1899-12-30          0          0             Estância       &lt;NA&gt;
+## 84 1899-12-30          0          0               Caçote       &lt;NA&gt;
+## 85 1899-12-30          0          0               Areias       &lt;NA&gt;
+## 86 1899-12-30          0          0     Jardim São Paulo       &lt;NA&gt;
+## 87 1899-12-30          0          0                Barro       &lt;NA&gt;
+## 88 1899-12-30          0          0                Cohab       &lt;NA&gt;
+## 89 1899-12-30          0          0              Tejipió       &lt;NA&gt;
+## 90 1899-12-30          0          0               Sancho       &lt;NA&gt;
+## 91 1899-12-30          0          0                 Totó       &lt;NA&gt;
+## 92 1899-12-30          0          0            Coqueiral       &lt;NA&gt;
+## 93 1899-12-30          0          0      Ponto de Parada       &lt;NA&gt;
+## 94 1899-12-30          0          0 Alto Santa Terezinha       &lt;NA&gt;
+```
+
+
+```r
+# classe
+class(rec_bairros_tab)
+```
+
+```
+## [1] "data.frame"
+```
+
+---
+
+# 8.7 Operações de atributos de dados vetoriais
+
+## Seleção de feições pela tabela de atributos
+
+```r
+# tidyverse
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ──────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
+## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
+## ✔ readr   1.3.1     ✔ forcats 0.4.0
+```
+
+```
+## ── Conflicts ─────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
+# filtro da feicao
+rec_bairros_caxanga &lt;- rec_bairros %&gt;% 
+  dplyr::filter(EBAIRRNO_1 == "Caxangá")
+```
+
+--
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-37-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.7 Operações de atributos de dados vetoriais
+
+## Acessar os dados da tabela para operações
+
+```r
+rec_bairros_rename &lt;- rec_bairros %&gt;% 
+  dplyr::rename(bairros = EBAIRRNO_1)
+rec_bairros_rename
+```
+
+```
+## Simple feature collection with 94 features and 10 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 277547.5 ymin: 9098032 xmax: 295287.7 ymax: 9123296
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 10 features:
+##    CBAIRRCODI VBAIRROID         EBAIRRNOME CRPAAACODI CMICROCODI
+## 1          19         0             RECIFE          1          1
+## 2          27         0      SANTO ANTONIO          1          2
+## 3          35         0           SAO JOSE          1          2
+## 4          43         0 ILHA JOANA BEZERRA          1          3
+## 5          51         0            CABANGA          1          2
+## 6          60         0            COELHOS          1          3
+## 7          78         0      ILHA DO LEITE          1          2
+## 8          86         0          BOA VISTA          1          2
+## 9          94         0          PAISSANDU          1          2
+## 10        108         0        SANTO AMARO          1          1
+##    TBAIRRULAT CEMPRECODI AUSUACMATR            bairros EBAIRRLINK
+## 1  1899-12-30          0          0             Recife       &lt;NA&gt;
+## 2  1899-12-30          0          0      Santo Antônio       &lt;NA&gt;
+## 3  1899-12-30          0          0           São José       &lt;NA&gt;
+## 4  1899-12-30          0          0 Ilha Joana Bezerra       &lt;NA&gt;
+## 5  1899-12-30          0          0            Cabanga       &lt;NA&gt;
+## 6  1899-12-30          0          0            Coelhos       &lt;NA&gt;
+## 7  1899-12-30          0          0      Ilha do Leite       &lt;NA&gt;
+## 8  1899-12-30          0          0          Boa Vista       &lt;NA&gt;
+## 9  1899-12-30          0          0          Paissandú       &lt;NA&gt;
+## 10 1899-12-30          0          0        Santo Amaro       &lt;NA&gt;
+##                          geometry
+## 1  MULTIPOLYGON (((294617.4 91...
+## 2  MULTIPOLYGON (((293353.3 91...
+## 3  MULTIPOLYGON (((292458 9107...
+## 4  MULTIPOLYGON (((290464.9 91...
+## 5  MULTIPOLYGON (((291566 9106...
+## 6  MULTIPOLYGON (((291634.3 91...
+## 7  MULTIPOLYGON (((291634.2 91...
+## 8  MULTIPOLYGON (((291721.3 91...
+## 9  MULTIPOLYGON (((291140.4 91...
+## 10 MULTIPOLYGON (((294038.3 91...
+```
+
+---
+
+# 8.7 Operações de atributos de dados vetoriais
+
+## Funções do dplyr para manejo de feições
+
+`**1 filter()**`
+`**2 distinc()**`
+`**3 slice()**`
+`**4 n_sample()**`
+
+---
+
+# 8.7 Operações de atributos de dados vetoriais
+
+## Todas as funções do dplyr para manejo de dados tabela de atributos
+
+`**1 select()**`
+`**2 pull()**`
+`**3 rename()**`
+`**4 mutate()**`
+`**5 arrange()**`
+`**6 summarise()**`
+`**7 join()**`
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Simplification
+
+```r
+# simplification
+rec_bairros_simp &lt;- sf::st_simplify(rec_bairros, dTolerance = 500)
+rec_bairros_simp
+```
+
+```
+## Simple feature collection with 94 features and 10 fields (with 18 geometries empty)
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 277547.5 ymin: 9098032 xmax: 295287.7 ymax: 9123151
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 10 features:
+##    CBAIRRCODI VBAIRROID         EBAIRRNOME CRPAAACODI CMICROCODI
+## 1          19         0             RECIFE          1          1
+## 2          27         0      SANTO ANTONIO          1          2
+## 3          35         0           SAO JOSE          1          2
+## 4          43         0 ILHA JOANA BEZERRA          1          3
+## 5          51         0            CABANGA          1          2
+## 6          60         0            COELHOS          1          3
+## 7          78         0      ILHA DO LEITE          1          2
+## 8          86         0          BOA VISTA          1          2
+## 9          94         0          PAISSANDU          1          2
+## 10        108         0        SANTO AMARO          1          1
+##    TBAIRRULAT CEMPRECODI AUSUACMATR         EBAIRRNO_1 EBAIRRLINK
+## 1  1899-12-30          0          0             Recife       &lt;NA&gt;
+## 2  1899-12-30          0          0      Santo Antônio       &lt;NA&gt;
+## 3  1899-12-30          0          0           São José       &lt;NA&gt;
+## 4  1899-12-30          0          0 Ilha Joana Bezerra       &lt;NA&gt;
+## 5  1899-12-30          0          0            Cabanga       &lt;NA&gt;
+## 6  1899-12-30          0          0            Coelhos       &lt;NA&gt;
+## 7  1899-12-30          0          0      Ilha do Leite       &lt;NA&gt;
+## 8  1899-12-30          0          0          Boa Vista       &lt;NA&gt;
+## 9  1899-12-30          0          0          Paissandú       &lt;NA&gt;
+## 10 1899-12-30          0          0        Santo Amaro       &lt;NA&gt;
+##                          geometry
+## 1  POLYGON ((294617.4 9110747,...
+## 2  POLYGON ((293353.3 9108749,...
+## 3  POLYGON ((292458 9107831, 2...
+## 4  POLYGON ((290464.9 9107794,...
+## 5  POLYGON ((291566 9106660, 2...
+## 6  POLYGON ((291634.3 9108154,...
+## 7                   POLYGON EMPTY
+## 8  POLYGON ((291721.3 9110032,...
+## 9  POLYGON ((291140.4 9108278,...
+## 10 POLYGON ((294038.3 9111121,...
+```
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Simplification
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-40-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Simplification
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-41-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Centroides
+
+```r
+rec_bairros_cent &lt;- sf::st_centroid(rec_bairros)
+```
+
+```
+## Warning in st_centroid.sf(rec_bairros): st_centroid assumes attributes are
+## constant over geometries of x
+```
+
+```r
+rec_bairros_cent
+```
+
+```
+## Simple feature collection with 94 features and 10 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 281894.5 ymin: 9100184 xmax: 294089.4 ymax: 9119839
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 10 features:
+##    CBAIRRCODI VBAIRROID         EBAIRRNOME CRPAAACODI CMICROCODI
+## 1          19         0             RECIFE          1          1
+## 2          27         0      SANTO ANTONIO          1          2
+## 3          35         0           SAO JOSE          1          2
+## 4          43         0 ILHA JOANA BEZERRA          1          3
+## 5          51         0            CABANGA          1          2
+## 6          60         0            COELHOS          1          3
+## 7          78         0      ILHA DO LEITE          1          2
+## 8          86         0          BOA VISTA          1          2
+## 9          94         0          PAISSANDU          1          2
+## 10        108         0        SANTO AMARO          1          1
+##    TBAIRRULAT CEMPRECODI AUSUACMATR         EBAIRRNO_1 EBAIRRLINK
+## 1  1899-12-30          0          0             Recife       &lt;NA&gt;
+## 2  1899-12-30          0          0      Santo Antônio       &lt;NA&gt;
+## 3  1899-12-30          0          0           São José       &lt;NA&gt;
+## 4  1899-12-30          0          0 Ilha Joana Bezerra       &lt;NA&gt;
+## 5  1899-12-30          0          0            Cabanga       &lt;NA&gt;
+## 6  1899-12-30          0          0            Coelhos       &lt;NA&gt;
+## 7  1899-12-30          0          0      Ilha do Leite       &lt;NA&gt;
+## 8  1899-12-30          0          0          Boa Vista       &lt;NA&gt;
+## 9  1899-12-30          0          0          Paissandú       &lt;NA&gt;
+## 10 1899-12-30          0          0        Santo Amaro       &lt;NA&gt;
+##                    geometry
+## 1  POINT (294089.4 9109420)
+## 2    POINT (292961 9108205)
+## 3  POINT (292142.5 9107106)
+## 4  POINT (290730.2 9107395)
+## 5  POINT (291180.6 9106342)
+## 6    POINT (291753 9107734)
+## 7  POINT (291239.2 9108013)
+## 8    POINT (291697 9108771)
+## 9  POINT (290812.2 9108165)
+## 10 POINT (292823.9 9109909)
+```
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Centroides
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-43-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Buffer
+
+```r
+rec_bairros_buf &lt;- rec_bairros %&gt;% 
+  dplyr::filter(EBAIRRNO_1 == "Caxangá") %&gt;% 
+  sf::st_buffer(1000)
+rec_bairros_buf
+```
+
+```
+## Simple feature collection with 1 feature and 10 fields
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 281981.1 ymin: 9110104 xmax: 286885.1 ymax: 9114074
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+##   CBAIRRCODI VBAIRROID EBAIRRNOME CRPAAACODI CMICROCODI TBAIRRULAT
+## 1        744         0    CAXANGA          4          3 1899-12-30
+##   CEMPRECODI AUSUACMATR EBAIRRNO_1 EBAIRRLINK
+## 1          0          0    Caxangá       &lt;NA&gt;
+##                         geometry
+## 1 POLYGON ((282536.5 9113912,...
+```
+
+---
+
+# 8.8 Operações geométricas de dados vetoriais
+
+## Centroides
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-45-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Union
+
+```r
+rec_bairros_union &lt;- sf::st_union(rec_bairros)
+rec_bairros_union
+```
+
+```
+## Geometry set for 1 feature 
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 277547.5 ymin: 9098032 xmax: 295287.7 ymax: 9123296
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+```
+
+```
+## POLYGON ((292546.5 9104121, 292546.5 9104121, 2...
+```
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Union
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-47-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Intersecção
+
+```r
+rec_uso_caxanga &lt;- rec_bairros %&gt;% 
+  dplyr::filter(EBAIRRNO_1 == "Caxangá") %&gt;% 
+  sf::st_intersection(rec_uso, .)
+```
+
+```
+## Warning: attribute variables are assumed to be spatially constant
+## throughout all geometries
+```
+
+```r
+rec_uso_caxanga
+```
+
+```
+## Simple feature collection with 4 features and 16 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 283317.7 ymin: 9111104 xmax: 285885.1 ymax: 9112993
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+##   GEOCODIGO MUNICIPIO UF CD_UF         CLASSE_USO   AREA_HA CBAIRRCODI
+## 1   2611606    RECIFE PE    26               água   771.057        744
+## 2   2611606    RECIFE PE    26   área antropizada  4011.280        744
+## 3   2611606    RECIFE PE    26     área edificada 11276.900        744
+## 4   2611606    RECIFE PE    26 formação florestal  5791.350        744
+##   VBAIRROID EBAIRRNOME CRPAAACODI CMICROCODI TBAIRRULAT CEMPRECODI
+## 1         0    CAXANGA          4          3 1899-12-30          0
+## 2         0    CAXANGA          4          3 1899-12-30          0
+## 3         0    CAXANGA          4          3 1899-12-30          0
+## 4         0    CAXANGA          4          3 1899-12-30          0
+##   AUSUACMATR EBAIRRNO_1 EBAIRRLINK                       geometry
+## 1          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((284333.1 91...
+## 2          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((284593 9112...
+## 3          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((284115.9 91...
+## 4          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((285556.6 91...
+```
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Union
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-49-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Centroides
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-50-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.10 Reprojeção e exportar dados vetoriais
+
+## Reprojetar um vetor
+
+
+
+```r
+# directory
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
+
+# bairros recife
+per_bairros &lt;- sf::st_read("Bairros.shp")
+
+# plot
+plot(per_bairros[1])
+```
+
+---
+
+# 8.10 Reprojeção e exportar dados vetoriais
+
+## Reprojetar um vetor
+
+```r
+# reprojection
+sf::st_crs(per_bairros)
+```
+
+```
+## Coordinate Reference System:
+##   EPSG: 31985 
+##   proj4string: "+proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+```
+
+--
+
+
+```r
+# reprojection
+per_bairros_geo &lt;- sf::st_transform(per_bairros, 4326)
+```
+
+--
+
+
+```r
+# reprojection
+sf::st_crs(per_bairros_geo)
+```
+
+```
+## Coordinate Reference System:
+##   EPSG: 4326 
+##   proj4string: "+proj=longlat +datum=WGS84 +no_defs"
+```
+
+---
+
+# 8.10 Reprojeção e exportar dados vetoriais
+
+## Reprojetar um vetor
+
+```r
+# reprojection
+sf::st_write(per_bairros_geo, "bairros_gcs_wgs84.shp")
+```
+
+```
+## Writing layer `bairros_gcs_wgs84' to data source `bairros_gcs_wgs84.shp' using driver `ESRI Shapefile'
+## Writing 94 features with 10 fields and geometry type Multi Polygon.
+```
 
 ---
 

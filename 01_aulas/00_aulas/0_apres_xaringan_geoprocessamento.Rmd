@@ -427,17 +427,17 @@ background-position: 85% 80%
 <br>
 8.5 Estrutura de dados vetoriais
 <br>
-8.6 Visualizar dados vetoriais (graphics, ggplot e tmap)
+8.6 Tabela de atributos
 <br>
-8.7 Projeção de dados vetoriais
+8.7 Operações de atributos de dados vetoriais
 <br>
-8.8 Tabela de atributos
+8.8 Operações geométricas de dados vetoriais
 <br>
-8.9 Operações de atributos de dados vetoriais
+8.9 Operações espaciais de dados vetoriais
 <br>
-8.10 Operações geométricas de dados vetoriais
+8.10 Reprojeção e exportar dados vetoriais
 <br>
-8.11 Operações espaciais de dados vetoriais
+8.11 Visualizar dados vetoriais (graphics, ggplot e tmap)
 
 ---
 
@@ -460,21 +460,19 @@ background-position: 85% 80%
 <br>
 8.15 Estrutura de dados matriciais
 <br>
-8.16 Visualizar dados matriciais (graphics, ggplot e tmap)
+8.16 Manipulando dados matriciais
 <br>
-8.17 Projeção de dados matriciais
+8.17 Operação geométricas de dados matriciais
 <br>
-8.18 Manipulando dados matriciais
+8.18 Operação espaciais de dados matriciais
 <br>
-8.19 Operação geométricas de dados matriciais
+8.19 Vetor para raster: pacote fasterize
 <br>
-8.20 Operação espaciais de dados matriciais
+8.20 Reprojeção e exportar dados matriciais
 <br>
-8.21 Vetor para raster: pacote fasterize
+8.21 Elaboração de mapas (ggplot e tmap)
 <br>
-8.22 Elaboração de mapas (ggplot e tmap)
-<br>
-8.23 Automação de processamentos
+8.22 Automação de processamentos
 
 ---
 

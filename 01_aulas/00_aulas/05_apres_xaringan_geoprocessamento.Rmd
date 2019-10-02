@@ -405,7 +405,7 @@ background-position: 50% 60%
 
 ## Sites
 
-### **Statistical tools for high-throughput data analysis (STHDA)**
+### **Statistical tools for high-throughput data analysis (STH = )**
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
