@@ -15,7 +15,7 @@ output:
       in_header: header.html
 ---
 
-```{r, setup, include=FALSE}
+```{r,setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
@@ -56,7 +56,7 @@ background-position: 50% 60%
 # 8 Dados geoespaciais no R
 
 ## Tópicos
-8.12 Raster: pacote raster
+8.12 Raster: pacote rgdal e raster
 <br>
 8.13 Importar dados matriciais
 <br>
@@ -230,7 +230,7 @@ background-position: 50% 70%
 
 ## Pacote sf
 
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # sf
 install.packages("sf")
 library(sf)
@@ -295,7 +295,7 @@ rec_uso
 # 8.3 Importar dados vetoriais
 
 ## Dados preexistentes - visualizar
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
+```{r,warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
 plot(rec_uso[1])
 ```
 
@@ -304,7 +304,7 @@ plot(rec_uso[1])
 # 8.3 Importar dados vetoriais
 
 ## Download
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # diretorio
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor")
 dir.create("recife_prefeitura")
@@ -313,7 +313,7 @@ setwd("recife_prefeitura")
 
 --
 
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # download
 download.file(url = "http://www.recife.pe.gov.br/ESIG/documentos/SHP/ProjetoRecife_SHP.zip",
               destfile = "ProjetoRecife_SHP.zip")
@@ -348,7 +348,7 @@ rec_bairros <- sf::st_read("Bairros.shp", quiet = TRUE)
 # 8.3 Importar dados vetoriais
 
 ## Dados preexistentes - visualizar
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
+```{r,warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
 plot(rec_bairros[1])
 ```
 
@@ -375,7 +375,7 @@ library(geobr)
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: geobr
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # brazil
 br_2018 <- geobr::read_country(year = 2018)
 br_2018
@@ -383,13 +383,13 @@ br_2018
 plot(br_2018[1], col = "gray", main = NA)
 ```
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 # brazil
 br_2018 <- geobr::read_country(year = 2018)
 br_2018
 ```
 
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(br_2018[1], col = "gray", main = NA)
 ```
@@ -399,7 +399,7 @@ plot(br_2018[1], col = "gray", main = NA)
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: geobr
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # brazil
 br_1872 <- geobr::read_country(year = 1872)
 br_1872
@@ -407,13 +407,13 @@ br_1872
 plot(br_1872[1], col = "gray", main = NA)
 ```
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 # brazil
 br_1872 <- geobr::read_country(year = 1872)
 br_1872
 ```
 
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(br_1872[1], col = "gray", main = NA)
 ```
@@ -423,7 +423,7 @@ plot(br_1872[1], col = "gray", main = NA)
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: geobr
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # pernambuco
 per_2018 <- geobr::read_state(code_state = "PE", year = 2018)
 per_2018
@@ -431,13 +431,13 @@ per_2018
 plot(per_2018[1], col = "gray", main = NA)
 ```
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 # pernambuco
 per_2018 <- geobr::read_state(code_state = "PE", year = 2018)
 per_2018
 ```
 
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(per_2018[1], col = "gray", main = NA)
 ```
@@ -447,7 +447,7 @@ plot(per_2018[1], col = "gray", main = NA)
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: geobr
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # pernambuco municipios
 per_mun_2018 <- geobr::read_municipality(code_muni = "PE", year = 2018)
 per_mun_2018
@@ -455,13 +455,13 @@ per_mun_2018
 plot(per_mun_2018[1], col = "gray", main = NA)
 ```
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 # pernambuco municipios
 per_mun_2018 <- geobr::read_municipality(code_muni = "PE", year = 2018)
 per_mun_2018
 ```
 
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(per_mun_2018[1], col = "gray", main = NA)
 ```
@@ -489,7 +489,7 @@ background-position: 50% 50%
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: rnaturalearth
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 install.packages("rnaturalearth")
 library(rnaturalearth)
 ```
@@ -505,7 +505,7 @@ library(rnaturalearth)
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: rnaturalearth
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # america do sul
 south_america <- rnaturalearth::ne_countries(scale = "small", continent = "South America", returnclass = "sf")
 south_america
@@ -513,7 +513,7 @@ south_america
 plot(south_america[1], col = "gray", main = NA)
 ```
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 # america do sul
 south_america <- rnaturalearth::ne_countries(scale = "small", 
                                              continent = "South America", 
@@ -521,7 +521,7 @@ south_america <- rnaturalearth::ne_countries(scale = "small",
 south_america
 ```
 
-```{r, echo=FALSE, fig.align='center', out.width='40%'}
+```{r,echo=FALSE, fig.align='center', out.width='40%'}
 # plot
 plot(south_america[1], col = "gray", main = NA)
 ```
@@ -531,7 +531,7 @@ plot(south_america[1], col = "gray", main = NA)
 # 8.3 Importar dados vetoriais
 
 ## Dados de pacotes: rnaturalearth
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # america do sul
 coastline <- rnaturalearth::ne_coastline(scale = "small", returnclass = "sf")
 coastline
@@ -539,13 +539,13 @@ coastline
 plot(coastline[1], col = "blue", main = NA)
 ```
 
-```{r, include=FALSE}
+```{r,include=FALSE}
 # america do sul
 coastline <- rnaturalearth::ne_coastline(scale = "small", returnclass = "sf")
 coastline
 ```
 
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(coastline[1], col = "blue", main = NA)
 ```
@@ -555,7 +555,7 @@ plot(coastline[1], col = "blue", main = NA)
 # 8.3 Importar dados vetoriais
 
 ## Dados de uma planilha .csv
-```{r, message=FALSE}
+```{r,message=FALSE}
 library(tidyverse)
 
 # diretorio
@@ -571,7 +571,7 @@ si <- readr::read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
 
 ## Dados de uma planilha .csv
 ```{r}
-# america do sul
+# .csv para .shp
 si_ve <- si %>% 
   dplyr::mutate(lon = longitude, lat = latitude) %>% 
   sf::st_as_sf(coords = c("lon", "lat"), crs = 4236)
@@ -583,9 +583,32 @@ si_ve
 # 8.3 Importar dados vetoriais
 
 ## Dados de uma planilha .csv
-```{r, echo=FALSE, fig.align='center', out.width='60%'}
+```{r, fig.align='center', out.width='50%'}
 # plot
 plot(si_ve[1], pch = 20, main = NA)
+```
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de GPS (.gpx)
+```{r,message=FALSE}
+# diretorio
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/03_gps")
+
+# importar
+gps <- sf::read_sf("10Set_2019_casa.gpx", layer = "waypoints")
+```
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de uma planilha .csv
+```{r, fig.align='center', out.width='60%'}
+# plot
+plot(gps[1], pch = 20, main = NA)
 ```
 
 ---
@@ -659,7 +682,7 @@ class(rec_bairros_tab)
 # 8.7 Operações com tabela de atributos
 
 ## Seleção de feições pela tabela de atributos
-```{r, message=FALSE}
+```{r,message=FALSE}
 # tidyverse
 library(tidyverse)
 
@@ -670,7 +693,7 @@ rec_bairros_caxanga <- rec_bairros %>%
 
 --
 
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros_caxanga[1], main = NA)
 ```
@@ -727,7 +750,7 @@ rec_bairros_simp
 # 8.8 Operações geométricas
 
 ## Simplification
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros[1], main = NA)
 ```
@@ -737,7 +760,7 @@ plot(rec_bairros[1], main = NA)
 # 8.8 Operações geométricas
 
 ## Simplification
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros_simp[1], main = NA)
 ```
@@ -757,7 +780,7 @@ rec_bairros_cent
 # 8.8 Operações geométricas
 
 ## Centroides
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros_cent[1], main = NA)
 ```
@@ -779,16 +802,16 @@ rec_bairros_buf
 # 8.8 Operações geométricas
 
 ## Buffer
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros_buf[1], main = NA)
 ```
 
 ---
 
-# 8.9 Operações espaciais
+# 8.8 Operações geométricas
 
-## Union
+## Uniao (Dissolve)
 ```{r}
 rec_bairros_union <- sf::st_union(rec_bairros)
 rec_bairros_union
@@ -796,10 +819,10 @@ rec_bairros_union
 
 ---
 
-# 8.9 Operações espaciais
+# 8.8 Operações geométricas
 
-## Union
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+## Uniao (Dissolve)
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros_union[1], main = NA)
 ```
@@ -809,7 +832,7 @@ plot(rec_bairros_union[1], main = NA)
 # 8.9 Operações espaciais
 
 ## Intersecção
-```{r}
+```{r, warning=FALSE}
 rec_uso_caxanga <- rec_bairros %>% 
   dplyr::filter(EBAIRRNO_1 == "Caxangá") %>% 
   sf::st_intersection(rec_uso, .)
@@ -821,7 +844,7 @@ rec_uso_caxanga
 # 8.9 Operações espaciais
 
 ## Intersecção
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_uso_caxanga[1], main = NA)
 ```
@@ -841,7 +864,7 @@ rec_bairros_rp
 # 8.9 Operações espaciais
 
 ## Pontos aleatórios
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
 # plot
 plot(rec_bairros_rp, pch = 20, cex = 2, main = NA)
 ```
@@ -862,11 +885,29 @@ rec_bairros_grid
 # 8.9 Operações espaciais
 
 ## Quadrículas
-```{r, fig.align='center', out.width='50%'}
+```{r,eval=FALSE}
 # pacote
 library(tmap)
 
 # plot
+tm_shape(rec_bairros) +
+  tm_fill() +
+tm_shape(rec_bairros_grid) +
+  tm_borders()
+```
+
+---
+
+# 8.9 Operações espaciais
+
+## Quadrículas
+```{r,echo=FALSE,message=FALSE,warning=FALSE, fig.align='center', out.width='60%'}
+# pacote
+library(tmap)
+
+# plot
+tm_shape(rec_bairros) +
+  tm_fill() +
 tm_shape(rec_bairros_grid) +
   tm_borders()
 ```
@@ -879,7 +920,8 @@ tm_shape(rec_bairros_grid) +
 ```{r}
 # contagem por célula
 rec_bairros_grid_count <- rec_bairros_grid %>% 
-  dplyr::mutate(n = sf::st_intersects(rec_bairros_grid, rec_bairros_rp) %>% lengths())
+  dplyr::mutate(n = sf::st_intersects(rec_bairros_grid, rec_bairros_rp) %>% 
+                  lengths())
 rec_bairros_grid_count
 ```
 
@@ -888,17 +930,7 @@ rec_bairros_grid_count
 # 8.9 Operações espaciais
 
 ## Contar pontos nas quadrículas
-```{r, eval=FALSE}
-# map
-tm_shape(rec_bairros_grid_count) +
-  tm_polygons(col = "n") +
-tm_shape(rec_bairros_rp) +
-  tm_dots(size = .5, alpha = .75) +
-  tm_legend(legend.position = c("left", "bottom"))
-
-```
-
-```{r, echo=FALSE}
+```{r,eval=FALSE}
 # map
 tm_shape(rec_bairros_grid_count) +
   tm_polygons(col = "n") +
@@ -910,7 +942,22 @@ tm_shape(rec_bairros_rp) +
 
 ---
 
-# 8.10 Reprojeção e exportar dados vetoriais
+# 8.9 Operações espaciais
+
+## Contar pontos nas quadrículas
+```{r,echo=FALSE, message=FALSE,warning=FALSE, fig.align='center', out.width='60%'}
+# map
+tm_shape(rec_bairros_grid_count) +
+  tm_polygons(col = "n") +
+tm_shape(rec_bairros_rp) +
+  tm_dots(size = .5, alpha = .75) +
+  tm_legend(legend.position = c("left", "bottom"))
+
+```
+
+---
+
+# 8.10 Reprojeção e exportar um vetor
 
 ## Reprojetar um vetor
 ```{r,include=FALSE}
@@ -924,22 +971,6 @@ rec_bairros <- sf::st_read("Bairros.shp", quiet = TRUE)
 plot(rec_bairros[1], main = NA)
 ```
 
-```{r,eval=FALSE}
-# directory
-setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
-
-# bairros recife
-rec_bairros <- sf::st_read("Bairros.shp")
-
-# plot
-plot(rec_bairros[1], main = NA)
-```
-
----
-
-# 8.10 Reprojeção e exportar dados vetoriais
-
-## Reprojetar um vetor
 ```{r}
 # reprojection
 sf::st_crs(rec_bairros)
@@ -961,10 +992,10 @@ sf::st_crs(rec_bairros_geo)
 
 ---
 
-# 8.10 Reprojeção e exportar dados vetoriais
+# 8.10 Reprojeção e exportar um vetor
 
-## Reprojetar um vetor
-```{r, eval=FALSE}
+## Exportar um vetor
+```{r,eval=FALSE}
 # directory
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
 
@@ -974,10 +1005,10 @@ sf::st_write(rec_bairros_geo, "bairros_gcs_wgs84.shp")
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## ggplot2
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # pacote
 library(tidyverse)
 library(ggspatial)
@@ -994,10 +1025,10 @@ ggplot(data = rec_bairros_geo) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## ggplot2
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center',out.width='60%'}
 # pacote
 library(tidyverse)
 library(ggspatial)
@@ -1014,10 +1045,10 @@ ggplot(data = rec_bairros_geo) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## ggplot2
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 ggplot(data = rec_bairros_geo) +
   geom_sf(aes(fill = EBAIRRNO_1), col = "gray") +
   scale_fill_viridis_d() +
@@ -1031,10 +1062,10 @@ ggplot(data = rec_bairros_geo) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## ggplot2
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center',out.width='60%'}
 ggplot(data = rec_bairros_geo) +
   geom_sf(aes(fill = EBAIRRNO_1), col = "gray") +
   scale_fill_viridis_d() +
@@ -1048,13 +1079,14 @@ ggplot(data = rec_bairros_geo) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## ggplot2
-```{r, eval=FALSE}
+```{r,eval=FALSE}
 # map
 ggplot(data = rec_uso) +
   geom_sf(aes(fill = CLASSE_USO), col = NA) +
+  geom_sf(data = rec_bairros, col = "black", fill = NA) +
   scale_fill_manual(values = c("blue", "orange", "gray", "forestgreen")) +
   theme_bw() +
   annotation_scale(location = "bl", width_hint = .3) +
@@ -1066,13 +1098,14 @@ ggplot(data = rec_uso) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## ggplot2
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
+```{r,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center',out.width='60%'}
 # map
 ggplot(data = rec_uso) +
   geom_sf(aes(fill = CLASSE_USO), col = NA) +
+  geom_sf(data = rec_bairros, col = "black", fill = NA) +
   scale_fill_manual(values = c("blue", "orange", "gray", "forestgreen")) +
   theme_bw() +
   annotation_scale(location = "bl", width_hint = .3) +
@@ -1084,10 +1117,10 @@ ggplot(data = rec_uso) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## tmap
-```{r, eval = FALSE}
+```{r,eval = FALSE}
 # package
 library(tmap)
 
@@ -1105,10 +1138,12 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/04_maps")
 tmap_save(rec_bairros_map, "map_recife_bairros.png")
 ```
 
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
-# package
-library(tmap)
+---
 
+# 8.11 Elaboração de mapas vetoriais
+
+## tmap
+```{r,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center',out.width='60%'}
 # map
 tm_shape(rec_bairros) +
   tm_polygons() +
@@ -1119,14 +1154,16 @@ tm_shape(rec_bairros) +
 
 ---
 
-# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+# 8.11 Elaboração de mapas vetoriais
 
 ## tmap
-```{r, eval = FALSE}
+```{r,eval = FALSE}
 # map
 rec_uso_map <- tm_shape(rec_uso) +
   tm_fill(col = "CLASSE_USO", palette = c("blue", "orange", "gray", "forestgreen"),
               style = "cat", title = "Classes") +
+  tm_shape(rec_bairros) +
+  tm_borders() +
   tm_grid(lwd = 0.1, labels.inside.frame = FALSE) +
   tm_compass(type = "8star", position = c("right", "top")) +
   tm_scale_bar(breaks = c(0, 1, 2), text.size = 1)
@@ -1138,11 +1175,18 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/04_maps")
 tmap_save(rec_uso_map, "map_recife_uso.png")
 ```
 
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
+---
+
+# 8.11 Elaboração de mapas vetoriais
+
+## tmap
+```{r,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center',out.width='60%'}
 # map
 tm_shape(rec_uso) +
   tm_fill(col = "CLASSE_USO", palette = c("blue", "orange", "gray", "forestgreen"),
               style = "cat", title = "Classes") +
+  tm_shape(rec_bairros) +
+  tm_borders(col = "black") +
   tm_grid(lwd = 0.1, labels.inside.frame = FALSE) +
   tm_compass(type = "8star", position = c("right", "top")) +
   tm_scale_bar(breaks = c(0, 1, 2), text.size = 1)
@@ -1153,327 +1197,6 @@ tm_shape(rec_uso) +
 class: inverse, middle, center
 
 # Dúvidas?
-
----
-
-background-image: url(https://geocompr.robinlovelace.net/figures/raster-intro-plot-1.png)
-background-size: 300px
-background-position: 50% 70%
-
-# 8.12 Raster: pacote raster
-
-## Pacote raster
-```{r, eval=FALSE}
-# raster
-install.packages("raster")
-library(raster)
-```
-
----
-
-# 8.13 Importar dados matriciais
-
-## download raster
-```{r}
-# directory
-setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/02_raster")
-
-# download
-download.file(url = "http://biogeo.ucdavis.edu/data/worldclim/v2.0/tif/base/wc2.0_10m_bio.zip",
-              destfile = "wc2.0_10m_bio.zip")
-
-# unzip
-unzip("wc2.0_10m_bio.zip")
-```
-
----
-
-# 8.13 Importar dados matriciais
-## import raster
-```{r, warning=FALSE, message=FALSE, fig.align='center', out.width='50%'}
-# pacote
-library(raster)
-
-# import raster
-ra <- raster::raster("wc2.0_bio_10m_01.tif")
-ra
-
-# map
-raster::plot(ra)
-```
-
----
-
-background-image: url(https://geocompr.robinlovelace.net/figures/raster-intro-plot2-1.png)
-background-size: 300px
-background-position: 50% 70%
-
-# 8.14 Tipos de dados matriciais
-
----
-
-background-image: url(https://www.neonscience.org/sites/default/files/images/dc-spatial-raster/single_multi_raster.png)
-background-size: 300px
-background-position: 50% 70%
-
-# 8.14 Tipos de dados matriciais
-
----
-
-# 8.13 Importar dados matriciais
-## import raster
-```{r}
-# listar arquivos
-fi <- dir(pattern = ".tif")
-fi
-```
-
----
-
-# 8.13 Importar dados matriciais
-## import raster
-
-```{r}
-# import raster
-st <- raster::stack(fi)
-st
-
-# map
-raster::plot(st)
-```
-
----
-
-# 8.15 Estrutura de dados matriciais
-### Número de linhas
-```{r}
-nrow(ra)
-```
-
---
-
-### Número de colunas
-```{r}
-ncol(ra)
-```
-
-### Número de linhas
-```{r}
-ncell(ra)
-```
-
----
-
-# 8.15 Estrutura de dados matriciais
-### Resolução
-```{r}
-# resolucao
-res(ra)
-```
-
---
-
-### Extenção
-```{r}
-extent(ra)
-```
-
---
-
-### Projeção
-```{r}
-# projecao
-projection(ra)
-```
-
----
-
-# 8.15 Estrutura de dados matriciais
-### names
-```{r}
-# names
-names(ra)
-```
-
---
-
-### Valores
-```{r}
-values(ra)
-```
-
----
-
-# 8.16 Manipulando dados matriciais
-## Seleção de raster
-```{r}
-# map
-raster::plot(st[[1:5]])
-```
-
----
-
-# 8.16 Manipulando dados matriciais
-## Seleção de raster
-```{r}
-# map
-raster::plot(st$wc2.0_bio_10m_01 )
-```
-
----
-
-# 8.16 Manipulando dados matriciais
-## Álgebra de raster
-```{r}
-# reclassify
-ra_15 <- ra > 15
-ra_15
-```
-
---
-
-```{r}
-# map
-raster::plot(ra_15)
-```
-
----
-
-# 8.16 Manipulando dados matriciais
-## Álgebra de raster
-```{r}
-# reclassify
-ra2 <- ra * ra
-ra2
-```
-
---
-
-```{r}
-# map
-raster::plot(ra2)
-```
-
----
-
-# 8.17 Operação geométricas de dados matriciais
-## Agregação e desagregação
-```{r}
-# resolution
-res(ra)
-```
-
---
-
-```{r}
-# aggregation - aumenta o tamanho do raster
-ra_03 <- aggregate(ra, fact = 2)
-ra_03
-
-# new resolution
-res(ra_03)[1]
-```
-
---
-
-```{r}
-# desagregacao - diminiu o tamanho do raster
-ra_01 <- disaggregate(ra_03, fact = 3)
-ra_01
-
-# new resolution
-res(ra_01)[1]
-```
-
----
-
-# 8.18 Operação espaciais de dados matriciais
-### Extração pela máscara
-```{r}
-# crop - adjust extention
-ra_crop <- raster::crop(ra, rec_bairros_union)
-ra_crop
-
-plot(ra_crop)
-```
-
----
-
-# 8.18 Operação espaciais de dados matriciais
-### Extração pela máscara
-```{r}
-# mask
-ra_mask <- mask(ra_crop, rec_bairros_union)
-ra_mask
-
-plot(ra_mask)
-```
-
----
-
-# 8.18 Operação espaciais de dados matriciais
-### Extração de valores para pontos
-```{r}
-# mask
-po_ext <- raster::exract(ra_mask, rec_bairros_rp)
-po_ext
-
-hist(po_ext)
-```
-
----
-
-# 8.19 Vetor para raster: pacote fasterize
-
-## vetor para raster 
-```{r}
-# pacote
-# install.packages("fasterize")
-library(fasterize)
-```
-
---
-
-```{r}
-fasterize()
-```
-
----
-
-# 8.20 Reprojeção e exportar dados matriciais
-# Reprojeção
-```{r}
-ra_mask_utm <- raster::projectRaster(ra_mask, CRS = 31965)
-ra_mask_utm
-
-plot(ra_mask_utm)
-```
-
----
-
-# 8.20 Reprojeção e exportar dados matriciais
-# Exportar
-```{r}
-setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/02_raster")
-
-raster::writeRaster(ra_mask_utm, "ra_mask_utm.tif")
-```
-
----
-
-# 8.21 Elaboração de mapas de raster (ggplot e tmap)
-
----
-
-class: inverse, middle, center
-
-# Dúvidas?
-
----
-
-class: inverse, middle, center
-
-# Muito obrigado gente! Vocês são fantásticos!!!
 
 ---
 
