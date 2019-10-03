@@ -166,7 +166,7 @@ background-position: 50% 65%
 
 ## Livros
 
-### **Spatial Data Science (2019)**
+### **Spatial Data Science (2019) - Edzer Pebesma**
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -250,19 +250,19 @@ library(sf)
 
 --
 
-### Desempenho aprimorado de plot
+### Desempenho aprimorado de mapas e gráficos
 
 --
 
-### Objetos sf podem ser tratados como data frames (tibble) na maioria das operações
+### Objetos `sf` podem ser tratados como `data frames` (`tibbles`) na maioria das operações de manejo
 
 --
 
-### As funções sf podem ser combinadas usando o operador `%>%` e funcionam bem com `tidyverse`.
+### As funções `sf` podem ser combinadas usando o operador `%>%` e funcionam bem com `tidyverse`
 
 --
 
-### Os nomes das funções sf são relativamente consistentes e intuitivos (todos começam com `st_`).
+### Os nomes das funções sf são relativamente consistentes e intuitivos (todos começam com `st_`)
 
 ---
 
@@ -570,7 +570,7 @@ si <- readr::read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
 # 8.3 Importar dados vetoriais
 
 ## Dados de uma planilha .csv
-```{r, include=FALSE}
+```{r}
 # america do sul
 si_ve <- si %>% 
   dplyr::mutate(lon = longitude, lat = latitude) %>% 
@@ -583,7 +583,7 @@ si_ve
 # 8.3 Importar dados vetoriais
 
 ## Dados de uma planilha .csv
-```{r, echo=FALSE, fig.align='center', out.width='50%'}
+```{r, echo=FALSE, fig.align='center', out.width='80%'}
 # plot
 plot(si_ve[1], pch = 20, main = NA)
 ```
@@ -656,7 +656,7 @@ class(rec_bairros_tab)
 
 ---
 
-# 8.7 Operações de atributos de vetores
+# 8.7 Operações com tabela de atributos
 
 ## Seleção de feições pela tabela de atributos
 ```{r, message=FALSE}
@@ -677,7 +677,7 @@ plot(rec_bairros_caxanga[1], main = NA)
 
 ---
 
-# 8.7 Operações de atributos de vetores
+# 8.7 Operações com tabela de atributos
 
 ## Acessar os dados da tabela para operações
 ```{r}
@@ -688,7 +688,7 @@ rec_bairros_rename
 
 ---
 
-# 8.7 Operações de atributos de vetores
+# 8.7 Operações com tabela de atributos
 
 ## Funções do dplyr para manejo de feições
 
@@ -699,9 +699,9 @@ rec_bairros_rename
 
 ---
 
-# 8.7 Operações de atributos de vetores
+# 8.7 Operações com tabela de atributos
 
-## Todas as funções do dplyr para manejo de dados tabela de atributos
+## Funções do dplyr para manejo de dados da tabela de atributos
 
 `**1 select()**`<br>
 `**2 pull()**`<br>
@@ -713,7 +713,7 @@ rec_bairros_rename
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Simplification
 ```{r}
@@ -724,7 +724,7 @@ rec_bairros_simp
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Simplification
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -734,17 +734,17 @@ plot(rec_bairros[1], main = NA)
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Simplification
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
 # plot
-plot(rec_bairros_simp[1], plot = NA)
+plot(rec_bairros_simp[1], main = NA)
 ```
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Centroides
 ```{r}
@@ -754,7 +754,7 @@ rec_bairros_cent
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Centroides
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -764,7 +764,7 @@ plot(rec_bairros_cent[1], main = NA)
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Buffer
 ```{r}
@@ -776,7 +776,7 @@ rec_bairros_buf
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Buffer
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -786,7 +786,7 @@ plot(rec_bairros_buf[1], main = NA)
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Union
 ```{r}
@@ -796,7 +796,7 @@ rec_bairros_union
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Union
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -806,7 +806,7 @@ plot(rec_bairros_union[1], main = NA)
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Intersecção
 ```{r}
@@ -818,7 +818,7 @@ rec_uso_caxanga
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Intersecção
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -828,7 +828,7 @@ plot(rec_uso_caxanga[1], main = NA)
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Pontos aleatórios
 ```{r}
@@ -838,7 +838,7 @@ rec_bairros_rp
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Pontos aleatórios
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -848,7 +848,7 @@ plot(rec_bairros_rp, pch = 20, cex = 2, main = NA)
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Quadrículas
 ```{r}
@@ -859,7 +859,7 @@ rec_bairros_grid
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Pontos aleatórios
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
@@ -873,7 +873,7 @@ tm_shape(rec_bairros_grid) +
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Contar pontos nas quadrículas
 ```{r}
@@ -885,10 +885,10 @@ rec_bairros_grid_count
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Contar pontos nas quadrículas
-```{r}
+```{r, eval=FALSE}
 # map
 tm_shape(rec_bairros_grid_count) +
   tm_polygons(col = "n") +
@@ -898,6 +898,15 @@ tm_shape(rec_bairros_rp) +
 
 ```
 
+```{r, include=FALSE}
+# map
+tm_shape(rec_bairros_grid_count) +
+  tm_polygons(col = "n") +
+tm_shape(rec_bairros_rp) +
+  tm_dots(size = .5, alpha = .75) +
+  tm_legend(legend.position = c("left", "bottom"))
+
+```
 ---
 
 # 8.10 Reprojeção e exportar dados vetoriais
@@ -908,10 +917,10 @@ tm_shape(rec_bairros_rp) +
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
 
 # import
-per_bairros <- sf::st_read("Bairros.shp", quiet = TRUE)
+rec_bairros <- sf::st_read("Bairros.shp", quiet = TRUE)
 
 # plot
-plot(per_bairros[1], main = NA)
+plot(rec_bairros[1], main = NA)
 ```
 
 ```{r,eval=FALSE}
@@ -919,10 +928,10 @@ plot(per_bairros[1], main = NA)
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
 
 # bairros recife
-per_bairros <- sf::st_read("Bairros.shp")
+rec_bairros <- sf::st_read("Bairros.shp")
 
 # plot
-plot(per_bairros[1], main = NA)
+plot(rec_bairros[1], main = NA)
 ```
 
 ---
@@ -932,21 +941,21 @@ plot(per_bairros[1], main = NA)
 ## Reprojetar um vetor
 ```{r}
 # reprojection
-sf::st_crs(per_bairros)
+sf::st_crs(rec_bairros)
 ```
 
 --
 
 ```{r}
 # reprojection
-per_bairros_geo <- sf::st_transform(per_bairros, 4326)
+rec_bairros_geo <- sf::st_transform(rec_bairros, 4326)
 ```
 
 --
 
 ```{r}
 # reprojection
-sf::st_crs(per_bairros_geo)
+sf::st_crs(rec_bairros_geo)
 ```
 
 ---
@@ -956,12 +965,132 @@ sf::st_crs(per_bairros_geo)
 ## Reprojetar um vetor
 ```{r}
 # reprojection
-sf::st_write(per_bairros_geo, "bairros_gcs_wgs84.shp")
+sf::st_write(rec_bairros_geo, "bairros_gcs_wgs84.shp")
 ```
 
 ---
 
 # 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+```{r, eval=FALSE}
+# pacote
+library(tidyverse)
+library(ggspatial)
+
+# map
+ggplot(data = rec_bairros_geo) +
+  geom_sf(col = "black", fill = "gray") +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering)
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+```{r, include=FALSE}
+# pacote
+library(tidyverse)
+library(ggspatial)
+
+# map
+ggplot(data = rec_bairros_geo) +
+  geom_sf(col = "black", fill = "gray") +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering)
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+```{r, eval=FALSE}
+ggplot(data = rec_bairros_geo) +
+  geom_sf(aes(fill = EBAIRRNO_1), col = "gray") +
+  scale_fill_viridis_d() +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+```{r, include=FALSE}
+ggplot(data = rec_bairros_geo) +
+  geom_sf(aes(fill = EBAIRRNO_1), col = "gray") +
+  scale_fill_viridis_d() +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+```{r, eval=FALSE}
+# map
+ggplot(data = rec_uso) +
+  geom_sf(aes(fill = CLASSE_USO), col = NA) +
+  scale_fill_manual(values = c("blue", "orange", "gray", "forestgreen")) +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+```{r, include=FALSE}
+# map
+ggplot(data = rec_uso) +
+  geom_sf(aes(fill = CLASSE_USO), col = NA) +
+  scale_fill_manual(values = c("blue", "orange", "gray", "forestgreen")) +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## tmap
+```{r}
+library(tmap)
+
+tm_shape(rec_uso) +
+  tm_polygons()
+  tm_()
+```
+
 
 ---
 

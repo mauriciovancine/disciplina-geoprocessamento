@@ -51,7 +51,7 @@ background-position: 50% 60%
 &lt;br&gt;
 8.10 Reprojeção e exportar dados vetoriais
 &lt;br&gt;
-8.11 Visualizar dados vetoriais (graphics, ggplot e tmap)
+8.11 Elaboração de mapas de vetores (ggplot e tmap)
 
 ---
 
@@ -76,7 +76,7 @@ background-position: 50% 60%
 &lt;br&gt;
 8.20 Reprojeção e exportar dados matriciais
 &lt;br&gt;
-8.21 Elaboração de mapas (ggplot e tmap)
+8.21 Elaboração de mapas de raster (ggplot e tmap)
 
 ---
 
@@ -253,15 +253,15 @@ library(sf)
 
 --
 
-### Desempenho aprimorado de plot
+### Desempenho aprimorado de mapas e gráficos
 
 --
 
-### Objetos sf podem ser tratados como data frames (tibble) na maioria das operações
+### Objetos `sf` podem ser tratados como `data frames` (`tibbles`) na maioria das operações de manejo
 
 --
 
-### As funções sf podem ser combinadas usando o operador `%&gt;%` e funcionam bem com `tidyverse`.
+### As funções `sf` podem ser combinadas usando o operador `%&gt;%` e funcionam bem com `tidyverse`
 
 --
 
@@ -290,7 +290,7 @@ rec_uso
 ```
 
 ```
-## Simple feature collection with 4 features and 6 fields
+## Simple feature collection with 4 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 277747.8 ymin: 9098056 xmax: 294953.5 ymax: 9122997
@@ -301,11 +301,11 @@ rec_uso
 ## 2   2611606    RECIFE PE    26   área antropizada  4011.280
 ## 3   2611606    RECIFE PE    26     área edificada 11276.900
 ## 4   2611606    RECIFE PE    26 formação florestal  5791.350
-##                         geometry
-## 1 MULTIPOLYGON (((285004.8 91...
-## 2 MULTIPOLYGON (((284949.9 90...
-## 3 MULTIPOLYGON (((289120.5 91...
-## 4 MULTIPOLYGON (((280462.9 91...
+##            classe2   area_m2 area_ha_1                       geometry
+## 1             agua   7708397   771.057 MULTIPOLYGON (((285004.8 91...
+## 2 area_antropizada  40099057  4011.280 MULTIPOLYGON (((284949.9 90...
+## 3   area_edificada 112734284 11276.900 MULTIPOLYGON (((289120.5 91...
+## 4         floresta  57893319  5791.350 MULTIPOLYGON (((280462.9 91...
 ```
 
 ---
@@ -534,6 +534,36 @@ plot(coastline[1], col = "blue", main = NA)
 
 
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-30-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de uma planilha .csv
+
+```r
+library(tidyverse)
+
+# diretorio
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/00_tabelas")
+
+# importar tabela
+si &lt;- readr::read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
+```
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de uma planilha .csv
+
+
+---
+
+# 8.3 Importar dados vetoriais
+
+## Dados de uma planilha .csv
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-33-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -859,33 +889,14 @@ class(rec_bairros_tab)
 
 ---
 
-# 8.7 Operações de atributos de dados vetoriais
+# 8.7 Operações com tabela de atributos
 
 ## Seleção de feições pela tabela de atributos
 
 ```r
 # tidyverse
 library(tidyverse)
-```
 
-```
-## ── Attaching packages ──────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
-```
-
-```
-## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0
-```
-
-```
-## ── Conflicts ─────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-```
-
-```r
 # filtro da feicao
 rec_bairros_caxanga &lt;- rec_bairros %&gt;% 
   dplyr::filter(EBAIRRNO_1 == "Caxangá")
@@ -893,17 +904,17 @@ rec_bairros_caxanga &lt;- rec_bairros %&gt;%
 
 --
 
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-37-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-40-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.7 Operações de atributos de dados vetoriais
+# 8.7 Operações com tabela de atributos
 
 ## Acessar os dados da tabela para operações
 
 ```r
 rec_bairros_rename &lt;- rec_bairros %&gt;% 
-  dplyr::rename(bairros = EBAIRRNO_1)
+  dplyr::rename(bairros = EBAIRRNOME)
 rec_bairros_rename
 ```
 
@@ -915,7 +926,7 @@ rec_bairros_rename
 ## epsg (SRID):    31985
 ## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
 ## First 10 features:
-##    CBAIRRCODI VBAIRROID         EBAIRRNOME CRPAAACODI CMICROCODI
+##    CBAIRRCODI VBAIRROID            bairros CRPAAACODI CMICROCODI
 ## 1          19         0             RECIFE          1          1
 ## 2          27         0      SANTO ANTONIO          1          2
 ## 3          35         0           SAO JOSE          1          2
@@ -926,7 +937,7 @@ rec_bairros_rename
 ## 8          86         0          BOA VISTA          1          2
 ## 9          94         0          PAISSANDU          1          2
 ## 10        108         0        SANTO AMARO          1          1
-##    TBAIRRULAT CEMPRECODI AUSUACMATR            bairros EBAIRRLINK
+##    TBAIRRULAT CEMPRECODI AUSUACMATR         EBAIRRNO_1 EBAIRRLINK
 ## 1  1899-12-30          0          0             Recife       &lt;NA&gt;
 ## 2  1899-12-30          0          0      Santo Antônio       &lt;NA&gt;
 ## 3  1899-12-30          0          0           São José       &lt;NA&gt;
@@ -952,28 +963,28 @@ rec_bairros_rename
 
 ---
 
-# 8.7 Operações de atributos de dados vetoriais
+# 8.7 Operações com tabela de atributos
 
 ## Funções do dplyr para manejo de feições
 
-`**1 filter()**`
-`**2 distinc()**`
-`**3 slice()**`
-`**4 n_sample()**`
+`**1 filter()**`&lt;br&gt;
+`**2 distinc()**`&lt;br&gt;
+`**3 slice()**`&lt;br&gt;
+`**4 n_sample()**`&lt;br&gt;
 
 ---
 
-# 8.7 Operações de atributos de dados vetoriais
+# 8.7 Operações com tabela de atributos
 
 ## Todas as funções do dplyr para manejo de dados tabela de atributos
 
-`**1 select()**`
-`**2 pull()**`
-`**3 rename()**`
-`**4 mutate()**`
-`**5 arrange()**`
-`**6 summarise()**`
-`**7 join()**`
+`**1 select()**`&lt;br&gt;
+`**2 pull()**`&lt;br&gt;
+`**3 rename()**`&lt;br&gt;
+`**4 mutate()**`&lt;br&gt;
+`**5 arrange()**`&lt;br&gt;
+`**6 summarise()**`&lt;br&gt;
+`**7 join()**`&lt;br&gt;
 
 ---
 
@@ -1035,14 +1046,21 @@ rec_bairros_simp
 # 8.8 Operações geométricas de dados vetoriais
 
 ## Simplification
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-40-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-43-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # 8.8 Operações geométricas de dados vetoriais
 
 ## Simplification
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-41-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+```
+## Warning in title(...): "plot" is not a graphical parameter
+
+## Warning in title(...): "plot" is not a graphical parameter
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-44-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1111,7 +1129,7 @@ rec_bairros_cent
 # 8.8 Operações geométricas de dados vetoriais
 
 ## Centroides
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-43-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-46-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1145,8 +1163,8 @@ rec_bairros_buf
 
 # 8.8 Operações geométricas de dados vetoriais
 
-## Centroides
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-45-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+## Buffer
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-48-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1177,7 +1195,7 @@ rec_bairros_union
 # 8.9 Operações espaciais de dados vetoriais
 
 ## Union
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-47-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-50-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1201,42 +1219,179 @@ rec_uso_caxanga
 ```
 
 ```
-## Simple feature collection with 4 features and 16 fields
+## Simple feature collection with 4 features and 19 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: 283317.7 ymin: 9111104 xmax: 285885.1 ymax: 9112993
 ## epsg (SRID):    31985
 ## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-##   GEOCODIGO MUNICIPIO UF CD_UF         CLASSE_USO   AREA_HA CBAIRRCODI
-## 1   2611606    RECIFE PE    26               água   771.057        744
-## 2   2611606    RECIFE PE    26   área antropizada  4011.280        744
-## 3   2611606    RECIFE PE    26     área edificada 11276.900        744
-## 4   2611606    RECIFE PE    26 formação florestal  5791.350        744
-##   VBAIRROID EBAIRRNOME CRPAAACODI CMICROCODI TBAIRRULAT CEMPRECODI
-## 1         0    CAXANGA          4          3 1899-12-30          0
-## 2         0    CAXANGA          4          3 1899-12-30          0
-## 3         0    CAXANGA          4          3 1899-12-30          0
-## 4         0    CAXANGA          4          3 1899-12-30          0
-##   AUSUACMATR EBAIRRNO_1 EBAIRRLINK                       geometry
-## 1          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((284333.1 91...
-## 2          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((284593 9112...
-## 3          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((284115.9 91...
-## 4          0    Caxangá       &lt;NA&gt; MULTIPOLYGON (((285556.6 91...
+##   GEOCODIGO MUNICIPIO UF CD_UF         CLASSE_USO   AREA_HA
+## 1   2611606    RECIFE PE    26               água   771.057
+## 2   2611606    RECIFE PE    26   área antropizada  4011.280
+## 3   2611606    RECIFE PE    26     área edificada 11276.900
+## 4   2611606    RECIFE PE    26 formação florestal  5791.350
+##            classe2   area_m2 area_ha_1 CBAIRRCODI VBAIRROID EBAIRRNOME
+## 1             agua   7708397   771.057        744         0    CAXANGA
+## 2 area_antropizada  40099057  4011.280        744         0    CAXANGA
+## 3   area_edificada 112734284 11276.900        744         0    CAXANGA
+## 4         floresta  57893319  5791.350        744         0    CAXANGA
+##   CRPAAACODI CMICROCODI TBAIRRULAT CEMPRECODI AUSUACMATR EBAIRRNO_1
+## 1          4          3 1899-12-30          0          0    Caxangá
+## 2          4          3 1899-12-30          0          0    Caxangá
+## 3          4          3 1899-12-30          0          0    Caxangá
+## 4          4          3 1899-12-30          0          0    Caxangá
+##   EBAIRRLINK                       geometry
+## 1       &lt;NA&gt; MULTIPOLYGON (((284333.1 91...
+## 2       &lt;NA&gt; MULTIPOLYGON (((284593 9112...
+## 3       &lt;NA&gt; MULTIPOLYGON (((284115.9 91...
+## 4       &lt;NA&gt; MULTIPOLYGON (((285556.6 91...
 ```
 
 ---
 
 # 8.9 Operações espaciais de dados vetoriais
 
-## Union
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-49-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+## Intersecção
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-52-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # 8.9 Operações espaciais de dados vetoriais
 
-## Centroides
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-50-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+## Pontos aleatórios
+
+```r
+rec_bairros_rp &lt;- sf::st_sample(rec_bairros_union, 100)
+rec_bairros_rp
+```
+
+```
+## Geometry set for 100 features 
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 280828.2 ymin: 9099963 xmax: 294360 ymax: 9122540
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 5 geometries:
+```
+
+```
+## POINT (283979.2 9112386)
+```
+
+```
+## POINT (287122.7 9107616)
+```
+
+```
+## POINT (292948.4 9113082)
+```
+
+```
+## POINT (283681.3 9111345)
+```
+
+```
+## POINT (291086.1 9112434)
+```
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Pontos aleatórios
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-54-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Quadrículas
+
+```r
+rec_bairros_grid &lt;- sf::st_make_grid(rec_bairros_union, cellsize = 1000) %&gt;% 
+  sf::st_as_sf()
+rec_bairros_grid
+```
+
+```
+## Simple feature collection with 468 features and 0 fields
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 277547.5 ymin: 9098032 xmax: 295547.5 ymax: 9124032
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 10 features:
+##                                 x
+## 1  POLYGON ((277547.5 9098032,...
+## 2  POLYGON ((278547.5 9098032,...
+## 3  POLYGON ((279547.5 9098032,...
+## 4  POLYGON ((280547.5 9098032,...
+## 5  POLYGON ((281547.5 9098032,...
+## 6  POLYGON ((282547.5 9098032,...
+## 7  POLYGON ((283547.5 9098032,...
+## 8  POLYGON ((284547.5 9098032,...
+## 9  POLYGON ((285547.5 9098032,...
+## 10 POLYGON ((286547.5 9098032,...
+```
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Pontos aleatórios
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-56-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Contar pontos nas quadrículas
+
+```r
+# contagem por célula
+rec_bairros_grid_count &lt;- rec_bairros_grid %&gt;% 
+  dplyr::mutate(n = sf::st_intersects(rec_bairros_grid, rec_bairros_rp) %&gt;% lengths())
+rec_bairros_grid_count
+```
+
+```
+## Simple feature collection with 468 features and 1 field
+## geometry type:  POLYGON
+## dimension:      XY
+## bbox:           xmin: 277547.5 ymin: 9098032 xmax: 295547.5 ymax: 9124032
+## epsg (SRID):    31985
+## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## First 10 features:
+##                                 x n
+## 1  POLYGON ((277547.5 9098032,... 0
+## 2  POLYGON ((278547.5 9098032,... 0
+## 3  POLYGON ((279547.5 9098032,... 0
+## 4  POLYGON ((280547.5 9098032,... 0
+## 5  POLYGON ((281547.5 9098032,... 0
+## 6  POLYGON ((282547.5 9098032,... 0
+## 7  POLYGON ((283547.5 9098032,... 0
+## 8  POLYGON ((284547.5 9098032,... 0
+## 9  POLYGON ((285547.5 9098032,... 0
+## 10 POLYGON ((286547.5 9098032,... 0
+```
+
+---
+
+# 8.9 Operações espaciais de dados vetoriais
+
+## Contar pontos nas quadrículas
+
+```r
+# map
+tm_shape(rec_bairros_grid_count) +
+  tm_polygons(col = "n") +
+tm_shape(rec_bairros_rp) +
+  tm_dots(size = .5, alpha = .75) +
+  tm_legend(legend.position = c("left", "bottom"))
+```
+
+![](08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1254,7 +1409,7 @@ setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/reci
 per_bairros &lt;- sf::st_read("Bairros.shp")
 
 # plot
-plot(per_bairros[1])
+plot(per_bairros[1], main = NA)
 ```
 
 ---
@@ -1311,6 +1466,10 @@ sf::st_write(per_bairros_geo, "bairros_gcs_wgs84.shp")
 ## Writing layer `bairros_gcs_wgs84' to data source `bairros_gcs_wgs84.shp' using driver `ESRI Shapefile'
 ## Writing 94 features with 10 fields and geometry type Multi Polygon.
 ```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
 
 ---
 
