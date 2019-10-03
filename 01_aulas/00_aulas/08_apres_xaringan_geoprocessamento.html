@@ -58,7 +58,7 @@ background-position: 50% 60%
 # 8 Dados geoespaciais no R
 
 ## Tópicos
-8.12 Raster: pacotes raster
+8.12 Raster: pacote raster
 &lt;br&gt;
 8.13 Importar dados matriciais
 &lt;br&gt;
@@ -168,7 +168,7 @@ background-position: 50% 65%
 
 ## Livros
 
-### **Spatial Data Science (2019)**
+### **Spatial Data Science (2019) - Edzer Pebesma**
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -265,7 +265,7 @@ library(sf)
 
 --
 
-### Os nomes das funções sf são relativamente consistentes e intuitivos (todos começam com `st_`).
+### Os nomes das funções sf são relativamente consistentes e intuitivos (todos começam com `st_`)
 
 ---
 
@@ -277,10 +277,10 @@ library(sf)
 
 ```r
 # directory
-setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_raw/USO")
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_processamento")
 
 # import
-rec_uso &lt;- sf::st_read("PE_2611606_USO.shp")
+rec_uso &lt;- sf::st_read("PE_2611606_USO_topologia.shp")
 ```
 
 
@@ -302,10 +302,10 @@ rec_uso
 ## 3   2611606    RECIFE PE    26     área edificada 11276.900
 ## 4   2611606    RECIFE PE    26 formação florestal  5791.350
 ##            classe2   area_m2 area_ha_1                       geometry
-## 1             agua   7708397   771.057 MULTIPOLYGON (((285004.8 91...
-## 2 area_antropizada  40099057  4011.280 MULTIPOLYGON (((284949.9 90...
-## 3   area_edificada 112734284 11276.900 MULTIPOLYGON (((289120.5 91...
-## 4         floresta  57893319  5791.350 MULTIPOLYGON (((280462.9 91...
+## 1             agua   7708397   771.057 MULTIPOLYGON (((286768.2 91...
+## 2 area_antropizada  40099057  4011.280 MULTIPOLYGON (((282690 9110...
+## 3   area_edificada 112734284 11276.900 MULTIPOLYGON (((283657 9114...
+## 4         floresta  57893319  5791.350 MULTIPOLYGON (((284635 9113...
 ```
 
 ---
@@ -557,13 +557,50 @@ si &lt;- readr::read_csv("ATLANTIC_AMPHIBIANS_sites.csv")
 
 ## Dados de uma planilha .csv
 
+```r
+# america do sul
+si_ve &lt;- si %&gt;% 
+  dplyr::mutate(lon = longitude, lat = latitude) %&gt;% 
+  sf::st_as_sf(coords = c("lon", "lat"), crs = 4236)
+si_ve
+```
+
+```
+## Simple feature collection with 1163 features and 25 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -56.74194 ymin: -33.51083 xmax: -34.79667 ymax: -3.51525
+## epsg (SRID):    4236
+## proj4string:    +proj=longlat +ellps=intl +towgs84=-637,-549,-203,0,0,0,0 +no_defs
+## # A tibble: 1,163 x 26
+##    id    reference_number species_number record sampled_habitat
+##    &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          
+##  1 amp1…             1001             19 ab     fo,ll          
+##  2 amp1…             1002             16 co     fo,la,ll       
+##  3 amp1…             1002             14 co     fo,la,ll       
+##  4 amp1…             1002             13 co     fo,la,ll       
+##  5 amp1…             1003             30 co     fo,ll,br       
+##  6 amp1…             1004             42 co     tp,pp,la,ll,is 
+##  7 amp1…             1005             23 co     sp             
+##  8 amp1…             1005             19 co     sp,la,sw       
+##  9 amp1…             1005             13 ab     fo             
+## 10 amp1…             1006              1 ab     fo             
+## # … with 1,153 more rows, and 21 more variables: active_methods &lt;chr&gt;,
+## #   passive_methods &lt;chr&gt;, complementary_methods &lt;chr&gt;, period &lt;chr&gt;,
+## #   month_start &lt;dbl&gt;, year_start &lt;dbl&gt;, month_finish &lt;dbl&gt;,
+## #   year_finish &lt;dbl&gt;, effort_months &lt;dbl&gt;, country &lt;chr&gt;, state &lt;chr&gt;,
+## #   state_abbreviation &lt;chr&gt;, municipality &lt;chr&gt;, site &lt;chr&gt;,
+## #   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;, coordinate_precision &lt;chr&gt;,
+## #   altitude &lt;dbl&gt;, temperature &lt;dbl&gt;, precipitation &lt;dbl&gt;,
+## #   geometry &lt;POINT [°]&gt;
+```
 
 ---
 
 # 8.3 Importar dados vetoriais
 
 ## Dados de uma planilha .csv
-&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-33-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-33-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -976,7 +1013,7 @@ rec_bairros_rename
 
 # 8.7 Operações com tabela de atributos
 
-## Todas as funções do dplyr para manejo de dados tabela de atributos
+## Funções do dplyr para manejo de dados da tabela de atributos
 
 `**1 select()**`&lt;br&gt;
 `**2 pull()**`&lt;br&gt;
@@ -988,7 +1025,7 @@ rec_bairros_rename
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Simplification
 
@@ -1043,28 +1080,21 @@ rec_bairros_simp
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Simplification
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-43-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Simplification
-
-```
-## Warning in title(...): "plot" is not a graphical parameter
-
-## Warning in title(...): "plot" is not a graphical parameter
-```
-
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-44-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Centroides
 
@@ -1126,14 +1156,14 @@ rec_bairros_cent
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Centroides
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-46-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Buffer
 
@@ -1161,14 +1191,14 @@ rec_bairros_buf
 
 ---
 
-# 8.8 Operações geométricas de dados vetoriais
+# 8.8 Operações geométricas
 
 ## Buffer
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-48-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Union
 
@@ -1192,14 +1222,14 @@ rec_bairros_union
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Union
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-50-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Intersecção
 
@@ -1241,22 +1271,22 @@ rec_uso_caxanga
 ## 3          4          3 1899-12-30          0          0    Caxangá
 ## 4          4          3 1899-12-30          0          0    Caxangá
 ##   EBAIRRLINK                       geometry
-## 1       &lt;NA&gt; MULTIPOLYGON (((284333.1 91...
-## 2       &lt;NA&gt; MULTIPOLYGON (((284593 9112...
-## 3       &lt;NA&gt; MULTIPOLYGON (((284115.9 91...
-## 4       &lt;NA&gt; MULTIPOLYGON (((285556.6 91...
+## 1       &lt;NA&gt; MULTIPOLYGON (((285680.2 91...
+## 2       &lt;NA&gt; MULTIPOLYGON (((283882.2 91...
+## 3       &lt;NA&gt; MULTIPOLYGON (((284394.8 91...
+## 4       &lt;NA&gt; MULTIPOLYGON (((284620 9112...
 ```
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Intersecção
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-52-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Pontos aleatórios
 
@@ -1269,42 +1299,42 @@ rec_bairros_rp
 ## Geometry set for 100 features 
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 280828.2 ymin: 9099963 xmax: 294360 ymax: 9122540
+## bbox:           xmin: 278560.7 ymin: 9099643 xmax: 294130.1 ymax: 9121563
 ## epsg (SRID):    31985
 ## proj4string:    +proj=utm +zone=25 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
 ## First 5 geometries:
 ```
 
 ```
-## POINT (283979.2 9112386)
+## POINT (280624.2 9119878)
 ```
 
 ```
-## POINT (287122.7 9107616)
+## POINT (285656.2 9115448)
 ```
 
 ```
-## POINT (292948.4 9113082)
+## POINT (288217.8 9102091)
 ```
 
 ```
-## POINT (283681.3 9111345)
+## POINT (291224.8 9111384)
 ```
 
 ```
-## POINT (291086.1 9112434)
+## POINT (282101.3 9111128)
 ```
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Pontos aleatórios
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-54-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Quadrículas
 
@@ -1337,14 +1367,14 @@ rec_bairros_grid
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
-## Pontos aleatórios
+## Quadrículas
 &lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-56-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Contar pontos nas quadrículas
 
@@ -1378,7 +1408,7 @@ rec_bairros_grid_count
 
 ---
 
-# 8.9 Operações espaciais de dados vetoriais
+# 8.9 Operações espaciais
 
 ## Contar pontos nas quadrículas
 
@@ -1391,8 +1421,7 @@ tm_shape(rec_bairros_rp) +
   tm_legend(legend.position = c("left", "bottom"))
 ```
 
-![](08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
-
+![](08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
 ---
 
 # 8.10 Reprojeção e exportar dados vetoriais
@@ -1406,10 +1435,10 @@ tm_shape(rec_bairros_rp) +
 setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
 
 # bairros recife
-per_bairros &lt;- sf::st_read("Bairros.shp")
+rec_bairros &lt;- sf::st_read("Bairros.shp")
 
 # plot
-plot(per_bairros[1], main = NA)
+plot(rec_bairros[1], main = NA)
 ```
 
 ---
@@ -1420,7 +1449,7 @@ plot(per_bairros[1], main = NA)
 
 ```r
 # reprojection
-sf::st_crs(per_bairros)
+sf::st_crs(rec_bairros)
 ```
 
 ```
@@ -1434,7 +1463,7 @@ sf::st_crs(per_bairros)
 
 ```r
 # reprojection
-per_bairros_geo &lt;- sf::st_transform(per_bairros, 4326)
+rec_bairros_geo &lt;- sf::st_transform(rec_bairros, 4326)
 ```
 
 --
@@ -1442,7 +1471,7 @@ per_bairros_geo &lt;- sf::st_transform(per_bairros, 4326)
 
 ```r
 # reprojection
-sf::st_crs(per_bairros_geo)
+sf::st_crs(rec_bairros_geo)
 ```
 
 ```
@@ -1458,24 +1487,285 @@ sf::st_crs(per_bairros_geo)
 ## Reprojetar um vetor
 
 ```r
-# reprojection
-sf::st_write(per_bairros_geo, "bairros_gcs_wgs84.shp")
-```
+# directory
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/01_vetor/recife_prefeitura")
 
-```
-## Writing layer `bairros_gcs_wgs84' to data source `bairros_gcs_wgs84.shp' using driver `ESRI Shapefile'
-## Writing 94 features with 10 fields and geometry type Multi Polygon.
+# export
+sf::st_write(rec_bairros_geo, "bairros_gcs_wgs84.shp")
 ```
 
 ---
 
 # 8.11 Elaboração de mapas de vetores (ggplot e tmap)
 
+## ggplot2
+
+```r
+# pacote
+library(tidyverse)
+library(ggspatial)
+
+# map
+ggplot(data = rec_bairros_geo) +
+  geom_sf(col = "black", fill = "gray") +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering)
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+
+```r
+# pacote
+library(tidyverse)
+library(ggspatial)
+
+# map
+ggplot(data = rec_bairros_geo) +
+  geom_sf(col = "black", fill = "gray") +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering)
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-67-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+
+```r
+ggplot(data = rec_bairros_geo) +
+  geom_sf(aes(fill = EBAIRRNO_1), col = "gray") +
+  scale_fill_viridis_d() +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+
+```r
+ggplot(data = rec_bairros_geo) +
+  geom_sf(aes(fill = EBAIRRNO_1), col = "gray") +
+  scale_fill_viridis_d() +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-69-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+
+```r
+# map
+ggplot(data = rec_uso) +
+  geom_sf(aes(fill = CLASSE_USO), col = NA) +
+  scale_fill_manual(values = c("blue", "orange", "gray", "forestgreen")) +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## ggplot2
+
+```r
+# map
+ggplot(data = rec_uso) +
+  geom_sf(aes(fill = CLASSE_USO), col = NA) +
+  scale_fill_manual(values = c("blue", "orange", "gray", "forestgreen")) +
+  theme_bw() +
+  annotation_scale(location = "bl", width_hint = .3) +
+  annotation_north_arrow(location = "bl", which_north = "true", 
+                         pad_x = unit(0, "cm"), pad_y = unit(.8, "cm"),
+                         style = north_arrow_fancy_orienteering) +
+  theme(legend.position = "none")
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-71-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## tmap
+
+```r
+# package
+library(tmap)
+
+# map
+rec_bairros_map &lt;- tm_shape(rec_bairros) +
+  tm_polygons() +
+  tm_grid(lwd = 0.1, labels.inside.frame = FALSE) +
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scale_bar(breaks = c(0, 1, 2), text.size = 1)
+rec_bairros_map
+
+# exportar
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/04_maps")
+
+tmap_save(rec_bairros_map, "map_recife_bairros.png")
+```
+
+
+```r
+# package
+library(tmap)
+
+# map
+tm_shape(rec_bairros) +
+  tm_polygons() +
+  tm_grid(lwd = 0.1, labels.inside.frame = FALSE) +
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scale_bar(breaks = c(0, 1, 2), text.size = 1)
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-73-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# 8.11 Elaboração de mapas de vetores (ggplot e tmap)
+
+## tmap
+
+```r
+# map
+rec_uso_map &lt;- tm_shape(rec_uso) +
+  tm_fill(col = "CLASSE_USO", palette = c("blue", "orange", "gray", "forestgreen"),
+              style = "cat", title = "Classes") +
+  tm_grid(lwd = 0.1, labels.inside.frame = FALSE) +
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scale_bar(breaks = c(0, 1, 2), text.size = 1)
+rec_uso_map
+
+# exportar
+setwd("/home/mude/data/github/disciplina-geoprocessamento/03_dados/04_maps")
+
+tmap_save(rec_uso_map, "map_recife_uso.png")
+```
+
+
+```r
+# map
+tm_shape(rec_uso) +
+  tm_fill(col = "CLASSE_USO", palette = c("blue", "orange", "gray", "forestgreen"),
+              style = "cat", title = "Classes") +
+  tm_grid(lwd = 0.1, labels.inside.frame = FALSE) +
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scale_bar(breaks = c(0, 1, 2), text.size = 1)
+```
+
+&lt;img src="08_apres_xaringan_geoprocessamento_files/figure-html/unnamed-chunk-75-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
 ---
 
 class: inverse, middle, center
 
 # Dúvidas?
+
+---
+
+# 8.12 Raster: pacote raster
+
+---
+
+# 8.13 Importar dados matriciais
+
+---
+
+# 8.14 Tipos de dados matriciais
+
+---
+
+# 8.15 Estrutura de dados matriciais
+
+---
+
+# 8.16 Manipulando dados matriciais
+
+---
+
+# 8.17 Operação geométricas de dados matriciais
+
+---
+
+# 8.18 Operação espaciais de dados matriciais
+
+---
+
+# 8.19 Vetor para raster: pacote fasterize
+
+## vetor para raster 
+
+```r
+# pacote
+# install.packages("fasterize")
+library(fasterize)
+```
+
+```
+## 
+## Attaching package: 'fasterize'
+```
+
+```
+## The following object is masked from 'package:graphics':
+## 
+##     plot
+```
+
+---
+
+# 8.20 Reprojeção e exportar dados matriciais
+
+---
+
+# 8.21 Elaboração de mapas de raster (ggplot e tmap)
+
+---
+
+class: inverse, middle, center
+
+# Dúvidas?
+
+---
+
+class: inverse, middle, center
+
+# Muito obrigado gente! Vocês são fantásticos!!!
 
 ---
 
