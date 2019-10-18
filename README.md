@@ -46,7 +46,7 @@ Para mais informações ou dúvidas, envie e-mail para Maurício Vancine (mauric
 Será necessário que todos tragam seus próprios notebooks
 
 **Softwares**<br>
-R, RStudio, QGIS e GRASS GIS <br>
+R, RStudio, QGIS <br>
 
 1. Instalar a versão mais recente do [R (3.6.1)](https://www.r-project.org) e [RStudio (1.2.5001)](https://www.rstudio.com) <br>
 [Vídeo de instalação do R e do RStudio](https://youtu.be/l1bWvZMNMCM) <br>
