@@ -1,6 +1,6 @@
 # Repositório de dados
 
-## Programa de Pós Graduação em Etnobiologia e Conservação da Natureza
+## Programa de Pós-Graduação em Etnobiologia e Conservação da Natureza
 
 ## Nome da disciplina: Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade 
 
