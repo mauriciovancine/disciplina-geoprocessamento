@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Maurício H. Vancine" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/5235085b15.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução ao geoprocessamento para Etnobiologia e Conservação da Biodiversidade <br><br>
+## Exercícios <br><br> xaringan [presentation ninja]
+### Maurício H. Vancine
+### 14/10/2019
+
+---
+
+
+
+
+class: inverse, center
+background-image: url(https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)
+
+# Exercícios!
+
+---
+
+class: inverse, middle, center
+
+# IMPORTATE! Tentem realizar os exercícios em grupo!
+
+---
+
+class: inverse, middle, center
+
+# Compartilhem suas respostas!
+
+---
+
+class: inverse, middle, center
+
+# Eu acredito que o conhecimento é uma construção social, então se ajudem povo!
+
+---
+
+class: inverse, middle, center
+
+# Enviem as respostas e o projeto QGIS para mim e para o Thiago até dia 02-12-2019
+
+---
+
+class: inverse, middle, center
+
+# Também estarei disponível para ajudar. Sugiro um grupo maroto no Whats. Meu cel: 19-993-340-549
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.r-project.org/logo/Rlogo.svg)
+background-size: 500px
+background-position: 50% 50%
+
+---
+
+# Exercícios
+
+## 1. Crie um novo script na pasta `07_exercicios`, com o nome `script_r_exercicios.R`. Envie esse script com as resoluções dos exercícios =]
+
+---
+
+# Exercícios
+
+## 2. Crie um cabeçalho descritivo para esse script: objetivo, nome e data
+
+---
+
+# Exercícios
+
+## 3. Use uma função para remover todos os objetos possivelmente criados e armazenados no ambiente (*environment*) antes de iniciar
+
+---
+
+# Exercícios
+
+## 4. Vamos começar com alguns cálculos simples:
+
+`|(2 * 5) - (3 ^ 2)|`
+
+---
+
+background-image: url(https://media.giphy.com/media/3oKIPmM4hkQIf4p5T2/giphy.gif)
+background-size: 800px
+background-position: 50% 50%
+
+# E como saber?
+
+---
+
+class: clear
+background-image: url(http://material.curso-r.com/rbase/figures/ajuda_google.png)
+background-size: 800px
+background-position: 50% 70%
+
+## Lembrem-se da **maracutaia** do Google para ajudar!
+
+---
+
+# Exercícios
+
+## 5. Mais alguns cálculos simples:
+
+`log10(10) + ln(100) * log2(1000)`
+
+---
+
+# Exercícios
+
+## 6. Ainda mais alguns cálculos simples:
+
+`Calcule o fatorial de 10: 10!`
+
+`Atribua ao objeto "fa_10"`
+
+`Em seguida, tire a raiz quadrada desse objeto, atribuindo à outro objeto "fa_10_rq"`
+
+---
+
+# Exercícios
+
+## 7. Sim, mais alguns cálculos simples:
+
+`Calcule a velocidade média de um carro que percorreu S = 400 km em t = 3.5 horas`
+
+---
+
+# Exercícios
+
+## 8. Bora de sequências
+
+`Crie uma sequência unitária de 0 à 10`
+
+`Atribua à um objeto chamado "seq_10"`
+
+`Some os elementos desse objeto cumulativamente, atribuindo ao objeto "seq_10_sum"` 
+
+---
+
+# Exercícios
+
+## 9. Agora com repetições
+
+`Crie uma sequência de 0 à 50, espaçada de 5 em 5`
+
+`Atribua à um objeto chamado "seq_50"`
+
+`Repita os elementos desse objeto 10 vezes sequencialmente, atribuindo ao objeto "seq_50_rep_times"` 
+
+---
+
+# Exercícios
+
+## 10. Mega-Sena, quem sabe...
+
+`Escolha 6 números para jogar na Mega-Sena durante um mês (duas vezes por semana)`
+
+`Atribua esses resultados à uma lista, de modo que cada elemento contenha os 6 números`
+
+`Lembrando: valores da Mega-Sena vão de 1 a 60`
+
+---
+
+background-image: url(https://v.ogeechee.org/img/products/46959-liaplasting-7-unid-set-trpg-dados-para-dungeons-dragons-d4-d20-multi-lados-juegos-dados-s-6-color-escritorio-polyhedral-set-envio-libre.jpg)
+background-size: 300px
+background-position: 50% 70%
+
+# Exercícios
+
+## 11. Amostragens aleatórias
+
+`Einstein disse que Deus não joga dados, mas o R joga!`
+
+`Simule o resultado de 25 jogadas de um dado de 12 lados (sim, no RPG tem esse dado)`
+
+---
+
+# Exercícios
+
+## 12. Crie um vetor chamado "lo" para descrever 100 locais de amostragem. O vetor deve ter esse formato:
+
+`local_1, local_2, local_3, ...., local_100`
+
+---
+
+# Exercícios
+
+## 13. Crie um vetor chamado "lo" para descrever 100 locais de amostragem. Mas agora o vetor deve ter esse formato:
+
+`local_001, local_002, local_003, ...., local_100`
+
+---
+
+# Exercícios
+
+## 14. Crie um fator chamado "tr", com dois níveis ("cont" e "trat") para descrever 100 locais de amostragem, 50 de cada tratamento. O fator deve ter esse formato:
+
+`cont, cont, cont, ...., cont, trat, trat, trat, ...., trat`
+
+---
+
+# Exercícios
+
+## 15. Crie uma matriz chamada "ma", da disposição de um vetor composto por 10000 valores aleatórios entre 0 e 10. A matriz deve conter 100 linhas e ser disposta por colunas
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.rstudio.com/wp-content/uploads/2014/04/tidyverse.png)
+background-size: 400px
+background-position: 50% 50%
+
+---
+
+# Exercícios
+
+## 16. Reescreva essa operação utilizando pipes `%&gt;%`:
+`max(log(exp(sqrt(rpois(100, 5)))))`
+
+---
+
+# Exercícios
+
+## 17. Reescreva essa operação removendo os pipes `%&gt;%`:
+
+```r
+rnorm(100) %&gt;%
+  exp() %&gt;%
+  log10() %&gt;% 
+  min() %&gt;%
+  sqrt()
+```
+
+---
+
+# Exercícios
+
+## 18. Reescreva essa operação utilizando pipes `%&gt;%` e a função `magrittr::divide_by()`
+
+```r
+round(mean(sum(1:10)/3), digits = 1)
+```
+
+---
+
+# Exercícios
+
+## 19. Importe o data paper de anfíbios ATLANTIC AMPHIBIANS (.csv) e atribua ao objeto `da`, utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 20. Utilize a função `tibble::glimpse` para verificar as colunas desses dados
+
+---
+
+# Exercícios
+
+## 21. Combine as colunas `country`, `state`, `state_abbreviation`, `municipality`, `site`, em uma coluna chamada `local_total` separadas por `,`, atribuindo o resultado a um novo objeto, utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 22. Separe a coluna `passive_methods` em outras colunas (mesmo com o erro...), atribuindo o resultado a um novo objeto, utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 23. Retire as linhas com NA da coluna `year_start`, atribuindo o resultado a um novo objeto, utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 24. Selecione todas as colunas que contenham `method`, atribuindo o resultado a um novo objeto, utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 25. Faça um histograma da coluna `species_number` utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 26. Adicione essas novas colunas `alt_log, tem_log e pre_log`, que são a operação `log10` das colunas `altitude,	temperature e	precipitation` e atribua ao mesmo objeto `da` utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 27. Ordene os dados em forma decrescente pela coluna `altitude`, atribuindo o resultado a um novo objeto utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 28. Filtre as linhas com `altitude` maior que 1000 mm, `temperature` menor que 15 ºC ou `precipitation` maior que 1000 mm e menor ou igual que 1500 mm, atribuindo o resultado a um novo objeto utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 29. Amostre 200 linhas aleatoriamente com número de espécies maior que 15 espécies, atribuindo o resultado a um novo objeto utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 30. Calcule o `range` sem os NAs, para as colunas `species_number, altitude, temperature, precipitation` usando o pacote `purrr` utilizando o formato tidyverse
+
+[*] https://gge-ucd.github.io/R-DAVIS/lesson_purrr_tutorial.html
+
+---
+
+# Exercícios
+
+## 31. Cometi um grave erro no data paper de anfíbios... Algo relacionado à colunas com dados separados com vírgulas, aí quando se abre num .csv (separado por vírgulas) dá ruim... Ache uma solução através das funções do tidyverse e explique nos termos do formato `tidyr` porque esses dados estão errôneos
+
+&lt;br&gt;
+[*] https://r4ds.had.co.nz/tidy-data.html
+
+&lt;br&gt;
+[*] https://blog.rstudio.com/2014/07/22/introducing-tidyr/
+
+---
+
+# Exercícios
+
+## 32. Gere gráficos no `ggplot2` relacionando o número de espécies e as variáveis `altitude, temperature, precipitation`, exportando cada um deles, utilizando o formato tidyverse. Responda: existe alguma relação?
+
+---
+
+# Exercícios
+
+## 33. Gere gráficos no `ggplot2` mostrando a frequência absoluta de amostragem em cada estado e exporte. Ah, inverta seu gráfico para a posição horizontal... e exporte utilizando o formato tidyverse
+
+---
+
+# Exercícios
+
+## 34. Gere gráficos no `ggpubr` relacionando o número de espécies e os estados e exporte
+
+---
+
+# Exercícios
+
+## 35. Gere gráficos no `ggpubr` relacionando o número de espécies e a precisão do GPS e exporte
+
+---
+
+class: clear, center, middle
+background-image: url(https://www.qgis.org/en/_downloads/qgis-logo.svg)
+background-size: 1000px
+background-position: 50% 50%
+
+---
+
+# Exercícios
+
+### 36. Crie uma pasta dentro da pasta `07_exercicios`, com o nome de `exercicios_qgis`. Crie um projeto novo chamado `proj_qgis_exercicio_utm_25s_sirgas2000`. Todos os arquivos processados devem ser salvos nessa pasta. No final, envie essa pasta junto com o projeto do QGIS
+
+---
+
+# Exercícios
+
+### 37. Importe o arquivo vetorial de uso e cobertura da terra que você rodou a topologia (correção dos erros de topologia). No meu caso, salvei com esse nome: `PE_2611606_USO_topologia.shp`
+
+---
+
+# Exercícios
+
+### 38. Selecione e exporte apenas a classe `formação florestal` da coluna `CLASSE_USO`, criando o arquivo `PE_2611606_USO_topologia_floresta.shp`
+
+---
+
+# Exercícios
+
+### 39. Importe esse novo arquivo vetorial ao projeto do QGIS, não se esqueça de ir salvando o projeto, vai que dá ruim...
+
+---
+
+# Exercícios
+
+### 40. Use a ferramenta `Vetor &gt; Geometrias &gt; Multipartes para partes simples` para fazer com que cada polígono de floresta seja atribuído à uma linha diferente da tabela de atributos. Salve com o nome `PE_2611606_USO_topologia_floresta_unico.shp`
+
+---
+
+# Exercícios
+
+### 41. Crie uma coluna (interger) na tabela de atributos com o nome `id`, e utilizando a expressão `$id`, adicione um número diferente para cada polígono
+
+---
+
+# Exercícios
+
+### 42. Apague as outras colunas, deixando apenas a coluna `id`
+
+---
+
+# Exercícios
+
+### 43. Calcule a área (formato de coluna decimal) de cada fragmento em hectares na coluna `a_frag_ha`. Atente para usar `$area/10000` para que o resultado seja em hectares. 
+
+### Você acaba de calcular uma das métricas mais comuns em Ecologia da Paisagem. Pode ser referida como "Conectividade estrutural"
+
+---
+
+# Exercícios
+
+### 44. Faça um buffer com o valor negativo de 60 m, com o nome de `PE_2611606_USO_topologia_floresta_unico_core60m.shp`. 
+
+### Nesse momento vc acaba de gerar o vetor "core" com 60 metros de floresta de Recife. Calcule a área na coluna `a_core_ha`. Você acaba de calcular a área core dos fragmentos
+
+---
+
+# Exercícios
+
+45 Use a ferramenta `Vetor &gt; Geoprocessamento &gt; Diferença simétrica`
+
+A primeira entrada será o vetor de floresta: `PE_2611606_USO_topologia_floresta_unico.shp`
+
+A segunda entrada será o vetor core: `PE_2611606_USO_topologia_floresta_unico_core60m.shp`
+
+Salve como: `PE_2611606_USO_topologia_floresta_unico_edge60m.shp`
+
+Calcule a área com o nome da coluna sendo `a_ed60m_ha`
+
+Você acaba de calcular a área de borda desses fragmentos
+
+---
+
+# Exercícios
+
+46 Converta esses três vetores para raster: `PE_2611606_USO_topologia_floresta_unico.shp`, `PE_2611606_USO_topologia_floresta_unico_core60m.shp` e `PE_2611606_USO_topologia_floresta_unico_edge60m.shp` 
+
+Utilize a ferramenta `Raster &gt; Converter &gt; Converter Vetor para Raster (rasterizar)` e as colunas de área respectivas de cada arquivo 
+Utilize para a rasterização, a resolução de 90 m, selecionando o `Output raster size units` como `Georeferenced units`, e o arquivo `dem_mosaico_recife_e_o_mundo2.tif` como base para a extensão de saída 
+
+Salve com os mesmos nomes dos shapefiles e no formato GeoTiff
+
+---
+
+class: clear, center, middle
+background-image: url(https://community.rstudio.com/uploads/default/original/2X/3/3eaa7ae0ff05c5dd3933d153be865811847ce4be.jpeg)
+background-size: 400px
+background-position: 50% 60%
+
+---
+
+background-image: url(https://media.giphy.com/media/3oKIPmM4hkQIf4p5T2/giphy.gif)
+background-size: 450px
+background-position: 50% 90%
+
+# Exercícios
+
+### 47. Refaça os passos anteriores do QGIS (exercídios 37 a 46) utilizando as funções do pacote `sf`, `raster` e `fasterize`.
+
+### Sim, eu sei, apelei aqui...
+
+Dicas: 
+`sf::st_cast("POLYGON")` == Multipartes para partes simples no QGIS
+`sf::st_difference(, sf::st_combine())` == Diferença simétrica no QGIS
+
+---
+
+# Exercícios
+
+### 48. Importe os arquivos raster gerados (com os valores de área, área core e área de borda) junto com o arquivo de DEM usado anteriormente num stack `raster::stack()`
+
+---
+
+# Exercícios
+
+### 49. Extraia os valores desses quatro rasters, compondo os mesmos num `tibble`
+
+### Por fim, relacione esses valores das colunas (área, área core e área de borda - use o log10 para essas colunas, pois as unidades são diferentes) com o DEM
+
+### Faça gráficos de dispersão (scatterplot)
+
+### Há algum padrão? Discuta brevemente
+
+---
+
+# Exercícios
+
+### 50. Se Recife é o mundo e nós queremos achar soluções para os problemas do mundo, comecemos com Recife
+
+### Escrevam um ensaio de 3 páginas descrevendo como as ferramentas de manejo e visualização de dados (R) e geoprocessamento (QGIS e R) podem ajudar na compreensão e resolução dos problemas e propor medidas socio-ecológicas para essa cidade dos manguesais: trânsito, alagamento, ocupação desordenada, violência... 
+
+### Nada complexo, não precisa de referências, apenas deixe a mente e seus dedos escreverem =]
+
+---
+
+class: clear, middle
+
+## Maurício H. Vancine
+
+&lt;br&gt;
+
+Contatos:
+
+|                                                                                           |                               |
+| :---------------------------------------------------------------------------------------- | :---------------------------- |
+| &lt;a href="mailto:mauricio.vancine@gmail.com"&gt;.RUred[&lt;i class="fa fa-envelope fa-fw"&gt;&lt;/i&gt;]  | mauricio.vancine@gmail.com    |
+| &lt;a href="https://mauriciovancine.netlify.com/"&gt;.RUred[&lt;i class="fa fa-link fa-fw"&gt;&lt;/i&gt;]   | mauriciovancine.netlify.com   |
+| &lt;a href="http://twitter.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-twitter fa-fw"&gt;&lt;/i&gt;]  | @mauriciovancine              |
+| &lt;a href="http://gitlab.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-gitlab fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+| &lt;a href="http://github.com/mauriciovancine"&gt;.RUred[&lt;i class="fa fa-github fa-fw"&gt;&lt;/i&gt;]    | @mauriciovancine              |
+
+Slides criados via pacote [xaringan](https://github.com/yihui/xaringan) e tema [Metropolis](https://github.com/pat-s/xaringan-metropolis).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
