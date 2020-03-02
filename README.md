@@ -8,7 +8,7 @@
 Prof. Thiago Gonçalves Souza
 
 **Docente externo convidado** <br>
-Prof. Maurício Vancine (UNESP- Rio Claro)
+Prof. Maurício Vancine (UNESP - Rio Claro)
 
 **Período** <br>
 30/09/2019 - 04/10/2019
@@ -46,7 +46,7 @@ Para mais informações ou dúvidas, envie e-mail para Maurício Vancine (mauric
 Será necessário que todos tragam seus próprios notebooks
 
 **Softwares**<br>
-R, RStudio, QGIS <br>
+R, RStudio e QGIS <br>
 
 1. Instalar a versão mais recente do [R (3.6.1)](https://www.r-project.org) e [RStudio (1.2.5001)](https://www.rstudio.com) <br>
 [Vídeo de instalação do R e do RStudio](https://youtu.be/l1bWvZMNMCM) <br>
@@ -64,8 +64,7 @@ R, RStudio, QGIS <br>
 ```
 # r
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" # mint 19 ou ubuntu 18
-sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu disco-cran35/" # ubuntu 19
+echo -e "\ndeb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" | sudo tee -a /etc/apt/sources.list
 sudo apt update
 sudo apt install -y r-base-core # r
 sudo apt install -y r-base-dev # devtools
@@ -77,16 +76,16 @@ sudo apt install -y libproj-dev # gdal
 sudo apt install -y libudunits2-dev # units
 
 # rstudio
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1335-amd64.deb
-sudo dpkg -i rstudio-1.2.1335-amd64.deb
+wget -c https://download1.rstudio.org/desktop/trusty/amd64/rstudio-1.2.5033-amd64.deb
+sudo dpkg -i rstudio-1.2.5033-amd64.deb
 sudo apt install -fy
-rm rstudio-1.2.1335-amd64.deb
+rm rstudio-1.2.5033-amd64.deb
 
 # qgis
-sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt update # mint 19 ou ubuntu 18
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6B827C12C2D425E227EDCA75089EBE08314DF160 # ubuntu 19
-sudo add-apt-repository "deb http://ppa.launchpad.net/ubuntugis/ppa/ubuntu bionic main" # ubuntu 19
-sudo apt install -y qgis qgis-plugin-grass
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
+echo -e "\ndeb https://qgis.org/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+sudo apt update
+sudo apt install -y qgis qgis-plugin-grass saga
 
 # git
 sudo add-apt-repository ppa:git-core/ppa && sudo apt update
